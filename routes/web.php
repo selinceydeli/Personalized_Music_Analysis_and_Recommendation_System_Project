@@ -23,4 +23,8 @@ Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
 
+
+Route::get('/hello', function(){
+    return "Hello World";
+});
 require __DIR__.'/auth.php';
