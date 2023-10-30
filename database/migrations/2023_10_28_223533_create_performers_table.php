@@ -12,8 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('performers', function (Blueprint $table) {
-            $table->id();
+            $table->id(); // primary key of the performers table
             $table->string('name');
+            $table->string('surname');
             $table->string('nationality');
             $table->timestamps();
         });

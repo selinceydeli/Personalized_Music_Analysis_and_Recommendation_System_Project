@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('albums', function (Blueprint $table) {
-            $table->id();
+            $table->id(); // primary key of the albums table
             $table->string('name');
             $table->string('image_url');
             $table->timestamps();
