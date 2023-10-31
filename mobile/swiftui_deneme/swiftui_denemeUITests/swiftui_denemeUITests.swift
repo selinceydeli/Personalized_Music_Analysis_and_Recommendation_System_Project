@@ -1,13 +1,13 @@
 //
-//  musicprojUITests.swift
-//  musicprojUITests
+//  swiftui_denemeUITests.swift
+//  swiftui_denemeUITests
 //
-//  Created by Şimal on 30.10.2023.
+//  Created by Ozan Çelebi on 30.10.2023.
 //
 
 import XCTest
 
-class musicprojUITests: XCTestCase {
+final class swiftui_denemeUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -27,7 +27,6 @@ class musicprojUITests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
 
-        // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
 

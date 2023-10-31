@@ -1,14 +1,14 @@
 //
-//  musicprojApp.swift
-//  musicproj
+//  swiftui_denemeApp.swift
+//  swiftui_deneme
 //
-//  Created by Şimal on 30.10.2023.
+//  Created by Ozan Çelebi on 30.10.2023.
 //
 
 import SwiftUI
 
 @main
-struct musicprojApp: App {
+struct swiftui_denemeApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
