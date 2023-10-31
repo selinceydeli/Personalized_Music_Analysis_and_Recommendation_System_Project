@@ -16,8 +16,58 @@ class PerformerFactory extends Factory
      */
     public function definition(): array
     {
-        $names = ['Berenay', 'Ozan', 'Oktay', 'Canberk', 'Selin', 'Şimal', 'Onur'];
-        $surnames = ['Yiğit', 'Çelik', 'Sezen', 'Yücel', 'Çelebi', 'Ceydeli', 'Tahıl'];
+        $performerNames = [
+            "Velvet Vortex",
+            "Sonic Mirage",
+            "Neon Nomad",
+            "Midnight Maven",
+            "Celestial Strum",
+            "Cosmic Cadence",
+            "Rhythm Rogue",
+            "Harmonic Haze",
+            "Electric Enigma",
+            "Melodic Monsoon",
+            "Lunar Lyricist",
+            "Starlight Serenade",
+            "Phantom Phonic",
+            "Galactic Groove",
+            "Ethereal Echo",
+            "Solar Songbird",
+            "Mystic Melody",
+            "Aurora Anthem",
+            "Tempest Tune",
+            "Radiant Riff",
+            "Quantum Quasar",
+            "Nebula Nomad",
+            "Vibe Voyager",
+            "Siren of Sound",
+            "Pulse Prodigy",
+            "Stardust Sonata",
+            "Eclipse Empress",
+            "Sonic Sylph",
+            "Lyric Luminary",
+            "Resonant Rebel",
+            "Vortex Virtuoso",
+            "Inferno Idol",
+            "Celestial Crooner",
+            "Melody Maverick",
+            "Luminous Lyrist",
+            "Acoustic Alchemy",
+            "Rhapsody Rogue",
+            "Harmony Havoc",
+            "Serenade Shaman",
+            "Cadence Comet",
+            "Soundwave Sorcerer",
+            "Echo Enchantress",
+            "Melodic Muse",
+            "Riff Raider",
+            "Sonic Siren",
+            "Vibe Virtuoso",
+            "Symphony Spirit",
+            "Resonance Ranger",
+            "Audio Astronaut",
+            "Harmony Hero",
+        ];
         $nationalities = [
             "American",
             "Brazilian",
@@ -32,8 +82,7 @@ class PerformerFactory extends Factory
             "Turkish"
         ];
         return [
-            'name' => $this->faker->randomElement($names),
-            'surname' => $this->faker->randomElement($surnames),
+            'name' => $this->faker->randomElement($performerNames, $count = 2),
             'nationality' => $this->faker->randomElement($nationalities),
         ];
     }
