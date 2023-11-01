@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('albums', function (Blueprint $table) {
             $table->id(); // primary key of the albums table
             $table->string('name');
+            $table->boolean('is_single'); // checks if the album is a single 
             $table->string('image_url');
             $table->timestamps();
         });
