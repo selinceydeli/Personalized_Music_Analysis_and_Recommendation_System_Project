@@ -32,6 +32,11 @@ return new class extends Migration
      */
     public function down(): void
     {
+
+        Schema::table('performer_ratings', function (Blueprint $table) {
+            $table->dropForeign(['username']);
+        });
+
         Schema::dropIfExists('users');
     }
 };

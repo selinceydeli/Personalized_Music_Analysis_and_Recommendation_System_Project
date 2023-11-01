@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('rates_song', function (Blueprint $table) {
+        Schema::create('song_ratings', function (Blueprint $table) {
             $table->id();
             $table->decimal('rating', 2, 1); // ratings are between 0 - 5.0
             $table->string('username');
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('rates_song');
+        Schema::dropIfExists('song_ratings');
     }
 };
