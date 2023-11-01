@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('rates_album', function (Blueprint $table) {
+        Schema::create('performer_ratings', function (Blueprint $table) {
             $table->id();
             $table->decimal('rating', 2, 1); // ratings are between 0 - 5.0
             $table->string('username');
             $table->foreign('username')->references('username')->on('users')->cascadeOnDelete();
-            $table->foreignId('album_id')->constrained('albums')->cascadeOnDelete(); // Foreign key referencing albums
+            $table->foreignId('perf_id')->constrained('performers')->cascadeOnDelete(); // Foreign key referencing performers
             $table->date('date_rated');
             $table->timestamps();
         });
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('rates_album');
+        Schema::dropIfExists('performer_ratings');
     }
 };

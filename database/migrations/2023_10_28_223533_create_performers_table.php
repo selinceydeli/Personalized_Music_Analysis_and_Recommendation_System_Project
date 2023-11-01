@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('performers', function (Blueprint $table) {
             $table->id(); // primary key of the performers table
             $table->string('name');
-            $table->string('surname'); // this column is deleted with 'delete_column_from_performers' migration
             $table->string('nationality');
             $table->timestamps();
         });
