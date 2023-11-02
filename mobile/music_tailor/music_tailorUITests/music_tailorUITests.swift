@@ -1,13 +1,13 @@
 //
-//  swiftui_denemeUITests.swift
-//  swiftui_denemeUITests
+//  music_tailorUITests.swift
+//  music_tailorUITests
 //
-//  Created by Ozan Çelebi on 30.10.2023.
+//  Created by Ozan Çelebi on 2.11.2023.
 //
 
 import XCTest
 
-final class swiftui_denemeUITests: XCTestCase {
+final class music_tailorUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

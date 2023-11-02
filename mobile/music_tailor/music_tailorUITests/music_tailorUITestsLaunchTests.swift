@@ -1,13 +1,13 @@
 //
-//  swiftui_denemeUITestsLaunchTests.swift
-//  swiftui_denemeUITests
+//  music_tailorUITestsLaunchTests.swift
+//  music_tailorUITests
 //
-//  Created by Ozan Çelebi on 30.10.2023.
+//  Created by Ozan Çelebi on 2.11.2023.
 //
 
 import XCTest
 
-final class swiftui_denemeUITestsLaunchTests: XCTestCase {
+final class music_tailorUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

@@ -7,61 +7,63 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		ABB563E52AF0470300CC6BEA /* swiftui_denemeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB563E42AF0470300CC6BEA /* swiftui_denemeApp.swift */; };
-		ABB563E72AF0470300CC6BEA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB563E62AF0470300CC6BEA /* ContentView.swift */; };
-		ABB563E92AF0470500CC6BEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABB563E82AF0470500CC6BEA /* Assets.xcassets */; };
-		ABB563EC2AF0470500CC6BEA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABB563EB2AF0470500CC6BEA /* Preview Assets.xcassets */; };
-		ABB563F62AF0470600CC6BEA /* swiftui_denemeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB563F52AF0470600CC6BEA /* swiftui_denemeTests.swift */; };
-		ABB564002AF0470600CC6BEA /* swiftui_denemeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB563FF2AF0470600CC6BEA /* swiftui_denemeUITests.swift */; };
-		ABB564022AF0470600CC6BEA /* swiftui_denemeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB564012AF0470600CC6BEA /* swiftui_denemeUITestsLaunchTests.swift */; };
+		AB88A07F2AF3BC1000160AD2 /* music_tailorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB88A07E2AF3BC1000160AD2 /* music_tailorApp.swift */; };
+		AB88A0812AF3BC1000160AD2 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB88A0802AF3BC1000160AD2 /* LoginView.swift */; };
+		AB88A0832AF3BC1200160AD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB88A0822AF3BC1200160AD2 /* Assets.xcassets */; };
+		AB88A0862AF3BC1200160AD2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB88A0852AF3BC1200160AD2 /* Preview Assets.xcassets */; };
+		AB88A0902AF3BC1300160AD2 /* music_tailorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB88A08F2AF3BC1300160AD2 /* music_tailorTests.swift */; };
+		AB88A09A2AF3BC1300160AD2 /* music_tailorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB88A0992AF3BC1300160AD2 /* music_tailorUITests.swift */; };
+		AB88A09C2AF3BC1300160AD2 /* music_tailorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB88A09B2AF3BC1300160AD2 /* music_tailorUITestsLaunchTests.swift */; };
+		AB88A0A92AF3BC4B00160AD2 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB88A0A82AF3BC4B00160AD2 /* SignUpView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		ABB563F22AF0470600CC6BEA /* PBXContainerItemProxy */ = {
+		AB88A08C2AF3BC1300160AD2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = ABB563D92AF0470300CC6BEA /* Project object */;
+			containerPortal = AB88A0732AF3BC1000160AD2 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = ABB563E02AF0470300CC6BEA;
-			remoteInfo = swiftui_deneme;
+			remoteGlobalIDString = AB88A07A2AF3BC1000160AD2;
+			remoteInfo = music_tailor;
 		};
-		ABB563FC2AF0470600CC6BEA /* PBXContainerItemProxy */ = {
+		AB88A0962AF3BC1300160AD2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = ABB563D92AF0470300CC6BEA /* Project object */;
+			containerPortal = AB88A0732AF3BC1000160AD2 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = ABB563E02AF0470300CC6BEA;
-			remoteInfo = swiftui_deneme;
+			remoteGlobalIDString = AB88A07A2AF3BC1000160AD2;
+			remoteInfo = music_tailor;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		ABB563E12AF0470300CC6BEA /* swiftui_deneme.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swiftui_deneme.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		ABB563E42AF0470300CC6BEA /* swiftui_denemeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swiftui_denemeApp.swift; sourceTree = "<group>"; };
-		ABB563E62AF0470300CC6BEA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		ABB563E82AF0470500CC6BEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		ABB563EB2AF0470500CC6BEA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		ABB563F12AF0470600CC6BEA /* swiftui_denemeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = swiftui_denemeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		ABB563F52AF0470600CC6BEA /* swiftui_denemeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swiftui_denemeTests.swift; sourceTree = "<group>"; };
-		ABB563FB2AF0470600CC6BEA /* swiftui_denemeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = swiftui_denemeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		ABB563FF2AF0470600CC6BEA /* swiftui_denemeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swiftui_denemeUITests.swift; sourceTree = "<group>"; };
-		ABB564012AF0470600CC6BEA /* swiftui_denemeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swiftui_denemeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		AB88A07B2AF3BC1000160AD2 /* music_tailor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = music_tailor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB88A07E2AF3BC1000160AD2 /* music_tailorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = music_tailorApp.swift; sourceTree = "<group>"; };
+		AB88A0802AF3BC1000160AD2 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		AB88A0822AF3BC1200160AD2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AB88A0852AF3BC1200160AD2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AB88A08B2AF3BC1300160AD2 /* music_tailorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = music_tailorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB88A08F2AF3BC1300160AD2 /* music_tailorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = music_tailorTests.swift; sourceTree = "<group>"; };
+		AB88A0952AF3BC1300160AD2 /* music_tailorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = music_tailorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB88A0992AF3BC1300160AD2 /* music_tailorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = music_tailorUITests.swift; sourceTree = "<group>"; };
+		AB88A09B2AF3BC1300160AD2 /* music_tailorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = music_tailorUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		AB88A0A82AF3BC4B00160AD2 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		ABB563DE2AF0470300CC6BEA /* Frameworks */ = {
+		AB88A0782AF3BC1000160AD2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ABB563EE2AF0470600CC6BEA /* Frameworks */ = {
+		AB88A0882AF3BC1300160AD2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ABB563F82AF0470600CC6BEA /* Frameworks */ = {
+		AB88A0922AF3BC1300160AD2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -71,142 +73,143 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		ABB563D82AF0470300CC6BEA = {
+		AB88A0722AF3BC1000160AD2 = {
 			isa = PBXGroup;
 			children = (
-				ABB563E32AF0470300CC6BEA /* swiftui_deneme */,
-				ABB563F42AF0470600CC6BEA /* swiftui_denemeTests */,
-				ABB563FE2AF0470600CC6BEA /* swiftui_denemeUITests */,
-				ABB563E22AF0470300CC6BEA /* Products */,
+				AB88A07D2AF3BC1000160AD2 /* music_tailor */,
+				AB88A08E2AF3BC1300160AD2 /* music_tailorTests */,
+				AB88A0982AF3BC1300160AD2 /* music_tailorUITests */,
+				AB88A07C2AF3BC1000160AD2 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		ABB563E22AF0470300CC6BEA /* Products */ = {
+		AB88A07C2AF3BC1000160AD2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				ABB563E12AF0470300CC6BEA /* swiftui_deneme.app */,
-				ABB563F12AF0470600CC6BEA /* swiftui_denemeTests.xctest */,
-				ABB563FB2AF0470600CC6BEA /* swiftui_denemeUITests.xctest */,
+				AB88A07B2AF3BC1000160AD2 /* music_tailor.app */,
+				AB88A08B2AF3BC1300160AD2 /* music_tailorTests.xctest */,
+				AB88A0952AF3BC1300160AD2 /* music_tailorUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		ABB563E32AF0470300CC6BEA /* swiftui_deneme */ = {
+		AB88A07D2AF3BC1000160AD2 /* music_tailor */ = {
 			isa = PBXGroup;
 			children = (
-				ABB563E42AF0470300CC6BEA /* swiftui_denemeApp.swift */,
-				ABB563E62AF0470300CC6BEA /* ContentView.swift */,
-				ABB563E82AF0470500CC6BEA /* Assets.xcassets */,
-				ABB563EA2AF0470500CC6BEA /* Preview Content */,
+				AB88A07E2AF3BC1000160AD2 /* music_tailorApp.swift */,
+				AB88A0802AF3BC1000160AD2 /* LoginView.swift */,
+				AB88A0822AF3BC1200160AD2 /* Assets.xcassets */,
+				AB88A0842AF3BC1200160AD2 /* Preview Content */,
+				AB88A0A82AF3BC4B00160AD2 /* SignUpView.swift */,
 			);
-			path = swiftui_deneme;
+			path = music_tailor;
 			sourceTree = "<group>";
 		};
-		ABB563EA2AF0470500CC6BEA /* Preview Content */ = {
+		AB88A0842AF3BC1200160AD2 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				ABB563EB2AF0470500CC6BEA /* Preview Assets.xcassets */,
+				AB88A0852AF3BC1200160AD2 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		ABB563F42AF0470600CC6BEA /* swiftui_denemeTests */ = {
+		AB88A08E2AF3BC1300160AD2 /* music_tailorTests */ = {
 			isa = PBXGroup;
 			children = (
-				ABB563F52AF0470600CC6BEA /* swiftui_denemeTests.swift */,
+				AB88A08F2AF3BC1300160AD2 /* music_tailorTests.swift */,
 			);
-			path = swiftui_denemeTests;
+			path = music_tailorTests;
 			sourceTree = "<group>";
 		};
-		ABB563FE2AF0470600CC6BEA /* swiftui_denemeUITests */ = {
+		AB88A0982AF3BC1300160AD2 /* music_tailorUITests */ = {
 			isa = PBXGroup;
 			children = (
-				ABB563FF2AF0470600CC6BEA /* swiftui_denemeUITests.swift */,
-				ABB564012AF0470600CC6BEA /* swiftui_denemeUITestsLaunchTests.swift */,
+				AB88A0992AF3BC1300160AD2 /* music_tailorUITests.swift */,
+				AB88A09B2AF3BC1300160AD2 /* music_tailorUITestsLaunchTests.swift */,
 			);
-			path = swiftui_denemeUITests;
+			path = music_tailorUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		ABB563E02AF0470300CC6BEA /* swiftui_deneme */ = {
+		AB88A07A2AF3BC1000160AD2 /* music_tailor */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ABB564052AF0470600CC6BEA /* Build configuration list for PBXNativeTarget "swiftui_deneme" */;
+			buildConfigurationList = AB88A09F2AF3BC1300160AD2 /* Build configuration list for PBXNativeTarget "music_tailor" */;
 			buildPhases = (
-				ABB563DD2AF0470300CC6BEA /* Sources */,
-				ABB563DE2AF0470300CC6BEA /* Frameworks */,
-				ABB563DF2AF0470300CC6BEA /* Resources */,
+				AB88A0772AF3BC1000160AD2 /* Sources */,
+				AB88A0782AF3BC1000160AD2 /* Frameworks */,
+				AB88A0792AF3BC1000160AD2 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = swiftui_deneme;
-			productName = swiftui_deneme;
-			productReference = ABB563E12AF0470300CC6BEA /* swiftui_deneme.app */;
+			name = music_tailor;
+			productName = music_tailor;
+			productReference = AB88A07B2AF3BC1000160AD2 /* music_tailor.app */;
 			productType = "com.apple.product-type.application";
 		};
-		ABB563F02AF0470600CC6BEA /* swiftui_denemeTests */ = {
+		AB88A08A2AF3BC1300160AD2 /* music_tailorTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ABB564082AF0470600CC6BEA /* Build configuration list for PBXNativeTarget "swiftui_denemeTests" */;
+			buildConfigurationList = AB88A0A22AF3BC1300160AD2 /* Build configuration list for PBXNativeTarget "music_tailorTests" */;
 			buildPhases = (
-				ABB563ED2AF0470600CC6BEA /* Sources */,
-				ABB563EE2AF0470600CC6BEA /* Frameworks */,
-				ABB563EF2AF0470600CC6BEA /* Resources */,
+				AB88A0872AF3BC1300160AD2 /* Sources */,
+				AB88A0882AF3BC1300160AD2 /* Frameworks */,
+				AB88A0892AF3BC1300160AD2 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				ABB563F32AF0470600CC6BEA /* PBXTargetDependency */,
+				AB88A08D2AF3BC1300160AD2 /* PBXTargetDependency */,
 			);
-			name = swiftui_denemeTests;
-			productName = swiftui_denemeTests;
-			productReference = ABB563F12AF0470600CC6BEA /* swiftui_denemeTests.xctest */;
+			name = music_tailorTests;
+			productName = music_tailorTests;
+			productReference = AB88A08B2AF3BC1300160AD2 /* music_tailorTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		ABB563FA2AF0470600CC6BEA /* swiftui_denemeUITests */ = {
+		AB88A0942AF3BC1300160AD2 /* music_tailorUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ABB5640B2AF0470600CC6BEA /* Build configuration list for PBXNativeTarget "swiftui_denemeUITests" */;
+			buildConfigurationList = AB88A0A52AF3BC1300160AD2 /* Build configuration list for PBXNativeTarget "music_tailorUITests" */;
 			buildPhases = (
-				ABB563F72AF0470600CC6BEA /* Sources */,
-				ABB563F82AF0470600CC6BEA /* Frameworks */,
-				ABB563F92AF0470600CC6BEA /* Resources */,
+				AB88A0912AF3BC1300160AD2 /* Sources */,
+				AB88A0922AF3BC1300160AD2 /* Frameworks */,
+				AB88A0932AF3BC1300160AD2 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				ABB563FD2AF0470600CC6BEA /* PBXTargetDependency */,
+				AB88A0972AF3BC1300160AD2 /* PBXTargetDependency */,
 			);
-			name = swiftui_denemeUITests;
-			productName = swiftui_denemeUITests;
-			productReference = ABB563FB2AF0470600CC6BEA /* swiftui_denemeUITests.xctest */;
+			name = music_tailorUITests;
+			productName = music_tailorUITests;
+			productReference = AB88A0952AF3BC1300160AD2 /* music_tailorUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		ABB563D92AF0470300CC6BEA /* Project object */ = {
+		AB88A0732AF3BC1000160AD2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
-					ABB563E02AF0470300CC6BEA = {
+					AB88A07A2AF3BC1000160AD2 = {
 						CreatedOnToolsVersion = 15.0.1;
 					};
-					ABB563F02AF0470600CC6BEA = {
+					AB88A08A2AF3BC1300160AD2 = {
 						CreatedOnToolsVersion = 15.0.1;
-						TestTargetID = ABB563E02AF0470300CC6BEA;
+						TestTargetID = AB88A07A2AF3BC1000160AD2;
 					};
-					ABB563FA2AF0470600CC6BEA = {
+					AB88A0942AF3BC1300160AD2 = {
 						CreatedOnToolsVersion = 15.0.1;
-						TestTargetID = ABB563E02AF0470300CC6BEA;
+						TestTargetID = AB88A07A2AF3BC1000160AD2;
 					};
 				};
 			};
-			buildConfigurationList = ABB563DC2AF0470300CC6BEA /* Build configuration list for PBXProject "swiftui_deneme" */;
+			buildConfigurationList = AB88A0762AF3BC1000160AD2 /* Build configuration list for PBXProject "music_tailor" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -214,36 +217,36 @@
 				en,
 				Base,
 			);
-			mainGroup = ABB563D82AF0470300CC6BEA;
-			productRefGroup = ABB563E22AF0470300CC6BEA /* Products */;
+			mainGroup = AB88A0722AF3BC1000160AD2;
+			productRefGroup = AB88A07C2AF3BC1000160AD2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				ABB563E02AF0470300CC6BEA /* swiftui_deneme */,
-				ABB563F02AF0470600CC6BEA /* swiftui_denemeTests */,
-				ABB563FA2AF0470600CC6BEA /* swiftui_denemeUITests */,
+				AB88A07A2AF3BC1000160AD2 /* music_tailor */,
+				AB88A08A2AF3BC1300160AD2 /* music_tailorTests */,
+				AB88A0942AF3BC1300160AD2 /* music_tailorUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		ABB563DF2AF0470300CC6BEA /* Resources */ = {
+		AB88A0792AF3BC1000160AD2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABB563EC2AF0470500CC6BEA /* Preview Assets.xcassets in Resources */,
-				ABB563E92AF0470500CC6BEA /* Assets.xcassets in Resources */,
+				AB88A0862AF3BC1200160AD2 /* Preview Assets.xcassets in Resources */,
+				AB88A0832AF3BC1200160AD2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ABB563EF2AF0470600CC6BEA /* Resources */ = {
+		AB88A0892AF3BC1300160AD2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ABB563F92AF0470600CC6BEA /* Resources */ = {
+		AB88A0932AF3BC1300160AD2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -253,49 +256,50 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		ABB563DD2AF0470300CC6BEA /* Sources */ = {
+		AB88A0772AF3BC1000160AD2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABB563E72AF0470300CC6BEA /* ContentView.swift in Sources */,
-				ABB563E52AF0470300CC6BEA /* swiftui_denemeApp.swift in Sources */,
+				AB88A0812AF3BC1000160AD2 /* LoginView.swift in Sources */,
+				AB88A0A92AF3BC4B00160AD2 /* SignUpView.swift in Sources */,
+				AB88A07F2AF3BC1000160AD2 /* music_tailorApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ABB563ED2AF0470600CC6BEA /* Sources */ = {
+		AB88A0872AF3BC1300160AD2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABB563F62AF0470600CC6BEA /* swiftui_denemeTests.swift in Sources */,
+				AB88A0902AF3BC1300160AD2 /* music_tailorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ABB563F72AF0470600CC6BEA /* Sources */ = {
+		AB88A0912AF3BC1300160AD2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABB564022AF0470600CC6BEA /* swiftui_denemeUITestsLaunchTests.swift in Sources */,
-				ABB564002AF0470600CC6BEA /* swiftui_denemeUITests.swift in Sources */,
+				AB88A09A2AF3BC1300160AD2 /* music_tailorUITests.swift in Sources */,
+				AB88A09C2AF3BC1300160AD2 /* music_tailorUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		ABB563F32AF0470600CC6BEA /* PBXTargetDependency */ = {
+		AB88A08D2AF3BC1300160AD2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = ABB563E02AF0470300CC6BEA /* swiftui_deneme */;
-			targetProxy = ABB563F22AF0470600CC6BEA /* PBXContainerItemProxy */;
+			target = AB88A07A2AF3BC1000160AD2 /* music_tailor */;
+			targetProxy = AB88A08C2AF3BC1300160AD2 /* PBXContainerItemProxy */;
 		};
-		ABB563FD2AF0470600CC6BEA /* PBXTargetDependency */ = {
+		AB88A0972AF3BC1300160AD2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = ABB563E02AF0470300CC6BEA /* swiftui_deneme */;
-			targetProxy = ABB563FC2AF0470600CC6BEA /* PBXContainerItemProxy */;
+			target = AB88A07A2AF3BC1000160AD2 /* music_tailor */;
+			targetProxy = AB88A0962AF3BC1300160AD2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		ABB564032AF0470600CC6BEA /* Debug */ = {
+		AB88A09D2AF3BC1300160AD2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -358,7 +362,7 @@
 			};
 			name = Debug;
 		};
-		ABB564042AF0470600CC6BEA /* Release */ = {
+		AB88A09E2AF3BC1300160AD2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -414,15 +418,14 @@
 			};
 			name = Release;
 		};
-		ABB564062AF0470600CC6BEA /* Debug */ = {
+		AB88A0A02AF3BC1300160AD2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"swiftui_deneme/Preview Content\"";
-				DEVELOPMENT_TEAM = 2B3N743347;
+				DEVELOPMENT_ASSET_PATHS = "\"music_tailor/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -435,7 +438,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "su.swiftui-deneme";
+				PRODUCT_BUNDLE_IDENTIFIER = "su.music-tailor";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -443,15 +446,14 @@
 			};
 			name = Debug;
 		};
-		ABB564072AF0470600CC6BEA /* Release */ = {
+		AB88A0A12AF3BC1300160AD2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"swiftui_deneme/Preview Content\"";
-				DEVELOPMENT_TEAM = 2B3N743347;
+				DEVELOPMENT_ASSET_PATHS = "\"music_tailor/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -464,7 +466,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "su.swiftui-deneme";
+				PRODUCT_BUNDLE_IDENTIFIER = "su.music-tailor";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -472,7 +474,7 @@
 			};
 			name = Release;
 		};
-		ABB564092AF0470600CC6BEA /* Debug */ = {
+		AB88A0A32AF3BC1300160AD2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -482,16 +484,16 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "su.swiftui-denemeTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "su.music-tailorTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/swiftui_deneme.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/swiftui_deneme";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/music_tailor.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/music_tailor";
 			};
 			name = Debug;
 		};
-		ABB5640A2AF0470600CC6BEA /* Release */ = {
+		AB88A0A42AF3BC1300160AD2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -501,16 +503,16 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "su.swiftui-denemeTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "su.music-tailorTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/swiftui_deneme.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/swiftui_deneme";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/music_tailor.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/music_tailor";
 			};
 			name = Release;
 		};
-		ABB5640C2AF0470600CC6BEA /* Debug */ = {
+		AB88A0A62AF3BC1300160AD2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -518,16 +520,16 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "su.swiftui-denemeUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "su.music-tailorUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = swiftui_deneme;
+				TEST_TARGET_NAME = music_tailor;
 			};
 			name = Debug;
 		};
-		ABB5640D2AF0470600CC6BEA /* Release */ = {
+		AB88A0A72AF3BC1300160AD2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -535,55 +537,55 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "su.swiftui-denemeUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "su.music-tailorUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = swiftui_deneme;
+				TEST_TARGET_NAME = music_tailor;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		ABB563DC2AF0470300CC6BEA /* Build configuration list for PBXProject "swiftui_deneme" */ = {
+		AB88A0762AF3BC1000160AD2 /* Build configuration list for PBXProject "music_tailor" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				ABB564032AF0470600CC6BEA /* Debug */,
-				ABB564042AF0470600CC6BEA /* Release */,
+				AB88A09D2AF3BC1300160AD2 /* Debug */,
+				AB88A09E2AF3BC1300160AD2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ABB564052AF0470600CC6BEA /* Build configuration list for PBXNativeTarget "swiftui_deneme" */ = {
+		AB88A09F2AF3BC1300160AD2 /* Build configuration list for PBXNativeTarget "music_tailor" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				ABB564062AF0470600CC6BEA /* Debug */,
-				ABB564072AF0470600CC6BEA /* Release */,
+				AB88A0A02AF3BC1300160AD2 /* Debug */,
+				AB88A0A12AF3BC1300160AD2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ABB564082AF0470600CC6BEA /* Build configuration list for PBXNativeTarget "swiftui_denemeTests" */ = {
+		AB88A0A22AF3BC1300160AD2 /* Build configuration list for PBXNativeTarget "music_tailorTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				ABB564092AF0470600CC6BEA /* Debug */,
-				ABB5640A2AF0470600CC6BEA /* Release */,
+				AB88A0A32AF3BC1300160AD2 /* Debug */,
+				AB88A0A42AF3BC1300160AD2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ABB5640B2AF0470600CC6BEA /* Build configuration list for PBXNativeTarget "swiftui_denemeUITests" */ = {
+		AB88A0A52AF3BC1300160AD2 /* Build configuration list for PBXNativeTarget "music_tailorUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				ABB5640C2AF0470600CC6BEA /* Debug */,
-				ABB5640D2AF0470600CC6BEA /* Release */,
+				AB88A0A62AF3BC1300160AD2 /* Debug */,
+				AB88A0A72AF3BC1300160AD2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = ABB563D92AF0470300CC6BEA /* Project object */;
+	rootObject = AB88A0732AF3BC1000160AD2 /* Project object */;
 }

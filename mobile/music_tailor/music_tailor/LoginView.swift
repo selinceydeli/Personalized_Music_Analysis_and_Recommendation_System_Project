@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ContentView: View {
+struct LoginView: View {
     @State private var username = ""
     @State private var password = ""
     @State private var wrongUsername = 0
@@ -41,8 +41,26 @@ struct ContentView: View {
                         .background(Color.black.opacity(0.05))
                         .cornerRadius(10)
                         .border(.red, width: CGFloat(wrongPassword))
-                    Spacer().frame(height: 20)
+                    Spacer().frame(height: 10)
+                    
+                    
+                    HStack{
+                        Button(action: {
+                            // function
+                        }) {
+                            Text("Forgot your password?")
+                                .foregroundColor(.pink)
+                                .bold()
+                                
+                        }
+                        Spacer()
 
+                    }
+                    .padding(.horizontal, 50)
+                    .padding(.bottom, 10)
+
+                    
+                    
                     Button(action: {
                         authenticateUser(username: username, password: password)
                     }) {
@@ -52,15 +70,21 @@ struct ContentView: View {
                             .background(Color.pink)
                             .cornerRadius(10)
                     }
-                    Button(action: {
-                        authenticateUser(username: username, password: password)
-                    }) {
-                        Text("Forgot your password?")
+        
+                    HStack {
+                        Text("Don't have an account?")
                             .foregroundColor(.black)
-                            .frame(width: 300, height: 50, alignment: .leading)
-                            
+                        
+                        NavigationLink(destination: SignUpView()) {
+                            Text("Sign up")
+                                .foregroundColor(.pink)
+                                .bold()
+                        }
+                        
+                        Spacer()
                     }
-
+                    .padding(.horizontal, 50)
+                    .padding(.vertical, 5)
                     
                     NavigationLink(destination: Text("You are logged in \(username)!"), isActive: $showingLoginScreen){
                         EmptyView()
@@ -89,6 +113,7 @@ struct ContentView: View {
     }
 }
 
+
 #Preview {
-    ContentView()
+    LoginView()
 }
