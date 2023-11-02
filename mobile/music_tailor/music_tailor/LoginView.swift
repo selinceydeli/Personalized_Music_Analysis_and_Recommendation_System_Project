@@ -22,10 +22,13 @@ struct LoginView: View {
                     Text("Welcome Back To")
                         .font(.largeTitle)
                         .bold()
+                        .frame(width: 300, height: 5, alignment: .leading)
                     Text("Music Tailor")
                         .font(Font.system(size: 36, design: .rounded))
                         .bold()
                         .foregroundColor(.pink)
+                        .frame(width: 300, height: 50, alignment: .leading)
+                    
 
                     TextField("Username", text: $username)
                         .padding()
