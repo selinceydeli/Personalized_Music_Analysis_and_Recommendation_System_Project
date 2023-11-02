@@ -22,6 +22,7 @@
             },
         };
     </script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <title>Music Tailor | Find Music that Suits You</title>
 </head>
 
@@ -71,6 +72,7 @@
     <script src="{{ asset('js/password-checklist.js') }}"></script>
     <script src="{{ asset('js/password-toggle.js') }}"></script>
     <script src="{{ asset('js/password-toggle-login.js') }}"></script>
+    <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div>
 </body>
 
 </html>
