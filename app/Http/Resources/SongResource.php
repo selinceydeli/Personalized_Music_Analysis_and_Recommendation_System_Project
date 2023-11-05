@@ -4,7 +4,6 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
-use app\Http\Resources\AlbumResource;
 
 
 class SongResource extends JsonResource

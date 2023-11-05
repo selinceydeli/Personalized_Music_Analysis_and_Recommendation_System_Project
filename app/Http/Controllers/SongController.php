@@ -86,12 +86,12 @@ class SongController extends Controller
             $song = Song::find($id);
             $song->delete();
             return response()->json([
-                "message" => "Book deleted"
+                "message" => "Song deleted"
             ], 200);
         }
         else{
             return response()->json([
-                "message" => "Book deleted"
+                "message" => "Song not found"
             ], 404);
         }
     }
