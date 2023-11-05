@@ -10,7 +10,6 @@ use App\Http\Controllers\SongRatingController;
 use App\Http\Controllers\AlbumRatingController;
 use App\Http\Controllers\PerformerRatingController;
 
-
 /*
 |--------------------------------------------------------------------------
 | API Routes

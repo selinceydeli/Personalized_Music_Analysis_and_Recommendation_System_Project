@@ -21,4 +21,9 @@ class Album extends Model
         'created_at',
         'updated_at',
     ];
+
+    public function ratings()
+    {
+        return $this->hasMany(AlbumRating::class);
+    }
 }
