@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\AlbumRating;
 use App\Http\Resources\AlbumRatingResource;
 
-class albumratingRatingController extends Controller
+
+class AlbumRatingController extends Controller
 {
     public function index(){
         $albumratings = AlbumRating::all();
@@ -25,16 +26,19 @@ class albumratingRatingController extends Controller
         ], 200);
     }
 
-    public function search_id($id){
-        $albumrating = AlbumRating::find($id);
-        if(!empty($albumrating)){
-            return response()->json($albumrating);
-        }
-        else{
-            return response()->json([
-                "message" => "Album Rating not found"
-            ], 404);
-        }
+
+    public function search_id_album($id){
+
+        $albumratings = AlbumRating::where('album_id', 'EQUALS', "{$id}")->get();
+
+        return AlbumRatingResource::collection($albumratings);
+    }
+
+    public function search_id_user($username){
+
+        $albumratings = AlbumRating::where('username', 'EQUALS', "{$username}")->get();
+
+        return AlbumRatingResource::collection($albumratings);
     }
 
     public function update(Request $request, $id){

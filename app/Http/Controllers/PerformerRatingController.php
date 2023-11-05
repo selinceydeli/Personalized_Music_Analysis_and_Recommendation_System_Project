@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\PerformerRating;
+use App\Http\Resources\PerformerRatingResource;
 
 
 class PerformerRatingController extends Controller
@@ -25,16 +26,18 @@ class PerformerRatingController extends Controller
         ], 200);
     }
 
-    public function search_id($id){
-        $performerrating = PerformerRating::find($id);
-        if(!empty($performerrating)){
-            return response()->json($performerrating);
-        }
-        else{
-            return response()->json([
-                "message" => "Performer Rating not found"
-            ], 404);
-        }
+    public function search_id_performer($id){
+
+        $performerratings = PerformerRating::where('performer_id', 'EQUALS', "{$id}")->get();
+
+        return PerformerRatingResource::collection($performerratings);
+    }
+
+    public function search_id_user($username){
+
+        $performerratings = PerformerRating::where('username', 'EQUALS', "{$username}")->get();
+
+        return PerformerRatingResource::collection($performerratings);
     }
 
     public function update(Request $request, $id){

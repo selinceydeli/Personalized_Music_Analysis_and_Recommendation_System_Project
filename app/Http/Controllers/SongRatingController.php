@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\SongRating;
+use App\Http\Resources\SongRatingResource;
 
 class SongRatingController extends Controller
 {
@@ -24,16 +25,18 @@ class SongRatingController extends Controller
         ], 200);
     }
 
-    public function search_id($id){
-        $songrating = SongRating::find($id);
-        if(!empty($songrating)){
-            return response()->json($songrating);
-        }
-        else{
-            return response()->json([
-                "message" => "song Rating not found"
-            ], 404);
-        }
+    public function search_id_song($id){
+
+        $songratings = SongRating::where('song_id', 'EQUALS', "{$id}")->get();
+
+        return SongRatingResource::collection($songratings);
+    }
+
+    public function search_id_user($username){
+
+        $songratings = SongRating::where('username', 'EQUALS', "{$username}")->get();
+
+        return SongRatingResource::collection($songratings);
     }
 
     public function update(Request $request, $id){
@@ -45,27 +48,27 @@ class SongRatingController extends Controller
             $songrating->date_rated = is_null($request -> date_rated) ? $songrating->date_rated : $request->date_rated;
             $songrating->save();
             return response()->json([
-                "message" => "song rating Updated"
+                "message" => "Song rating Updated"
             ], 200);
         }
         else{
             return response()->json([
-                "message" => "song rating not found!"
+                "message" => "Song rating not found!"
             ], 404);
         }
     }
 
     public function destroy($id){
-        if (songRating::where('id', $id) -> exists()){
-            $songrating = songRating::find($id);
+        if (SongRating::where('id', $id) -> exists()){
+            $songrating = SongRating::find($id);
             $songrating->delete();
             return response()->json([
-                "message" => "song rating deleted"
+                "message" => "Song rating deleted"
             ], 200);
         }
         else{
             return response()->json([
-                "message" => "song rating not found"
+                "message" => "Song rating not found"
             ], 404);
         }
     }
