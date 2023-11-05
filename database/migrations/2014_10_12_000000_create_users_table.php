@@ -30,13 +30,27 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
+
+
     public function down(): void
     {
+        // Drop foreign keys from song_ratings table
+        Schema::table('song_ratings', function (Blueprint $table) {
+            $table->dropForeign(['username']);
+        });
 
+        // Drop foreign keys from performer_ratings table
         Schema::table('performer_ratings', function (Blueprint $table) {
             $table->dropForeign(['username']);
         });
 
+        // Drop foreign keys from album_ratings table
+        Schema::table('album_ratings', function (Blueprint $table) {
+            $table->dropForeign(['username']);
+        });
+
+        // Finally, drop the users table
         Schema::dropIfExists('users');
     }
+
 };
