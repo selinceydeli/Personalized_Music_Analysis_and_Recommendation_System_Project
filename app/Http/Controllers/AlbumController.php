@@ -9,6 +9,13 @@ use App\Http\Resources\AlbumResource;
 
 class AlbumController extends Controller
 {
+    // Common resource routes:
+    // index - Show all albums
+    // show - Show single album
+    // store - Store new album
+    // update - Update album
+    // destroy - Delete album
+
     public function index(){
         $albums = Album::all();
         return response()->json($albums);
@@ -22,7 +29,8 @@ class AlbumController extends Controller
         $album->save();
         return response()->json([
             "message" => "Album added"
-        ], 200);
+        ], 201); // In the context of RESTful API design, when you create a new resource, 
+                // the expected status code is 201 Created.
     }
 
     public function search_id($id){

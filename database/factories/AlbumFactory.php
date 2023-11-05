@@ -31,7 +31,7 @@ class AlbumFactory extends Factory
         ];
 
         return [
-            'name' => $this->faker->randomElement($albumWords, $count = 2),
+            'name' => implode(' ', $this->faker->randomElements($albumWords, $count = 2)),
             'is_single' => $this->faker->boolean,
             'image_url' => $this->faker->imageUrl($width = 640, $height = 480),
         ];

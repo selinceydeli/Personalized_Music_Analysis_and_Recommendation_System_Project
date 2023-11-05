@@ -2,6 +2,14 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SongController;
+use App\Http\Controllers\AlbumController;
+use App\Http\Controllers\PerformerController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\SongRatingController;
+use App\Http\Controllers\AlbumRatingController;
+use App\Http\Controllers\PerformerRatingController;
+
 
 /*
 |--------------------------------------------------------------------------
