@@ -17,3 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/songs', [SongController::class, 'index']);
+Route::get('/songs/{id}', [SongController::class, 'search_id']);
+Route::get('/songs/name/{searchTerm}', [SongController::class, 'search_name']);
+Route::put('/songs/{id}', [SongController::class, 'update']);
+Route::post('/songs', [SongController::class, 'store']);
+Route::delete('/songs/{id}', [SongController::class, 'destroy']);
