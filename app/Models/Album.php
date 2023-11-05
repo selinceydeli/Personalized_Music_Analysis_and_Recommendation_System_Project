@@ -24,6 +24,12 @@ class Album extends Model
 
     public function ratings()
     {
-        return $this->hasMany(AlbumRating::class);
+        return $this->hasMany(AlbumRating::class, 'album_id', 'id');
     }
+
+    public function songs()
+    {
+        return $this->hasMany(Song::class, 'album_id', 'id');
+    }
+
 }

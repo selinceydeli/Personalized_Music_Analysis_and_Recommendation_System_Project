@@ -27,6 +27,12 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('song_ratings', function (Blueprint $table) {
+            $table->dropForeign(['username']); // You should specify the actual constraint name if it's not the default
+            $table->dropConstrainedForeignId('song_id');
+        });
+
         Schema::dropIfExists('song_ratings');
     }
+
 };

@@ -81,4 +81,14 @@ class User extends Authenticatable
         return $this->hasMany(AlbumRating::class, 'username', 'username');
     }
 
+    public function performerRatings()
+    {
+        return $this->hasMany(PerformerRating::class, 'username', 'username');
+    }
+
+    public function songRatings()
+    {
+        return $this->hasMany(SongRating::class, 'username', 'username');
+    }
+
 }

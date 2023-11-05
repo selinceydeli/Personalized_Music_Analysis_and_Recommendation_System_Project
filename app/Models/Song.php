@@ -50,6 +50,11 @@ class Song extends Model
      */
     public function album()
     {
-        return $this->belongsTo(Album::class);
+        return $this->belongsTo(Album::class, 'album_id', 'id');
+    }
+
+    public function ratings()
+    {
+        return $this->hasMany(SongRating::class, 'song_id', 'id');
     }
 }

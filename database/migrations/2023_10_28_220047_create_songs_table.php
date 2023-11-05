@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('mood');
             $table->string('language');
             $table->timestamp('system_entry_date'); // stores both date and time
-            $table->foreignId('album_id')->constrained('albums')->cascadeOnDelete(); // Foreign key referencing songs
+            $table->foreignId('album_id')->constrained('albums')->cascadeOnDelete(); // Foreign key referencing albums
             $table->timestamps();
         });
     }
@@ -35,6 +35,10 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('songs', function (Blueprint $table) {
+            $table->dropConstrainedForeignId('album_id');
+        });
+
         Schema::dropIfExists('songs');
     }
 };
