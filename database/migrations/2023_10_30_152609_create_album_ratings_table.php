@@ -27,10 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('album_ratings', function (Blueprint $table) {
-            $table->dropForeign(['album_id']);
-            $table->dropForeign(['username']); // If you also want to drop this foreign key
-        });
         Schema::dropIfExists('album_ratings');
     }
 };

@@ -3,8 +3,8 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use app\Models\Performer;
-use app\Models\Album;
+use App\Models\Performer;
+use App\Models\Album;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Song>
  */

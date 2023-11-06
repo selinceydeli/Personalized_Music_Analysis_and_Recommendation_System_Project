@@ -35,10 +35,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('songs', function (Blueprint $table) {
-            $table->dropConstrainedForeignId('album_id');
-        });
-
         Schema::dropIfExists('songs');
     }
 };
