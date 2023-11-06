@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AB88A07F2AF3BC1000160AD2 /* music_tailorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB88A07E2AF3BC1000160AD2 /* music_tailorApp.swift */; };
+		9351CF432AF4CF440098CD8F /* music_tailorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB88A07E2AF3BC1000160AD2 /* music_tailorApp.swift */; };
 		AB88A0812AF3BC1000160AD2 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB88A0802AF3BC1000160AD2 /* LoginView.swift */; };
 		AB88A0832AF3BC1200160AD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB88A0822AF3BC1200160AD2 /* Assets.xcassets */; };
 		AB88A0862AF3BC1200160AD2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB88A0852AF3BC1200160AD2 /* Preview Assets.xcassets */; };
@@ -260,9 +260,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9351CF432AF4CF440098CD8F /* music_tailorApp.swift in Sources */,
 				AB88A0812AF3BC1000160AD2 /* LoginView.swift in Sources */,
 				AB88A0A92AF3BC4B00160AD2 /* SignUpView.swift in Sources */,
-				AB88A07F2AF3BC1000160AD2 /* music_tailorApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

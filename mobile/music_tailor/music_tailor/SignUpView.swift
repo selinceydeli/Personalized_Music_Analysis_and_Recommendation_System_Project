@@ -3,10 +3,11 @@ import SwiftUI
 struct SignUpView: View {
     @State private var username = ""
     @State private var password = ""
-    @State private var wrongUsername = 0
-    @State private var wrongPassword = 0
-    @State private var showingLoginScreen = false
-    
+    @State private var confirmPassword = ""
+    @State private var passwordMatch: Bool = true
+    @State private var isValid: Bool = true
+    @State private var signedUp: Bool = false
+
     var body: some View {
         NavigationView{
             ZStack{
@@ -19,38 +20,51 @@ struct SignUpView: View {
                     .scale(1.35)
                     .foregroundColor(.white)
                 VStack{
-                        Text("Get started with")
-                            .font(.largeTitle)
-                            .bold()
-                            .foregroundColor(.black)
-                            .frame(width: 300, height: 5, alignment: .leading)
-                        Text("Music Tailor")
-                            .font(Font.system(size: 36, design: .rounded))
-                            .bold()
-                            .foregroundColor(.pink)
-                            .frame(width: 300, height: 50, alignment: .leading)
-                        
+                    Text("Get started with")
+                        .font(.largeTitle)
+                        .bold()
+                        .foregroundColor(.black)
+                        .frame(width: 300, height: 5, alignment: .leading)
+                    Text("Music Tailor")
+                        .font(Font.system(size: 36, design: .rounded))
+                        .bold()
+                        .foregroundColor(.pink)
+                        .frame(width: 300, height: 50, alignment: .leading)
                     
-                    
-
                     TextField("Username", text: $username)
                         .padding()
                         .frame(width: 300, height: 50)
                         .background(Color.black.opacity(0.05))
                         .cornerRadius(10)
-                        .border(.red, width: CGFloat(wrongUsername))
-                    
-                    
+
                     SecureField("Password", text: $password)
                         .padding()
                         .frame(width: 300, height: 50)
                         .background(Color.black.opacity(0.05))
                         .cornerRadius(10)
-                        .border(.red, width: CGFloat(wrongPassword))
+                        .border(isValid ? .clear : .red, width: 2)
+                    
+                    SecureField("Confirm Password", text: $confirmPassword)
+                        .padding()
+                        .frame(width: 300, height: 50)
+                        .background(Color.black.opacity(0.05))
+                        .cornerRadius(10)
+                        .border(passwordMatch ? .clear : .red, width: 2)
+                    
                     Spacer().frame(height: 20)
 
                     Button(action: {
-                        //func
+                        if password == confirmPassword {
+                            passwordMatch = true
+                            if isValidPassword(password) {
+                                isValid = true
+                                signedUp = true
+                            } else {
+                                isValid = false
+                            }
+                        } else {
+                            passwordMatch = false
+                        }
                     }) {
                         Text("Sign Up")
                             .foregroundColor(.white)
@@ -58,9 +72,20 @@ struct SignUpView: View {
                             .background(Color.pink)
                             .cornerRadius(10)
                     }
+
+                    if signedUp {
+                        NavigationLink(destination: LoginView()) {
+                            Text("You signed up! Click and go to the login page to start.")
+                                .foregroundColor(.pink)
+                                .bold()
+                        }
+                        .padding()
+                    }
+                    
                     HStack {
                         Text("Already have an account?")
                             .foregroundColor(.black)
+                        
                         NavigationLink(destination: LoginView()) {
                             Text("Login")
                                 .foregroundColor(.pink)
@@ -71,20 +96,25 @@ struct SignUpView: View {
                     }
                     .padding(.horizontal, 50)
                     .padding(.vertical, 5)
-                    
-                    
-                    
-                    
-                    NavigationLink(destination: Text("You are logged in \(username)!"), isActive: $showingLoginScreen){
-                        EmptyView()
-                    }
                 }
-    
             }
         }
+    }
+    
+    func isValidPassword(_ password: String) -> Bool {
+        // Check for at least 6 characters
+        guard password.count >= 6 else { return false }
+        
+        // Check for at least one special character
+        let specialCharacterPattern = "[^a-zA-Z0-9]"
+        let regex = try? NSRegularExpression(pattern: specialCharacterPattern, options: [])
+        let range = NSRange(location: 0, length: password.utf16.count)
+        
+        return regex?.firstMatch(in: password, options: [], range: range) != nil
     }
 }
 
 #Preview {
     SignUpView()
 }
+
