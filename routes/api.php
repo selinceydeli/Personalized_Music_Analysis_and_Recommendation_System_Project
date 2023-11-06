@@ -47,10 +47,10 @@ Route::post('/performers', [PerformerController::class, 'store']);
 Route::delete('/performers/{id}', [PerformerController::class, 'destroy']);
 
 Route::get('/users', [UserController::class, 'index']);
-Route::get('/users/{id}', [UserController::class, 'search_id']);
-Route::put('/users/{id}', [UserController::class, 'update']);
+Route::get('/users/{username}', [UserController::class, 'search_username']);
+Route::put('/users/{username}', [UserController::class, 'update']);
 Route::post('/users', [UserController::class, 'store']);
-Route::delete('/users/{id}', [UserController::class, 'destroy']);
+Route::delete('/users/{username}', [UserController::class, 'destroy']);
 
 Route::get('/songrating', [SongRatingController::class, 'index']);
 Route::get('/songrating/song/{id}', [SongRatingController::class, 'search_id_song']);

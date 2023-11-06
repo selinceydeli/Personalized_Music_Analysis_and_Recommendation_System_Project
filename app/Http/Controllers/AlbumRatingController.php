@@ -25,17 +25,16 @@ class AlbumRatingController extends Controller
         ], 200);
     }
 
-
     public function search_id_album($id){
 
-        $albumratings = AlbumRating::where('album_id', 'EQUALS', "{$id}")->get();
+        $albumratings = AlbumRating::where('album_id', '=', "{$id}")->get();
 
         return AlbumRatingResource::collection($albumratings);
     }
 
     public function search_id_user($username){
 
-        $albumratings = AlbumRating::where('username', 'EQUALS', "{$username}")->get();
+        $albumratings = AlbumRating::where('username', '=', "{$username}")->get();
 
         return AlbumRatingResource::collection($albumratings);
     }

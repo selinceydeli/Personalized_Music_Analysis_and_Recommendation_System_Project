@@ -27,14 +27,14 @@ class PerformerRatingController extends Controller
 
     public function search_id_performer($id){
 
-        $performerratings = PerformerRating::where('performer_id', 'EQUALS', "{$id}")->get();
+        $performerratings = PerformerRating::where('performer_id', '=', "{$id}")->get();
 
         return PerformerRatingResource::collection($performerratings);
     }
 
     public function search_id_user($username){
 
-        $performerratings = PerformerRating::where('username', 'EQUALS', "{$username}")->get();
+        $performerratings = PerformerRating::where('username', '=', "{$username}")->get();
 
         return PerformerRatingResource::collection($performerratings);
     }
