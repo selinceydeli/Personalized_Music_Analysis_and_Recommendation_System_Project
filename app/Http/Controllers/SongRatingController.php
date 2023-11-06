@@ -27,14 +27,14 @@ class SongRatingController extends Controller
 
     public function search_id_song($id){
 
-        $songratings = SongRating::where('song_id', 'EQUALS', "{$id}")->get();
+        $songratings = SongRating::where('song_id', '=', "{$id}")->get();
 
         return SongRatingResource::collection($songratings);
     }
 
     public function search_id_user($username){
 
-        $songratings = SongRating::where('username', 'EQUALS', "{$username}")->get();
+        $songratings = SongRating::where('username', '=', "{$username}")->get();
 
         return SongRatingResource::collection($songratings);
     }
