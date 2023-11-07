@@ -17,7 +17,7 @@ class PerformerRatingController extends Controller
         $performerrating = new PerformerRating;
         $performerrating->rating = $request->rating;
         $performerrating->username = $request->username;
-        $performerrating->performer_id = $request->performer_id;
+        $performerrating->perf_id = $request->perf_id;
         $performerrating->date_rated = $request->date_rated;
         $performerrating->save();
         return response()->json([
@@ -27,7 +27,7 @@ class PerformerRatingController extends Controller
 
     public function search_id_performer($id){
 
-        $performerratings = PerformerRating::where('performer_id', '=', "{$id}")->get();
+        $performerratings = PerformerRating::where('perf_id', '=', "{$id}")->get();
 
         return PerformerRatingResource::collection($performerratings);
     }
@@ -44,7 +44,7 @@ class PerformerRatingController extends Controller
             $performerrating = PerformerRating::find($id);
             $performerrating->rating = is_null($request -> rating) ? $performerrating->rating : $request->rating;
             $performerrating->username = is_null($request -> username) ? $performerrating->username : $request->username;
-            $performerrating->performer_id = is_null($request -> performer_id) ? $performerrating->performer_id : $request->performer_id;
+            $performerrating->perf_id = is_null($request -> perf_id) ? $performerrating->perf_id : $request->perf_id;
             $performerrating->date_rated = is_null($request -> date_rated) ? $performerrating->date_rated : $request->date_rated;
             $performerrating->save();
             return response()->json([
