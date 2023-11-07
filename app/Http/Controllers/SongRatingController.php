@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\SongRating;
 use App\Http\Resources\SongRatingResource;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon; // Carbon is a date manipulation library for PHP
 
 class SongRatingController extends Controller
 {
@@ -102,4 +103,50 @@ class SongRatingController extends Controller
         return response()->json($topSongs);
     }
 
+    public function averageRatingByPerformer($username, $performerName)
+    {
+        // Calculate the date 10 months ago from now
+        $tenMonthsAgo = Carbon::now()->subMonths(10)->startOfDay();
+
+        // First, get the IDs of performers with the given name
+        $performerIds = DB::table('performers')
+            ->where('name', $performerName)
+            ->get()
+            ->pluck('id'); // Retrieve only the IDs
+
+        // Check if performers with the given name exist
+        if ($performerIds->isEmpty()) {
+            return response()->json(['message' => 'Performer not found.'], 404);
+        }
+
+        // Create a subquery to get all song IDs by the given performer using their ID
+        $songsByPerformerSubQuery = DB::table('songs')
+            ->select('id')
+            ->where(function ($query) use ($performerIds) {
+                foreach ($performerIds as $performerId) {
+                    $query->orWhereJsonContains('performers', $performerId);
+                }
+            });
+
+        // Now, join the song ratings with the subquery of song IDs by the performer
+        // and calculate the average rating for these songs rated by the given user
+        // within the last 10 months
+        $averageRating = DB::table('song_ratings')
+            ->joinSub($songsByPerformerSubQuery, 'performer_songs', function ($join) {
+                $join->on('song_ratings.song_id', '=', 'performer_songs.id');
+            })
+            ->where('username', $username)
+            ->where('date_rated', '>=', $tenMonthsAgo)
+            ->select(DB::raw('AVG(rating) as average_rating'))
+            ->first(); // Since we're interested in the average of all, we can limit to first
+
+        // Check if we have a result and return appropriately
+        if ($averageRating && $averageRating->average_rating) {
+            return response()->json($averageRating);
+        } else {
+            return response()->json(['message' => 'No ratings found for the specified performer and user within the last 10 months.'], 404);
+        }
+    }
+
+   
 }
