@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\SongRating;
 use App\Http\Resources\SongRatingResource;
+use Illuminate\Support\Facades\DB;
 
 class SongRatingController extends Controller
 {
@@ -72,4 +73,33 @@ class SongRatingController extends Controller
             ], 404);
         }
     }
+
+    // Methods defined for analysis functionality
+    public function favorite10RatingsIn6Months($username)
+    {
+        // Calculate the date 6 months ago from today
+        $sixMonthsAgo = now()->subMonths(6);
+
+        // Create a subquery to get the top 10 rated, unique song IDs
+        $subQuery = SongRating::select('song_id', DB::raw('AVG(rating) as average_rating'))
+                        ->where('username', $username)
+                        ->where('date_rated', '>=', $sixMonthsAgo)
+                        ->groupBy('song_id')
+                        ->orderBy('average_rating', 'DESC')
+                        ->take(10);
+
+        // Now, perform a join to get the song information based on the top song IDs
+        $topSongs = DB::table('songs')
+                        ->joinSub($subQuery, 'top_songs', function ($join) {
+                            $join->on('songs.id', '=', 'top_songs.song_id');
+                        })
+                        ->get([
+                            'songs.*', // Select all fields from songs
+                            // Here you can also join other song details if needed
+                            'top_songs.average_rating', // Get the average rating as well
+                        ]);
+
+        return response()->json($topSongs);
+    }
+
 }
