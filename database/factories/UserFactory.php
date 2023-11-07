@@ -17,12 +17,36 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
+
+        $languages = [
+            "English",
+            "Spanish",
+            "Mandarin Chinese",
+            "Hindi",
+            "Arabic",
+            "Portuguese",
+            "Bengali",
+            "Russian",
+            "Japanese",
+            "Punjabi",
+            "German",
+            "Japanese",
+            "Turkish"
+        ];
+
+
         return [
-            'name' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),
+            'username' => $this->faker->unique()->word(),
+            'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
+            'name' => $this->faker->name(),
+            'surname' => $this->faker->word(),
+            'date_of_birth' => $this->faker->date($format = 'Y-m-d', $max = 'now'),
+            'language' => $this->faker->randomElement($languages),
+            'subscription' => $this->faker->randomElement(['premium', 'free']),
+            'rate_limit' => 5,
         ];
     }
 

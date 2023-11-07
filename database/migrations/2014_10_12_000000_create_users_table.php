@@ -12,11 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
+            $table->string('username')->primary();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('name');
+            $table->string('surname');
             $table->string('password');
+            $table->string('date_of_birth');
+            $table->string('language');
+            $table->string('subscription');
+            $table->string('rate_limit');
             $table->rememberToken();
             $table->timestamps();
         });
@@ -27,6 +32,11 @@ return new class extends Migration
      */
     public function down(): void
     {
+
+        Schema::table('performer_ratings', function (Blueprint $table) {
+            $table->dropForeign(['username']);
+        });
+
         Schema::dropIfExists('users');
     }
 };
