@@ -58,6 +58,7 @@ Route::get('/songrating/user/{username}', [SongRatingController::class, 'search_
 Route::put('/songrating/{id}', [SongRatingController::class, 'update']);
 Route::post('/songrating', [SongRatingController::class, 'store']);
 Route::delete('/songrating/{id}', [SongRatingController::class, 'destroy']);
+Route::get('/songrating/user/{username}/top-10-in-6-months', [SongRatingController::class, 'favorite10RatingsIn6Months']);
 
 Route::get('/albumrating', [AlbumRatingController::class, 'index']);
 Route::get('/albumrating/album/{id}', [AlbumRatingController::class, 'search_id_album']);
@@ -65,6 +66,7 @@ Route::get('/albumrating/user/{username}', [AlbumRatingController::class, 'searc
 Route::put('/albumrating/{id}', [AlbumRatingController::class, 'update']);
 Route::post('/albumrating', [AlbumRatingController::class, 'store']);
 Route::delete('/albumrating/{id}', [AlbumRatingController::class, 'destroy']);
+Route::get('/albumrating/top-rated/{username}/{era}', [AlbumController::class, 'topRatedAlbumsByEra']);
 
 Route::get('/performerrating', [PerformerRatingController::class, 'index']);
 Route::get('/performerrating/performer/{id}', [PerformerRatingController::class, 'search_id_performer']);
