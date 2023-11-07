@@ -84,6 +84,7 @@ class PerformerFactory extends Factory
         return [
             'name' => $this->faker->randomElement($performerNames, $count = 2),
             'nationality' => $this->faker->randomElement($nationalities),
+            'image_url' => $this->faker->imageUrl($width = 640, $height = 480),
         ];
     }
 }
