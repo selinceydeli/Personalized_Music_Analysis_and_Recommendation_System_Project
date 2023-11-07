@@ -18,6 +18,7 @@ class PerformerController extends Controller
         $performer = new Performer;
         $performer->name = $request->name;
         $performer->nationality = $request->nationality;
+        $performer->image_url = $request->image_url;
         $performer->save();
         return response()->json([
             "message" => "Performer added"
@@ -48,6 +49,7 @@ class PerformerController extends Controller
             $performer = Performer::find($id);
             $performer->name = is_null($request -> name) ? $performer->name : $request->name;
             $performer->nationality = is_null($request -> nationality) ? $performer->nationality : $request->nationality;
+            $performer->image_url = is_null($request -> image_url) ? $performer->image_url : $request->image_url;
             $performer->save();
             return response()->json([
                 "message" => "Performer Updated"

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id(); // primary key of the performers table
             $table->string('name');
             $table->string('nationality');
+            $table->string('image_url');
             $table->timestamps();
         });
     }

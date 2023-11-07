@@ -23,7 +23,15 @@ class SongController extends Controller
         $song->recording_type = $request->recording_type;
         $song->song_length_seconds = $request->song_length_seconds;
         $song->tempo = $request->tempo;
+        $song->danceability = $request->danceability;
+        $song->energy = $request->energy;
         $song->key = $request->key;
+        $song->loudness = $request->loudness;
+        $song->speechiness = $request->speechiness;
+        $song->acousticness = $request->acousticness;
+        $song->instrumentalness = $request->instrumentalness;
+        $song->liveness = $request->liveness;
+        $song->valence = $request->valence;
         $song->mood = $request->mood;
         $song->language = $request->language;
         $song->system_entry_date = $request->system_entry_date;
@@ -67,12 +75,21 @@ class SongController extends Controller
             $song->recording_type = is_null($request -> recording_type) ? $song->recording_type : $request->recording_type;
             $song->song_length_seconds = is_null($request -> song_length_seconds) ? $song->song_length_seconds : $request->song_length_seconds;
             $song->tempo = is_null($request -> tempo) ? $song->tempo : $request->tempo;
+            $song->danceability = is_null($request -> danceability) ? $song->danceability : $request->danceability;
+            $song->energy = is_null($request -> energy) ? $song->energy : $request->energy;
             $song->key = is_null($request -> key) ? $song->key : $request->key;
+            $song->loudness = is_null($request -> loudness) ? $song->loudness : $request->loudness;
+            $song->speechiness = is_null($request -> speechiness) ? $song->speechiness : $request->speechiness;
+            $song->acousticness = is_null($request -> acousticness) ? $song->acousticness : $request->acousticness;
+            $song->instrumentalness = is_null($request -> instrumentalness) ? $song->instrumentalness : $request->instrumentalness;
+            $song->liveness = is_null($request -> liveness) ? $song->key : $request->liveness;
+            $song->valence = is_null($request -> valence) ? $song->valence : $request->valence;
             $song->mood = is_null($request -> mood) ? $song->mood : $request->mood;
             $song->language = is_null($request -> language) ? $song->language : $request->language;
             $song->system_entry_date = is_null($request -> system_entry_date) ? $song->system_entry_date : $request->system_entry_date;
             $song->album_id = is_null($request -> album_id) ? $song->album_id : $request->album_id;
             $song->save();
+
             return response()->json([
                 "message" => "Song Updated"
             ], 200);

@@ -21,6 +21,15 @@ return new class extends Migration
             $table->string('recording_type'); // live/studio/radio
             $table->unsignedInteger('song_length_seconds'); // song length is stored in seconds 
             $table->decimal('tempo'); // in bpm unit
+            $table->decimal('danceability');
+            $table->decimal('energy');
+            $table->decimal('key');
+            $table->decimal('loudness');
+            $table->decimal('speechiness');
+            $table->decimal('acousticness');
+            $table->decimal('instrumentalness');
+            $table->decimal('liveness');
+            $table->decimal('valence');
             $table->string('key');
             $table->string('mood');
             $table->string('language');
