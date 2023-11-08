@@ -16,7 +16,7 @@
             theme: {
                 extend: {
                     colors: {
-                        laravel: "#7fb285",
+                        laravel: "#ff4d6f",
                     },
                 },
             },
@@ -28,7 +28,7 @@
 
 <body class="mb-48">
     <nav class="flex justify-between items-center mb-4">
-        <a href="/"><img class="w-24" src="images/logo.png" alt="" class="logo" /></a>
+        <a href="/"><img class="w-24" src="images/mt_logo.png" alt="" class="logo" /></a>
         <ul class="flex space-x-6 mr-6 text-lg">
             @auth
             <li>
@@ -39,6 +39,11 @@
             <li>
                 <a href="/listings/manage" class="hover:text-laravel"><i class="fa-solid fa-gear"></i>
                     Manage Musics</a>
+            </li>
+            <li>
+                <button id="dashboard-menu-button" class="text-gray-500 hover:text-gray-900 ml-4" onclick="toggleDashboardMenu()">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
             </li>
             <li>
                 <form class="inline" method="POST" action="/logout">
@@ -72,6 +77,41 @@
     <script src="{{ asset('js/password-checklist.js') }}"></script>
     <script src="{{ asset('js/password-toggle.js') }}"></script>
     <script src="{{ asset('js/password-toggle-login.js') }}"></script>
+
+    <div id="dashboard-menu" class="hidden fixed top-16 right-4 bg-white p-4 border rounded-lg shadow-lg">
+        <ul>
+            <li><a href="/playlists"><i class="fas fa-list"></i> Playlists</a></li>
+            <li><a href="/user-profile"><i class="fas fa-user"></i> User Profile</a></li>
+            <li><a href="/settings"><i class="fas fa-cog"></i> Settings</a></li>
+            <li>
+                <form class="inline" method="POST" action="/logout">
+                    @csrf
+                    <button type="submit">
+                        <i class="fas fa-door-closed"></i> Logout
+                    </button>
+                </form>
+            </li>
+        </ul>
+    </div>
+
+
+    <script>
+        var dashboardMenuVisible = false;
+        var dashboardMenu = document.getElementById('dashboard-menu');
+
+        function toggleDashboardMenu() {
+            dashboardMenuVisible = !dashboardMenuVisible;
+            dashboardMenu.style.display = dashboardMenuVisible ? 'block' : 'none';
+        }
+
+        // Close the dashboard menu if the user clicks outside of it
+        document.addEventListener('click', function (event) {
+            if (!event.target.closest('#dashboard-menu-button') && !event.target.closest('#dashboard-menu')) {
+                dashboardMenu.style.display = 'none';
+                dashboardMenuVisible = false;
+            }
+        });
+    </script>
 </body>
 
 </html>

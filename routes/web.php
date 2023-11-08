@@ -20,6 +20,7 @@ Route::get('/', [SongController::class, 'index']);
 // Show Register/Create Form
 Route::get('/register', [UserController::class, 'create'])->middleware('guest');
 
+
 // Show Login Form
 Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
 
