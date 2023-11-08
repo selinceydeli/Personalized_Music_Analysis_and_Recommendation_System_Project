@@ -17,13 +17,18 @@
                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror
             </div>
-            <div class="mb-6">
+            <div class="mb-6 relative">
                 <label for="password" class="inline-block text-lg mb-2">
                     Password
                 </label>
-                <input type="password" class="border border-gray-200 rounded p-2 w-full" name="password" value="{{ old('password') }}" />
+                <div class="relative">
+                    <input type="password" class="border border-gray-200 rounded p-2 w-full" name="password" id="password" value="{{ old('password') }}" />
+                    <button id="show-password-login" type="button" class="absolute top-1/2 transform -translate-y-1/2 right-2 text-gray-500 hover:text-gray-700">
+                        <i id="login-eye-icon" class="fa fa-eye"></i>
+                    </button>
+                </div>
                 @error('password')
-                <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror
             </div>
             <div class="mb-6">
