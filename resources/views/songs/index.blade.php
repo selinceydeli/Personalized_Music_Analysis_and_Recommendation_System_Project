@@ -13,7 +13,4 @@
         @endforeach
 
     </div>
-    <div class="mt-6 p-4">
-        {{$songs->links()}}
-    </div>
 </x-layout>
