@@ -22,7 +22,13 @@ class UserController extends Controller
 
     public function store(Request $request){
         $formFields = $request->validate([
-            'name' => ['required', 'min:3'],
+            'username' => ['required', 'string', 'min:3', 'max:255', Rule::unique('users', 'username')],
+            'name' => ['required', 'string', 'max:255'],
+            'surname' => ['required', 'string', 'max:255'],
+            'date_of_birth' => ['required', 'date'],
+            'language' => ['required', 'string', 'max:255'],
+            'subscription' => ['required', 'string', 'max:255'],
+            'rate_limit' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', Rule::unique('users', 'email')],
             'password' => ['required', 'confirmed', 'min:6'],
         ]);
@@ -89,11 +95,22 @@ class UserController extends Controller
             $response = (new ReCaptcha(env('RECAPTCHA_SECRET_KEY')))->verify($request->input('g-recaptcha-response'));
         
             if ($response->isSuccess() && auth()->attempt($formFields)) {
+                // Get the authenticated user
+                $user = auth()->user();
+        
+                // Retrieve the user's name from the database
+                $userName = $user->name;
+        
                 $request->session()->regenerate();
+        
+                // You can pass the user's name to the view or store it in the session
+                $request->session()->put('user_name', $userName);
+        
                 return redirect('/')->with('message', 'You are now logged in!');
             }
         
             return back()->withErrors(['email' => 'Invalid Credentials'])->onlyInput('email');
         }
+        
     
 }
