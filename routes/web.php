@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\SongController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SongController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [SongController::class, 'index']);
+
+// Show Register/Create Form
+Route::get('/register', [UserController::class, 'create'])->middleware('guest');
+
+// Show Login Form
+Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
+
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

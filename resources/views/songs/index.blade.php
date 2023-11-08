@@ -6,11 +6,15 @@
             <p>
                 No listings found
             </p>
+        @else
+            @foreach ($songs as $song)
+            <div class="listing-card" data-title="{{ $song->name }}">
+                <x-listing-card :song="$song" />
+            </div>
+            @endforeach
         @endif
-
-        @foreach ($songs as $songs)
-            <x-listing-card :song="$songs" />
-        @endforeach
-
+    </div>
+    <div class="mt-6 p-4">
+        {{$songs->links()}}
     </div>
 </x-layout>

@@ -5,7 +5,7 @@
         <div class="flex">
             <div>
                 <h3 class="text-2xl">
-                    <a href="/songs/{{$song->name}}">{{$song->name}}</a>
+                    <a href="/songs/{{$song->id}}">{{$song->name}}</a>
                 </h3>
             </div>
         </div>
