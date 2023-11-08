@@ -9,8 +9,9 @@ use Illuminate\Http\Request;
 class SongController extends Controller
 {
     public function index(){
-        $songs = Song::all();
-        return response()->json($songs);
+        return view('songs.index', [
+            'songs' => Song::latest()->paginate(6)
+        ]);
     }
 
     public function store(Request $request){

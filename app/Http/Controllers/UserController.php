@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use ReCaptcha\ReCaptcha; // Import the ReCaptcha class at the top
-use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use App\Http\Resources\UserResource;
+use ReCaptcha\ReCaptcha; // Import the ReCaptcha class at the top
 
 class UserController extends Controller
 {
