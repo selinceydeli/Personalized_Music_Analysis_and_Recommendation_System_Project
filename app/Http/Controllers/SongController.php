@@ -9,10 +9,36 @@ use Illuminate\Http\Request;
 class SongController extends Controller
 {
     public function index(){
+        $query = Song::latest();
+    
+        // Check if a genre filter is applied
+        $selectedGenre = request('genre');
+        if ($selectedGenre) {
+            $query->where('genre', $selectedGenre);
+        }
+    
+        // Check if a search filter is applied
+        $searchTerm = request('search');
+        if ($searchTerm) {
+            $query->where(function ($query) use ($searchTerm) {
+                $query->where('name', 'like', '%' . $searchTerm . '%');
+            });
+        }
+    
+        $songs = $query->paginate(6);
+    
+        // Append the genre and search parameters to the pagination links
+        $songs->appends([
+            'genre' => $selectedGenre,
+            'search' => $searchTerm,
+        ]);
+    
         return view('songs.index', [
-            'songs' => Song::latest()->paginate(6)
+            'songs' => $songs,
+            'selectedGenre' => $selectedGenre,
         ]);
     }
+    
 
     public function store(Request $request){
         $song = new Song;
@@ -45,6 +71,15 @@ class SongController extends Controller
                 "message" => "Song not found"
             ], 404);
         }
+    }
+
+    public function searchSongs(Request $request)
+    {
+        $searchQuery = $request->input('search');
+    
+        $songs = Song::where('name', 'like', '%' . $searchQuery . '%')->get();
+    
+        return view('songs.search-results', compact('songs'));
     }
 
     /*

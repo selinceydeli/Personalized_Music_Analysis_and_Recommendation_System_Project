@@ -1,13 +1,13 @@
-@props(['tagsCsv'])
+@props(['genresCsv'])
 
 @php
-    $tags= explode(',', $tagsCsv);
+    $genres= explode('/', $genresCsv);
 @endphp
 
 <ul class="flex">
-    @foreach($tags as $tag)
-    <li class="flex items-center justify-center bg-black text-white rounded-xl py-1 px-3 mr-2 text-xs">
-        <a href="/?tag={{$tag}}">{{$tag}}</a>
+    @foreach($genres as $genre)
+    <li class="flex items-center justify-center" style="background-color: red; color: white; border-radius: 0.25rem; padding: 0.5rem 1rem; margin-right: 0.5rem; font-size: 0.75rem;">
+        <a href="/?genre={{ $genre }}">{{ $genre }}</a>
     </li>
     @endforeach
 </ul>
