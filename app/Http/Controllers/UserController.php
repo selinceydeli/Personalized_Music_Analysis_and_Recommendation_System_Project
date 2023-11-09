@@ -99,7 +99,7 @@ class UserController extends Controller
                 $user = auth()->user();
         
                 // Retrieve the user's name from the database
-                $userName = $user->name;
+                $userName = $user->username;
         
                 $request->session()->regenerate();
         

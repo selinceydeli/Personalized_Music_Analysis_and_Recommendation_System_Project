@@ -41,6 +41,9 @@ Route::view('profile', 'profile')
 // Add the route for Logout
 Route::post('/logout', [DashboardController::class, 'logout'])->middleware(['auth'])->name('logout');
 
+Route::get('/search-songs', [SongController::class,'searchSongs']);
+
+
 Route::get('/hello', function(){
     return "Hello World";
 });
