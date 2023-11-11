@@ -1,6 +1,4 @@
-<p align="center">
 # Music Tailor: Music Flavor Analyzer & Recommender System
-</p>
 
 ## Project Overview
 This project, developed as part of CS 308's term project, aims to create an online music system. The system's core functionality is to aggregate users' liked-song data from various platforms, analyze musical preferences, and offer tailored recommendations. Unlike traditional music streaming services, this platform focuses on data collection, analysis, and recommendation, without streaming capabilities.
