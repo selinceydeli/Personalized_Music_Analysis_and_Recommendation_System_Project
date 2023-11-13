@@ -25,7 +25,7 @@ class SongRatingFactory extends Factory
             'rating' => $this->faker->randomFloat(1, 0, 50) / 10,
             'username' => $this->faker->randomElement($usernames),
             'song_id' => $this->faker->randomElement($songIds),
-            'date_rated' => $this->faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now', $timezone = null)->format('Y-m-d'),
+            'date_rated' => $this->faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now', $timezone = null),
         ];
     }
 }

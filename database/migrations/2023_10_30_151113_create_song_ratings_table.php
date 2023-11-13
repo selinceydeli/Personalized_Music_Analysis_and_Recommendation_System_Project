@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('username');
             $table->foreign('username')->references('username')->on('users')->cascadeOnDelete();
             $table->foreignId('song_id')->constrained('songs')->cascadeOnDelete(); // Foreign key referencing songs
-            $table->date('date_rated');
+            $table->timestamp('date_rated');
             $table->timestamps();
         });
     }

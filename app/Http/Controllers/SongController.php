@@ -18,14 +18,10 @@ class SongController extends Controller
         $song->name = $request->name;
         $song->publ_date = $request->publ_date;
         $song->performers = $request->performers;
-        $song->song_writer = $request->song_writer;
-        $song->genre = $request->genre;
-        $song->recording_type = $request->recording_type;
-        $song->song_length_seconds = $request->song_length_seconds;
+        $song->duration = $request->duration;
+        $song->explicit = $request->explicit;
         $song->tempo = $request->tempo;
         $song->key = $request->key;
-        $song->mood = $request->mood;
-        $song->language = $request->language;
         $song->system_entry_date = $request->system_entry_date;
         $song->album_id = $request->album_id;
         $song->save();
@@ -57,21 +53,18 @@ class SongController extends Controller
     }
 
     public function update(Request $request, $id){
-        if (Song::where('id', $id) -> exists()){
+        if (Song::where('song_id', $id) -> exists()){
             $song = Song::find($id);
             $song->name = is_null($request -> name) ? $song->name : $request->name;
             $song->publ_date = is_null($request -> publ_date) ? $song->publ_date : $request->publ_date;
             $song->performers = is_null($request -> performers) ? $song->performers : $request->performers;
-            $song->song_writer = is_null($request -> song_writer) ? $song->song_writer : $request->song_writer;
-            $song->genre = is_null($request -> genre) ? $song->genre : $request->genre;
-            $song->recording_type = is_null($request -> recording_type) ? $song->recording_type : $request->recording_type;
-            $song->song_length_seconds = is_null($request -> song_length_seconds) ? $song->song_length_seconds : $request->song_length_seconds;
             $song->tempo = is_null($request -> tempo) ? $song->tempo : $request->tempo;
             $song->key = is_null($request -> key) ? $song->key : $request->key;
-            $song->mood = is_null($request -> mood) ? $song->mood : $request->mood;
             $song->language = is_null($request -> language) ? $song->language : $request->language;
             $song->system_entry_date = is_null($request -> system_entry_date) ? $song->system_entry_date : $request->system_entry_date;
             $song->album_id = is_null($request -> album_id) ? $song->album_id : $request->album_id;
+            $song->explicit = is_null($request -> explicit) ? $song->explicit : $request->explicit;
+            $song->duration = is_null($request -> duration) ? $song->duration : $request->duration;
             $song->save();
             return response()->json([
                 "message" => "Song Updated"
@@ -85,7 +78,7 @@ class SongController extends Controller
     }
 
     public function destroy($id){
-        if (Song::where('id', $id) -> exists()){
+        if (Song::where('song_id', $id) -> exists()){
             $song = Song::find($id);
             $song->delete();
             return response()->json([

@@ -26,7 +26,7 @@ class PerformerRatingFactory extends Factory
             'rating' => $this->faker->randomFloat(1, 0, 50) / 10,
             'username' => $this->faker->randomElement($usernames),
             'perf_id' => $this->faker->randomElement($performerIds),
-            'date_rated' => $this->faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now', $timezone = null)->format('Y-m-d'),
+            'date_rated' => $this->faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now', $timezone = null),
         ];
     }
 }

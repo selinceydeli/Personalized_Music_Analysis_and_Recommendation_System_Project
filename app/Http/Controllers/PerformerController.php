@@ -17,7 +17,9 @@ class PerformerController extends Controller
     public function store(Request $request){
         $performer = new Performer;
         $performer->name = $request->name;
-        $performer->nationality = $request->nationality;
+        $performer->genres = $request->genres;
+        $performer->popularity = $request->popularity;
+        $performer->image_url = $request->image_url;
         $performer->save();
         return response()->json([
             "message" => "Performer added"
@@ -44,10 +46,12 @@ class PerformerController extends Controller
     }
 
     public function update(Request $request, $id){
-        if (Performer::where('id', $id) -> exists()){
+        if (Performer::where('artist_id', $id) -> exists()){
             $performer = Performer::find($id);
             $performer->name = is_null($request -> name) ? $performer->name : $request->name;
-            $performer->nationality = is_null($request -> nationality) ? $performer->nationality : $request->nationality;
+            $performer->genres = is_null($request -> genres) ? $performer->genres : $request->genres;
+            $performer->popularity = is_null($request -> popularity) ? $performer->popularity : $request->popularity;
+            $performer->image_url = is_null($request -> image_url) ? $performer->image_url : $request->image_url;
             $performer->save();
             return response()->json([
                 "message" => "Performer Updated"
@@ -61,7 +65,7 @@ class PerformerController extends Controller
     }
 
     public function destroy($id){
-        if (Performer::where('id', $id) -> exists()){
+        if (Performer::where('artist_id', $id) -> exists()){
             $performer = Performer::find($id);
             $performer->delete();
             return response()->json([

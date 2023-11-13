@@ -12,18 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('songs', function (Blueprint $table) {
-            $table->id(); // primary key of the songs table
+            $table->string('song_id') -> primary(); // primary key of the songs table
             $table->string('name');
             $table->date('publ_date'); // stores the date in YYYY-MM-DD format
             $table->json('performers'); // stored as JSON field
-            $table->string('song_writer');
-            $table->string('genre');
-            $table->string('recording_type'); // live/studio/radio
-            $table->unsignedInteger('song_length_seconds'); // song length is stored in seconds 
+            $table->unsignedInteger('duration'); // song length is stored in seconds 
             $table->decimal('tempo'); // in bpm unit
             $table->string('key');
-            $table->string('mood');
-            $table->string('language');
+            $table->bool('explicit');
             $table->timestamp('system_entry_date'); // stores both date and time
             $table->foreignId('album_id')->constrained('albums')->cascadeOnDelete(); // Foreign key referencing songs
             $table->timestamps();
