@@ -16,7 +16,8 @@ return new class extends Migration
             $table->decimal('rating', 2, 1); // ratings are between 0 - 5.0
             $table->string('username');
             $table->foreign('username')->references('username')->on('users')->cascadeOnDelete();
-            $table->foreignId('perf_id')->constrained('performers')->cascadeOnDelete(); // Foreign key referencing performers
+            $table->string('artist_id');
+            $table->foreign('artist_id')->constrained('performers')->cascadeOnDelete(); // Foreign key referencing performers
             $table->timestamp('date_rated');
             $table->timestamps();
         });
