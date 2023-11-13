@@ -21,7 +21,7 @@ class PerformerRatingFactory extends Factory
     {
         $startDate = now()->subYears(1);
         $usernames = User::pluck('username')->all();
-        $performerIds = Performer::pluck('id')->all();
+        $performerIds = Performer::pluck('artist_id')->all();
         return [
             'rating' => $this->faker->randomFloat(1, 0, 50) / 10,
             'username' => $this->faker->randomElement($usernames),

@@ -19,7 +19,7 @@ class AlbumRatingFactory extends Factory
     public function definition(): array
     {
         $usernames = User::pluck('username')->all();
-        $albumIds = Album::pluck('id')->all();
+        $albumIds = Album::pluck('album_id')->all();
         return [
             'rating' => $this->faker->randomFloat(1, 0, 50) / 10,
             'username' => $this->faker->randomElement($usernames),

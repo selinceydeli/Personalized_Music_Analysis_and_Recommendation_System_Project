@@ -20,7 +20,7 @@ class SongRatingFactory extends Factory
     {
 
         $usernames = User::pluck('username')->all();
-        $songIds = Song::pluck('id')->all();
+        $songIds = Song::pluck('song_id')->all();
         return [
             'rating' => $this->faker->randomFloat(1, 0, 50) / 10,
             'username' => $this->faker->randomElement($usernames),
