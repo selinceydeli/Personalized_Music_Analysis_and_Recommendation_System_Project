@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\PerformerRating;
 use App\Http\Resources\PerformerRatingResource;
+use Illuminate\Support\Facades\DB;
 
 class PerformerRatingController extends Controller
 {
@@ -71,5 +72,33 @@ class PerformerRatingController extends Controller
                 "message" => "Performer rating not found"
             ], 404);
         }
+    }
+
+    // Methods defined for analysis functionality
+    public function getAverageRatingsForArtists(Request $request)
+    {
+        // Extract the artist names and months from the request
+        $artistNames = $request->input('artistNames');
+        $months = $request->input('months', 6); // Default to 6 months if not specified
+
+        // Calculate the start date
+        $startDate = now()->subMonths($months);
+
+        // Get average ratings for the specified artists since the start date
+        $ratings = PerformerRating::select('performers.name', DB::raw('AVG(performer_ratings.rating) as average_rating'))
+                    ->join('performers', 'performer_ratings.perf_id', '=', 'performers.id')
+                    ->whereIn('performers.name', $artistNames)
+                    ->where('performer_ratings.date_rated', '>=', $startDate)
+                    ->groupBy('performers.name')
+                    ->get()
+                    ->keyBy('name'); // Key the collection by performer name for easy lookup
+
+        // Prepare the results in the order of the inputted artist names
+        $orderedRatings = [];
+        foreach ($artistNames as $artistName) {
+            $orderedRatings[$artistName] = $ratings[$artistName]->average_rating ?? null;
+        }
+
+        return $orderedRatings;
     }
 }
