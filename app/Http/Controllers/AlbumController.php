@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Song;
 use App\Models\Album;
+use App\Models\Performer;
+use Illuminate\Http\Request;
 use App\Http\Resources\AlbumResource;
 
 class AlbumController extends Controller
@@ -18,6 +20,33 @@ class AlbumController extends Controller
     public function index(){
         $albums = Album::all();
         return response()->json($albums);
+    }
+
+    // Show single album
+    public function show(Album $album, Request $request) {
+
+        $songId = $request->input('song-id');
+        
+        $song = Song::find($songId);
+
+        // Retrieve all songs with the same album_id as $song->album->id
+        $songsWithSameAlbum = Song::where('album_id', $song->album->id)->get();
+
+        // Access the performer IDs from the song
+        $performersJson = $song->performers; // JSON field from the Song model
+
+        // Retrieve performer IDs from JSON data
+        $performerIds = json_decode($performersJson)->ids ?? [];
+
+        // Assuming $performerIds contains the performer IDs associated with the song
+        $performers = Performer::whereIn('id', $performerIds)->get();      
+
+        return view('songs.show', [
+            'album' => $album,
+            'song' => $song,
+            'performers' => $performers,
+            'songs' => $songsWithSameAlbum
+        ]);
     }
 
     public function store(Request $request){

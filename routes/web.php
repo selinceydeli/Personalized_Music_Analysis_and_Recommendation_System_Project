@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AlbumController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SongController;
 use App\Http\Controllers\UserController;
@@ -26,6 +27,9 @@ Route::post('/users', [UserController::class, 'store'])->name('register');
 
 // Show Login Form
 Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
+
+//Single Album
+Route::get('/albums/{album}', [AlbumController::class, 'show']);
 
 Route::post('/users/authenticate', [UserController::class, 'authenticate'])->name('login');
 

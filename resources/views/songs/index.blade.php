@@ -8,16 +8,13 @@
             </p>
         @else
             @foreach ($songs as $song)
-            <div class="listing-card" data-title="{{ $song->name }}">
-                <x-listing-card :song="$song" />
-            </div>
+                <div class="listing-card" data-title="{{ $song->name }}">
+                    <x-listing-card :song="$song"/>
+                </div>
             @endforeach
         @endif
     </div>
     <div class="mt-6 p-4">
         {{ $songs->appends(['genre' => $selectedGenre])->links() }}
-    </div>    
+    </div>
 </x-layout>
-
-
-
