@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('username');
             $table->foreign('username')->references('username')->on('users')->cascadeOnDelete();
             $table->string('artist_id');
-            $table->foreign('artist_id')->constrained('performers')->cascadeOnDelete(); // Foreign key referencing performers
+            $table->foreign('artist_id')->references('artist_id')->on('performers')->cascadeOnDelete(); // Foreign key referencing performers
             $table->timestamp('date_rated');
             $table->timestamps();
         });

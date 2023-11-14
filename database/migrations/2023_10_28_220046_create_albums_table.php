@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('albums', function (Blueprint $table) {
-            $table->string('album_id') -> primary(); // primary key of the albums table
+            $table->string('album_id')->primary(); // primary key of the albums table
             $table->string('name');
             $table->string('album_type');
             $table->boolean('is_single'); // checks if the album is a single 

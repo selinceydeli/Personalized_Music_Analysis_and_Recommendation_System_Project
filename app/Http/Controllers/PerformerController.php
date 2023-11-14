@@ -17,7 +17,7 @@ class PerformerController extends Controller
     public function store(Request $request){
         $performer = new Performer;
         $performer->name = $request->name;
-        $performer->genres = $request->genres;
+        $performer->genre = $request->genre;
         $performer->popularity = $request->popularity;
         $performer->image_url = $request->image_url;
         $performer->save();
@@ -49,7 +49,7 @@ class PerformerController extends Controller
         if (Performer::where('artist_id', $id) -> exists()){
             $performer = Performer::find($id);
             $performer->name = is_null($request -> name) ? $performer->name : $request->name;
-            $performer->genres = is_null($request -> genres) ? $performer->genres : $request->genres;
+            $performer->genre = is_null($request -> genre) ? $performer->genre : $request->genre;
             $performer->popularity = is_null($request -> popularity) ? $performer->popularity : $request->popularity;
             $performer->image_url = is_null($request -> image_url) ? $performer->image_url : $request->image_url;
             $performer->save();
