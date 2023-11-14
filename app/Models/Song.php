@@ -17,9 +17,9 @@ class Song extends Model
             $query->where(function ($subquery) use ($genres) {
                 // Check for an exact match
                 foreach ($genres as $genre) {
-                    $subquery->orWhere('genre', 'LIKE', '%/' . $genre . '/%');
-                    $subquery->orWhere('genre', 'LIKE', $genre . '/%');
-                    $subquery->orWhere('genre', 'LIKE', '%/' . $genre);
+                    $subquery->orWhere('genre', 'LIKE', '%' . $genre . '%');
+                    $subquery->orWhere('genre', 'LIKE', $genre . '%');
+                    $subquery->orWhere('genre', 'LIKE', '%' . $genre);
                     $subquery->orWhere('genre', 'LIKE', $genre);
                 }
             });
@@ -35,4 +35,10 @@ class Song extends Model
     public function album() {
         return $this->belongsTo(Album::class);
     }
+    // Define the relationship with performers
+    public function performers()
+    {
+        return $this->belongsToMany(Performer::class);
+    }
+    
 }
