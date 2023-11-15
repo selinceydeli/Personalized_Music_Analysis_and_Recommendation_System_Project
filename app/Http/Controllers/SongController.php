@@ -19,6 +19,7 @@ class SongController extends Controller
         $song->performers = $request->performers;
         $song->isrc = $request->isrc;
         $song->duration = $request->duration;
+        $song->lyrics = $request->lyrics;
         $song->explicit = $request->explicit;
         $song->tempo = $request->tempo;
         $song->key = $request->key;
@@ -56,6 +57,7 @@ class SongController extends Controller
         if (Song::where('song_id', $id) -> exists()){
             $song = Song::find($id);
             $song->name = is_null($request -> name) ? $song->name : $request->name;
+            $song->lyrics = is_null($request -> lyrics) ? $song->lyrics : $request->lyrics;
             $song->isrc = is_null($request -> isrc) ? $song->isrc : $request->isrc;
             $song->performers = is_null($request -> performers) ? $song->performers : $request->performers;
             $song->tempo = is_null($request -> tempo) ? $song->tempo : $request->tempo;
