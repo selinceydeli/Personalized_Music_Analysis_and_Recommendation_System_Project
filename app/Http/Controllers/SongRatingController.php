@@ -75,10 +75,10 @@ class SongRatingController extends Controller
     }
 
     // Methods defined for analysis functionality
-    public function favorite10RatingsIn6Months($username)
+    public function favorite10RatingsInGivenMonths($username, int $months)
     {
-        // Calculate the date 6 months ago from today
-        $sixMonthsAgo = now()->subMonths(6);
+        // Calculate the date $months ago from today
+        $sixMonthsAgo = now()->subMonths($months);
 
         // Create a subquery to get the top 10 rated, unique song IDs
         $subQuery = SongRating::select('song_id', DB::raw('AVG(rating) as average_rating'))
@@ -101,5 +101,4 @@ class SongRatingController extends Controller
 
         return response()->json($topSongs);
     }
-
 }
