@@ -17,7 +17,9 @@ class PerformerResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'nationality' => $this->nationality,
+            'genre' => $this->genre,
+            'popularity' => $this->popularity,
+            'image_url' => $this->image_url,
         ];
     }
 }

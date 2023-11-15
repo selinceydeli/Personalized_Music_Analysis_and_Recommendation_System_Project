@@ -18,10 +18,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        
-        Album::factory(100)->create();
-        Performer::factory(25)->create();
-        Song::factory(500)->create();
         User::factory(100)->create();
         SongRating::factory(1000)->create();
         PerformerRating::factory(500)->create();

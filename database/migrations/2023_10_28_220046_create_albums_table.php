@@ -12,10 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('albums', function (Blueprint $table) {
-            $table->id(); // primary key of the albums table
+            $table->string('album_id')->primary(); // primary key of the albums table
             $table->string('name');
-            $table->boolean('is_single'); // checks if the album is a single 
+            $table->string('album_type');
             $table->string('image_url');
+            $table->string('artist_id');
+            $table->string('label');
+            $table->string('copyright');
+            $table->date('release_date');
+            $table->unsignedTinyInteger('total_tracks');
+            $table->unsignedTinyInteger('popularity');
             $table->timestamps();
         });
     }
