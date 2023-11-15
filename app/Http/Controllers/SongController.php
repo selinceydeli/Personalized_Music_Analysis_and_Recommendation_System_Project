@@ -16,7 +16,6 @@ class SongController extends Controller
     public function store(Request $request){
         $song = new Song;
         $song->name = $request->name;
-        $song->publ_date = $request->publ_date;
         $song->performers = $request->performers;
         $song->duration = $request->duration;
         $song->explicit = $request->explicit;
@@ -56,7 +55,6 @@ class SongController extends Controller
         if (Song::where('song_id', $id) -> exists()){
             $song = Song::find($id);
             $song->name = is_null($request -> name) ? $song->name : $request->name;
-            $song->publ_date = is_null($request -> publ_date) ? $song->publ_date : $request->publ_date;
             $song->performers = is_null($request -> performers) ? $song->performers : $request->performers;
             $song->tempo = is_null($request -> tempo) ? $song->tempo : $request->tempo;
             $song->key = is_null($request -> key) ? $song->key : $request->key;
