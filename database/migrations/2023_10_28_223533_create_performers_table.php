@@ -12,9 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('performers', function (Blueprint $table) {
-            $table->id(); // primary key of the performers table
+            $table->string('artist_id')->primary(); // primary key of the performers table
             $table->string('name');
-            $table->string('nationality');
+            $table->json('genre');
+            $table->unsignedTinyInteger('popularity');
+            $table->string('image_url');
             $table->timestamps();
         });
     }

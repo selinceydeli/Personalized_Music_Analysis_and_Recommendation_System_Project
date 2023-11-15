@@ -27,10 +27,10 @@ class AlbumController extends Controller
 
         $songId = $request->input('song-id');
         
-        $song = Song::find($songId);
+        $song = Song::where('song_id', $songId)->first();
 
         // Retrieve all songs with the same album_id as $song->album->id
-        $songsWithSameAlbum = Song::where('album_id', $song->album->id)->get();
+        $songsWithSameAlbum = Song::where('album_id', $song->album->album_id)->get();
 
         // Access the performer IDs from the song
         $performersJson = $song->performers; // JSON field from the Song model
@@ -39,7 +39,7 @@ class AlbumController extends Controller
         $performerIds = json_decode($performersJson)->ids ?? [];
 
         // Assuming $performerIds contains the performer IDs associated with the song
-        $performers = Performer::whereIn('id', $performerIds)->get();      
+        $performers = Performer::whereIn('artist_id', $performerIds)->get();      
 
         return view('songs.show', [
             'album' => $album,
@@ -52,8 +52,14 @@ class AlbumController extends Controller
     public function store(Request $request){
         $album = new Album;
         $album->name = $request->name;
-        $album->is_single = $request->is_single;
+        $album->album_type = $request->album_type;
         $album->image_url = $request->image_url;
+        $album->artist_id = $request->artist_id;
+        $album->label = $request->label;
+        $album->copyright = $request->copyright;
+        $album->release_date = $request->release_date;
+        $album->total_tracks = $request->total_tracks;
+        $album->popularity = $request->popularity;
         $album->save();
         return response()->json([
             "message" => "Album added"
@@ -81,11 +87,17 @@ class AlbumController extends Controller
     }
 
     public function update(Request $request, $id){
-        if (album::where('id', $id) -> exists()){
+        if (album::where('album_id', $id) -> exists()){
             $album = album::find($id);
             $album->name = is_null($request -> name) ? $album->name : $request->name;
-            $album->is_single = is_null($request -> is_single) ? $album->is_single : $request->is_single;
+            $album->album_type = is_null($request -> album_type) ? $album->album_type : $request->album_type;
             $album->image_url = is_null($request -> image_url) ? $album->image_url : $request->image_url;
+            $album->artist_id = is_null($request -> artist_id) ? $album->artist_id : $request->artist_id;
+            $album->label = is_null($request -> label) ? $album->label : $request->label;
+            $album->copyright = is_null($request -> copyright) ? $album->copyright : $request->copyright;
+            $album->release_date = is_null($request -> release_date) ? $album->release_date : $request->release_date;
+            $album->total_tracks = is_null($request -> total_tracks) ? $album->total_tracks : $request->total_tracks;
+            $album->popularity = is_null($request -> popularity) ? $album->popularity : $request->popularity;
             $album->save();
             return response()->json([
                 "message" => "Album Updated"
@@ -99,7 +111,7 @@ class AlbumController extends Controller
     }
 
     public function destroy($id){
-        if (Album::where('id', $id) -> exists()){
+        if (Album::where('album_id', $id) -> exists()){
             $album = Album::find($id);
             $album->delete();
             return response()->json([

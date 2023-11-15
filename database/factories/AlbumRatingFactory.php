@@ -19,12 +19,12 @@ class AlbumRatingFactory extends Factory
     public function definition(): array
     {
         $usernames = User::pluck('username')->all();
-        $albumIds = Album::pluck('id')->all();
+        $albumIds = Album::pluck('album_id')->all();
         return [
             'rating' => $this->faker->randomFloat(1, 0, 50) / 10,
             'username' => $this->faker->randomElement($usernames),
             'album_id' => $this->faker->randomElement($albumIds),
-            'date_rated' => $this->faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now', $timezone = null)->format('Y-m-d'),
+            'date_rated' => $this->faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now', $timezone = null),
         ];
     }
 }

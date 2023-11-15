@@ -21,12 +21,12 @@ class PerformerRatingFactory extends Factory
     {
         $startDate = now()->subYears(1);
         $usernames = User::pluck('username')->all();
-        $performerIds = Performer::pluck('id')->all();
+        $performerIds = Performer::pluck('artist_id')->all();
         return [
             'rating' => $this->faker->randomFloat(1, 0, 50) / 10,
             'username' => $this->faker->randomElement($usernames),
             'perf_id' => $this->faker->randomElement($performerIds),
-            'date_rated' => $this->faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now', $timezone = null)->format('Y-m-d'),
+            'date_rated' => $this->faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now', $timezone = null),
         ];
     }
 }
