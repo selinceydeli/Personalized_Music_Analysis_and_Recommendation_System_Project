@@ -27,10 +27,10 @@ class AlbumController extends Controller
 
         $songId = $request->input('song-id');
         
-        $song = Song::find($songId);
+        $song = Song::where('song_id', $songId)->first();
 
         // Retrieve all songs with the same album_id as $song->album->id
-        $songsWithSameAlbum = Song::where('album_id', $song->album->id)->get();
+        $songsWithSameAlbum = Song::where('album_id', $song->album->album_id)->get();
 
         // Access the performer IDs from the song
         $performersJson = $song->performers; // JSON field from the Song model
@@ -39,7 +39,7 @@ class AlbumController extends Controller
         $performerIds = json_decode($performersJson)->ids ?? [];
 
         // Assuming $performerIds contains the performer IDs associated with the song
-        $performers = Performer::whereIn('id', $performerIds)->get();      
+        $performers = Performer::whereIn('artist_id', $performerIds)->get();      
 
         return view('songs.show', [
             'album' => $album,

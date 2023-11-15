@@ -47,12 +47,12 @@ class Song extends Model
     }
 
     public function album() {
-        return $this->belongsTo(Album::class);
+        return $this->belongsTo(Album::class, 'album_id');
     }
     // Define the relationship with performers
     public function performers()
     {
-        return $this->belongsToMany(Performer::class);
+        return $this->belongsToMany(Performer::class, 'artist_id');
     }
     
 }

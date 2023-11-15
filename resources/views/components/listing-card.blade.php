@@ -1,10 +1,10 @@
 @props(['song'])
 
-<!-- Item 1 -->
 @if (!function_exists('formatSongDuration'))
     @php
-        function formatSongDuration($seconds)
+        function formatSongDuration($milliseconds)
         {
+            $seconds = $milliseconds / 1000; // Convert milliseconds to seconds
             $minutes = floor($seconds / 60);
             $remainingSeconds = $seconds % 60;
             return sprintf('%dm : %02ds', $minutes, $remainingSeconds);
@@ -21,16 +21,19 @@
             alt="" />
         <div>
             <h3 class="text-2xl">
-                <i class="fas fa-music"></i>  {{ $song->name }}
-                @if ($song->song_length_seconds)
-                    <span class="text-lg font-bold text-black-600"> ({{ formatSongDuration($song->song_length_seconds) }})</span>
-                @endif
+                <i class="fas fa-music"></i> 
+                <span style="font-size: {{ strlen($song->name) > 20 ? '1.5rem' : '2rem' }}">
+                    {{ $song->name }}
+                </span>
             </h3>
+            @if ($song->duration)
+                <span class="text-lg font-bold text-black-600"> ({{ formatSongDuration($song->duration) }})</span>
+            @endif
             @if ($song->album)
                 <div class="text-lg mt-4">
                     <i class="fas fa-folder"></i>
                     <strong>
-                        <a href="/albums/{{ $song->album->id }}?song-id={{ $song->id }}">
+                        <a href="/albums/{{ $song->album->album_id }}?song-id={{ $song->song_id }}">
                             {{ $song->album->name }}
                         </a>                        
                     </strong>
