@@ -20,12 +20,8 @@ return new class extends Migration
             $table->unsignedInteger('duration'); // song length is stored in seconds 
             $table->decimal('tempo'); // in bpm unit
             $table->string('key');
-<<<<<<< HEAD
-            $table->boolean('explicit');
-=======
             $table->string('lyrics');
-            $table->bool('explicit');
->>>>>>> e7418a2 (https://musictailor.atlassian.net/browse/PMARS-88)
+            $table->boolean('explicit');
             $table->timestamp('system_entry_date'); // stores both date and time
             $table->foreign('album_id')->references('album_id')->on('albums')->cascadeOnDelete();
             $table->timestamps();
