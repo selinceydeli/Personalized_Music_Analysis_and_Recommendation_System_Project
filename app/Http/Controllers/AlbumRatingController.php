@@ -111,12 +111,12 @@ class AlbumRatingController extends Controller
         // Join the tables and select the top 10 albums from the specified era
         $topAlbums = DB::table('albums')
             ->joinSub($ratingSubQuery, 'rating', function ($join) {
-                $join->on('albums.id', '=', 'rating.album_id');
+                $join->on('albums.album_id', '=', 'rating.album_id');
             })
-            ->join('songs', 'albums.id', '=', 'songs.album_id')
+            ->join('songs', 'albums.album_id', '=', 'songs.album_id')
             ->select('albums.name', 'albums.image_url', 'rating.average_rating')
-            ->whereBetween('songs.publ_date', $yearsRange)
-            ->groupBy('albums.id', 'albums.name', 'albums.image_url')
+            ->whereBetween('albums.release_date', $yearsRange)
+            ->groupBy('albums.album_id', 'albums.name', 'albums.image_url')
             ->orderBy('average_rating', 'DESC')
             ->take(10)
             ->get();

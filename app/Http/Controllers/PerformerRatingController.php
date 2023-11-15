@@ -86,7 +86,7 @@ class PerformerRatingController extends Controller
 
         // Get average ratings for the specified artists since the start date
         $ratings = PerformerRating::select('performers.name', DB::raw('AVG(performer_ratings.rating) as average_rating'))
-                    ->join('performers', 'performer_ratings.perf_id', '=', 'performers.id')
+                    ->join('performers', 'performer_ratings.artist_id', '=', 'performers.artist_id')
                     ->whereIn('performers.name', $artistNames)
                     ->where('performer_ratings.date_rated', '>=', $startDate)
                     ->groupBy('performers.name')

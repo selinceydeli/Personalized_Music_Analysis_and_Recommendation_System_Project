@@ -92,7 +92,7 @@ class SongRatingController extends Controller
         // Now, perform a join to get the song information based on the top song IDs
         $topSongs = DB::table('songs')
                         ->joinSub($subQuery, 'top_songs', function ($join) {
-                            $join->on('songs.id', '=', 'top_songs.song_id');
+                            $join->on('songs.song_id', '=', 'top_songs.song_id');
                         })
                         ->get([
                             'songs.*', // Select all fields from songs

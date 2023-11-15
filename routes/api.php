@@ -59,6 +59,7 @@ Route::put('/songrating/{id}', [SongRatingController::class, 'update']);
 Route::post('/songrating', [SongRatingController::class, 'store']);
 Route::delete('/songrating/{id}', [SongRatingController::class, 'destroy']);
 Route::get('/songrating/user/{username}/top-10-in/{months}/months', [SongRatingController::class, 'favorite10RatingsInGivenMonths']);
+Route::get('/songrating/user/{username}/monthly-averages', [SongRatingController::class, 'getMonthlyAverageRatings']);
 
 Route::get('/albumrating', [AlbumRatingController::class, 'index']);
 Route::get('/albumrating/album/{id}', [AlbumRatingController::class, 'search_id_album']);
