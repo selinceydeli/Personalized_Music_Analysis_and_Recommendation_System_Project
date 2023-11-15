@@ -62,7 +62,6 @@ class SongController extends Controller
             $song->performers = is_null($request -> performers) ? $song->performers : $request->performers;
             $song->tempo = is_null($request -> tempo) ? $song->tempo : $request->tempo;
             $song->key = is_null($request -> key) ? $song->key : $request->key;
-            $song->language = is_null($request -> language) ? $song->language : $request->language;
             $song->system_entry_date = is_null($request -> system_entry_date) ? $song->system_entry_date : $request->system_entry_date;
             $song->album_id = is_null($request -> album_id) ? $song->album_id : $request->album_id;
             $song->explicit = is_null($request -> explicit) ? $song->explicit : $request->explicit;
