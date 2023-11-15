@@ -15,7 +15,6 @@ return new class extends Migration
             $table->string('album_id')->primary(); // primary key of the albums table
             $table->string('name');
             $table->string('album_type');
-            $table->boolean('is_single'); // checks if the album is a single 
             $table->string('image_url');
             $table->string('artist_id');
             $table->string('label');

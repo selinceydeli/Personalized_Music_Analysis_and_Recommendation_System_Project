@@ -15,7 +15,6 @@ return new class extends Migration
             $table->string('song_id')->primary(); // primary key of the songs table
             $table->string('isrc');
             $table->string('name');
-            $table->date('publ_date'); // stores the date in YYYY-MM-DD format
             $table->json('performers'); // stored as JSON field
             $table->string('album_id');
             $table->unsignedInteger('duration'); // song length is stored in seconds 
