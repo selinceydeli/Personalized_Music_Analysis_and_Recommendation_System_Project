@@ -76,7 +76,6 @@
     <div id="dashboard-menu" class="hidden fixed top-16 right-4 bg-white p-4 border rounded-lg shadow-lg">
         <ul>
             <li><a href="/playlists"><i class="fas fa-list"></i> Playlists</a></li>
-            <li><a href="/user-profile"><i class="fas fa-user"></i> User Profile</a></li>
             <li><a href="/settings"><i class="fas fa-cog"></i> Settings</a></li>
             <li>
                 <form class="inline" method="POST" action="/logout">

@@ -1,10 +1,13 @@
 <?php
 
 use App\Http\Controllers\AlbumController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SongController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\DashboardController; // Import DashboardController
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\SubscriptionController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,28 +31,30 @@ Route::post('/users', [UserController::class, 'store'])->name('register');
 // Show Login Form
 Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
 
-//Single Album
+// Single Album
 Route::get('/albums/{album}', [AlbumController::class, 'show']);
 
 Route::post('/users/authenticate', [UserController::class, 'authenticate'])->name('login');
 
-// Add the route for the Dashboard
+// Dashboard
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
-Route::view('profile', 'profile')
-    ->middleware(['auth'])
-    ->name('profile');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/subscription', [SubscriptionController::class, 'show'])->name('subscription.show');
+    Route::get('/subscription/upgrade', [SubscriptionController::class, 'upgrade'])->name('subscription.upgrade');
+    Route::get('/settings', [SettingsController::class, 'index'])->name('settings');
 
-// Add the route for Logout
+});
+
+// Logout
 Route::post('/logout', [DashboardController::class, 'logout'])->middleware(['auth'])->name('logout');
 
-Route::get('/search-songs', [SongController::class,'searchSongs']);
+Route::get('/search-songs', [SongController::class, 'searchSongs']);
 
-
-Route::get('/hello', function(){
+Route::get('/hello', function () {
     return "Hello World";
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
