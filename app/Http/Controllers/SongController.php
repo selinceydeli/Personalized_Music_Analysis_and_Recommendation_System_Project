@@ -6,6 +6,7 @@ use App\Models\Song;
 use Illuminate\Http\Request;
 use App\Http\Resources\SongResource;
 use Illuminate\Support\Facades\Http;
+use App\HTTP\Controllers\PerformerController;
 
 class SongController extends Controller
 {
@@ -31,17 +32,16 @@ class SongController extends Controller
 
         $performerIds = $songs->pluck('performers')->flatten()->unique(); // Get unique performer IDs from all songs
 
-        /*$performers = [];
+        $performerController = new PerformerController();
+        $performers = [];
         foreach ($performerIds as $id) {
             // Make an HTTP request to fetch performer data
-            $response = Http::get("http://127.0.0.1:8000/api/performers/{$id}");
+            $response = $performerController->search_id($id); // Directly calling the method
 
-            if ($response->successful()) {
-                $performers[$id] = $response->json();
+            if ($response->getStatusCode() == 200) { // Checking if performer is found
+                $performers[$id] = $response->getData(); // Assuming getData() gets the data from the response
             }
-        }*/
-
-       
+        }
 
         // Append the genre and search parameters to the pagination links
         $songs->appends([
