@@ -22,4 +22,8 @@ class Performer extends Model
             $performer->{$performer->getKeyName()} = (string) Str::uuid();
         });
     }
+
+    public function albums() {
+        return $this->hasMany(Album::class, 'artist_id', 'artist_id');
+    }
 }

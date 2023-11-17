@@ -42,7 +42,7 @@
                     <i class="fas fa-microphone"></i> <!-- Microphone icon -->
                     @if (is_string($song->performers))
                         @php
-                            $performers = json_decode($song->performers);   
+                            $performers = json_decode($song->performers);
                         @endphp
 
                         @if ($performers)
@@ -58,7 +58,7 @@
                     @endif
                 </p>
             </div>
-            <x-listing-tags :genresCsv="$song->performers" />
+            <x-album-tags :genresCsv="$performers" />
         </div>
     </div>
 </x-card>

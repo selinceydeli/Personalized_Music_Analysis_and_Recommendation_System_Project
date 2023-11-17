@@ -2,16 +2,36 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Performer;
-use App\Http\Resources\PerformerResource;
 use PDO;
+use App\Models\Song;
+use App\Models\Album;
+use App\Models\Performer;
+use Illuminate\Http\Request;
+use App\Http\Resources\PerformerResource;
 
 class PerformerController extends Controller
 {
     public function index(){
         $performers = Performer::all();
         return response()->json($performers);
+    }
+
+    public function show($performerId, Request $request) {
+
+        $songId = $request->input('song-id');
+
+        $songs = Song::whereJsonContains('performers', $performerId)->paginate(10);
+        
+        $performer = Performer::where('artist_id', $performerId)->orderBy('name')->first();
+
+        $albums = Album::where('artist_id', $performerId)->get();
+
+        return view('performers.show', [
+            'performer' => $performer,
+            'songs' => $songs,
+            'albums' => $albums,
+            'songId' => $songId,
+        ]);
     }
 
     public function store(Request $request){

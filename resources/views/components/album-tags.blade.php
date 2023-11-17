@@ -1,7 +1,18 @@
 @props(['genresCsv'])
 
+
 @php
-    $genres= explode('/', $genresCsv);
+    // Initialize an empty array for genres
+    $genres = [];
+
+    // Check if genresCsv is a JSON string and decode it
+    if (is_string($genresCsv)) {
+        $genres = json_decode($genresCsv);
+    } elseif (is_array($genresCsv)) {
+        $genres = $genresCsv;
+    }
+
+    // Now $genres contains an array of genres (either from JSON or directly passed as an array)
 @endphp
 
 <ul class="flex">
