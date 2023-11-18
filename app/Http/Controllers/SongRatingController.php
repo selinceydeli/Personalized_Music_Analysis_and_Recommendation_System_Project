@@ -102,4 +102,15 @@ class SongRatingController extends Controller
         return response()->json($topSongs);
     }
 
+    public function favGenreRecomendation($username){
+        $topPerformers = DB::table('performer_ratings')
+                    ->where('username', $username)
+                    ->select('performer_id', DB::raw('AVG(rating) as average_rating'))
+                    ->groupBy('performer_id')
+                    ->orderBy('average_rating', 'desc')
+                    ->take(5)
+                    ->get();
+
+    }
+
 }
