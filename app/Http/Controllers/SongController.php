@@ -25,6 +25,14 @@ class SongController extends Controller
         $song->key = $request->key;
         $song->system_entry_date = $request->system_entry_date;
         $song->album_id = $request->album_id;
+        $song->danceability = $request->danceability;
+        $song->energy = $request->energy;
+        $song->loudness = $request->loudness;
+        $song->speechiness = $request->speechiness;
+        $song->instrumentalness = $request->instrumentalness;
+        $song->liveness = $request->liveness;
+        $song->time_signature = $request->time_signature;
+        $song->valence = $request->valence;
         $song->save();
         return response()->json([
             "message" => "Song added"
@@ -66,6 +74,14 @@ class SongController extends Controller
             $song->album_id = is_null($request -> album_id) ? $song->album_id : $request->album_id;
             $song->explicit = is_null($request -> explicit) ? $song->explicit : $request->explicit;
             $song->duration = is_null($request -> duration) ? $song->duration : $request->duration;
+            $song->danceability = is_null($request -> danceability) ? $song->danceability : $request->danceability;
+            $song->energy = is_null($request -> energy) ? $song->energy : $request->energy;
+            $song->loudness = is_null($request -> loudness) ? $song->loudness : $request->loudness;
+            $song->speechiness = is_null($request -> speechiness) ? $song->speechiness : $request->speechiness;
+            $song->instrumentalness = is_null($request -> instrumentalness) ? $song->instrumentalness : $request->instrumentalness;
+            $song->liveness = is_null($request -> liveness) ? $song->liveness : $request->liveness;
+            $song->time_signature = is_null($request -> time_signature) ? $song->time_signature : $request->time_signature;
+            $song->valence = is_null($request -> valence) ? $song->valence : $request->valence;
             $song->save();
             return response()->json([
                 "message" => "Song Updated"

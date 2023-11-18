@@ -21,8 +21,18 @@ return new class extends Migration
             $table->decimal('tempo'); // in bpm unit
             $table->string('key');
             $table->string('lyrics');
+            $table->string('mode');
             $table->boolean('explicit');
             $table->timestamp('system_entry_date'); // stores both date and time
+            $table->decimal('danceability');
+            $table->decimal('energy');
+            $table->decimal('loudness');
+            $table->decimal('speechiness');
+            $table->decimal('instrumentalness');
+            $table->decimal('liveness');
+            $table->decimal('valence');
+            $table->decimal('time_signature');
+
             $table->foreign('album_id')->references('album_id')->on('albums')->cascadeOnDelete();
             $table->timestamps();
         });
