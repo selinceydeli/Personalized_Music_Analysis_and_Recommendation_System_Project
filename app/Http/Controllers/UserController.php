@@ -100,7 +100,7 @@ class UserController extends Controller
 
         // Step 3: Get 30 songs with closest danceability and energy values
         // and exclude songs already rated by the user
-        $recommendedSongs = Song::whereNotIn('id', function($query) use ($username) {
+        $recommendedSongs = Song::whereNotIn('song_id', function($query) use ($username) {
             $query->select('song_id')
                 ->from('song_ratings')
                 ->where('username', $username);
