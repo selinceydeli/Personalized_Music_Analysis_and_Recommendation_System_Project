@@ -73,12 +73,12 @@ class UserController extends Controller
         })->get()
             ->pluck('artist_id')
             ->toArray();
-            
-        // Retrieve top-rated songs from these performers
+        
         // Retrieve top-rated songs from these performers
         $recommendedSongs = Song::where(function ($query) use ($similarPerformers) {
             foreach ($similarPerformers as $artistId) {
-                $query->orWhereJsonContains('performers', ['artist_id' => $artistId]);
+                // Adjust the query to check if the JSON array contains the artistId as a string
+                $query->orWhereJsonContains('performers', (string)$artistId);
             }
         })
         ->with('ratings') // Load the song ratings relationship
@@ -91,19 +91,19 @@ class UserController extends Controller
     }
 
     public function RecomendationByEnergyAndDanceability($username){
-        // Step 1: Get top 20 rated songs by the user
+        // Get top 20 rated songs by the user
         $topRatedSongs = DB::table('song_ratings')
                 ->where('username', $username)
                 ->orderBy('rating', 'desc')
                 ->take(20)
                 ->pluck('song_id');
 
-        // Step 2: Calculate average danceability and energy values
+        // Calculate average danceability and energy values
         $averages = Song::whereIn('song_id', $topRatedSongs)
                 ->selectRaw('AVG(danceability) as average_danceability, AVG(energy) as average_energy')
                 ->first();
 
-        // Step 3: Get 30 songs with closest danceability and energy values
+        // Get 30 songs with closest danceability and energy values
         // and exclude songs already rated by the user
         $recommendedSongs = Song::whereNotIn('song_id', function($query) use ($username) {
             $query->select('song_id')
