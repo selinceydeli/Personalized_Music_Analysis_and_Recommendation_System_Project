@@ -20,7 +20,6 @@ class AlbumRatingResource extends JsonResource
             'username' => $this->username,
             'album_id' => $this->album_id,
             'date_rated' => $this->date_rated,
-            // You can include relationships and additional data here
         ];
     }
 }
