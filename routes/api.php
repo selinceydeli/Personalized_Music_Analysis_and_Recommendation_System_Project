@@ -51,6 +51,8 @@ Route::get('/users/{username}', [UserController::class, 'search_username']);
 Route::put('/users/{username}', [UserController::class, 'update']);
 Route::post('/users', [UserController::class, 'store']);
 Route::delete('/users/{username}', [UserController::class, 'destroy']);
+Route::get('/users/{username}/fav-genre-recommendations', [UserController::class, 'favGenreRecomendationFromDifferentPerformers']);
+Route::get('/users/{username}/energy-danceability-recommendations', [UserController::class, 'RecomendationByEnergyAndDanceability']);
 
 Route::get('/songrating', [SongRatingController::class, 'index']);
 Route::get('/songrating/song/{id}', [SongRatingController::class, 'search_id_song']);

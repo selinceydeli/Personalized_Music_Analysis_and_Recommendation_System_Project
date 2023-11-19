@@ -50,6 +50,7 @@ class UserController extends Controller
 
     //Methods for Recommendation
     public function favGenreRecomendationFromDifferentPerformers($username){
+
         $topPerformers = DB::table('performer_ratings')
                             ->where('username', $username)
                             ->select('artist_id', DB::raw('AVG(rating) as average_rating'))
