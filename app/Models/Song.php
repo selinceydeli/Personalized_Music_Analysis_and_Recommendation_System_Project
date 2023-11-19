@@ -23,4 +23,18 @@ class Song extends Model
             $song->{$song->getKeyName()} = (string) Str::uuid();
         });
     }
+
+    public function ratings()
+    {
+        return $this->hasMany(SongRating::class, 'song_id', 'song_id');
+    }
+
+    public function getAverageRatingAttribute()
+    {
+        if ($this->ratings->isNotEmpty()) {
+            return $this->ratings->avg('rating');
+        }
+
+        return 0; // Default to 0 if there are no ratings
+    }
 }

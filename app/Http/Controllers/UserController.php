@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Http\Resources\UserResource;
 use App\Http\Resources\SongResource;
 use App\Models\Performer;
+use App\Models\PerformerRating;
 use App\Models\Song;
 use Illuminate\Support\Facades\DB;
 
@@ -50,40 +51,43 @@ class UserController extends Controller
 
     //Methods for Recommendation
     public function favGenreRecomendationFromDifferentPerformers($username){
+        // Retrieve user's top-rated performers
+        $topPerformersGenres = PerformerRating::where('username', $username)
+            ->orderBy('rating', 'desc')
+            ->with('performer') // Assuming a relationship is defined in the PerformerRating model
+            ->get()
+            ->pluck('performer.genre')
+            ->map(function ($genres) {
+                return json_decode($genres); // Convert JSON string to PHP array
+            })
+            ->flatten()
+            ->unique()
+            ->values()
+            ->all(); // $topPerformersGenres is an array of all unique genres that the top performers are associated with
 
-        $topPerformers = DB::table('performer_ratings')
-                            ->where('username', $username)
-                            ->select('artist_id', DB::raw('AVG(rating) as average_rating'))
-                            ->groupBy('artist_id')
-                            ->orderBy('average_rating', 'desc')
-                            ->take(5)
-                            ->get();
-
-        $genres = Performer::whereIn('id', $topPerformers->pluck('artist_id'))->pluck('genre');
-
-        $averageRatingsSubquery = DB::table('song_ratings')
-                                    ->select('song_id', DB::raw('AVG(rating) as average_rating'))
-                                    ->groupBy('song_id');
-
-        $excludePerformersSubquery = DB::table('songs')
-                                        ->select('id')
-                                        ->whereJsonDoesntContain('performers', $topPerformers->pluck('artist_id')->toArray());
-
-        $genreMatchSubquery = DB::table('performers')
-                                ->select('id')
-                                ->whereIn('genre', $genres);
-
-        $recommendedSongs = Song::whereIn('id', $genreMatchSubquery)
-        ->whereIn('id', $excludePerformersSubquery)
-        ->joinSub($averageRatingsSubquery, 'average_ratings', function ($join) {
-            $join->on('songs.id', '=', 'average_ratings.song_id');
+        // Find performers with any of the genres from top performers
+        $similarPerformers = Performer::where(function ($query) use ($topPerformersGenres) {
+            foreach ($topPerformersGenres as $genre) {
+                $query->orWhereJsonContains('genre', $genre); // Check if the performer's genres contain any of the top genres
+            }
+        })->get()
+            ->pluck('artist_id')
+            ->toArray();
+            
+        // Retrieve top-rated songs from these performers
+        // Retrieve top-rated songs from these performers
+        $recommendedSongs = Song::where(function ($query) use ($similarPerformers) {
+            foreach ($similarPerformers as $artistId) {
+                $query->orWhereJsonContains('performers', ['artist_id' => $artistId]);
+            }
         })
-        ->orderBy('average_ratings.average_rating', 'desc')
-        ->take(20)
-        ->get(['songs.*', 'average_ratings.average_rating']);
+        ->with('ratings') // Load the song ratings relationship
+        ->get()
+        ->sortByDesc('average_rating') // Sort by the accessor 'average_rating'
+        ->take(20) // Limit to 20 songs for recommendation
+        ->values();
 
-
-        return SongResource::collection($recommendedSongs);
+        return $recommendedSongs;
     }
 
     public function RecomendationByEnergyAndDanceability($username){
