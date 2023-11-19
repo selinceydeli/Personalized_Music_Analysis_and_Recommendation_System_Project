@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Song;
 use App\Http\Resources\SongResource;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SongController extends Controller
 {
@@ -109,5 +110,21 @@ class SongController extends Controller
                 "message" => "Song not found"
             ], 404);
         }
+    }
+
+    public function getSongsByGenre($genre)
+    {
+        $jsonGenre = json_encode($genre); // Ensure the genre is in JSON format
+
+        $songsWithGenres = DB::table('songs')
+            ->join('performers', function ($join) use ($jsonGenre) {
+                $join->whereRaw("json_contains(songs.performers, json_quote(performers.artist_id))")
+                    ->whereRaw("json_contains(performers.genre, ?)", [$jsonGenre]);
+            })
+            ->select('songs.*', 'performers.genre as performer_genres')
+            ->get();
+
+        return response()->json($songsWithGenres); // Returns all the fields from the songs table 
+                                                // and an additional field performer_genres for each song
     }
 }

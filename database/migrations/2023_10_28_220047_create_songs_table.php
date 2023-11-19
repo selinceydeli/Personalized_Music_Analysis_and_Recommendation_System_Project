@@ -32,7 +32,6 @@ return new class extends Migration
             $table->decimal('liveness');
             $table->decimal('valence');
             $table->decimal('time_signature');
-
             $table->foreign('album_id')->references('album_id')->on('albums')->cascadeOnDelete();
             $table->timestamps();
         });

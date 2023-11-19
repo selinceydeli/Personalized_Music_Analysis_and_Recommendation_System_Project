@@ -31,6 +31,7 @@ Route::get('/songs/name/{searchTerm}', [SongController::class, 'search_name']);
 Route::put('/songs/{id}', [SongController::class, 'update']);
 Route::post('/songs', [SongController::class, 'store']);
 Route::delete('/songs/{id}', [SongController::class, 'destroy']);
+Route::get('/songs/genre/{genre}', [SongController::class, 'getSongsByGenre']);
 
 Route::get('/albums', [AlbumController::class, 'index']);
 Route::get('/albums/{id}', [AlbumController::class, 'search_id']);
