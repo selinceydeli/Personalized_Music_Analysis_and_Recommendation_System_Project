@@ -23,6 +23,7 @@ class SongController extends Controller
         $song->explicit = $request->explicit;
         $song->tempo = $request->tempo;
         $song->key = $request->key;
+        $song->mode = $request->mode;
         $song->system_entry_date = $request->system_entry_date;
         $song->album_id = $request->album_id;
         $song->danceability = $request->danceability;
@@ -70,6 +71,7 @@ class SongController extends Controller
             $song->performers = is_null($request -> performers) ? $song->performers : $request->performers;
             $song->tempo = is_null($request -> tempo) ? $song->tempo : $request->tempo;
             $song->key = is_null($request -> key) ? $song->key : $request->key;
+            $song->mode = is_null($request -> mode) ? $song->mode : $request->mode;
             $song->system_entry_date = is_null($request -> system_entry_date) ? $song->system_entry_date : $request->system_entry_date;
             $song->album_id = is_null($request -> album_id) ? $song->album_id : $request->album_id;
             $song->explicit = is_null($request -> explicit) ? $song->explicit : $request->explicit;
