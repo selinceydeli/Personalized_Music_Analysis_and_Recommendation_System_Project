@@ -52,8 +52,8 @@ class UserController extends Controller
 
         $topPerformers = DB::table('performer_ratings')
                             ->where('username', $username)
-                            ->select('performer_id', DB::raw('AVG(rating) as average_rating'))
-                            ->groupBy('performer_id')
+                            ->select('artist_id', DB::raw('AVG(rating) as average_rating'))
+                            ->groupBy('artist_id')
                             ->orderBy('average_rating', 'desc')
                             ->take(5)
                             ->get();
