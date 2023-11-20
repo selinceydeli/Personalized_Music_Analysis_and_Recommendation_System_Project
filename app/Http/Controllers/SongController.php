@@ -19,6 +19,13 @@ class SongController extends Controller
         // Check if a genre filter is applied
         $selectedGenre = request('genre');
         if ($selectedGenre) {
+            $genres = $this->getSongsByGenre($selectedGenre)->getData();
+            
+            // Extract song IDs from the array response
+            $songIds = collect($genres)->pluck('song_id')->toArray();
+    
+            // Update the query with the song IDs from the selected genre
+            $query->whereIn('song_id', $songIds);
         }
 
         // Check if a search filter is applied

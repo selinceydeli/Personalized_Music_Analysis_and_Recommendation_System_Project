@@ -22,7 +22,6 @@ class Song extends Model
             $song->{$song->getKeyName()} = (string) Str::uuid();
         });
     }
-<<<<<<<<< Temporary merge branch 1
     public function ratings()
     {
         return $this->hasMany(SongRating::class, 'song_id', 'song_id');
