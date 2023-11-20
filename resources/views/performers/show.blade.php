@@ -17,15 +17,6 @@
     @endphp
 @endif
 
-@php
-    $totalDuration = 0;
-@endphp
-
-@foreach ($songs as $s)
-    @php
-        $totalDuration += $s->duration; // Add current song duration to total duration
-    @endphp
-@endforeach
 
 @if (!function_exists('formatDate'))
     @php
@@ -67,18 +58,62 @@
                             <img class="w-48 mr-6 md:block"
                                 src="{{ $album->image_url ? $album->image_url : asset('/images/no-image.png') }}"
                                 alt="Album Image" />
-                            <div>
-                                <strong>
-                                    <a href="/albums/{{ $album->album_id }}?song-id={{ $songId }}">
+                            <div class="text-lg mt-4">
+                                    <a href="/albums/{{ $album->album_id }}?song-id={{ $album->songs->first()->song_id }}">
                                         {{ $album->name }}
                                     </a>
-                                </strong>
+                                <div class="mt-2">
+                                    <i class="fas fa-clock"></i>
+                                    @php
+                                        $totalDuration = 0;
+                                    @endphp
+
+                                    @foreach ($album->songs as $s)
+                                        @php
+                                            $totalDuration += $s->duration;
+                                        @endphp
+                                    @endforeach
+
+                                    <span class="text-lg font-bold text-black-600">
+                                        ({{ formatSongDuration($totalDuration) }})</span>
+                                </div>
                                 <!-- Date -->
                                 <div class="text-lg mt-4">
                                     <i class="fas fa-calendar"></i>
                                     <strong>{{ formatDate($album->release_date) }}</strong>
                                     <!-- Display the publishing date -->
                                 </div>
+                                <!-- Display album performers -->
+                                <div class="mt-2">
+                                    <p>
+                                        <i class="fas fa-microphone"></i> <!-- Microphone icon -->
+                                        @if (isset($albumPerformers[$album->album_id]))
+                                            @foreach ($albumPerformers[$album->album_id] as $albumPerformer)
+                                                <a href="/performers/{{ $albumPerformer->artist_id }}?song-id={{ $songId }}"
+                                                    class="text-lg font-bold">
+                                                    {{ $albumPerformer->name }}
+                                                </a>
+                                                @if (!$loop->last)
+                                                    , <!-- Add a comma if it's not the last performer -->
+                                                @endif
+                                            @endforeach
+                                        @else
+                                            <p>No performers found for this album.</p>
+                                        @endif
+                                    </p>
+                                </div>
+                                @php
+                                    $albumGenres = [];
+
+                                    if (isset($albumPerformers[$album->album_id])) {
+                                        foreach ($albumPerformers[$album->album_id] as $albumPerformer) {
+                                            $genres = json_decode($albumPerformer->genre);
+                                            $albumGenres = array_merge($albumGenres, $genres);
+                                        }
+                                        $albumGenres = array_unique($albumGenres);
+                                    }
+                                @endphp
+                                <x-album-tags :genresCsv="$albumGenres" />
                             </div>
                         </div>
                     </x-card>
@@ -95,7 +130,7 @@
                 @else
                     @foreach ($songs as $song)
                         <div class="listing-card" data-title="{{ $song->name }}">
-                            <x-performer-card :song="$song" />
+                            <x-performer-card :song="$song" :performerToSongs="$performerToSongs" />
                         </div>
                     @endforeach
                 @endif

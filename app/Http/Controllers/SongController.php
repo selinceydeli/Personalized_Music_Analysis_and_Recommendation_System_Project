@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Song;
+use App\Models\Performer;
 use Illuminate\Http\Request;
 use App\Http\Resources\SongResource;
 use Illuminate\Support\Facades\Http;
@@ -17,24 +18,38 @@ class SongController extends Controller
         // Check if a genre filter is applied
         $selectedGenre = request('genre');
         if ($selectedGenre) {
-            $query->where('genre', $selectedGenre);
         }
 
         // Check if a search filter is applied
         $searchTerm = request('search');
         if ($searchTerm) {
-            $query->where(function ($query) use ($searchTerm) {
-                $query->where('name', 'like', '%' . $searchTerm . '%');
+            $performerNames = Performer::where('name', 'LIKE', "%{$searchTerm}%")->pluck('name')->toArray();
+
+            $query->where(function ($query) use ($searchTerm, $performerNames) {
+                $query->where('songs.name', 'like', '%' . $searchTerm . '%')
+                    ->orWhereHas('album', function ($subquery) use ($searchTerm, $performerNames) {
+                        $subquery->where('albums.name', 'like', '%' . $searchTerm . '%')
+                            ->whereHas('performers', function ($innerSubquery) use ($performerNames) {
+                                $innerSubquery->whereIn('performers.name', $performerNames);
+                            });
+                    });
+
             });
         }
 
         $songs = $query->paginate(6);
 
         $performerIds = $songs->pluck('performers')->flatten()->unique(); // Get unique performer IDs from all songs
+        // Remove the extra brackets and extract the IDs as strings
+        $performerIds = $performerIds->map(function ($id) {
+            // Assuming each ID is wrapped in square brackets and presented as a string
+            return trim($id, '[""]');
+        });
 
         $performerController = new PerformerController();
         $performers = [];
         foreach ($performerIds as $id) {
+
             // Make an HTTP request to fetch performer data
             $response = $performerController->search_id($id); // Directly calling the method
 
@@ -52,6 +67,7 @@ class SongController extends Controller
         return view('songs.index', [
             'songs' => $songs,
             'selectedGenre' => $selectedGenre,
+            'performers' => $performers,
         ]);
     }
 

@@ -1,4 +1,5 @@
 @props(['song'])
+@props(['performerToSongs'])
 
 @if (!function_exists('formatSongDuration'))
     @php
@@ -24,6 +25,7 @@
                     {{ $song->name }}
                 </span>
             </h3>
+            <i class="fas fa-clock"></i>
             @if ($song->duration)
                 <span class="text-lg font-bold text-black-600"> ({{ formatSongDuration($song->duration) }})</span>
             @endif
@@ -40,25 +42,26 @@
             <div>
                 <p>
                     <i class="fas fa-microphone"></i> <!-- Microphone icon -->
-                    @if (is_string($song->performers))
-                        @php
-                            $performers = json_decode($song->performers);
-                        @endphp
-
-                        @if ($performers)
-                            @foreach ($performers as $performer)
-                                <a href="/performers/{{ $performer}}?song-id={{$song->song_id}}" class="text-lg font-bold">
-                                    {{ $performer }} <!-- Assuming 'name' is the property you want to display -->
+                    @foreach ($performerToSongs as $artistId => $songIds)
+                        @if (in_array($song->song_id, $songIds))
+                            @php
+                                $performerDetails = (new \App\Http\Controllers\PerformerController())->search_id($artistId)->getData();
+                                $performerName = $performerDetails->name ?? null; // Assuming 'name' is the property holding the performer's name
+                            @endphp
+                            @if ($performerName)
+                                <a href="/performers/{{ $artistId }}?song-id={{ $song->song_id }}"
+                                    class="text-lg font-bold">
+                                    {{ $performerName }} <!-- Display the performer's name -->
                                 </a>
                                 @if (!$loop->last)
-                                    , <!-- Add a comma if it's not the last performer -->
+                                    ,
                                 @endif
-                            @endforeach
+                            @endif
                         @endif
-                    @endif
+                    @endforeach
                 </p>
             </div>
-            <x-album-tags :genresCsv="$performers" />
+                       
         </div>
     </div>
 </x-card>

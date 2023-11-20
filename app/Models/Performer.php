@@ -24,6 +24,10 @@ class Performer extends Model
     }
 
     public function albums() {
-        return $this->hasMany(Album::class, 'artist_id', 'artist_id');
+        return $this->belongsToMany(Album::class, 'albums', 'artist_id', 'album_id');
+    }
+
+    public function songs() {
+        return $this->hasMany(Song::class, 'artist_id');
     }
 }
