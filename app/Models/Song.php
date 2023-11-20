@@ -35,9 +35,9 @@ class Song extends Model
 
         return 0; // Default to 0 if there are no ratings
     }
-    public function scopeFilter($query, array $filters)
-    {
-        if ($filters['genre'] ?? false) {
+    
+    public function scopeFilter($query, array $filters) {
+        if($filters['genre'] ?? false) {
             $requestedGenre = request('genre');
             $genres = explode('/', $requestedGenre);
 
