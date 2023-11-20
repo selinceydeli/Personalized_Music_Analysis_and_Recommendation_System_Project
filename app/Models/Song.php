@@ -22,6 +22,7 @@ class Song extends Model
             $song->{$song->getKeyName()} = (string) Str::uuid();
         });
     }
+<<<<<<<<< Temporary merge branch 1
     public function ratings()
     {
         return $this->hasMany(SongRating::class, 'song_id', 'song_id');
@@ -35,13 +36,13 @@ class Song extends Model
 
         return 0; // Default to 0 if there are no ratings
     }
+    
     public function scopeFilter($query, array $filters) {
         if($filters['genre'] ?? false) {
             $requestedGenre = request('genre');
             $genres = explode('/', $requestedGenre);
 
             $query->where(function ($subquery) use ($genres) {
-                // Check for an exact match
                 foreach ($genres as $genre) {
                     $subquery->orWhere('genre', 'LIKE', '%' . $genre . '%');
                     $subquery->orWhere('genre', 'LIKE', $genre . '%');
@@ -50,15 +51,35 @@ class Song extends Model
                 }
             });
         }
-        
-        if($filters['search'] ?? false) {
-            $query->where('name', 'like', '%'. request('search'). '%')
-            ->orwhere('genre', 'like', '%'. request('search'). '%');
-            //album arama buradan
+
+        if ($filters['search'] ?? false) {
+            $searchTerm = request('search');
+
+            $query->where(function ($subquery) use ($searchTerm) {
+                $subquery->where('name', 'like', '%' . $searchTerm . '%')
+                    ->orWhere('genre', 'like', '%' . $searchTerm . '%')
+                    ->orWhereHas('album', function ($albumSubquery) use ($searchTerm) {
+                        $albumSubquery->where('name', 'like', '%' . $searchTerm . '%');
+                    })
+                    ->orWhereHas('artist', function ($artistSubquery) use ($searchTerm) {
+                        $artistSubquery->where('name', 'like', '%' . $searchTerm . '%');
+                    });
+            });
         }
+
+        return $query;
     }
 
-    public function album() {
+    public function scopeFilterByAlbumName($query, $albumName)
+    {
+        return $query->whereHas('album', function ($subquery) use ($albumName) {
+            $subquery->where('name', 'LIKE', '%' . $albumName . '%');
+        });
+    }
+
+
+    public function album()
+    {
         return $this->belongsTo(Album::class, 'album_id');
     }
     // Define the relationship with performers

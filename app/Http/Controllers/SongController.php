@@ -3,45 +3,78 @@
 namespace App\Http\Controllers;
 
 use App\Models\Song;
-use App\Http\Resources\SongResource;
+use App\Models\Performer;
 use Illuminate\Http\Request;
+use App\Http\Resources\SongResource;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\PerformerController;
 
 class SongController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $query = Song::latest();
-    
+
         // Check if a genre filter is applied
         $selectedGenre = request('genre');
         if ($selectedGenre) {
-            $query->where('genre', $selectedGenre);
         }
-    
+
         // Check if a search filter is applied
         $searchTerm = request('search');
         if ($searchTerm) {
-            $query->where(function ($query) use ($searchTerm) {
-                $query->where('name', 'like', '%' . $searchTerm . '%');
+            $performerNames = Performer::where('name', 'LIKE', "%{$searchTerm}%")->pluck('name')->toArray();
+
+            $query->where(function ($query) use ($searchTerm, $performerNames) {
+                $query->where('songs.name', 'like', '%' . $searchTerm . '%')
+                    ->orWhereHas('album', function ($subquery) use ($searchTerm, $performerNames) {
+                        $subquery->where('albums.name', 'like', '%' . $searchTerm . '%')
+                            ->whereHas('performers', function ($innerSubquery) use ($performerNames) {
+                                $innerSubquery->whereIn('performers.name', $performerNames);
+                            });
+                    });
+
             });
         }
-    
+
         $songs = $query->paginate(6);
-    
+
+        $performerIds = $songs->pluck('performers')->flatten()->unique(); // Get unique performer IDs from all songs
+        // Remove the extra brackets and extract the IDs as strings
+        $performerIds = $performerIds->map(function ($id) {
+            // Assuming each ID is wrapped in square brackets and presented as a string
+            return trim($id, '[""]');
+        });
+
+        $performerController = new PerformerController();
+        $performers = [];
+        foreach ($performerIds as $id) {
+
+            // Make an HTTP request to fetch performer data
+            $response = $performerController->search_id($id); // Directly calling the method
+
+            if ($response->getStatusCode() == 200) { // Checking if performer is found
+                $performers[$id] = $response->getData(); // Assuming getData() gets the data from the response
+            }
+        }
+
         // Append the genre and search parameters to the pagination links
         $songs->appends([
             'genre' => $selectedGenre,
             'search' => $searchTerm,
         ]);
-    
+
         return view('songs.index', [
             'songs' => $songs,
             'selectedGenre' => $selectedGenre,
+            'performers' => $performers,
         ]);
     }
-    
 
-    public function store(Request $request){
+
+    public function store(Request $request)
+    {
         $song = new Song;
         $song->name = $request->name;
         $song->performers = $request->performers;
@@ -68,12 +101,12 @@ class SongController extends Controller
         ], 200);
     }
 
-    public function search_id($id){
+    public function search_id($id)
+    {
         $song = Song::find($id);
-        if(!empty($song)){
+        if (!empty($song)) {
             return response()->json($song);
-        }
-        else{
+        } else {
             return response()->json([
                 "message" => "Song not found"
             ], 404);
@@ -83,9 +116,9 @@ class SongController extends Controller
     public function searchSongs(Request $request)
     {
         $searchQuery = $request->input('search');
-    
+
         $songs = Song::where('name', 'like', '%' . $searchQuery . '%')->get();
-    
+
         return view('songs.search-results', compact('songs'));
     }
 
@@ -102,6 +135,7 @@ class SongController extends Controller
     public function update(Request $request, $id){
         if (Song::where('song_id', $id) -> exists()){
             $song = Song::find($id);
+
             $song->name = is_null($request -> name) ? $song->name : $request->name;
             $song->lyrics = is_null($request -> lyrics) ? $song->lyrics : $request->lyrics;
             $song->isrc = is_null($request -> isrc) ? $song->isrc : $request->isrc;
@@ -133,15 +167,15 @@ class SongController extends Controller
         }
     }
 
-    public function destroy($id){
-        if (Song::where('song_id', $id) -> exists()){
+    public function destroy($id)
+    {
+        if (Song::where('song_id', $id)->exists()) {
             $song = Song::find($id);
             $song->delete();
             return response()->json([
                 "message" => "Song deleted"
             ], 200);
-        }
-        else{
+        } else {
             return response()->json([
                 "message" => "Song not found"
             ], 404);
