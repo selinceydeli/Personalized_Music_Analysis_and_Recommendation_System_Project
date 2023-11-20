@@ -31,6 +31,7 @@ Route::get('/songs/name/{searchTerm}', [SongController::class, 'search_name']);
 Route::put('/songs/{id}', [SongController::class, 'update']);
 Route::post('/songs', [SongController::class, 'store']);
 Route::delete('/songs/{id}', [SongController::class, 'destroy']);
+Route::get('/songs/genre/{genre}', [SongController::class, 'getSongsByGenre']);
 
 Route::get('/albums', [AlbumController::class, 'index']);
 Route::get('/albums/{id}', [AlbumController::class, 'search_id']);
@@ -51,6 +52,8 @@ Route::get('/users/{username}', [UserController::class, 'search_username']);
 Route::put('/users/{username}', [UserController::class, 'update']);
 Route::post('/users', [UserController::class, 'store']);
 Route::delete('/users/{username}', [UserController::class, 'destroy']);
+Route::get('/users/{username}/fav-genre-recommendations', [UserController::class, 'favGenreRecomendationFromDifferentPerformers']);
+Route::get('/users/{username}/energy-danceability-recommendations', [UserController::class, 'RecomendationByEnergyAndDanceability']);
 
 Route::get('/songrating', [SongRatingController::class, 'index']);
 Route::get('/songrating/song/{id}', [SongRatingController::class, 'search_id_song']);
@@ -58,7 +61,8 @@ Route::get('/songrating/user/{username}', [SongRatingController::class, 'search_
 Route::put('/songrating/{id}', [SongRatingController::class, 'update']);
 Route::post('/songrating', [SongRatingController::class, 'store']);
 Route::delete('/songrating/{id}', [SongRatingController::class, 'destroy']);
-Route::get('/songrating/user/{username}/top-10-in-6-months', [SongRatingController::class, 'favorite10RatingsIn6Months']);
+Route::get('/songrating/user/{username}/top-10-in/{months}/months', [SongRatingController::class, 'favorite10RatingsInGivenMonths']);
+Route::get('/songrating/user/{username}/monthly-averages', [SongRatingController::class, 'getMonthlyAverageRatings']);
 
 Route::get('/albumrating', [AlbumRatingController::class, 'index']);
 Route::get('/albumrating/album/{id}', [AlbumRatingController::class, 'search_id_album']);
@@ -74,3 +78,4 @@ Route::get('/performerrating/user/{username}', [PerformerRatingController::class
 Route::put('/performerrating/{id}', [PerformerRatingController::class, 'update']);
 Route::post('/performerrating', [PerformerRatingController::class, 'store']);
 Route::delete('/performerrating/{id}', [PerformerRatingController::class, 'destroy']);
+Route::post('/performerrating/average-performer-ratings', [PerformerRatingController::class, 'getAverageRatingsForArtists']);

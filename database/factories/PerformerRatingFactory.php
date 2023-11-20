@@ -3,8 +3,8 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use app\Models\Performer;
-use app\Models\User;
+use App\Models\Performer;
+use App\Models\User;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\PerformerRating>
@@ -25,7 +25,7 @@ class PerformerRatingFactory extends Factory
         return [
             'rating' => $this->faker->randomFloat(1, 0, 50) / 10,
             'username' => $this->faker->randomElement($usernames),
-            'perf_id' => $this->faker->randomElement($performerIds),
+            'artist_id' => $this->faker->randomElement($performerIds),
             'date_rated' => $this->faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now', $timezone = null),
         ];
     }
