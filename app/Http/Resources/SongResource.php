@@ -25,8 +25,15 @@ class SongResource extends JsonResource
             'key' => $this->key,
             'explicit' => $this->explicit,
             'system_entry_date' => $this->system_entry_date,
-            'album_id' => $this->album_id
-            // You can include relationships and additional data here
+            'album_id' => $this->album_id,
+            'danceability' => $this->danceability,
+            'energy' => $this->energy,
+            'loudness' => $this->loudness,
+            'speechiness' => $this->speechiness,
+            'instrumentalness' => $this->instrumentalness,
+            'liveness' => $this->liveness,
+            'valence' => $this->valence,
+            'time_signature' => $this->time_signature
         ];
     }
 }

@@ -1,5 +1,5 @@
 @props(['song'])
-@props(['performers'])
+@props(['performerToSongs'])
 
 @if (!function_exists('formatSongDuration'))
     @php
@@ -21,7 +21,7 @@
         <div>
             <h3 class="text-2xl">
                 <i class="fas fa-music"></i>
-                <span style="font-size: 1.5rem">
+                <span style="font-size: {{ strlen($song->name) > 20 ? '1.5rem' : '2rem' }}">
                     {{ $song->name }}
                 </span>
             </h3>
@@ -40,29 +40,28 @@
                 </div>
             @endif
             <div>
-                @php
-                    $songPerformers = json_decode($song->performers, true); // Decode JSON to an array
-                    $matchedPerformers = [];
-                @endphp
                 <p>
                     <i class="fas fa-microphone"></i> <!-- Microphone icon -->
-                    @foreach ($performers as $performer)
-                        @if (in_array($performer->artist_id, $songPerformers))
+                    @foreach ($performerToSongs as $artistId => $songIds)
+                        @if (in_array($song->song_id, $songIds))
                             @php
-                                $matchedPerformers[] = $performer; // Collect matched performer names
+                                $performerDetails = (new \App\Http\Controllers\PerformerController())->search_id($artistId)->getData();
+                                $performerName = $performerDetails->name ?? null; // Assuming 'name' is the property holding the performer's name
                             @endphp
-                            <a href="/performers/{{ $performer->artist_id }}?song-id={{ $song->song_id }}"
-                               class="text-lg font-bold">
-                                {{ $performer->name }} <!-- Assuming 'name' is the property you want to display -->
-                            </a>
-                            @if (!$loop->last && count($matchedPerformers) > 1)
-                                , <!-- Add a comma if it's not the last performer and there's more than one matched performer -->
+                            @if ($performerName)
+                                <a href="/performers/{{ $artistId }}?song-id={{ $song->song_id }}"
+                                    class="text-lg font-bold">
+                                    {{ $performerName }} <!-- Display the performer's name -->
+                                </a>
+                                @if (!$loop->last)
+                                    ,
+                                @endif
                             @endif
                         @endif
                     @endforeach
                 </p>
-                <x-listing-tags :matchedPerformers="$matchedPerformers" />
             </div>
+                       
         </div>
     </div>
 </x-card>

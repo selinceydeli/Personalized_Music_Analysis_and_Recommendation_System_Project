@@ -18,7 +18,7 @@ class PerformerRatingResource extends JsonResource
             'id' => $this->id,
             'rating' => $this->rating,
             'username' => $this->username,
-            'perf_id' => $this->perf_id,
+            'artist_id' => $this->perf_id,
             'date_rated' => $this->date_rated,
         ];
     }

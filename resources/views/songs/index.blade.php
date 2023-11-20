@@ -9,7 +9,7 @@
         @else
             @foreach ($songs as $song)
                 <div class="listing-card" data-title="{{ $song->name }}">
-                    <x-listing-card :song="$song"/>
+                    <x-listing-card :song="$song" :performers="$performers" />
                 </div>
             @endforeach
         @endif

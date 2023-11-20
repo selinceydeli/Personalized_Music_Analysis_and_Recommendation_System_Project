@@ -20,7 +20,6 @@ class SongRatingResource extends JsonResource
             'username' => $this->username,
             'song_id' => $this->song_id,
             'date_rated' => $this->date_rated,
-            // You can include relationships and additional data here
         ];
     }
 }
