@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\SongRating;
 use App\Http\Resources\SongRatingResource;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Carbon;
 
 class SongRatingController extends Controller
 {
@@ -75,10 +76,10 @@ class SongRatingController extends Controller
     }
 
     // Methods defined for analysis functionality
-    public function favorite10RatingsIn6Months($username)
+    public function favorite10RatingsInGivenMonths($username, int $months)
     {
-        // Calculate the date 6 months ago from today
-        $sixMonthsAgo = now()->subMonths(6);
+        // Calculate the date $months ago from today
+        $sixMonthsAgo = now()->subMonths($months);
 
         // Create a subquery to get the top 10 rated, unique song IDs
         $subQuery = SongRating::select('song_id', DB::raw('AVG(rating) as average_rating'))
@@ -91,7 +92,7 @@ class SongRatingController extends Controller
         // Now, perform a join to get the song information based on the top song IDs
         $topSongs = DB::table('songs')
                         ->joinSub($subQuery, 'top_songs', function ($join) {
-                            $join->on('songs.id', '=', 'top_songs.song_id');
+                            $join->on('songs.song_id', '=', 'top_songs.song_id');
                         })
                         ->get([
                             'songs.*', // Select all fields from songs
@@ -102,4 +103,23 @@ class SongRatingController extends Controller
         return response()->json($topSongs);
     }
 
+    public function getMonthlyAverageRatings($username)
+    {
+        $oneMonthAgo = Carbon::now()->subMonth();
+
+        $dailyAverages = SongRating::select(
+                DB::raw('DATE(date_rated) as date'), 
+                DB::raw('AVG(rating) as average_rating')
+            )
+            ->where('username', $username)
+            ->where('date_rated', '>=', $oneMonthAgo)
+            ->groupBy('date')
+            ->orderBy('date')
+            ->get()
+            ->mapWithKeys(function ($item) {
+                return [$item['date'] => $item['average_rating']];
+            });
+
+        return response()->json($dailyAverages);
+    }
 }

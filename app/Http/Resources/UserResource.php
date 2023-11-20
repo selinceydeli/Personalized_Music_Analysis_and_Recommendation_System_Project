@@ -25,7 +25,6 @@ class UserResource extends JsonResource
             'language' => $this->language,
             'subscription' => $this->subscription,
             'rate_limit' => $this->rate_limit,
-            // You can include relationships and additional data here
         ];
     }
 }
