@@ -21,5 +21,11 @@ class Album extends Model
         static::creating(function ($album) {
             $album->{$album->getKeyName()} = (string) Str::uuid();
         });
+
+    }
+
+    public function albumRatings()
+    {
+        return $this->hasMany(albumRating::class, 'album_id', 'album_id');
     }
 }

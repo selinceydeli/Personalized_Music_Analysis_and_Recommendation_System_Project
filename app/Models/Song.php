@@ -24,7 +24,7 @@ class Song extends Model
         });
     }
 
-    public function ratings()
+    public function songRatings()
     {
         return $this->hasMany(SongRating::class, 'song_id', 'song_id');
     }

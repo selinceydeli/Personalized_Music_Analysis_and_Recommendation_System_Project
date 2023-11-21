@@ -22,4 +22,9 @@ class Performer extends Model
             $performer->{$performer->getKeyName()} = (string) Str::uuid();
         });
     }
+
+    public function performerRatings()
+    {
+        return $this->hasMany(PerformerRating::class, 'artist_id', 'artist_id');
+    }
 }

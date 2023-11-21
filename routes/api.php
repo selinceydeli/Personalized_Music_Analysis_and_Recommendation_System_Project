@@ -9,6 +9,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\SongRatingController;
 use App\Http\Controllers\AlbumRatingController;
 use App\Http\Controllers\PerformerRatingController;
+use App\Http\Controllers\SearchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,3 +80,5 @@ Route::put('/performerrating/{id}', [PerformerRatingController::class, 'update']
 Route::post('/performerrating', [PerformerRatingController::class, 'store']);
 Route::delete('/performerrating/{id}', [PerformerRatingController::class, 'destroy']);
 Route::post('/performerrating/average-performer-ratings', [PerformerRatingController::class, 'getAverageRatingsForArtists']);
+
+Route::get('/search/{searchTerm}', [SearchController::class, 'search_all']);
