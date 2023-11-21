@@ -10,18 +10,7 @@ class Performer extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'artist_id';
-    public $incrementing = false;
-    protected $keyType = 'string';
 
-    protected static function boot()
-    {
-        parent::boot();
-
-        static::creating(function ($performer) {
-            $performer->{$performer->getKeyName()} = (string) Str::uuid();
-        });
-    }
 
     public function performerRatings()
     {
