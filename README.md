@@ -40,17 +40,17 @@ Our implementation will focus on delivering the MVP functionalities as outlined,
 ## Collaborators
 
 ### Team Leader
-- **Selin Ceydeli
+- Selin Ceydeli
 
 ### Backend Team
-- **Onur Sezen
-- **Oktay Çelik
-- **Selin Ceydeli
+- Onur Sezen
+- Oktay Çelik
+- Selin Ceydeli
 
 ### Web App Team
-- **Canberk Tahıl
-- **Ebrar Berenay Yiğit
+- Canberk Tahıl
+- Ebrar Berenay Yiğit
 
 ### Mobile App Team
-- **Ozan Çelebi
-- **Şimal Yücel
+- Ozan Çelebi
+- Şimal Yücel
