@@ -45,36 +45,12 @@ class PerformerController extends Controller
             }
         }
 
-        $performerToSongs = [];
-
-        $songController = new SongController();
-
-
-        foreach ($songs as $song) {
-            $songId = $song['song_id'];
-            $performers = json_decode($song['performers']);
-        
-            foreach ($performers as $performerId) {
-                $performer = $this->search_id($performerId)->getData();
-        
-                if (!isset($performerToSongs[$performer->name])) {
-                    $performerToSongs[$performer->name] = [];
-                }
-        
-                $songObject = $songController->search_id($songId)->getData();
-                $performerToSongs[$performer->name][] = $songObject;
-            }
-        }        
-        // $performerToSongs will hold the mapping of performers to the songs they're involved in
-
-
         return view('performers.show', [
             'performer' => $performer,
             'albumPerformers' => $albumPerformers,
             'songs' => $songs,
             'albums' => $albums,
             'songId' => $songId,
-            'performerToSongs' => $performerToSongs,
         ]);
     }
 
