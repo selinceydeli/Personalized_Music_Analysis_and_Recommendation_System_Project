@@ -37,7 +37,7 @@ This project, developed as part of CS 308's term project, aims to create an onli
 ## Implementation Strategy
 Our implementation will focus on delivering the MVP functionalities as outlined, with an emphasis on creating a scalable and user-friendly platform. Post-MVP, we will explore extending the system's capabilities, possibly including advanced analysis tools, broader social media integration, and enhanced recommendation algorithms.
 
-5. **Collaborators*
+5. **Collaborators**
 
 ### Team Leader
 Selin Ceydeli
