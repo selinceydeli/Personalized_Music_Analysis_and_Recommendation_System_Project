@@ -129,8 +129,8 @@
                     </p>
                 @else
                     @foreach ($songs as $song)
-                        <div class="listing-card" data-title="{{ $song->name }}">
-                            <x-performer-card :song="$song" :performerToSongs="$performerToSongs" />
+                        <div class="performer-card" data-title="{{ $song->name }}">
+                            <x-performer-card :song="$song" :albumPerformers="$albumPerformers" :albums="$albums" :performer="$performer" />
                         </div>
                     @endforeach
                 @endif

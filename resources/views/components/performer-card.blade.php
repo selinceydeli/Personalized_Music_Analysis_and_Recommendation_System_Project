@@ -1,5 +1,7 @@
 @props(['song'])
-@props(['performerToSongs'])
+@props(['albumPerformers'])
+@props(['albums'])
+@props(['performer'])
 
 @if (!function_exists('formatSongDuration'))
     @php
@@ -27,7 +29,9 @@
             </h3>
             <i class="fas fa-clock"></i>
             @if ($song->duration)
-                <span class="text-lg font-bold text-black-600"> ({{ formatSongDuration($song->duration) }})</span>
+                <span class="text-lg font-bold text-black-600">
+                    ({{ formatSongDuration($song->duration) }})
+                </span>
             @endif
             @if ($song->album)
                 <div class="text-lg mt-4">
@@ -42,26 +46,33 @@
             <div>
                 <p>
                     <i class="fas fa-microphone"></i> <!-- Microphone icon -->
-                    @foreach ($performerToSongs as $artistId => $songIds)
-                        @if (in_array($song->song_id, $songIds))
-                            @php
-                                $performerDetails = (new \App\Http\Controllers\PerformerController())->search_id($artistId)->getData();
-                                $performerName = $performerDetails->name ?? null; // Assuming 'name' is the property holding the performer's name
-                            @endphp
-                            @if ($performerName)
-                                <a href="/performers/{{ $artistId }}?song-id={{ $song->song_id }}"
+                    @php
+                        $albumId = $song->album->album_id;
+                    @endphp
+                    @if (isset($albumPerformers[$albumId]))
+                        @foreach ($albumPerformers[$albumId] as $albumPerformer)
+                            <!-- Display performer details -->
+                            @if ($albumPerformer->name !== $performer->name)
+                                <a href="/performers/{{ $albumPerformer->artist_id }}?song-id={{ $song->song_id }}"
                                     class="text-lg font-bold">
-                                    {{ $performerName }} <!-- Display the performer's name -->
+                                    {{ $albumPerformer->name }}
                                 </a>
-                                @if (!$loop->last)
-                                    ,
-                                @endif
+                            @else
+                                <span class="text-lg font-bold">
+                                    {{ $albumPerformer->name }}
+                                </span>
                             @endif
-                        @endif
-                    @endforeach
+                            <!-- Display other performer details as needed -->
+                            <!-- Check if it's the last performer in the album -->
+                            @if (!$loop->last)
+                                , <!-- Add a comma if it's not the last performer -->
+                            @endif
+                        @endforeach
+                        <x-album-tags :genresCsv="$albumPerformer->genre" />
+                    @else
+                    @endif
                 </p>
             </div>
-                       
         </div>
     </div>
 </x-card>
