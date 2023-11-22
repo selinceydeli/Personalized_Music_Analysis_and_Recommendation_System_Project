@@ -35,7 +35,7 @@
             @auth
                 <li>
                     <span class="font-bold uppercase">
-                        Welcome {{ auth()->user()->username }}
+                        Welcome {{ auth()->user()->name }}
                     </span>
                 </li>
                 <li>
