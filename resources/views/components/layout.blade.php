@@ -40,7 +40,7 @@
                 </li>
                 <li>
                     <a href="/listings/manage" class="hover:text-laravel"><i class="fa-solid fa-gear"></i>
-                        Manage Musics</a>
+                        Upload Music</a>
                 </li>
                 <li>
                     <button id="dashboard-menu-button" class="text-gray-500 hover:text-gray-900 ml-4"

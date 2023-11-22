@@ -1,4 +1,5 @@
 @props(['song'])
+@props(['performers'])
 
 @if (!function_exists('formatSongDuration'))
     @php
@@ -12,8 +13,6 @@
     @endphp
 @endif
 
-
-
 <x-card>
     <div class="flex">
         <img class="w-48 mr-6 md:block"
@@ -21,11 +20,12 @@
             alt="" />
         <div>
             <h3 class="text-2xl">
-                <i class="fas fa-music"></i> 
-                <span style="font-size: {{ strlen($song->name) > 20 ? '1.5rem' : '2rem' }}">
+                <i class="fas fa-music"></i>
+                <span style="font-size: 1.5rem">
                     {{ $song->name }}
                 </span>
             </h3>
+            <i class="fas fa-clock"></i>
             @if ($song->duration)
                 <span class="text-lg font-bold text-black-600"> ({{ formatSongDuration($song->duration) }})</span>
             @endif
@@ -35,11 +35,34 @@
                     <strong>
                         <a href="/albums/{{ $song->album->album_id }}?song-id={{ $song->song_id }}">
                             {{ $song->album->name }}
-                        </a>                        
+                        </a>
                     </strong>
                 </div>
             @endif
-            <x-listing-tags :genresCsv="$song->genre" />
+            <div>
+                @php
+                    $songPerformers = json_decode($song->performers, true); // Decode JSON to an array
+                    $matchedPerformers = [];
+                @endphp
+                <p>
+                    <i class="fas fa-microphone"></i> <!-- Microphone icon -->
+                    @foreach ($performers as $performer)
+                        @if (in_array($performer->artist_id, $songPerformers))
+                            @php
+                                $matchedPerformers[] = $performer; // Collect matched performer names
+                            @endphp
+                            <a href="/performers/{{ $performer->artist_id }}?song-id={{ $song->song_id }}"
+                               class="text-lg font-bold">
+                                {{ $performer->name }} <!-- Assuming 'name' is the property you want to display -->
+                            </a>
+                            @if (!$loop->last && count($matchedPerformers) > 1)
+                                , <!-- Add a comma if it's not the last performer and there's more than one matched performer -->
+                            @endif
+                        @endif
+                    @endforeach
+                </p>
+                <x-listing-tags :matchedPerformers="$matchedPerformers" />
+            </div>
         </div>
     </div>
 </x-card>

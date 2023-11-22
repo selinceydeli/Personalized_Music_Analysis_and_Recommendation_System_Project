@@ -2,7 +2,7 @@
     <x-card class="p-10">
         <header>
             <h1 class="text-3xl text-center font-bold my-6 uppercase">
-                Manage Gigs
+                Upload Music via Spotify
             </h1>
         </header>
 

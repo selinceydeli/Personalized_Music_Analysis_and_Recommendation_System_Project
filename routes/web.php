@@ -3,11 +3,8 @@
 use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\SongController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\SettingsController;
-use App\Http\Controllers\SubscriptionController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController; // Import DashboardController
+use App\Http\Controllers\PerformerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +30,9 @@ Route::get('/login', [UserController::class, 'login'])->name('login')->middlewar
 
 // Single Album
 Route::get('/albums/{album}', [AlbumController::class, 'show']);
+
+// Single Performer
+Route::get("/performers/{performerId}", [PerformerController::class, 'show']);
 
 Route::post('/users/authenticate', [UserController::class, 'authenticate'])->name('login');
 
