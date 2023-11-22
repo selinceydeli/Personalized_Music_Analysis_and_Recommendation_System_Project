@@ -1,6 +1,13 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AlbumController;
+use App\Http\Controllers\SongController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\DashboardController; // Import DashboardController
+use App\Http\Controllers\PerformerController;
+use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\SubscriptionController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,18 +20,47 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'welcome');
+Route::get('/', [SongController::class, 'index']);
 
+// Show Register/Create Form
+Route::get('/register', [UserController::class, 'create'])->middleware('guest');
+
+// Process Registration Form
+Route::post('/users', [UserController::class, 'store'])->name('register');
+
+// Show Login Form
+Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
+
+// Single Album
+Route::get('/albums/{album}', [AlbumController::class, 'show']);
+
+// Single Performer
+Route::get("/performers/{performerId}", [PerformerController::class, 'show']);
+
+Route::post('/users/authenticate', [UserController::class, 'authenticate'])->name('login');
+
+// Dashboard
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
-Route::view('profile', 'profile')
-    ->middleware(['auth'])
-    ->name('profile');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/subscription', [SubscriptionController::class, 'show'])->name('subscription.show');
+    Route::get('/subscription/upgrade', [SubscriptionController::class, 'upgrade'])->name('subscription.upgrade');
+    Route::get('/settings', [SettingsController::class, 'index'])->name('settings');
+    Route::post('/settings/update', [SettingsController::class, 'update'])->name('settings.update');
+});
+
+Route::post('/settings/update', [SettingsController::class, 'update'])->name('settings.update');
 
 
-Route::get('/hello', function(){
+// Logout
+Route::post('/logout', [DashboardController::class, 'logout'])->middleware(['auth'])->name('logout');
+
+Route::get('/search-songs', [SongController::class, 'searchSongs']);
+
+Route::get('/hello', function () {
     return "Hello World";
 });
-require __DIR__.'/auth.php';
+
+require __DIR__ . '/auth.php';
