@@ -51,9 +51,6 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/settings/update', [SettingsController::class, 'update'])->name('settings.update');
 });
 
-Route::post('/settings/update', [SettingsController::class, 'update'])->name('settings.update');
-
-
 // Logout
 Route::post('/logout', [DashboardController::class, 'logout'])->middleware(['auth'])->name('logout');
 

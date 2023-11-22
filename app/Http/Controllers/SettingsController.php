@@ -21,6 +21,8 @@ class SettingsController extends Controller
                     'surname' => $user->surname,
                     'email' => $user->email,
                     'password' => null, 
+                    'theme' => $user->theme, // Add this line to include the 'theme' key
+
                 ],
                 'language' => [
                     'current' => $user->language,
@@ -77,6 +79,9 @@ class SettingsController extends Controller
 
         // Update the language
         $user->language = $validatedData['language'];
+
+         // Update the theme preference
+        $user->theme = $request->input('theme', 'light'); // Default to light if not provided
 
         // Save the changes
         $user->save();
