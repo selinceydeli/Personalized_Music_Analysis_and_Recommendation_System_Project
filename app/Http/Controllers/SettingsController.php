@@ -1,5 +1,4 @@
 <?php
-
 // app/Http/Controllers/SettingsController.php
 
 namespace App\Http\Controllers;
@@ -50,5 +49,39 @@ class SettingsController extends Controller
             // Redirect to the login page or handle the case where the user is not authenticated
             return redirect()->route('login');
         }
+    }
+
+    public function update(Request $request)
+    {
+        // Validate the form data
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'surname' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'password' => 'nullable|string|min:6',
+            'language' => 'required|in:English,Spanish,Mandarin Chinese,Hindi,Arabic,Portuguese,Bengali,Russian,Japanese,Punjabi,German,Turkish',
+        ]);
+
+        // Get the authenticated user
+        $user = auth()->user();
+
+        // Update the user's information
+        $user->name = $validatedData['name'];
+        $user->surname = $validatedData['surname'];
+        $user->email = $validatedData['email'];
+
+        // Update the password if provided
+        if (!empty($validatedData['password'])) {
+            $user->password = bcrypt($validatedData['password']);
+        }
+
+        // Update the language
+        $user->language = $validatedData['language'];
+
+        // Save the changes
+        $user->save();
+
+        // Redirect back to the settings page with a success message
+        return redirect()->route('settings')->with('success', 'User information updated successfully.');
     }
 }

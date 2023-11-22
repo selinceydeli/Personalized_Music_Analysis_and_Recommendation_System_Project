@@ -2,7 +2,9 @@
 
 <x-layout>
     <div class="settings-container bg-gradient-to-b from-red-500 to-pink-400 p-8 rounded-lg mt-24">
-
+        <form method="POST" action="{{ route('settings.update') }}">
+            @csrf <!-- Add this CSRF token for security -->
+            
         <!-- User Info Box -->
         <div class="settings-box mb-8">
             <h3 class="text-2xl font-bold mb-4">User Info</h3>
@@ -62,7 +64,8 @@
 
         <!-- Save Changes Button -->
         <button type="submit" class="bg-gold text-black rounded py-2 px-4 hover:bg-yellow-600">
-            Save Changes
-        </button>
+                Save Changes
+            </button>
+        </form>
     </div>
 </x-layout>

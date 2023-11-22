@@ -45,8 +45,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/subscription', [SubscriptionController::class, 'show'])->name('subscription.show');
     Route::get('/subscription/upgrade', [SubscriptionController::class, 'upgrade'])->name('subscription.upgrade');
     Route::get('/settings', [SettingsController::class, 'index'])->name('settings');
-
+    Route::post('/settings/update', [SettingsController::class, 'update'])->name('settings.update');
 });
+
+Route::post('/settings/update', [SettingsController::class, 'update'])->name('settings.update');
+
 
 // Logout
 Route::post('/logout', [DashboardController::class, 'logout'])->middleware(['auth'])->name('logout');
