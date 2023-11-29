@@ -1,0 +1,44 @@
+{
+    "album_type": "single",
+    "copyrights": "2016 Position Music",
+    "genres": [],
+    "label": "Position Music",
+    "name": "Born for This",
+    "popularity": 0,
+    "release_date": "2016-02-23",
+    "total_tracks": 6,
+    "tracks": {
+        "items": [
+            {
+                "id": "1DEviHZM0wcFdZHloxbBjy",
+                "track_number": 1
+            },
+            {
+                "id": "5StgXdjQ1t02jJMLZWIl2Q",
+                "track_number": 2
+            },
+            {
+                "id": "1q5n4SZTuJ6Vk710HkitdB",
+                "track_number": 3
+            },
+            {
+                "id": "7v73EULDWTLQ9Mz3z8CmsP",
+                "track_number": 4
+            },
+            {
+                "id": "2xQ9G8lA5PZFYStV75AtyI",
+                "track_number": 5
+            },
+            {
+                "id": "5jIGftxLl8ENbx9u27yjJ9",
+                "track_number": 6
+            }
+        ],
+        "total": 6
+    },
+    "type": "album",
+    "artist_id": "54OEro9sWZ3mVfMdlz2CIt",
+    "album_id": "7MGR2TR780yXDy9jOPGW9t",
+    "upc": "0859716721163",
+    "image": "https://i.scdn.co/image/ab67616d0000b27342d50b99572a6473eb9deab3"
+}

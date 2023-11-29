@@ -199,7 +199,6 @@ def getAlbum(albumID):
             cursor.execute(insertPerformer, data)
             connection.commit()
         except Exception as e:
-            print("Ekleyemedim")
             pass
     insertAlbum = "INSERT INTO albums (`name`, `image_url`, `album_id`, `copyright`, `label`,  `artist_id`,  `album_type`,  `popularity`,  `total_tracks`,  `release_date`,`created_at`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
     datestr = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -209,7 +208,6 @@ def getAlbum(albumID):
         cursor.execute(insertAlbum, data)
         connection.commit()
     except Exception as e:
-        print("Ekleyemedim2")
         pass
     for i in range(len(songResponse)):
         insertSongs = "INSERT INTO songs (`name`,`song_id`,`album_id`,`explicit`,`duration`,`key`,`tempo`,`performers`,`isrc`,`lyrics`,`system_entry_date`,  `mode`,`danceability`,`energy`,`loudness`,`speechiness`,`instrumentalness`,`liveness`,`valence`,`time_signature`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s,%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
@@ -222,7 +220,6 @@ def getAlbum(albumID):
             cursor.execute(insertSongs, data)
             connection.commit()
         except Exception as e:
-            print("Ekleyemedim3")
             print(e)
     cursor.close()
     connection.close()

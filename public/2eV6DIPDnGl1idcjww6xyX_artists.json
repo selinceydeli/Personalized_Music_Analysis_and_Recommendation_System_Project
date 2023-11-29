@@ -1,0 +1,50 @@
+[
+    {
+        "followers": 4551005,
+        "genres": [
+            "dance pop",
+            "dancehall",
+            "pop",
+            "pop rap"
+        ],
+        "name": "Sean Paul",
+        "popularity": 77,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb60c3e9abe7327c0097738f22",
+        "artist_id": "3Isy6kedDrgPYoTS1dazA9"
+    },
+    {
+        "followers": 27322882,
+        "genres": [
+            "australian dance",
+            "australian pop",
+            "pop"
+        ],
+        "name": "Sia",
+        "popularity": 83,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb25a749000611559f1719cc5f",
+        "artist_id": "5WUlDfRSoLAfcVSX1WnrxN"
+    },
+    {
+        "followers": 39774447,
+        "genres": [
+            "electro house"
+        ],
+        "name": "Alan Walker",
+        "popularity": 78,
+        "image": "https://i.scdn.co/image/ab6761610000e5ebbf753c009fd9c2d53351dd3c",
+        "artist_id": "7vk5e3vY1uw9plTHJAMwjN"
+    },
+    {
+        "followers": 26091802,
+        "genres": [
+            "conscious hip hop",
+            "hip hop",
+            "rap",
+            "west coast rap"
+        ],
+        "name": "Kendrick Lamar",
+        "popularity": 86,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb437b9e2a82505b3d93ff1022",
+        "artist_id": "2YZyLoL8N0Wb9xBt1NhZWg"
+    }
+]
