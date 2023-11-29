@@ -56,11 +56,10 @@ class AlbumController extends Controller
     }
 
     public function search_id($id){
-        $album = Album::find($id);
-        if(!empty($album)){
+        $album = Album::where('album_id', $id)->first();
+        if ($album) {
             return response()->json($album);
-        }
-        else{
+        } else {
             return response()->json([
                 "message" => "Album not found"
             ], 404);

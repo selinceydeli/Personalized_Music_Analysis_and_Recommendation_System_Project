@@ -11,8 +11,7 @@ class Song extends Model
 {
     use HasFactory;
 
-
-    public function songRatings()
+    public function ratings()
     {
         return $this->hasMany(SongRating::class, 'song_id', 'song_id');
     }

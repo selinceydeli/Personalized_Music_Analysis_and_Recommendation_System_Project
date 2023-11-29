@@ -1,0 +1,28 @@
+[
+    {
+        "duration_ms": 202626,
+        "explicit": 0,
+        "name": "Waka Waka (This Time for Africa) [The Official 2010 FIFA World Cup (TM) Song] (feat. Freshlyground)",
+        "popularity": 8,
+        "preview_url": null,
+        "song_id": "2Cd9iWfcOpGDHLz6tVA3G4",
+        "isrc": "USSM11001353",
+        "album_id": "3pzQF7YgU1f66pBayA8uHv",
+        "artists_ids": [
+            "0EmeFodog0BfCgMzAIvKQp",
+            "7AcV1lk8Zrgo1691PDWEle"
+        ],
+        "danceability": 0.766,
+        "energy": 0.873,
+        "key": "B",
+        "loudness": -6.381,
+        "mode": "Minor",
+        "speechiness": 0.143,
+        "acousticness": 0.00627,
+        "instrumentalness": 0,
+        "liveness": 0.0764,
+        "valence": 0.743,
+        "tempo": 126.988,
+        "time_signature": 4
+    }
+]

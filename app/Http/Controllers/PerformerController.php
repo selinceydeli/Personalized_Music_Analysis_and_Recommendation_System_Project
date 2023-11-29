@@ -45,17 +45,16 @@ class PerformerController extends Controller
     }
 
     public function search_id($id){
-        $performer = Performer::find($id);
-        if(!empty($performer)){
+        $performer = Performer::where('artist_id', $id)->first();    
+        if ($performer) {
             return response()->json($performer);
-        }
-        else{
+        } else {
             return response()->json([
                 "message" => "Performer not found"
             ], 404);
         }
     }
-
+    
     public function search_name($searchTerm)
     {
         $performers = Performer::where('name', 'LIKE', "%{$searchTerm}%")->get();

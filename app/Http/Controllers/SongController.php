@@ -16,7 +16,7 @@ class SongController extends Controller
 
     public function store(Request $request){
         $uniqueAttributes = [
-            'song_id' => $request->album_id
+            'song_id' => $request->song_id
         ];
 
         $additionalData = [
@@ -58,11 +58,10 @@ class SongController extends Controller
     }
 
     public function search_id($id){
-        $song = Song::find($id);
-        if(!empty($song)){
+        $song = Song::where('song_id', $id)->first();    
+        if ($song) {
             return response()->json($song);
-        }
-        else{
+        } else {
             return response()->json([
                 "message" => "Song not found"
             ], 404);

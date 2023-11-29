@@ -1,0 +1,30 @@
+[
+    {
+        "followers": 32188995,
+        "genres": [
+            "colombian pop",
+            "dance pop",
+            "latin pop",
+            "pop"
+        ],
+        "name": "Shakira",
+        "popularity": 84,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb284894d68fe2f80cad555110",
+        "artist_id": "0EmeFodog0BfCgMzAIvKQp"
+    },
+    {
+        "followers": 64287,
+        "genres": [
+            "african rock",
+            "afropop",
+            "kwaito",
+            "south african jazz",
+            "south african pop",
+            "south african pop dance"
+        ],
+        "name": "Freshlyground",
+        "popularity": 58,
+        "image": "https://i.scdn.co/image/cdc8cf94774db4f0066ca1f90eb3fda45955a420",
+        "artist_id": "7AcV1lk8Zrgo1691PDWEle"
+    }
+]
