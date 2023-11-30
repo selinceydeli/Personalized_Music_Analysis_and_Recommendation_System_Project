@@ -88,6 +88,12 @@ Route::get('/songrating/user/{username}/monthly-averages', [SongRatingController
 Route::get('/albumrating/top-rated/{username}/{era}', [AlbumRatingController::class, 'topRatedAlbumsByEra']);
 Route::post('/performerrating/average-performer-ratings', [PerformerRatingController::class, 'getAverageRatingsForArtists']);
 
+Route::post('/friend-request/{user}', [FriendshipController::class, 'sendRequest']);
+Route::post('/accept-request/{friendship}', [FriendshipController::class, 'acceptRequest']);
+
+Route::post('/block-user/{id}', [BlockController::class, 'blockUser']);
+Route::post('/unblock-user/{id}', [BlockController::class, 'unblockUser']);
+
 // Handling song imports
 Route::post('/spotify/import', [SpotifyController::class, 'importSong']);
 

@@ -116,4 +116,13 @@ class UserController extends Controller
 
         return SongResource::collection($recommendedSongs);
     }
+
+    public function dashboard()
+        {
+            $user = auth()->user();
+            $notifications = $user->notifications;  // Get all notifications
+            $unreadNotifications = $user->unreadNotifications;  // Get only unread notifications
+
+            return view('dashboard', compact('notifications', 'unreadNotifications'));
+        }
 }
