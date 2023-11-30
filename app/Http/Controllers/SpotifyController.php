@@ -12,9 +12,8 @@ class SpotifyController extends Controller
 
         if ($this->isSpotifyLink($url)) {
             // Execute the Python script and capture the output, including any errors
-            $command = "cd .. && python3 tempFunctions/importSongWithLink.py " . escapeshellarg($url) . " 2>&1";
+            $command = "python3 tempFunctions/importSongWithLink.py " . escapeshellarg($url) . " 2>&1";
             $result = shell_exec($command);
-            shell_exec("cd public");
 
             // Return the result of the shell_exec command for debugging
             return response()->json([
