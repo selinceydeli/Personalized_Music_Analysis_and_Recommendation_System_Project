@@ -10,10 +10,21 @@ class Album extends Model
 {
     use HasFactory;
 
-    
     protected $primaryKey = 'album_id';
     public $incrementing = false;
     protected $keyType = 'string';
+    protected $fillable = [
+        'album_id',
+        'name',
+        'album_type',
+        'image_url',
+        'artist_id',
+        'label',
+        'copyright',
+        'release_date',
+        'total_tracks',
+        'popularity'
+    ];
 
     protected static function boot()
     {
@@ -29,5 +40,10 @@ class Album extends Model
 
     public function performers() {
         return $this->belongsToMany(Performer::class, 'albums', 'album_id', 'artist_id');
+    }
+
+    public function albumRatings()
+    {
+        return $this->hasMany(albumRating::class, 'album_id', 'album_id');
     }
 }

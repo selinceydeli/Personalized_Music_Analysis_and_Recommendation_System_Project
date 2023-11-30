@@ -9,6 +9,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\SongRatingController;
 use App\Http\Controllers\AlbumRatingController;
 use App\Http\Controllers\PerformerRatingController;
+use App\Http\Controllers\SearchController;
+use App\Http\Controllers\SpotifyController;
 use App\Http\Controllers\SettingsController;
 
 /*
@@ -67,7 +69,6 @@ Route::get('/albumrating/user/{username}', [AlbumRatingController::class, 'searc
 Route::put('/albumrating/{id}', [AlbumRatingController::class, 'update']);
 Route::post('/albumrating', [AlbumRatingController::class, 'store']);
 Route::delete('/albumrating/{id}', [AlbumRatingController::class, 'destroy']);
-Route::get('/albumrating/top-rated/{username}/{era}', [AlbumRatingController::class, 'topRatedAlbumsByEra']);
 
 Route::get('/performerrating', [PerformerRatingController::class, 'index']);
 Route::get('/performerrating/performer/{id}', [PerformerRatingController::class, 'search_id_performer']);
@@ -75,3 +76,25 @@ Route::get('/performerrating/user/{username}', [PerformerRatingController::class
 Route::put('/performerrating/{id}', [PerformerRatingController::class, 'update']);
 Route::post('/performerrating', [PerformerRatingController::class, 'store']);
 Route::delete('/performerrating/{id}', [PerformerRatingController::class, 'destroy']);
+
+Route::get('/search/{searchTerm}', [SearchController::class, 'search_all']);
+
+// User recommendation routes
+Route::get('/users/{username}/fav-genre-recommendations', [UserController::class, 'favGenreRecomendationFromDifferentPerformers']);
+Route::get('/users/{username}/energy-danceability-recommendations', [UserController::class, 'RecomendationByEnergyAndDanceability']);
+
+// Analysis routes
+Route::get('/songrating/user/{username}/top-10-in/{months}/months', [SongRatingController::class, 'favorite10RatingsInGivenMonths']);
+Route::get('/songrating/user/{username}/monthly-averages', [SongRatingController::class, 'getMonthlyAverageRatings']);
+Route::get('/albumrating/top-rated/{username}/{era}', [AlbumRatingController::class, 'topRatedAlbumsByEra']);
+Route::post('/performerrating/average-performer-ratings', [PerformerRatingController::class, 'getAverageRatingsForArtists']);
+
+Route::post('/friend-request/{user}', [FriendshipController::class, 'sendRequest']);
+Route::post('/accept-request/{friendship}', [FriendshipController::class, 'acceptRequest']);
+
+Route::post('/block-user/{id}', [BlockController::class, 'blockUser']);
+Route::post('/unblock-user/{id}', [BlockController::class, 'unblockUser']);
+
+// Handling song imports
+Route::post('/spotify/import', [SpotifyController::class, 'importSong']);
+

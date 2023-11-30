@@ -79,39 +79,52 @@ class SongController extends Controller
         ]);
     }
 
+    public function store(Request $request){
+        $uniqueAttributes = [
+            'song_id' => $request->song_id
+        ];
 
-    public function store(Request $request)
-    {
-        $song = new Song;
-        $song->name = $request->name;
-        $song->performers = $request->performers;
-        $song->isrc = $request->isrc;
-        $song->duration = $request->duration;
-        $song->lyrics = $request->lyrics;
-        $song->explicit = $request->explicit;
-        $song->tempo = $request->tempo;
-        $song->key = $request->key;
-        $song->mode = $request->mode;
-        $song->system_entry_date = $request->system_entry_date;
-        $song->album_id = $request->album_id;
-        $song->danceability = $request->danceability;
-        $song->energy = $request->energy;
-        $song->loudness = $request->loudness;
-        $song->speechiness = $request->speechiness;
-        $song->instrumentalness = $request->instrumentalness;
-        $song->liveness = $request->liveness;
-        $song->time_signature = $request->time_signature;
-        $song->valence = $request->valence;
-        $song->save();
-        return response()->json([
-            "message" => "Song added"
-        ], 200);
+        $additionalData = [
+            'name' => $request->name,
+            'performers' => $request->performers,
+            'isrc' => $request->isrc,
+            'duration' => $request->duration,
+            'lyrics' => $request->lyrics,
+            'explicit' => $request->explicit,
+            'tempo' => $request->tempo,
+            'key' => $request->key,
+            'mode' => $request->mode,
+            'system_entry_date' => $request->system_entry_date,
+            'album_id' => $request->album_id,
+            'danceability' => $request->danceability,
+            'energy' => $request->energy,
+            'loudness' => $request->loudness,
+            'speechiness' => $request->speechiness,
+            'instrumentalness' => $request->instrumentalness,
+            'liveness' => $request->liveness,
+            'valence' => $request->valence,
+            'time_signature' => $request->time_signature
+        ];
+
+        // Use firstOrCreate to either find the existing album or create a new one.
+        $song = Song::firstOrCreate($uniqueAttributes, $additionalData);
+
+        if ($song->wasRecentlyCreated) {
+            // Album was created
+            return response()->json([
+                "message" => "Song added"
+            ], 201); // HTTP status code 201 means "Created"
+        } else {
+            // Album already exists
+            return response()->json([
+                "message" => "Song already exists"
+            ], 200); // HTTP status code 200 means "OK"
+        }
     }
 
-    public function search_id($id)
-    {
-        $song = Song::find($id);
-        if (!empty($song)) {
+    public function search_id($id){
+        $song = Song::where('song_id', $id)->first();    
+        if ($song) {
             return response()->json($song);
         } else {
             return response()->json([

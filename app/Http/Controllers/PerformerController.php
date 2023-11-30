@@ -16,7 +16,6 @@ class PerformerController extends Controller
         $performers = Performer::all();
         return response()->json($performers);
     }
-
     public function show($performerId, Request $request)
     {
 
@@ -54,23 +53,39 @@ class PerformerController extends Controller
         ]);
     }
 
-    public function store(Request $request)
-    {
-        $performer = new Performer;
-        $performer->name = $request->name;
-        $performer->genre = $request->genre;
-        $performer->popularity = $request->popularity;
-        $performer->image_url = $request->image_url;
-        $performer->save();
-        return response()->json([
-            "message" => "Performer added"
-        ], 200);
+    public function store(Request $request){
+        // Define the attributes you want to check for uniqueness.
+        $uniqueAttributes = [
+            'artist_id' => $request->album_id
+        ];
+
+        // Additional data that should be included if a new album is being created.
+        $additionalData = [
+            'name' => $request->name,
+            'genre' => $request->genre,
+            'image_url' => $request->image_url,
+            'popularity' => $request->popularity
+        ];
+
+        // Use firstOrCreate to either find the existing album or create a new one.
+        $performer = Performer::firstOrCreate($uniqueAttributes, $additionalData);
+
+        if ($performer->wasRecentlyCreated) {
+            // Album was created
+            return response()->json([
+                "message" => "Performer added"
+            ], 201); // HTTP status code 201 means "Created"
+        } else {
+            // Album already exists
+            return response()->json([
+                "message" => "Performer already exists"
+            ], 200); // HTTP status code 200 means "OK"
+        }
     }
 
-    public function search_id($id)
-    {
-        $performer = Performer::find($id);
-        if (!empty($performer)) {
+    public function search_id($id){
+        $performer = Performer::where('artist_id', $id)->first();    
+        if ($performer) {
             return response()->json($performer);
         } else {
             return response()->json([
@@ -78,7 +93,7 @@ class PerformerController extends Controller
             ], 404);
         }
     }
-
+    
     public function search_name($searchTerm)
     {
         $performers = Performer::where('name', 'LIKE', "%{$searchTerm}%")->get();

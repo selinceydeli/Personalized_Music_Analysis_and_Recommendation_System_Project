@@ -1,0 +1,72 @@
+{
+    "album_type": "album",
+    "copyrights": "\u00a9 2018 Position Music, under exclusive license to Universal Music GmbH",
+    "genres": [],
+    "label": "Vertigo Berlin",
+    "name": "No Place Is Home",
+    "popularity": 59,
+    "release_date": "2018-05-25",
+    "total_tracks": 13,
+    "tracks": {
+        "items": [
+            {
+                "id": "5euPMkM07PqLiC1Q0DhPiy",
+                "track_number": 1
+            },
+            {
+                "id": "0uxAAkgJwHFyGvoRbuCXLm",
+                "track_number": 2
+            },
+            {
+                "id": "6s4E1Wsbq5X9eHWprIQXIB",
+                "track_number": 3
+            },
+            {
+                "id": "2A7nx51nhaBoTeeLUcZ27V",
+                "track_number": 4
+            },
+            {
+                "id": "4BKRmnT1ND0NI8D3UhUiyB",
+                "track_number": 5
+            },
+            {
+                "id": "2cOwf29MXFNxkGy2TSUwiX",
+                "track_number": 6
+            },
+            {
+                "id": "6iv1q3SzKdQH8hLl019fh2",
+                "track_number": 7
+            },
+            {
+                "id": "09SktTfCCkDyOvKuTbvD5E",
+                "track_number": 8
+            },
+            {
+                "id": "2bDENJyfbxj0neGiXUFvIX",
+                "track_number": 9
+            },
+            {
+                "id": "4gZmWUXvKo3RWRpyHUIQaz",
+                "track_number": 10
+            },
+            {
+                "id": "3Z99dMEhTqn4HhpzwxsdGu",
+                "track_number": 11
+            },
+            {
+                "id": "4gjrmICdgxMc8NeLnX4m1O",
+                "track_number": 12
+            },
+            {
+                "id": "43TBKuBU07N70rp49pXXKV",
+                "track_number": 13
+            }
+        ],
+        "total": 13
+    },
+    "type": "album",
+    "artist_id": "1xKrH6GSh9CJh8nYwbqW7B",
+    "album_id": "4UXg0K9s6iGFntzsrYDdWF",
+    "upc": "00602567522010",
+    "image": "https://i.scdn.co/image/ab67616d0000b273605fea88497f83c4881df0da"
+}

@@ -66,29 +66,43 @@ class AlbumController extends Controller
         ]);
     }
 
-    public function store(Request $request)
-    {
-        $album = new Album;
-        $album->name = $request->name;
-        $album->album_type = $request->album_type;
-        $album->image_url = $request->image_url;
-        $album->artist_id = $request->artist_id;
-        $album->label = $request->label;
-        $album->copyright = $request->copyright;
-        $album->release_date = $request->release_date;
-        $album->total_tracks = $request->total_tracks;
-        $album->popularity = $request->popularity;
-        $album->save();
-        return response()->json([
-            "message" => "Album added"
-        ], 201); // In the context of RESTful API design, when you create a new resource, 
-        // the expected status code is 201 Created.
-    }
+    public function store(Request $request){
+        // Define the attributes you want to check for uniqueness.
+        $uniqueAttributes = [
+            'album_id' => $request->album_id
+        ];
 
-    public function search_id($id)
-    {
+        // Additional data that should be included if a new album is being created.
+        $additionalData = [
+            'name' => $request->name,
+            'artist_id' => $request->artist_id,
+            'release_date' => $request->release_date,
+            'album_type' => $request->album_type,
+            'image_url' => $request->image_url,
+            'label' => $request->label,
+            'copyright' => $request->copyright,
+            'total_tracks' => $request->total_tracks,
+            'popularity' => $request->popularity
+        ];
+
+        // Use firstOrCreate to either find the existing album or create a new one.
+        $album = Album::firstOrCreate($uniqueAttributes, $additionalData);
+
+        if ($album->wasRecentlyCreated) {
+            // Album was created
+            return response()->json([
+                "message" => "Album added"
+            ], 201); // HTTP status code 201 means "Created"
+        } else {
+            // Album already exists
+            return response()->json([
+                "message" => "Album already exists"
+            ], 200); // HTTP status code 200 means "OK"
+        }
+
+    public function search_id($id){
         $album = Album::find($id);
-        if (!empty($album)) {
+        if(!empty($album)){
             return response()->json($album);
         } else {
             return response()->json([
