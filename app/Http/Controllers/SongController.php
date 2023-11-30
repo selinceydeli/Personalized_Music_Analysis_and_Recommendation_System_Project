@@ -122,6 +122,10 @@ class SongController extends Controller
         }
     }
 
+    public function add() {
+        return view('songs.manage');
+    }
+
     public function search_id($id){
         $song = Song::where('song_id', $id)->first();    
         if ($song) {

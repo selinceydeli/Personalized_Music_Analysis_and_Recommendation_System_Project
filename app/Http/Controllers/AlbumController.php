@@ -99,6 +99,7 @@ class AlbumController extends Controller
                 "message" => "Album already exists"
             ], 200); // HTTP status code 200 means "OK"
         }
+    }
 
     public function search_id($id){
         $album = Album::find($id);

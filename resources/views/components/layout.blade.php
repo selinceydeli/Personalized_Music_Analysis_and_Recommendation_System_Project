@@ -39,7 +39,7 @@
                     </span>
                 </li>
                 <li>
-                    <a href="/listings/manage" class="hover:text-laravel"><i class="fa-solid fa-gear"></i>
+                    <a href="/add" class="hover:text-laravel"><i class="fa-solid fa-plus"></i>
                         Upload Music</a>
                 </li>
                 <li>
@@ -64,9 +64,9 @@
     </main>
     <footer
         class="fixed bottom-0 left-0 w-full flex items-center justify-start font-bold bg-laravel text-white h-24 mt-24 opacity-90 md:justify-center">
-        <p class="ml-2">Copyright &copy; 2022, All Rights reserved</p>
+        <p class="ml-2">Copyright &copy; 2023, All Rights reserved</p>
 
-        <a href="/listings/create" class="absolute top-1/3 right-10 bg-black text-white py-2 px-5">Upload Music</a>
+        <a href="/add" class="absolute top-1/3 right-10 bg-black text-white py-2 px-5">Upload Music</a>
     </footer>
     <x-flash-message />
     <script src="{{ asset('js/password-checklist.js') }}"></script>
