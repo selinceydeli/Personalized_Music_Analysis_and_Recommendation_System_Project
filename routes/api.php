@@ -76,7 +76,11 @@ Route::put('/performerrating/{id}', [PerformerRatingController::class, 'update']
 Route::post('/performerrating', [PerformerRatingController::class, 'store']);
 Route::delete('/performerrating/{id}', [PerformerRatingController::class, 'destroy']);
 
+// Search Routes
 Route::get('/search/{searchTerm}', [SearchController::class, 'search_all']);
+Route::get('/search/song/{searchTerm}', [SearchController::class, 'search_song']);
+Route::get('/search/album/{searchTerm}', [SearchController::class, 'search_album']);
+Route::get('/search/performer/{searchTerm}', [SearchController::class, 'search_performer']);
 
 // User recommendation routes
 Route::get('/users/{username}/fav-genre-recommendations', [UserController::class, 'favGenreRecomendationFromDifferentPerformers']);
@@ -88,11 +92,19 @@ Route::get('/songrating/user/{username}/monthly-averages', [SongRatingController
 Route::get('/albumrating/top-rated/{username}/{era}', [AlbumRatingController::class, 'topRatedAlbumsByEra']);
 Route::post('/performerrating/average-performer-ratings', [PerformerRatingController::class, 'getAverageRatingsForArtists']);
 
+// Friendship Routes
 Route::post('/friend-request/{user}', [FriendshipController::class, 'sendRequest']);
 Route::post('/accept-request/{friendship}', [FriendshipController::class, 'acceptRequest']);
 
+// Blocking Routes
 Route::post('/block-user/{id}', [BlockController::class, 'blockUser']);
 Route::post('/unblock-user/{id}', [BlockController::class, 'unblockUser']);
+
+// Getting friends and blocked users
+Route::get('/user/{username}/friends', [UserController::class, 'getFriends']);
+Route::get('/user/{username}/blocked', [UserController::class, 'getBlockedUsers']);
+Route::get('/user/{username}/notifications', [UserController::class, 'getNotifications']);
+
 
 // Handling song imports
 Route::post('/spotify/import', [SpotifyController::class, 'importSong']);

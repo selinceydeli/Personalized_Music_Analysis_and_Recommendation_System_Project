@@ -125,4 +125,28 @@ class UserController extends Controller
 
             return view('dashboard', compact('notifications', 'unreadNotifications'));
         }
+
+    public function getFriends($username)
+        {
+            $user = User::where('username', $username)->firstOrFail();
+            return response()->json($user->allFriends);
+        }
+        
+    public function getBlockedUsers($username)
+        {
+            $user = User::where('username', $username)->firstOrFail();
+            return response()->json($user->blockedUsers);
+        }
+    public function getNotifications($username)
+        {
+            $user = User::where('username', $username)->firstOrFail();
+        
+            // Ensure that the authenticated user is the same as the requested user
+            if (auth()->user()->username != $username) {
+                return response()->json(['error' => 'Unauthorized'], 403);
+            }
+        
+            $notifications = $user->notifications; // or use ->unreadNotifications for only unread ones
+            return response()->json($notifications);
+        }
 }
