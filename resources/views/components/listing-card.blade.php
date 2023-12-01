@@ -46,21 +46,25 @@
                 @endphp
                 <p>
                     <i class="fas fa-microphone"></i> <!-- Microphone icon -->
+                    @php $matchedPerformers = collect([]); @endphp
                     @foreach ($performers as $performer)
-                        @if (in_array($performer->artist_id, $songPerformers))
-                            @php
-                                $matchedPerformers[] = $performer; // Collect matched performer names
-                            @endphp
-                            <a href="/performers/{{ $performer->artist_id }}?song-id={{ $song->song_id }}"
-                               class="text-lg font-bold">
-                                {{ $performer->name }} <!-- Assuming 'name' is the property you want to display -->
-                            </a>
-                            @if (!$loop->last && count($matchedPerformers) > 1)
-                                , <!-- Add a comma if it's not the last performer and there's more than one matched performer -->
+                        @foreach ($performer as $details)
+                            @if (in_array($details->artist_id, $songPerformers) && !$matchedPerformers->contains('artist_id', $details->artist_id))
+                                @php $matchedPerformers->push($details); @endphp
                             @endif
+                        @endforeach
+                    @endforeach
+                
+                    @foreach ($matchedPerformers as $index => $details)
+                        <a href="/performers/{{ $details->artist_id }}?song-id={{ $song->song_id }}"
+                           class="text-lg font-bold">
+                            {{ $details->name }} <!-- Assuming 'name' is the property you want to display -->
+                        </a>
+                        @if (!$loop->last && $index !== $matchedPerformers->count() - 1)
+                            , <!-- Add a comma if it's not the last performer -->
                         @endif
                     @endforeach
-                </p>
+                </p>          
                 <x-listing-tags :matchedPerformers="$matchedPerformers" />
             </div>
         </div>

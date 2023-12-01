@@ -1,0 +1,64 @@
+[
+    {
+        "followers": 8054,
+        "genres": [],
+        "name": "Static Major",
+        "popularity": 58,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb5ccc476e8b18673e01d87420",
+        "artist_id": "3pbi8H08p95NUZ7m6ybxUV"
+    },
+    {
+        "followers": 82697541,
+        "genres": [
+            "canadian hip hop",
+            "canadian pop",
+            "hip hop",
+            "pop rap",
+            "rap"
+        ],
+        "name": "Drake",
+        "popularity": 95,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
+        "artist_id": "3TVXtAsR1Inumwj472S9r4"
+    },
+    {
+        "followers": 29495639,
+        "genres": [
+            "r&b",
+            "soul"
+        ],
+        "name": "Michael Jackson",
+        "popularity": 80,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb0e08ea2c4d6789fbf5cbe0aa",
+        "artist_id": "3fMbdgg4jU18AjLCKBhRSm"
+    },
+    {
+        "followers": 4836714,
+        "genres": [
+            "hip hop",
+            "pop rap",
+            "r&b",
+            "southern hip hop",
+            "trap",
+            "trap soul"
+        ],
+        "name": "Ty Dolla $ign",
+        "popularity": 77,
+        "image": "https://i.scdn.co/image/ab6761610000e5ebd9dde4a54073dbd58fb91c7d",
+        "artist_id": "7c0XG5cIJTrrAgEC3ULPiq"
+    },
+    {
+        "followers": 8788757,
+        "genres": [
+            "east coast hip hop",
+            "gangster rap",
+            "hip hop",
+            "pop rap",
+            "rap"
+        ],
+        "name": "JAY-Z",
+        "popularity": 81,
+        "image": "https://i.scdn.co/image/ab6761610000e5ebc75afcd5a9027f60eaebb5e4",
+        "artist_id": "3nFkdlSjzX9mRTtwJOzDYB"
+    }
+]

@@ -10,7 +10,8 @@ class Performer extends Model
 {
     use HasFactory;
 
-
+    protected $primaryKey = 'artist_id';
+    protected $keyType = 'string';
 
     public function performerRatings()
     {

@@ -35,7 +35,7 @@ Route::get('/login', [UserController::class, 'login'])->name('login')->middlewar
 Route::get('/add', [SongController::class, 'add'])->name('add')->middleware(['auth']);
 
 
-Route::post('/upload-via-spotify', [SpotifyController::class, 'importSong'])->name('upload.spotifysong');
+Route::post('/upload-via-spotify', [SpotifyController::class, 'importSong'])->name('importSong');
 
 // Single Album
 Route::get('/albums/{album}', [AlbumController::class, 'show']);

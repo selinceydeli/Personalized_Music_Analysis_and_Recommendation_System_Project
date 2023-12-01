@@ -8,82 +8,51 @@
 
         <!-- Centered Form for Spotify link input -->
         <div class="flex justify-center flex-col items-center">
-            <form id="spotifyForm" onsubmit="return false;" class="max-w-md flex items-center">
+            <form id="spotifyForm" action="/upload-via-spotify" method="POST" class="max-w-md flex items-center">
                 @csrf
                 <div class="flex items-center border-b border-b-2 border-blue-500 py-2 mr-2">
-                    <input type="text" id="spotify-link" name="spotifyLink" placeholder="Enter Spotify Link" class="border-none focus:outline-none flex-grow px-2 w-64">
+                    <input type="text" id="spotifyLink" name="spotifyLink" placeholder="Enter Spotify Link" class="border-none focus:outline-none flex-grow px-2 w-64">
                 </div>
                 <div>
-                    <button type="button" onclick="searchSong()" class="bg-blue-500 text-white px-4 py-2 rounded">Preview</button>
+                    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Preview</button>
                 </div>
             </form>
 
-            <!-- Display song information preview or error message -->
-            <div id="songPreview" class="mt-4">
-                <!-- Content will be dynamically updated here -->
+            <!-- Display error message if the link is invalid -->
+            <div id="errorMessage" class="mt-4 text-red-500" style="display: none;">
+                Invalid Spotify link!
             </div>
         </div>
     </x-card>
 </x-layout>
 
 <script>
-    // Capture form submission event and prevent default action
     document.getElementById('spotifyForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent form submission
-        searchSong(); // Call searchSong function when the form is submitted
+        event.preventDefault();
+        searchSong();
     });
 
     function searchSong() {
-        const spotifyLink = document.getElementById('spotify-link').value;
+        const spotifyLink = document.getElementById('spotifyLink').value;
 
-        // Validate the Spotify link
         if (!isValidSpotifyLink(spotifyLink)) {
-            // If the link is invalid, show an error message
-            document.getElementById('songPreview').innerHTML = `
-                <p id="errorMessage" class="text-red-500">Invalid Spotify link!</p>
-            `;
+            // Show error message
+            document.getElementById('errorMessage').classList.remove('hidden');
 
-            // Hide the error message after 5 seconds
+            // Hide error message after 5 seconds
             setTimeout(() => {
-                document.getElementById('errorMessage').style.display = 'none';
-            }, 5000); // Hide after 5 seconds (5000 milliseconds)
-            return; // Exit the function if the link is invalid
+                document.getElementById('errorMessage').classList.add('hidden');
+            }, 5000);
+
+            return;
         }
 
-        // Perform logic to fetch song details from Spotify using AJAX or form submission
-        // You can use the SpotifyController and its method for handling song import
-        // This logic would involve making an AJAX request to the SpotifyController
-        
-        // Assuming you're using Axios for AJAX requests
-        // Replace the URL with the correct route
-        axios.post('{{ route('upload.spotifysong') }}', {
-            spotifyLink: spotifyLink
-        })
-        .then(response => {
-            // Handle the response and display song information in the songPreview section
-            // For example:
-            const songDetails = response.data;
-            document.getElementById('songPreview').innerHTML = `
-                <p>Song: ${songDetails.songName}</p>
-                <p>Performer: ${songDetails.performer}</p>
-                <p>Album: ${songDetails.albumName}</p>
-                <p>Duration: ${songDetails.duration}</p>
-                <button onclick="addSong()" class="bg-green-500 text-white px-4 py-2 rounded">Add Song</button>
-            `;
-        })
-        .catch(error => {
-            // Handle errors here
-            console.error(error);
-        });
+        // Proceed with form submission for valid link
+        document.getElementById('spotifyForm').submit();
     }
 
     function isValidSpotifyLink(input) {
         const pattern = /^(https:\/\/open\.spotify\.com\/(track|album|playlist)\/[a-zA-Z0-9]+)(\?.*)?$/i;
         return pattern.test(input);
-    }
-
-    function addSong() {
-        // Logic to add the song to the system after user confirmation
-        // This could involve another AJAX request or form submission
     }
 </script>
