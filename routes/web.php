@@ -9,6 +9,7 @@ use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\DashboardController; // Import DashboardController
 use App\Http\Controllers\SpotifyController;
 
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +35,6 @@ Route::get('/login', [UserController::class, 'login'])->name('login')->middlewar
 
 Route::get('/add', [SongController::class, 'add'])->name('add')->middleware(['auth']);
 
-
 Route::post('/upload-via-spotify', [SpotifyController::class, 'importSong'])->name('importSong');
 
 // Single Album
@@ -56,6 +56,15 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/settings', [SettingsController::class, 'index'])->name('settings');
     Route::post('/settings/update', [SettingsController::class, 'update'])->name('settings.update');
 });
+
+// Recommendations
+Route::get('/dashboard/genretaste', [UserController::class, 'showDashboard'])
+    ->name('dashboard.genretaste')
+    ->middleware('auth');
+
+Route::get('/dashboard/energy', [UserController::class, 'showDashboardEnergy'])
+    ->name('dashboard.energy')
+    ->middleware('auth');
 
 // Logout
 Route::post('/logout', [DashboardController::class, 'logout'])->middleware(['auth'])->name('logout');
