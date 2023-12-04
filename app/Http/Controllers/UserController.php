@@ -226,5 +226,26 @@ class UserController extends Controller
         
             return view('components.dashboard', ['recommendations' => $songs]);
         }
+
+        public function showDashboardEnergy() {
+            $username = auth()->user()->name;
+            $recommendations = $this->RecomendationByEnergyAndDanceability($username) ?? [];
+        
+            // Initialize SongController
+            $songController = new SongController();
+        
+            // Get recommended song IDs
+            $recommendedSongIds = collect($recommendations)->pluck('song_id')->toArray();
+        
+            // Use getSongsQuery() method from SongController
+            // Ensure it filters based on the recommended song IDs
+            $songsQuery = $songController->getSongsQuery()->whereIn('songs.song_id', $recommendedSongIds);
+            
+            // Retrieve the songs
+            $songs = $songsQuery->get();
+        
+            return view('components.dashboard-energy', ['recommendations' => $songs]);
+        }
+
     
 }

@@ -58,7 +58,13 @@ Route::middleware(['auth'])->group(function () {
 });
 
 // Recommendations
-Route::get('/dashboard', [UserController::class, 'showDashboard'])->name('dashboard')->middleware('auth');
+Route::get('/dashboard/genretaste', [UserController::class, 'showDashboard'])
+    ->name('dashboard.genretaste')
+    ->middleware('auth');
+
+Route::get('/dashboard/energy', [UserController::class, 'showDashboardEnergy'])
+    ->name('dashboard.energy')
+    ->middleware('auth');
 
 // Logout
 Route::post('/logout', [DashboardController::class, 'logout'])->middleware(['auth'])->name('logout');
