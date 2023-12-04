@@ -23,7 +23,10 @@ class SongController extends Controller
 {
     public function index()
     {
-        $query = Song::latest();
+        $query = Song::leftJoin('song_ratings', 'songs.song_id', '=', 'song_ratings.song_id')
+            ->select('songs.*', DB::raw('IFNULL(AVG(song_ratings.rating), 0) as average_rating'))
+            ->groupBy('songs.song_id')
+            ->orderByDesc('average_rating');
 
         // Check if a genre filter is applied
         $selectedGenre = request('genre');
@@ -40,20 +43,14 @@ class SongController extends Controller
         // Check if a search filter is applied
         $searchTerm = request('search');
         if ($searchTerm) {
-            // Get performer names and IDs based on the search term
-            $performerNames = Performer::where('name', 'LIKE', "%{$searchTerm}%")->pluck('name')->toArray();
-
-            $query->where(function ($query) use ($searchTerm, $performerNames) {
+            $query->where(function ($query) use ($searchTerm) {
                 $query->where('songs.name', 'like', '%' . $searchTerm . '%')
-                    ->orWhereHas('album', function ($subquery) use ($searchTerm, $performerNames) {
-                        $subquery->where('albums.name', 'like', '%' . $searchTerm . '%')
-                            ->whereHas('performers', function ($innerSubquery) use ($performerNames) {
-                                $innerSubquery->whereIn('performers.name', $performerNames);
-                            });
+                    ->orWhereHas('album', function ($subquery) use ($searchTerm) {
+                        $subquery->where('albums.name', 'like', '%' . $searchTerm . '%');
                     });
-
             });
         }
+
 
         $songs = $query->paginate(6);
 
@@ -75,10 +72,10 @@ class SongController extends Controller
                 foreach ($id as $subId) {
                     // Make sure $subId is a string without quotes
                     $subId = trim($subId, '"');
-        
+
                     // Make an HTTP request to fetch performer data for each subId
                     $response = $performerController->search_id($subId); // Assuming search_id() takes a string parameter
-        
+
                     if ($response->getStatusCode() == 200) { // Checking if performer is found
                         $performers[$key][$subId] = $response->getData(); // Assuming getData() gets the data from the response
                     }
@@ -86,9 +83,9 @@ class SongController extends Controller
             } else {
                 // Make an HTTP request to fetch performer data for $id
                 $id = trim($id, '"');
-        
+
                 $response = $performerController->search_id($id); // Assuming search_id() takes a string parameter
-        
+
                 if ($response->getStatusCode() == 200) { // Checking if performer is found
                     $performers[$key][$id] = $response->getData(); // Assuming getData() gets the data from the response
                 }

@@ -41,7 +41,7 @@
             @endif
             <div>
                 @php
-                    $songPerformers = json_decode($song->performers, true); // Decode JSON to an array
+                    $songPerformers = $song->performers;
                     $matchedPerformers = [];
                 @endphp
                 <p>

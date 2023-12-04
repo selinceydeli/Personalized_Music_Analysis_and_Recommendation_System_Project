@@ -13,6 +13,9 @@ class Song extends Model
     protected $primaryKey = 'song_id';
     public $incrementing = false;
     protected $keyType = 'string';
+    protected $casts = [
+        'performers' => 'array',
+    ];
 
     protected static function boot()
     {
@@ -57,10 +60,10 @@ class Song extends Model
             $query->where(function ($subquery) use ($searchTerm) {
                 $subquery->where('name', 'like', '%' . $searchTerm . '%')
                     ->orWhere('genre', 'like', '%' . $searchTerm . '%')
-                    ->orWhereHas('album', function ($albumSubquery) use ($searchTerm) {
+                    ->orWhereHas('albums', function ($albumSubquery) use ($searchTerm) {
                         $albumSubquery->where('name', 'like', '%' . $searchTerm . '%');
                     })
-                    ->orWhereHas('artist', function ($artistSubquery) use ($searchTerm) {
+                    ->orWhereHas('performers', function ($artistSubquery) use ($searchTerm) {
                         $artistSubquery->where('name', 'like', '%' . $searchTerm . '%');
                     });
             });
@@ -82,8 +85,7 @@ class Song extends Model
         return $this->belongsTo(Album::class, 'album_id');
     }
     // Define the relationship with performers
-    public function performers()
-    {
-        return $this->belongsToMany(Performer::class, 'artist_id');
+    public function performers() {
+        return $this->belongsToMany(Performer::class);
     }
 }

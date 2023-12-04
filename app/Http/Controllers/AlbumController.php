@@ -35,13 +35,13 @@ class AlbumController extends Controller
         $songsWithSameAlbum = Song::where('album_id', $song->album->album_id)->get();
 
         // Access the performer IDs from the song
-        $performersJson = $song->performers; // JSON field from the Song model
+        $performersIds = $song->performers; // JSON field from the Song model
 
         // Retrieve performer IDs from JSON data
-        $performerIds = json_decode($performersJson);
+        //$performerIds = json_decode($performersJson);
 
         // Assuming $performerIds contains the performer IDs associated with the song
-        $performers = Performer::whereIn('artist_id', $performerIds)->orderBy('name')->get();
+        $performers = Performer::whereIn('artist_id', $performersIds)->orderBy('name')->get();
 
         // Collect all genres of the performers
         $allGenres = [];
