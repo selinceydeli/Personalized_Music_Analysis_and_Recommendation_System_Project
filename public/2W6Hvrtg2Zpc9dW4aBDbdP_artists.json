@@ -1,0 +1,71 @@
+[
+    {
+        "followers": 660531,
+        "genres": [
+            "bossa nova",
+            "brazilian classical",
+            "brazilian jazz",
+            "latin classical",
+            "mpb",
+            "violao"
+        ],
+        "name": "Ant\u00f4nio Carlos Jobim",
+        "popularity": 65,
+        "image": "https://i.scdn.co/image/25438d99922a46a53792e1496b31159ad386806a",
+        "artist_id": "3pO5VjZ4wOHCMBXOvbMISG"
+    },
+    {
+        "followers": 588208,
+        "genres": [
+            "bossa nova",
+            "brazilian jazz",
+            "cool jazz",
+            "jazz guitar",
+            "samba",
+            "violao"
+        ],
+        "name": "Jo\u00e3o Gilberto",
+        "popularity": 61,
+        "image": "https://i.scdn.co/image/ab6761610000e5ebc18449a640fefd04cfe62359",
+        "artist_id": "77ZUbcdoU5KCPHNUl8bgQy"
+    },
+    {
+        "followers": 1711,
+        "genres": [],
+        "name": "Jo\u00e3o Gilberto Quintet",
+        "popularity": 38,
+        "image": "https://i.scdn.co/image/ab67616d0000b273af6dfb7016c4904c0794c3ae",
+        "artist_id": "3UmzVSTun6O0Qtn0wacusX"
+    },
+    {
+        "followers": 410167,
+        "genres": [
+            "bebop",
+            "bossa nova",
+            "cool jazz",
+            "jazz",
+            "jazz saxophone",
+            "latin jazz",
+            "samba-jazz",
+            "vocal jazz"
+        ],
+        "name": "Stan Getz",
+        "popularity": 62,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb45dd470659deedf47618968e",
+        "artist_id": "0FMucZsEnCxs5pqBjHjIc8"
+    },
+    {
+        "followers": 256207,
+        "genres": [
+            "bossa nova",
+            "brazilian jazz",
+            "lounge",
+            "samba-jazz",
+            "vocal jazz"
+        ],
+        "name": "Astrud Gilberto",
+        "popularity": 58,
+        "image": "https://i.scdn.co/image/ab67616d0000b273b48a079c5273b6141af2dc35",
+        "artist_id": "5rX2c1zow6hCph8PnnU3kF"
+    }
+]
