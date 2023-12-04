@@ -140,15 +140,7 @@ class UserController extends Controller
 
             return view('dashboard', compact('notifications', 'unreadNotifications'));
         }
-
-    public function dashboard()
-        {
-            $user = auth()->user();
-            $notifications = $user->notifications;  // Get all notifications
-            $unreadNotifications = $user->unreadNotifications;  // Get only unread notifications
-
-            return view('dashboard', compact('notifications', 'unreadNotifications'));
-        }
+        
     //Logout User
 
     public function logout(Request $request) {
