@@ -10,20 +10,32 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\PerformerController;
 
+function flattenArray($array)
+{
+    $result = [];
+    array_walk_recursive($array, function ($value) use (&$result) {
+        $result[] = $value;
+    });
+    return $result;
+}
+
 class SongController extends Controller
 {
     public function index()
     {
-        $query = Song::latest();
+        $query = Song::leftJoin('song_ratings', 'songs.song_id', '=', 'song_ratings.song_id')
+            ->select('songs.*', DB::raw('IFNULL(AVG(song_ratings.rating), 0) as average_rating'))
+            ->groupBy('songs.song_id')
+            ->orderByDesc('average_rating');
 
         // Check if a genre filter is applied
         $selectedGenre = request('genre');
         if ($selectedGenre) {
             $genres = $this->getSongsByGenre($selectedGenre)->getData();
-            
+
             // Extract song IDs from the array response
             $songIds = collect($genres)->pluck('song_id')->toArray();
-    
+
             // Update the query with the song IDs from the selected genre
             $query->whereIn('song_id', $songIds);
         }
@@ -31,38 +43,52 @@ class SongController extends Controller
         // Check if a search filter is applied
         $searchTerm = request('search');
         if ($searchTerm) {
-            $performerNames = Performer::where('name', 'LIKE', "%{$searchTerm}%")->pluck('name')->toArray();
-
-            $query->where(function ($query) use ($searchTerm, $performerNames) {
+            $query->where(function ($query) use ($searchTerm) {
                 $query->where('songs.name', 'like', '%' . $searchTerm . '%')
-                    ->orWhereHas('album', function ($subquery) use ($searchTerm, $performerNames) {
-                        $subquery->where('albums.name', 'like', '%' . $searchTerm . '%')
-                            ->whereHas('performers', function ($innerSubquery) use ($performerNames) {
-                                $innerSubquery->whereIn('performers.name', $performerNames);
-                            });
+                    ->orWhereHas('album', function ($subquery) use ($searchTerm) {
+                        $subquery->where('albums.name', 'like', '%' . $searchTerm . '%');
                     });
-
             });
         }
 
+
         $songs = $query->paginate(6);
 
-        $performerIds = $songs->pluck('performers')->flatten()->unique(); // Get unique performer IDs from all songs
+        $performerIds = $songs->pluck('performers')->flatten(); // Get unique performer IDs from all songs
+
         // Remove the extra brackets and extract the IDs as strings
-        $performerIds = $performerIds->map(function ($id) {
-            // Assuming each ID is wrapped in square brackets and presented as a string
-            return trim($id, '[""]');
-        });
+        foreach ($performerIds as $key => $ids) {
+            if (is_string($ids) && strpos($ids, ',') !== false) {
+                $performerIds[$key] = array_map('trim', explode(',', trim($ids, '[]')));
+            } else {
+                $performerIds[$key] = trim($ids, '[]');
+            }
+        }
 
         $performerController = new PerformerController();
         $performers = [];
-        foreach ($performerIds as $id) {
+        foreach ($performerIds as $key => $id) {
+            if (is_array($id)) {
+                foreach ($id as $subId) {
+                    // Make sure $subId is a string without quotes
+                    $subId = trim($subId, '"');
 
-            // Make an HTTP request to fetch performer data
-            $response = $performerController->search_id($id); // Directly calling the method
+                    // Make an HTTP request to fetch performer data for each subId
+                    $response = $performerController->search_id($subId); // Assuming search_id() takes a string parameter
 
-            if ($response->getStatusCode() == 200) { // Checking if performer is found
-                $performers[$id] = $response->getData(); // Assuming getData() gets the data from the response
+                    if ($response->getStatusCode() == 200) { // Checking if performer is found
+                        $performers[$key][$subId] = $response->getData(); // Assuming getData() gets the data from the response
+                    }
+                }
+            } else {
+                // Make an HTTP request to fetch performer data for $id
+                $id = trim($id, '"');
+
+                $response = $performerController->search_id($id); // Assuming search_id() takes a string parameter
+
+                if ($response->getStatusCode() == 200) { // Checking if performer is found
+                    $performers[$key][$id] = $response->getData(); // Assuming getData() gets the data from the response
+                }
             }
         }
 
@@ -122,9 +148,15 @@ class SongController extends Controller
         }
     }
 
-    public function search_id($id){
-        $song = Song::find($id);
-        if(!empty($song)){
+    public function add()
+    {
+        return view('songs.manage');
+    }
+
+    public function search_id($id)
+    {
+        $song = Song::where('song_id', $id)->first();
+        if ($song) {
             return response()->json($song);
         } else {
             return response()->json([
@@ -152,35 +184,35 @@ class SongController extends Controller
         return SongResource::collection($songs);
     }
 
-    public function update(Request $request, $id){
-        if (Song::where('song_id', $id) -> exists()){
+    public function update(Request $request, $id)
+    {
+        if (Song::where('song_id', $id)->exists()) {
             $song = Song::find($id);
 
-            $song->name = is_null($request -> name) ? $song->name : $request->name;
-            $song->lyrics = is_null($request -> lyrics) ? $song->lyrics : $request->lyrics;
-            $song->isrc = is_null($request -> isrc) ? $song->isrc : $request->isrc;
-            $song->performers = is_null($request -> performers) ? $song->performers : $request->performers;
-            $song->tempo = is_null($request -> tempo) ? $song->tempo : $request->tempo;
-            $song->key = is_null($request -> key) ? $song->key : $request->key;
-            $song->mode = is_null($request -> mode) ? $song->mode : $request->mode;
-            $song->system_entry_date = is_null($request -> system_entry_date) ? $song->system_entry_date : $request->system_entry_date;
-            $song->album_id = is_null($request -> album_id) ? $song->album_id : $request->album_id;
-            $song->explicit = is_null($request -> explicit) ? $song->explicit : $request->explicit;
-            $song->duration = is_null($request -> duration) ? $song->duration : $request->duration;
-            $song->danceability = is_null($request -> danceability) ? $song->danceability : $request->danceability;
-            $song->energy = is_null($request -> energy) ? $song->energy : $request->energy;
-            $song->loudness = is_null($request -> loudness) ? $song->loudness : $request->loudness;
-            $song->speechiness = is_null($request -> speechiness) ? $song->speechiness : $request->speechiness;
-            $song->instrumentalness = is_null($request -> instrumentalness) ? $song->instrumentalness : $request->instrumentalness;
-            $song->liveness = is_null($request -> liveness) ? $song->liveness : $request->liveness;
-            $song->time_signature = is_null($request -> time_signature) ? $song->time_signature : $request->time_signature;
-            $song->valence = is_null($request -> valence) ? $song->valence : $request->valence;
+            $song->name = is_null($request->name) ? $song->name : $request->name;
+            $song->lyrics = is_null($request->lyrics) ? $song->lyrics : $request->lyrics;
+            $song->isrc = is_null($request->isrc) ? $song->isrc : $request->isrc;
+            $song->performers = is_null($request->performers) ? $song->performers : $request->performers;
+            $song->tempo = is_null($request->tempo) ? $song->tempo : $request->tempo;
+            $song->key = is_null($request->key) ? $song->key : $request->key;
+            $song->mode = is_null($request->mode) ? $song->mode : $request->mode;
+            $song->system_entry_date = is_null($request->system_entry_date) ? $song->system_entry_date : $request->system_entry_date;
+            $song->album_id = is_null($request->album_id) ? $song->album_id : $request->album_id;
+            $song->explicit = is_null($request->explicit) ? $song->explicit : $request->explicit;
+            $song->duration = is_null($request->duration) ? $song->duration : $request->duration;
+            $song->danceability = is_null($request->danceability) ? $song->danceability : $request->danceability;
+            $song->energy = is_null($request->energy) ? $song->energy : $request->energy;
+            $song->loudness = is_null($request->loudness) ? $song->loudness : $request->loudness;
+            $song->speechiness = is_null($request->speechiness) ? $song->speechiness : $request->speechiness;
+            $song->instrumentalness = is_null($request->instrumentalness) ? $song->instrumentalness : $request->instrumentalness;
+            $song->liveness = is_null($request->liveness) ? $song->liveness : $request->liveness;
+            $song->time_signature = is_null($request->time_signature) ? $song->time_signature : $request->time_signature;
+            $song->valence = is_null($request->valence) ? $song->valence : $request->valence;
             $song->save();
             return response()->json([
                 "message" => "Song Updated"
             ], 200);
-        }
-        else{
+        } else {
             return response()->json([
                 "message" => "Song not found!"
             ], 404);
@@ -215,6 +247,6 @@ class SongController extends Controller
             ->get();
 
         return response()->json($songsWithGenres); // Returns all the fields from the songs table 
-                                                // and an additional field performer_genres for each song
+        // and an additional field performer_genres for each song
     }
 }

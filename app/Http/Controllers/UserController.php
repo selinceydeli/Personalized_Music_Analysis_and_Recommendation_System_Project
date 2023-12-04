@@ -141,6 +141,57 @@ class UserController extends Controller
             return view('dashboard', compact('notifications', 'unreadNotifications'));
         }
 
+    public function dashboard()
+        {
+            $user = auth()->user();
+            $notifications = $user->notifications;  // Get all notifications
+            $unreadNotifications = $user->unreadNotifications;  // Get only unread notifications
+
+            return view('dashboard', compact('notifications', 'unreadNotifications'));
+        }
+    //Logout User
+
+    public function logout(Request $request) {
+        auth()->logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/')->with('message', 'You have been logged out!');
+    }
+
+    // Show Login Form
+
+    public function login() {
+        return view('users.login');
+    }
+
+    // Authenticate User
+
+    public function authenticate(Request $request) {
+        $formFields = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => 'required',
+        ]);
+    
+        //$response = (new ReCaptcha(env('RECAPTCHA_SECRET_KEY')))->verify($request->input('g-recaptcha-response'));
+    
+        if (auth()->attempt($formFields)) {
+
+            // Get the authenticated user
+            $user = auth()->user();
+    
+            // Retrieve the user's name from the database
+    
+            $request->session()->regenerate();
+    
+            // You can pass the user's name to the view or store it in the session
+            //$request->session()->put('user_name', $userName);
+    
+            return redirect('/')->with('message', 'You are now logged in!');
+        }
+    
+        return back()->withErrors(['email' => 'Invalid Credentials'])->onlyInput('email');
+    }
     public function getFriends($username)
         {
             $user = User::where('username', $username)->firstOrFail();

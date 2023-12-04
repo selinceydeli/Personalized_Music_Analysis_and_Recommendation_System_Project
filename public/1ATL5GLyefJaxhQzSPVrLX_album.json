@@ -1,0 +1,120 @@
+{
+    "album_type": "album",
+    "copyrights": "\u00a9 2018 Young Money/Cash Money Records",
+    "genres": [],
+    "label": "Cash Money/Drake LP6",
+    "name": "Scorpion",
+    "popularity": 86,
+    "release_date": "2018-06-29",
+    "total_tracks": 25,
+    "tracks": {
+        "items": [
+            {
+                "id": "2yg9UN4eo5eMVJ7OB4RWj3",
+                "track_number": 1
+            },
+            {
+                "id": "0TlLq3lA83rQOYtrqBqSct",
+                "track_number": 2
+            },
+            {
+                "id": "3szf2z1Cy1QMrtHrbn8rz9",
+                "track_number": 3
+            },
+            {
+                "id": "5Psnhdkyanjpgc2P8A5TSM",
+                "track_number": 4
+            },
+            {
+                "id": "6DCZcSspjsKoFjzjrWoCdn",
+                "track_number": 5
+            },
+            {
+                "id": "3qN5qMTKyEEmiTZD38BNTT",
+                "track_number": 6
+            },
+            {
+                "id": "0zqy3ss4CwD6u4QPksS0nI",
+                "track_number": 7
+            },
+            {
+                "id": "7rC5Pl8rQSX4myONQHYPBK",
+                "track_number": 8
+            },
+            {
+                "id": "1dUHF4RyMmMTveJ0Rby6Xm",
+                "track_number": 9
+            },
+            {
+                "id": "6cblRiEGDRNZgowcm951R3",
+                "track_number": 10
+            },
+            {
+                "id": "4ksuI04WMvUnJbHQjgs3L5",
+                "track_number": 11
+            },
+            {
+                "id": "1Tnw0ItH1Macok8gblnPPd",
+                "track_number": 12
+            },
+            {
+                "id": "11L064movtyopGdLiX4sVg",
+                "track_number": 13
+            },
+            {
+                "id": "4HG1YiGBseVKzjyKcmAJen",
+                "track_number": 14
+            },
+            {
+                "id": "4c2xt1trwYZpMqPWY35Xi9",
+                "track_number": 15
+            },
+            {
+                "id": "3CA9pLiwRIGtUBiMjbZmRw",
+                "track_number": 16
+            },
+            {
+                "id": "2WP8G2pdddDmnh1xbfKBOI",
+                "track_number": 17
+            },
+            {
+                "id": "4SUwJA3eUVNHExxMPEUhQe",
+                "track_number": 18
+            },
+            {
+                "id": "41a7dZcq30Ss5kPMayWRV0",
+                "track_number": 19
+            },
+            {
+                "id": "4n1bdaKwynQndm47x5HqWX",
+                "track_number": 20
+            },
+            {
+                "id": "2G7V7zsVDxg1yRsu7Ew9RJ",
+                "track_number": 21
+            },
+            {
+                "id": "6G8kHiVZ1jW7vHMPVRNZU0",
+                "track_number": 22
+            },
+            {
+                "id": "3mvYQKm8h6M5K5h0nVPY9S",
+                "track_number": 23
+            },
+            {
+                "id": "44Du2IM1bGY7dicmLfXbUs",
+                "track_number": 24
+            },
+            {
+                "id": "09lmraDvzBT3pUQ2rUtJzK",
+                "track_number": 25
+            }
+        ],
+        "total": 25
+    },
+    "type": "album",
+    "artist_id": "3TVXtAsR1Inumwj472S9r4",
+    "album_id": "1ATL5GLyefJaxhQzSPVrLX",
+    "upc": "00602567892434",
+    "image": "https://i.scdn.co/image/ab67616d0000b273f907de96b9a4fbc04accc0d5"
+}

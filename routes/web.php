@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\SongController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\DashboardController; // Import DashboardController
-use App\Http\Controllers\PerformerController;
+use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\PerformerController;
 use App\Http\Controllers\SubscriptionController;
+use App\Http\Controllers\DashboardController; // Import DashboardController
+use App\Http\Controllers\SpotifyController;
 
 
 /*
@@ -30,6 +31,11 @@ Route::post('/users', [UserController::class, 'store'])->name('register');
 
 // Show Login Form
 Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
+
+Route::get('/add', [SongController::class, 'add'])->name('add')->middleware(['auth']);
+
+
+Route::post('/upload-via-spotify', [SpotifyController::class, 'importSong'])->name('importSong');
 
 // Single Album
 Route::get('/albums/{album}', [AlbumController::class, 'show']);

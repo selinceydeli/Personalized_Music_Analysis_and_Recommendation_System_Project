@@ -128,10 +128,16 @@
                         No music found
                     </p>
                 @else
+                    @php
+                        $count=0;
+                    @endphp
                     @foreach ($songs as $song)
                         <div class="performer-card" data-title="{{ $song->name }}">
-                            <x-performer-card :song="$song" :albumPerformers="$albumPerformers" :albums="$albums" :performer="$performer" />
+                            <x-performer-card :song="$song" :albumPerformers="$albumPerformers" :albums="$albums" :performer="$performer" :performersSongs="$performersSongs" :count="$count"/>
                         </div>
+                        @php
+                            $count++;
+                        @endphp
                     @endforeach
                 @endif
             </div>

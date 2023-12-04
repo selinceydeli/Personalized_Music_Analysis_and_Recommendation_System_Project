@@ -10,6 +10,9 @@ class Album extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'album_id';
+    public $incrementing = false;
+    protected $keyType = 'string';
     protected $fillable = [
         'album_id',
         'name',
@@ -23,9 +26,13 @@ class Album extends Model
         'popularity'
     ];
 
-    public function albumRatings()
+    protected static function boot()
     {
-        return $this->hasMany(albumRating::class, 'album_id', 'album_id');
+        parent::boot();
+
+        static::creating(function ($album) {
+            $album->{$album->getKeyName()} = (string) Str::uuid();
+        });
     }
     public function songs() {
         return $this->hasMany(Song::class, 'album_id');
@@ -33,5 +40,10 @@ class Album extends Model
 
     public function performers() {
         return $this->belongsToMany(Performer::class, 'albums', 'album_id', 'artist_id');
+    }
+
+    public function albumRatings()
+    {
+        return $this->hasMany(albumRating::class, 'album_id', 'album_id');
     }
 }

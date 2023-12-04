@@ -23,6 +23,49 @@ class AlbumController extends Controller
         return response()->json($albums);
     }
 
+    // Show single album
+    public function show(Album $album, Request $request)
+    {
+
+        $songId = $request->input('song-id');
+
+        $song = Song::where('song_id', $songId)->first();
+
+        // Retrieve all songs with the same album_id as $song->album->id
+        $songsWithSameAlbum = Song::where('album_id', $song->album->album_id)->get();
+
+        // Access the performer IDs from the song
+        $performersIds = $song->performers; // JSON field from the Song model
+
+        // Retrieve performer IDs from JSON data
+        //$performerIds = json_decode($performersJson);
+
+        // Assuming $performerIds contains the performer IDs associated with the song
+        $performers = Performer::whereIn('artist_id', $performersIds)->orderBy('name')->get();
+
+        // Collect all genres of the performers
+        $allGenres = [];
+        foreach ($performers as $performer) {
+            $performerGenres = json_decode($performer->genre);
+            $allGenres = array_merge($allGenres, $performerGenres);
+        }
+
+        // Get unique genres by converting the array to a collection and using unique method
+        $uniqueGenres = collect($allGenres)->unique();
+
+        // Convert the unique genres collection back to an array
+        $uniqueGenresArray = $uniqueGenres->values()->all();
+
+        return view('songs.show', [
+            'album' => $album,
+            'song' => $song,
+            'performers' => $performers,
+            'songs' => $songsWithSameAlbum,
+            'genres' => $uniqueGenresArray,
+            'songId' => $songId,
+        ]);
+    }
+
     public function store(Request $request){
         // Define the attributes you want to check for uniqueness.
         $uniqueAttributes = [

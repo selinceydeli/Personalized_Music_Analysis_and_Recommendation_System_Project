@@ -16,6 +16,76 @@ class PerformerController extends Controller
         $performers = Performer::all();
         return response()->json($performers);
     }
+    public function show($performerId, Request $request)
+    {
+
+        $songId = $request->input('song-id');
+
+        $songs = Song::whereJsonContains('performers', $performerId)->paginate(10);
+
+        $performer = Performer::where('artist_id', $performerId)->orderBy('name')->first();
+
+        $albums = Album::where('artist_id', $performer->artist_id)->get();
+
+        $albumPerformers = [];
+        foreach ($albums as $album) {
+            $response = $this->search_id($album->artist_id);
+
+            if ($response->getStatusCode() == 200) {
+                $performers = $response->getData(); // Assuming getData() gets the data from the response
+
+                // Check if album ID exists in $albumPerformers array
+                if (!isset($albumPerformers[$album->album_id])) {
+                    $albumPerformers[$album->album_id] = [];
+                }
+
+                // Append performers to the album's array
+                $albumPerformers[$album->album_id][] = $performers;
+            }
+        }
+
+        $songPerformers = $songs->map(function ($song) {
+            return is_array($song) ? $song : json_decode($song, true);
+        })->pluck('performers')->map(function ($performers) {
+            return is_array($performers) ? $performers : json_decode($performers, true);
+        });
+
+
+        $performersSongs = [];
+        foreach ($songPerformers as $key => $id) {
+            if (is_array($id)) {
+                foreach ($id as $subId) {
+                    // Make sure $subId is a string without quotes
+                    $subId = trim($subId, '"');
+
+                    // Make an HTTP request to fetch performer data for each subId
+                    $response = $this->search_id($subId); // Assuming search_id() takes a string parameter
+
+                    if ($response->getStatusCode() == 200) { // Checking if performer is found
+                        $performersSongs[$key][$subId] = $response->getData(); // Assuming getData() gets the data from the response
+                    }
+                }
+            } else {
+                // Make an HTTP request to fetch performer data for $id
+                $id = trim($id, '"');
+
+                $response = $this->search_id($id); // Assuming search_id() takes a string parameter
+
+                if ($response->getStatusCode() == 200) { // Checking if performer is found
+                    $performersSongs[$key][$id] = $response->getData(); // Assuming getData() gets the data from the response
+                }
+            }
+        }
+
+        return view('performers.show', [
+            'performer' => $performer,
+            'albumPerformers' => $albumPerformers,
+            'songs' => $songs,
+            'albums' => $albums,
+            'songId' => $songId,
+            'performersSongs' => $performersSongs,
+        ]);
+    }
 
     public function store(Request $request){
         // Define the attributes you want to check for uniqueness.
@@ -48,8 +118,8 @@ class PerformerController extends Controller
     }
 
     public function search_id($id){
-        $performer = Performer::find($id);
-        if(!empty($performer)){
+        $performer = Performer::where('artist_id', $id)->first();    
+        if ($performer) {
             return response()->json($performer);
         } else {
             return response()->json([

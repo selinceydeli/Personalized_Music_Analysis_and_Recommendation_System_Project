@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class SpotifyController extends Controller
 {
@@ -12,15 +13,20 @@ class SpotifyController extends Controller
 
         if ($this->isSpotifyLink($url)) {
             // Execute the Python script and capture the output, including any errors
-            $command = "python3 tempFunctions/importSongWithLink.py " . escapeshellarg($url) . " 2>&1";
+            $command = "python tempFunctions/importSongWithLink.py " . escapeshellarg($url) . " 2>&1";
             $result = shell_exec($command);
 
-            // Return the result of the shell_exec command for debugging
-            return response()->json([
-                'message' => 'Script executed',
-                'output' => $result,
-                'executed_command' => $command // Including the executed command can be helpful
-            ]);
+            if ($result === null) {
+                return response()->json([
+                    'message' => 'Python is not found. Please install Python on the server.',
+                ], 500);
+            }
+
+            // Store song information in the session flash data
+            //Session::flash('song_info', $result);
+
+            // Redirect the user to the root URL ("/") with a success message
+            return redirect('/')->with('success', 'Song information uploaded successfully!');
         } else {
             return response()->json(['message' => 'Invalid Spotify link!'], 400);
         }

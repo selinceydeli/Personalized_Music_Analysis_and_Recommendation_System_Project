@@ -1,0 +1,76 @@
+{
+    "album_type": "album",
+    "copyrights": "\u00a9 2020 The Weeknd XO, Inc., marketed by Republic Records, a division of UMG Recordings, Inc.",
+    "genres": [],
+    "label": "Republic Records",
+    "name": "After Hours",
+    "popularity": 89,
+    "release_date": "2020-03-20",
+    "total_tracks": 14,
+    "tracks": {
+        "items": [
+            {
+                "id": "6b5P51m8xx2XA6U7sdNZ5E",
+                "track_number": 1
+            },
+            {
+                "id": "2K9Ovn1o2bTGqbsABGC6m3",
+                "track_number": 2
+            },
+            {
+                "id": "6kWxIqQDsKFYCJGbU4AjCX",
+                "track_number": 3
+            },
+            {
+                "id": "4BGZF4oLbTL0pWm7C18pbv",
+                "track_number": 4
+            },
+            {
+                "id": "3WlbeuhfRSqU7ylK2Ui5U7",
+                "track_number": 5
+            },
+            {
+                "id": "1sOW4PuG5X3Ie3EXUhAopJ",
+                "track_number": 6
+            },
+            {
+                "id": "6bnF93Rx87YqUBLSgjiMU8",
+                "track_number": 7
+            },
+            {
+                "id": "3orEOtd8CPL8GFlpRpKuoE",
+                "track_number": 8
+            },
+            {
+                "id": "0VjIjW4GlUZAMYd2vXMi3b",
+                "track_number": 9
+            },
+            {
+                "id": "7szuecWAPwGoV1e5vGu8tl",
+                "track_number": 10
+            },
+            {
+                "id": "5QO79kh1waicV47BqGRL3g",
+                "track_number": 11
+            },
+            {
+                "id": "40U8d12pC5UHqmHwXjHjjl",
+                "track_number": 12
+            },
+            {
+                "id": "2p8IUWQDrpjuFltbdgLOag",
+                "track_number": 13
+            },
+            {
+                "id": "2BcnxwxBuar5wjCaLqm5N3",
+                "track_number": 14
+            }
+        ],
+        "total": 14
+    },
+    "type": "album",
+    "artist_id": "1Xyo4u8uXC1ZmMpatF05PJ",
+    "album_id": "4yP0hdKOZPNshxUOjY0cZj",
+    "upc": "00602508924224",
+    "image": "https://i.scdn.co/image/ab67616d0000b2738863bc11d2aa12b54f5aeb36"
+}
