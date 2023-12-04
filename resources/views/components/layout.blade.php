@@ -38,6 +38,10 @@
                         Welcome {{ auth()->user()->name }}
                     </span>
                 </li>
+                <!-- Recommendations Menu Item -->
+                <li>
+                    <a href="{{ route('dashboard') }}" class="hover:text-laravel"><i class="fa-solid fa-music"></i> Recommendations</a>
+                </li>
                 <li>
                     <a href="/add" class="hover:text-laravel"><i class="fa-solid fa-plus"></i>
                         Upload Music</a>
