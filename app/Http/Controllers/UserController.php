@@ -131,6 +131,14 @@ class UserController extends Controller
 
         return SongResource::collection($recommendedSongs);
     }
+    public function dashboard()
+        {
+            $user = auth()->user();
+            $notifications = $user->notifications;  // Get all notifications
+            $unreadNotifications = $user->unreadNotifications;  // Get only unread notifications
+
+            return view('dashboard', compact('notifications', 'unreadNotifications'));
+        }
     //Logout User
 
     public function logout(Request $request) {
@@ -174,4 +182,27 @@ class UserController extends Controller
     
         return back()->withErrors(['email' => 'Invalid Credentials'])->onlyInput('email');
     }
+    public function getFriends($username)
+        {
+            $user = User::where('username', $username)->firstOrFail();
+            return response()->json($user->allFriends);
+        }
+        
+    public function getBlockedUsers($username)
+        {
+            $user = User::where('username', $username)->firstOrFail();
+            return response()->json($user->blockedUsers);
+        }
+    public function getNotifications($username)
+        {
+            $user = User::where('username', $username)->firstOrFail();
+        
+            // Ensure that the authenticated user is the same as the requested user
+            if (auth()->user()->username != $username) {
+                return response()->json(['error' => 'Unauthorized'], 403);
+            }
+        
+            $notifications = $user->notifications; // or use ->unreadNotifications for only unread ones
+            return response()->json($notifications);
+        }  
 }

@@ -2,6 +2,8 @@
 @props(['albumPerformers'])
 @props(['albums'])
 @props(['performer'])
+@props(['performersSongs'])
+@props(['count'])
 
 @if (!function_exists('formatSongDuration'))
     @php
@@ -49,30 +51,20 @@
                     @php
                         $albumId = $song->album->album_id;
                     @endphp
-                    @if (isset($albumPerformers[$albumId]))
-                        @foreach ($albumPerformers[$albumId] as $albumPerformer)
+                    @foreach ($performersSongs[$count] as $performerId => $p)
                             <!-- Display performer details -->
-                            @if ($albumPerformer->name !== $performer->name)
-                                <a href="/performers/{{ $albumPerformer->artist_id }}?song-id={{ $song->song_id }}"
-                                    class="text-lg font-bold">
-                                    {{ $albumPerformer->name }}
-                                </a>
-                            @else
-                                <span class="text-lg font-bold">
-                                    {{ $albumPerformer->name }}
-                                </span>
-                            @endif
-                            <!-- Display other performer details as needed -->
-                            <!-- Check if it's the last performer in the album -->
-                            @if (!$loop->last)
+                            <a href="/performers/{{ $performerId }}?song-id={{ $song->song_id }}"
+                                class="text-lg font-bold">
+                                {{ $p->name }}
+                            </a>
+                            <!-- Check if it's the last performer in the array -->
+                            @unless ($loop->last)
                                 , <!-- Add a comma if it's not the last performer -->
-                            @endif
-                        @endforeach
-                        <x-album-tags :genresCsv="$albumPerformer->genre" />
-                    @else
-                    @endif
+                            @endunless
+                    @endforeach
                 </p>
             </div>
+            <x-album-tags :genresCsv="$performer->genre" />
         </div>
     </div>
 </x-card>

@@ -6,44 +6,53 @@
             </h1>
         </header>
 
-        <table class="w-full table-auto rounded-sm">
-            <tbody>
-                @unless ($listings->isEmpty())
-                @foreach ($listings as $listing)
-                <tr class="border-gray-300">
-                    <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
-                        <a href="show.html">
-                            {{$listing->title}}
-                        </a>
-                    </td>
-                    <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
-                        <a href="/listings/{{$listing->id}}/edit" class="text-blue-400 px-6 py-2 rounded-xl"><i
-                                class="fa-solid fa-pen-to-square"></i>
-                            Edit</a>
-                    </td>
-                    <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
-                        <x-card class="mt-4 p-2 flex space-x-6">
-                            <a href="/listings/{{$listing->id}}/edit">
-                                <i class="fa-solid fa-pencil"></i> Edit
-                            </a>
-                
-                            <form method="POST" action="/listings/{{$listing->id}}">
-                                @csrf
-                                @method('DELETE')
-                                <button class="text-red-500"><i class="fa-solid fa-trash"></i>Delete</button>
-                            </form>
-                        </x-card>
-                    </td>
-                </tr>
-                @endforeach
-                @else
-                <tr class="border -gray-300">
-                    <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
-                        <p class="text-center">No Listings Found</p>
-                    </td>
-                </tr>
-                @endunless
-            </tbody>
-        </table>
+        <!-- Centered Form for Spotify link input -->
+        <div class="flex justify-center flex-col items-center">
+            <form id="spotifyForm" action="/upload-via-spotify" method="POST" class="max-w-md flex items-center">
+                @csrf
+                <div class="flex items-center border-b border-b-2 border-blue-500 py-2 mr-2">
+                    <input type="text" id="spotifyLink" name="spotifyLink" placeholder="Enter Spotify Link" class="border-none focus:outline-none flex-grow px-2 w-64">
+                </div>
+                <div>
+                    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Preview</button>
+                </div>
+            </form>
+
+            <!-- Display error message if the link is invalid -->
+            <div id="errorMessage" class="mt-4 text-red-500" style="display: none;">
+                Invalid Spotify link!
+            </div>
+        </div>
     </x-card>
 </x-layout>
+
+<script>
+    document.getElementById('spotifyForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        searchSong();
+    });
+
+    function searchSong() {
+        const spotifyLink = document.getElementById('spotifyLink').value;
+
+        if (!isValidSpotifyLink(spotifyLink)) {
+            // Show error message
+            document.getElementById('errorMessage').classList.remove('hidden');
+
+            // Hide error message after 5 seconds
+            setTimeout(() => {
+                document.getElementById('errorMessage').classList.add('hidden');
+            }, 5000);
+
+            return;
+        }
+
+        // Proceed with form submission for valid link
+        document.getElementById('spotifyForm').submit();
+    }
+
+    function isValidSpotifyLink(input) {
+        const pattern = /^(https:\/\/open\.spotify\.com\/(track|album|playlist)\/[a-zA-Z0-9]+)(\?.*)?$/i;
+        return pattern.test(input);
+    }
+</script>

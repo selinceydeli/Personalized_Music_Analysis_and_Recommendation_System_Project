@@ -11,23 +11,18 @@ class Performer extends Model
     use HasFactory;
 
     protected $primaryKey = 'artist_id';
-    public $incrementing = false;
     protected $keyType = 'string';
 
-    protected static function boot()
+    public function performerRatings()
     {
-        parent::boot();
-
-        static::creating(function ($performer) {
-            $performer->{$performer->getKeyName()} = (string) Str::uuid();
-        });
+        return $this->hasMany(PerformerRating::class, 'artist_id', 'artist_id');
     }
 
     public function albums() {
-        return $this->belongsToMany(Album::class, 'albums', 'artist_id', 'album_id');
+        return $this->hasMany(Album::class, 'artist_id', 'album_id');
     }
 
     public function songs() {
-        return $this->hasMany(Song::class, 'artist_id');
+        return $this->belongsToMany(Song::class);
     }
 }

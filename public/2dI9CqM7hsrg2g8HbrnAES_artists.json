@@ -1,0 +1,25 @@
+[
+    {
+        "followers": 8046,
+        "genres": [
+            "canadian soundtrack",
+            "soundtrack"
+        ],
+        "name": "Andrew Lockington",
+        "popularity": 31,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb12623cfdc8c31708645ef4f4",
+        "artist_id": "0sK0i9UQeU4aPaxgGTFTcC"
+    },
+    {
+        "followers": 27322882,
+        "genres": [
+            "australian dance",
+            "australian pop",
+            "pop"
+        ],
+        "name": "Sia",
+        "popularity": 83,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb25a749000611559f1719cc5f",
+        "artist_id": "5WUlDfRSoLAfcVSX1WnrxN"
+    }
+]

@@ -1,0 +1,60 @@
+{
+    "album_type": "album",
+    "copyrights": "2004 \u015eAH\u0130N \u00d6ZER M\u00dcZ\u0130K",
+    "genres": [],
+    "label": "\u015eAH\u0130N \u00d6ZER M\u00dcZ\u0130K",
+    "name": "\u015eak \u015euka",
+    "popularity": 39,
+    "release_date": "2004-07-21",
+    "total_tracks": 10,
+    "tracks": {
+        "items": [
+            {
+                "id": "3eQQE2zSJ544Hd7oUgHj6E",
+                "track_number": 1
+            },
+            {
+                "id": "3ICmVJmidTUOM8E9ARefyF",
+                "track_number": 2
+            },
+            {
+                "id": "0vaVgEmRgKvv7u2LNzSfnh",
+                "track_number": 3
+            },
+            {
+                "id": "1HY5zgM8rvZpP39Md8ce27",
+                "track_number": 4
+            },
+            {
+                "id": "5rQWIsNYEI0pRv3YCdFXjc",
+                "track_number": 5
+            },
+            {
+                "id": "0t3OAAAIuYa7gIv87hGqxL",
+                "track_number": 6
+            },
+            {
+                "id": "60erM9VA4IdrgZD7fUlm1I",
+                "track_number": 7
+            },
+            {
+                "id": "1YGmVGmEtr3BQzSPjseQI3",
+                "track_number": 8
+            },
+            {
+                "id": "7xF0IcI0W0yUbJJpULaYcL",
+                "track_number": 9
+            },
+            {
+                "id": "2ESdl4VAxypSznctHND8Zx",
+                "track_number": 10
+            }
+        ],
+        "total": 10
+    },
+    "type": "album",
+    "artist_id": "5FA4BEGZx9jnCXY9vlXCbY",
+    "album_id": "0TgbrPkMif1CKukS97Thyq",
+    "upc": "1406031302318",
+    "image": "https://i.scdn.co/image/ab67616d0000b2735b5e6efb8562797aeb277631"
+}

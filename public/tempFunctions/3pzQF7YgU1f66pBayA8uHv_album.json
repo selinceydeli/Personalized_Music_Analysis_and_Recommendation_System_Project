@@ -1,0 +1,24 @@
+{
+    "album_type": "single",
+    "copyrights": "(P) 2010 Sony Music Entertainment (Holland) B.V.",
+    "genres": [],
+    "label": "Epic",
+    "name": "Waka Waka (This Time for Africa) [The Official 2010 FIFA World Cup (TM) Song] (feat. Freshlyground)",
+    "popularity": 3,
+    "release_date": "2010-05-07",
+    "total_tracks": 1,
+    "tracks": {
+        "items": [
+            {
+                "id": "2Cd9iWfcOpGDHLz6tVA3G4",
+                "track_number": 1
+            }
+        ],
+        "total": 1
+    },
+    "type": "album",
+    "artist_id": "0EmeFodog0BfCgMzAIvKQp",
+    "album_id": "3pzQF7YgU1f66pBayA8uHv",
+    "upc": "884977620092",
+    "image": "https://i.scdn.co/image/ab67616d0000b273752d2becbb91841a31c556b8"
+}
