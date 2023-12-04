@@ -17,60 +17,39 @@ class PerformerController extends Controller
         return response()->json($performers);
     }
 
-    public function show($performerId, Request $request)
-    {
+    public function store(Request $request){
+        // Define the attributes you want to check for uniqueness.
+        $uniqueAttributes = [
+            'artist_id' => $request->album_id
+        ];
 
-        $songId = $request->input('song-id');
+        // Additional data that should be included if a new album is being created.
+        $additionalData = [
+            'name' => $request->name,
+            'genre' => $request->genre,
+            'image_url' => $request->image_url,
+            'popularity' => $request->popularity
+        ];
 
-        $songs = Song::whereJsonContains('performers', $performerId)->paginate(10);
+        // Use firstOrCreate to either find the existing album or create a new one.
+        $performer = Performer::firstOrCreate($uniqueAttributes, $additionalData);
 
-        $performer = Performer::where('artist_id', $performerId)->orderBy('name')->first();
-
-        $albums = Album::where('artist_id', $performer->artist_id)->get();
-
-        $albumPerformers = [];
-        foreach ($albums as $album) {
-            $response = $this->search_id($album->artist_id);
-
-            if ($response->getStatusCode() == 200) {
-                $performers = $response->getData(); // Assuming getData() gets the data from the response
-
-                // Check if album ID exists in $albumPerformers array
-                if (!isset($albumPerformers[$album->album_id])) {
-                    $albumPerformers[$album->album_id] = [];
-                }
-
-                // Append performers to the album's array
-                $albumPerformers[$album->album_id][] = $performers;
-            }
+        if ($performer->wasRecentlyCreated) {
+            // Album was created
+            return response()->json([
+                "message" => "Performer added"
+            ], 201); // HTTP status code 201 means "Created"
+        } else {
+            // Album already exists
+            return response()->json([
+                "message" => "Performer already exists"
+            ], 200); // HTTP status code 200 means "OK"
         }
-
-        return view('performers.show', [
-            'performer' => $performer,
-            'albumPerformers' => $albumPerformers,
-            'songs' => $songs,
-            'albums' => $albums,
-            'songId' => $songId,
-        ]);
     }
 
-    public function store(Request $request)
-    {
-        $performer = new Performer;
-        $performer->name = $request->name;
-        $performer->genre = $request->genre;
-        $performer->popularity = $request->popularity;
-        $performer->image_url = $request->image_url;
-        $performer->save();
-        return response()->json([
-            "message" => "Performer added"
-        ], 200);
-    }
-
-    public function search_id($id)
-    {
+    public function search_id($id){
         $performer = Performer::find($id);
-        if (!empty($performer)) {
+        if(!empty($performer)){
             return response()->json($performer);
         } else {
             return response()->json([
@@ -78,7 +57,7 @@ class PerformerController extends Controller
             ], 404);
         }
     }
-
+    
     public function search_name($searchTerm)
     {
         $performers = Performer::where('name', 'LIKE', "%{$searchTerm}%")->get();

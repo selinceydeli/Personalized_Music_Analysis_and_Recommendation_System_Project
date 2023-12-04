@@ -10,18 +10,22 @@ class Album extends Model
 {
     use HasFactory;
 
-    
-    protected $primaryKey = 'album_id';
-    public $incrementing = false;
-    protected $keyType = 'string';
+    protected $fillable = [
+        'album_id',
+        'name',
+        'album_type',
+        'image_url',
+        'artist_id',
+        'label',
+        'copyright',
+        'release_date',
+        'total_tracks',
+        'popularity'
+    ];
 
-    protected static function boot()
+    public function albumRatings()
     {
-        parent::boot();
-
-        static::creating(function ($album) {
-            $album->{$album->getKeyName()} = (string) Str::uuid();
-        });
+        return $this->hasMany(albumRating::class, 'album_id', 'album_id');
     }
     public function songs() {
         return $this->hasMany(Song::class, 'album_id');

@@ -1,0 +1,35 @@
+[
+    {
+        "followers": 30566,
+        "genres": [
+            "german indie",
+            "german indie pop",
+            "luxembourgian indie",
+            "neo-synthpop"
+        ],
+        "name": "Say Yes Dog",
+        "popularity": 44,
+        "image": "https://i.scdn.co/image/ab6761610000e5ebb67a8ebe238cf855e48695da",
+        "artist_id": "039HWymb5EJiSHhtlJctsi"
+    },
+    {
+        "followers": 507323,
+        "genres": [
+            "german house",
+            "german techno",
+            "progressive house"
+        ],
+        "name": "Claptone",
+        "popularity": 61,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb4fc7a1cd0f5b4c5b6f241533",
+        "artist_id": "4mncDFjVLUa3s025Tct3Ry"
+    },
+    {
+        "followers": 5347,
+        "genres": [],
+        "name": "Nathan Nicholson",
+        "popularity": 53,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb064465c301f90e17dabe25b5",
+        "artist_id": "4q8SjmBr5X7DUmVvrnNrsd"
+    }
+]

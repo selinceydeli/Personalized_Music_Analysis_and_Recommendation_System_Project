@@ -1,0 +1,60 @@
+{
+    "album_type": "album",
+    "copyrights": "\u00a9 2011 Raincloud Productions Ltd. under exclusive licence to Universal International Music BV",
+    "genres": [],
+    "label": "EMI",
+    "name": "The Game (2011 Remaster)",
+    "popularity": 78,
+    "release_date": "1980-06-27",
+    "total_tracks": 10,
+    "tracks": {
+        "items": [
+            {
+                "id": "5p6xhgQCwzX0G9PadMU9GA",
+                "track_number": 1
+            },
+            {
+                "id": "32wghPySDJ1mNdqhwW9YMh",
+                "track_number": 2
+            },
+            {
+                "id": "5vdp5UmvTsnMEMESIF2Ym7",
+                "track_number": 3
+            },
+            {
+                "id": "3vVSwkIqE7j6AaIxsxXzNA",
+                "track_number": 4
+            },
+            {
+                "id": "6xdLJrVj4vIXwhuG8TMopk",
+                "track_number": 5
+            },
+            {
+                "id": "4w09y5LHv5vJDZO4hWS846",
+                "track_number": 6
+            },
+            {
+                "id": "0V7AVcMTaQqLKzxVloxWHj",
+                "track_number": 7
+            },
+            {
+                "id": "4tmERaVkzL7X64Oku4vDo0",
+                "track_number": 8
+            },
+            {
+                "id": "4xSDpJJNXAUis65Ogl7f7i",
+                "track_number": 9
+            },
+            {
+                "id": "1pBFEy8cz0Fq4Pru0c4awd",
+                "track_number": 10
+            }
+        ],
+        "total": 10
+    },
+    "type": "album",
+    "artist_id": "1dfeR4HaWDbWqFHLkxsg1d",
+    "album_id": "58alCatewkjNm9IM1Ucj67",
+    "upc": "00602527717517",
+    "image": "https://i.scdn.co/image/ab67616d0000b273056e90910cbaf5c5b892aeba"
+}

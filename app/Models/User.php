@@ -48,4 +48,29 @@ class User extends Authenticatable
         'username' => 'string', // Cast username as a string
         'password' => 'hashed',
     ];
+
+    public function friendsOfMine() {
+        return $this->belongsToMany('App\Models\User', 'friendships', 'requester', 'user_requested')
+                    ->wherePivot('status', '=', 1) // status 1 for accepted
+                    ->withPivot('status');
+    }
+
+    public function friendOf() {
+        return $this->belongsToMany('App\Models\User', 'friendships', 'user_requested', 'requester')
+                    ->wherePivot('status', '=', 1)
+                    ->withPivot('status');
+    }
+
+    public function blockedUsers() {
+        return $this->hasMany(Block::class, 'blocker_id');
+    }
+
+    public function blockingUsers() {
+        return $this->hasMany(Block::class, 'blocked_id');
+    }
+
+    // Accessor to get all friends
+    public function getFriendsAttribute() {
+        return $this->friendsOfMine->merge($this->friendOf);
+    }
 }
