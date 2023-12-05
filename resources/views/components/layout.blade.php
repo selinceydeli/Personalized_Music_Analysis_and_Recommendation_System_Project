@@ -48,6 +48,17 @@
                         <a href="{{ route('dashboard.energy') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Energy & Dance Vibes</a>
                     </div>
                 </li>
+                <!-- Analysis -->
+                <li x-data="{ dashboardOpen: false }" class="relative">
+                    <button @click="dashboardOpen = !dashboardOpen" class="hover:text-laravel flex items-center">
+                        <i class="fas fa-chart-bar"></i>&nbsp;Analysis
+                    </button>
+                    <div x-show="dashboardOpen" @click.away="dashboardOpen = false" class="absolute mt-2 w-48 rounded-md shadow-lg bg-white z-50">
+                        <a href="{{ route('dashboard.top-songs') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Top Songs</a>
+                        <a href="{{ route('dashboard.top-albums') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Top Albums</a>
+                        <a href="{{ route('dashboard.average-ratings') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Average Ratings</a>
+                    </div>
+                </li>
                 <li>
                     <a href="/add" class="hover:text-laravel"><i class="fa-solid fa-plus"></i>
                         Upload Music</a>
