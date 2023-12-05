@@ -131,6 +131,7 @@ Users can enrich our music database by uploading songs. This feature not only ad
 
 ### User's Page Overview
 The User's Page in our mobile application serves as a dedicated and personalized space, designed to offer users a uniquely tailored experience. This section of the app allows users to customize their individual pages with information and features that best represent their interests and preferences.
+
 <img width="446" alt="Screenshot 2023-12-05 at 11 23 15 AM" src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/cbdec956-7258-4fab-9a49-d907222c62a3">
 
 
