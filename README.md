@@ -59,9 +59,28 @@ Our implementation will focus on delivering the MVP functionalities as outlined,
 
 
 ## Web Team Deliverables
+
+### Main Page Overview
+The main page of our Web application provides a user-friendly and intuitive interface, showcasing the core features of our music analysis and recommendation system. It's designed to be visually appealing and easy to navigate, ensuring a seamless user experience.
+<img width="1440" alt="Screenshot 2023-12-05 at 10 38 30 AM" src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/871b9d81-52ff-4a3d-a4d8-e1a91ff196b1">
+
 The main page of our Web application is as follows:
 <img width="1440" alt="Screenshot 2023-12-05 at 10 21 56 AM" src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/f300a4cf-65c1-4d46-a9b5-d0f8bc7dcc99">
 
+Search Music functionality 
+Music search is conducted by writing keywords. These keywords are searched for within the song name, artist name and album name fields of the songs. 
+<img width="1440" alt="Screenshot 2023-12-05 at 10 24 28 AM" src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/40d87730-840a-4a47-a1d3-6948691dab9e">
+
+
+Music Upload Functionality
+Music upload is implemented via the option with a Spotify link. 
+When a user uploads a song, its corresponding artists and albums are also uploaded to the database, and pages for each of them are automatically created.
+<img width="1440" alt="Screenshot 2023-12-05 at 10 23 41 AM" src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/eed52279-afa0-4517-9136-8f0d8cfeb464">
+
+Offering Recommendations based on Music Taste
+Song recommendations are offered to the user based on their genre taste and energy & dance vibes. 
+Recommendations are offered as music cards. By clicking on the album names, the user can pass to the album card of that song. 
+<img width="1440" alt="Screenshot 2023-12-05 at 10 23 34 AM" src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/566d581e-baff-44cf-9f46-a13d60810500">
 
 
 
