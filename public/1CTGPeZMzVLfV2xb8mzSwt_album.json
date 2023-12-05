@@ -1,0 +1,32 @@
+{
+    "album_type": "single",
+    "copyrights": "2016 Different Recordings",
+    "genres": [],
+    "label": "Different Recordings",
+    "name": "Heartbeat",
+    "popularity": 54,
+    "release_date": "2016-04-08",
+    "total_tracks": 3,
+    "tracks": {
+        "items": [
+            {
+                "id": "0qGm0z9zqbxat43GHS4SRB",
+                "track_number": 1
+            },
+            {
+                "id": "3qQgbxO8ub3CenHjwIG2hW",
+                "track_number": 2
+            },
+            {
+                "id": "5Pj8qBEzA9i0vK6Wdt889w",
+                "track_number": 3
+            }
+        ],
+        "total": 3
+    },
+    "type": "album",
+    "artist_id": "4mncDFjVLUa3s025Tct3Ry",
+    "album_id": "1CTGPeZMzVLfV2xb8mzSwt",
+    "upc": "5414939939662",
+    "image": "https://i.scdn.co/image/ab67616d0000b273f6fb2d356883daacdd3b3ec5"
+}

@@ -132,6 +132,7 @@ class UserController extends Controller
 
         return SongResource::collection($recommendedSongs);
     }
+
     public function dashboard()
         {
             $user = auth()->user();
@@ -140,6 +141,7 @@ class UserController extends Controller
 
             return view('dashboard', compact('notifications', 'unreadNotifications'));
         }
+        
     //Logout User
 
     public function logout(Request $request) {

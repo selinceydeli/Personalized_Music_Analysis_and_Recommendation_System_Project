@@ -105,8 +105,7 @@ class SongController extends Controller
         ]);
     }
 
-    public function store(Request $request)
-    {
+    public function store(Request $request){
         $uniqueAttributes = [
             'song_id' => $request->song_id
         ];
