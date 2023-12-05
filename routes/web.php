@@ -1,13 +1,15 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SongController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AlbumController;
+use App\Http\Controllers\SpotifyController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\PerformerController;
+use App\Http\Controllers\SongRatingController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\DashboardController; // Import DashboardController
-use App\Http\Controllers\SpotifyController;
 
 
 /*
@@ -36,6 +38,9 @@ Route::get('/add', [SongController::class, 'add'])->name('add')->middleware(['au
 
 
 Route::post('/upload-via-spotify', [SpotifyController::class, 'importSong'])->name('importSong');
+
+Route::post('/rate', [SongRatingController::class, 'store'])->name('store')->middleware(['auth']);
+
 
 // Single Album
 Route::get('/albums/{album}', [AlbumController::class, 'show']);

@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Song;
 use App\Models\Performer;
+use App\Models\SongRating;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Resources\SongResource;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\PerformerController;
 
 function flattenArray($array)
@@ -53,6 +54,27 @@ class SongController extends Controller
 
 
         $songs = $query->paginate(6);
+
+        // Extract the song_id values from the paginated songs
+        $songIds = $songs->pluck('song_id')->toArray();
+        // Initialize an empty array to store the mapping
+        $ratingsMap = [];
+
+        if (auth()->check()) {
+            $username = auth()->user()->username;
+
+            // Iterate through each song ID and retrieve the latest user rating
+            foreach ($songIds as $songId) {
+                // Retrieve the latest user rating for the current song
+                $songRatingsController = new SongRatingController();
+                $latestUserRating = $songRatingsController->getLatestUserRating($username, $songId);
+
+                // Build the ratings map entry for this song
+                $ratingsMap[$songId] = [
+                    'latest_user_rating' => $latestUserRating ? $latestUserRating->rating : null,
+                ];
+            }
+        }
 
         $performerIds = $songs->pluck('performers')->flatten(); // Get unique performer IDs from all songs
 
@@ -102,6 +124,7 @@ class SongController extends Controller
             'songs' => $songs,
             'selectedGenre' => $selectedGenre,
             'performers' => $performers,
+            'ratingsMap' => $ratingsMap,
         ]);
     }
 
