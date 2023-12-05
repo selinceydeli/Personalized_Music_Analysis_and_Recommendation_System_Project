@@ -8,6 +8,7 @@ use App\Http\Controllers\PerformerController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\DashboardController; // Import DashboardController
 use App\Http\Controllers\SpotifyController;
+use App\Http\Controllers\AnalysisController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -56,6 +57,17 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/settings', [SettingsController::class, 'index'])->name('settings');
     Route::post('/settings/update', [SettingsController::class, 'update'])->name('settings.update');
 });
+
+// Analysis
+Route::get('/analysis/favorite_albums', [AnalysisController::class, 'favoriteAlbums'])
+    ->name('analysis.favorite_albums');
+Route::get('/analysis/favorite_songs', [AnalysisController::class, 'favoriteSongs'])
+    ->name('analysis.favorite_songs');
+Route::get('/analysis/average_ratings', [AnalysisController::class, 'averageRatings'])
+    ->name('analysis.average_ratings');
+Route::get('/analysis/daily_average', [AnalysisController::class, 'dailyAverage'])
+    ->name('analysis.daily_average');
+
 
 // Recommendations
 Route::get('/dashboard/genretaste', [UserController::class, 'showDashboard'])

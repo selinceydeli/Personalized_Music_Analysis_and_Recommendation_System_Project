@@ -48,15 +48,16 @@
                         <a href="{{ route('dashboard.energy') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Energy & Dance Vibes</a>
                     </div>
                 </li>
-                <!-- Analysis -->
-                <li x-data="{ dashboardOpen: false }" class="relative">
-                    <button @click="dashboardOpen = !dashboardOpen" class="hover:text-laravel flex items-center">
+                <!-- Analysis Menu Item -->
+                <li x-data="{ analysisOpen: false }" class="relative">
+                    <button @click="analysisOpen = !analysisOpen" class="hover:text-laravel flex items-center">
                         <i class="fas fa-chart-bar"></i>&nbsp;Analysis
                     </button>
-                    <div x-show="dashboardOpen" @click.away="dashboardOpen = false" class="absolute mt-2 w-48 rounded-md shadow-lg bg-white z-50">
-                        <a href="{{ route('dashboard.top-songs') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Top Songs</a>
-                        <a href="{{ route('dashboard.top-albums') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Top Albums</a>
-                        <a href="{{ route('dashboard.average-ratings') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Average Ratings</a>
+                    <div x-show="analysisOpen" @click.away="analysisOpen = false" class="absolute mt-2 w-48 rounded-md shadow-lg bg-white z-50">
+                        <a href="{{ route('analysis.favorite_albums') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Favorite Albums</a>
+                        <a href="{{ route('analysis.favorite_songs') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Favorite Songs</a>
+                        <a href="{{ route('analysis.average_ratings') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Average Ratings</a>
+                        <a href="{{ route('analysis.daily_average') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Daily Average</a>
                     </div>
                 </li>
                 <li>
@@ -81,8 +82,10 @@
         </ul>
     </nav>
     <main>
-        {{ $slot }}
+        @yield('content') <!-- This is where the specific content of your views will be inserted -->
     </main>
+    {{ $slot }}
+
     <footer
         class="fixed bottom-0 left-0 w-full flex items-center justify-start font-bold bg-laravel text-white h-24 mt-24 opacity-90 md:justify-center">
         <p class="ml-2">Copyright &copy; 2023, All Rights reserved</p>
