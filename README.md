@@ -64,19 +64,19 @@ Our implementation will focus on delivering the MVP functionalities as outlined,
 The backend team has adeptly developed a robust and modular approach for data collection in our music analysis and recommendation system. This process is meticulously designed to harness the power of external APIs, specifically Spotify, to gather comprehensive music data. By obtaining Spotify links directly from users, the system initiates a Python script, seamlessly integrated with our PHP-based Laravel framework. This integration not only exemplifies the system's modularity but also its compatibility with diverse technologies. The script efficiently handles the retrieval, processing, and storage of music-related data, ensuring a seamless and rich user experience. This well-orchestrated process underscores our commitment to leveraging advanced technology to provide a sophisticated and user-friendly music discovery platform.
 
 #### 1. Establishing Database Connection:
--The Python script starts by connecting to a MySQL database using mysql.connector.
--It provides the host, user, password, and database name for the connection.
+- The Python script starts by connecting to a MySQL database using mysql.connector.
+- It provides the host, user, password, and database name for the connection.
 
 #### 2. Spotify API Integration:
--The script uses Spotify's API to fetch data about music. It includes functions to get an access token (getToken) and to retrieve album data (getAlbum).
+- The script uses Spotify's API to fetch data about music. It includes functions to get an access token (getToken) and to retrieve album data (getAlbum).
 
 #### 3. Parsing Spotify Links:
--The parseSpotifyLink function takes a Spotify track URL, parses it, and extracts the album ID from the track information.
+- The parseSpotifyLink function takes a Spotify track URL, parses it, and extracts the album ID from the track information.
 
 #### 4. Fetching and Processing Data:
--The getAlbum function fetches detailed information about an album from Spotify, including its tracks and related artists.
--It cleans and formats the data by removing unnecessary fields and adjusting data types where necessary (e.g., changing explicit flags to binary, converting musical key numbers to note names).
--The script handles JSON data for albums, songs, and artists, saving them to local files.
+- The getAlbum function fetches detailed information about an album from Spotify, including its tracks and related artists.
+- It cleans and formats the data by removing unnecessary fields and adjusting data types where necessary (e.g., changing explicit flags to binary, converting musical key numbers to note names).
+- The script handles JSON data for albums, songs, and artists, saving them to local files.
 
 #### 5. Inserting Data into the Database:
 -After processing, the script inserts data into the MySQL database. It includes SQL INSERT statements for performers, albums, and songs.
