@@ -57,7 +57,17 @@ Our implementation will focus on delivering the MVP functionalities as outlined,
 
 ## Backend Team Deliverables
 
-### ER Diagram Showing Entity Relationships
+### Entity-Relationship Diagram Depicting Database Schema
+
+#### Key entities in our database:
+- User: Contains information about users of the system. Each user has a unique email, username, password, date of birth, and possibly subscription information. Users are able to rate songs, albums, and performers, as indicated by the 'rates' relationships.
+- Song: Represents individual songs, with attributes like song ID, name, key, tempo, and language. Songs are linked to performers and albums and have attributes related to the system's music analysis, such as mood, genre, and recording type. The system entry date indicates when the song was added to the system.
+- Performer: Details about the performers (artists) are stored here, including their names and nationalities. A performer can have associations with multiple songs.
+- Album: Holds album-related data, including a unique album ID, name, and image URL. Albums consist of multiple songs and are rated by users.
+- Rating: This associative entity captures the many-to-many relationships between users and songs/albums/performers, including the specific rating and date it was given by a user.
+
+#### This schema forms the backbone of the data storage mechanism and enables the complex functionalities required for music analysis and recommendations.
+
 <img width="640" alt="Screenshot 2023-12-05 at 10 44 50 AM" src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/817d14dc-c12e-42a8-b034-10a80ebd6590">
 
 ### Data Collection
@@ -79,17 +89,17 @@ The backend team has adeptly developed a robust and modular approach for data co
 - The script handles JSON data for albums, songs, and artists, saving them to local files.
 
 #### 5. Inserting Data into the Database:
--After processing, the script inserts data into the MySQL database. It includes SQL INSERT statements for performers, albums, and songs.
--Each insert operation is wrapped in a 'try-except' block to handle potential exceptions and ensure smooth database transactions.
+- After processing, the script inserts data into the MySQL database. It includes SQL INSERT statements for performers, albums, and songs.
+- Each insert operation is wrapped in a 'try-except' block to handle potential exceptions and ensure smooth database transactions.
 
 #### 6. Command Line Interface (CLI):
--The script uses 'argparse' to create a CLI, allowing users to input a Spotify link as an argument. This makes the script easily integrable with other backend systems (like your PHP code).
+- The script uses 'argparse' to create a CLI, allowing users to input a Spotify link as an argument. This makes the script easily integrable with other backend systems (like your PHP code).
 
 #### 7. Token Management and Security:
--The script includes client credentials for the Spotify API. In a production environment, it's crucial to manage these credentials securely, often using environment variables or a secure vault.
+- The script includes client credentials for the Spotify API. In a production environment, it's crucial to manage these credentials securely, often using environment variables or a secure vault.
 
 #### 8. Closing Database Connection:
--Finally, the script closes the database cursor and connection, ensuring there are no memory leaks or unclosed connections.
+- Finally, the script closes the database cursor and connection, ensuring there are no memory leaks or unclosed connections.
 
 ## Web Team Deliverables
 
