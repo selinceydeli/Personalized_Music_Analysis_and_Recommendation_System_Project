@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Resources\SongResource;
 use App\Http\Resources\UserResource;
 use ReCaptcha\ReCaptcha; // Import the ReCaptcha class at the top
+use App\Http\Controllers\SongController;
 
 class UserController extends Controller
 {
@@ -131,6 +132,7 @@ class UserController extends Controller
 
         return SongResource::collection($recommendedSongs);
     }
+
     public function dashboard()
         {
             $user = auth()->user();
@@ -139,6 +141,7 @@ class UserController extends Controller
 
             return view('dashboard', compact('notifications', 'unreadNotifications'));
         }
+        
     //Logout User
 
     public function logout(Request $request) {
@@ -204,5 +207,47 @@ class UserController extends Controller
         
             $notifications = $user->notifications; // or use ->unreadNotifications for only unread ones
             return response()->json($notifications);
-        }  
+        }
+    
+        public function showDashboard() {
+            $username = auth()->user()->name;
+            $recommendations = $this->favGenreRecomendationFromDifferentPerformers($username) ?? [];
+        
+            // Initialize SongController
+            $songController = new SongController();
+        
+            // Get recommended song IDs
+            $recommendedSongIds = collect($recommendations)->pluck('song_id')->toArray();
+        
+            // Use getSongsQuery() method from SongController
+            // Ensure it filters based on the recommended song IDs
+            $songsQuery = $songController->getSongsQuery()->whereIn('songs.song_id', $recommendedSongIds);
+            
+            // Retrieve the songs
+            $songs = $songsQuery->get();
+        
+            return view('components.dashboard', ['recommendations' => $songs]);
+        }
+
+        public function showDashboardEnergy() {
+            $username = auth()->user()->name;
+            $recommendations = $this->RecomendationByEnergyAndDanceability($username) ?? [];
+        
+            // Initialize SongController
+            $songController = new SongController();
+        
+            // Get recommended song IDs
+            $recommendedSongIds = collect($recommendations)->pluck('song_id')->toArray();
+        
+            // Use getSongsQuery() method from SongController
+            // Ensure it filters based on the recommended song IDs
+            $songsQuery = $songController->getSongsQuery()->whereIn('songs.song_id', $recommendedSongIds);
+            
+            // Retrieve the songs
+            $songs = $songsQuery->get();
+        
+            return view('components.dashboard-energy', ['recommendations' => $songs]);
+        }
+
+    
 }

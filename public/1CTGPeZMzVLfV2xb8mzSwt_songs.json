@@ -1,0 +1,79 @@
+[
+    {
+        "duration_ms": 414136,
+        "explicit": 0,
+        "name": "Anything - Doorly Remix",
+        "popularity": 21,
+        "preview_url": "https://p.scdn.co/mp3-preview/bff36c1924c3df746481f7e9115172dd1cc07059?cid=0871147f112a492b88fc9fea2d3bf5e7",
+        "song_id": "3qQgbxO8ub3CenHjwIG2hW",
+        "isrc": "GBENL1601582",
+        "album_id": "1CTGPeZMzVLfV2xb8mzSwt",
+        "artists_ids": [
+            "4mncDFjVLUa3s025Tct3Ry"
+        ],
+        "danceability": 0.903,
+        "energy": 0.817,
+        "key": "G",
+        "loudness": -8.471,
+        "mode": "Major",
+        "speechiness": 0.0979,
+        "acousticness": 0.0323,
+        "instrumentalness": 0.8,
+        "liveness": 0.0519,
+        "valence": 0.553,
+        "tempo": 120.994,
+        "time_signature": 4
+    },
+    {
+        "duration_ms": 329537,
+        "explicit": 0,
+        "name": "Heartbeat",
+        "popularity": 27,
+        "preview_url": "https://p.scdn.co/mp3-preview/b0cfc521b2b87b08d99fb45b0c3398085b2f0d45?cid=0871147f112a492b88fc9fea2d3bf5e7",
+        "song_id": "0qGm0z9zqbxat43GHS4SRB",
+        "isrc": "GBENL1601581",
+        "album_id": "1CTGPeZMzVLfV2xb8mzSwt",
+        "artists_ids": [
+            "4mncDFjVLUa3s025Tct3Ry",
+            "4q8SjmBr5X7DUmVvrnNrsd"
+        ],
+        "danceability": 0.81,
+        "energy": 0.649,
+        "key": "A#",
+        "loudness": -7.916,
+        "mode": "Minor",
+        "speechiness": 0.0405,
+        "acousticness": 0.0175,
+        "instrumentalness": 0.34,
+        "liveness": 0.0829,
+        "valence": 0.71,
+        "tempo": 120.006,
+        "time_signature": 4
+    },
+    {
+        "duration_ms": 205402,
+        "explicit": 0,
+        "name": "Before I Lose My Mind",
+        "popularity": 64,
+        "preview_url": "https://p.scdn.co/mp3-preview/db7c15c7ba87dd480b8cfa8478b1821f11eb7a97?cid=0871147f112a492b88fc9fea2d3bf5e7",
+        "song_id": "5Pj8qBEzA9i0vK6Wdt889w",
+        "isrc": "GBENL1601583",
+        "album_id": "1CTGPeZMzVLfV2xb8mzSwt",
+        "artists_ids": [
+            "4mncDFjVLUa3s025Tct3Ry",
+            "039HWymb5EJiSHhtlJctsi"
+        ],
+        "danceability": 0.872,
+        "energy": 0.51,
+        "key": "C#",
+        "loudness": -8.433,
+        "mode": "Minor",
+        "speechiness": 0.066,
+        "acousticness": 0.101,
+        "instrumentalness": 0.0202,
+        "liveness": 0.0821,
+        "valence": 0.958,
+        "tempo": 120.005,
+        "time_signature": 4
+    }
+]

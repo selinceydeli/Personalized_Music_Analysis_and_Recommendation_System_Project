@@ -1,0 +1,44 @@
+{
+    "album_type": "single",
+    "copyrights": "2017 Animal 63",
+    "genres": [],
+    "label": "Animal 63",
+    "name": "TERRITORY",
+    "popularity": 66,
+    "release_date": "2017-04-07",
+    "total_tracks": 6,
+    "tracks": {
+        "items": [
+            {
+                "id": "1q1p0bsfEgqXDEWo1kx363",
+                "track_number": 1
+            },
+            {
+                "id": "2W3EgJst61RLZtPPm3EQim",
+                "track_number": 2
+            },
+            {
+                "id": "397sfkANMRKEuchzPCvlFL",
+                "track_number": 3
+            },
+            {
+                "id": "0AV6NavKfgyIe7z8tU4sdy",
+                "track_number": 4
+            },
+            {
+                "id": "5YzaostcCu9Sgp5T7bFuX3",
+                "track_number": 5
+            },
+            {
+                "id": "3YDo9vofdadozleiiPTjUa",
+                "track_number": 6
+            }
+        ],
+        "total": 6
+    },
+    "type": "album",
+    "artist_id": "1Dt1UKLtrJIW1xxRBejjos",
+    "album_id": "56X6IaIoNEfqxAvGb9St58",
+    "upc": "3614973782756",
+    "image": "https://i.scdn.co/image/ab67616d0000b273cdc2c370800cad705c9ed05d"
+}

@@ -1,0 +1,92 @@
+{
+    "album_type": "album",
+    "copyrights": "\u00a9 1964 The Verve Music Group, a Division of UMG Recordings, Inc.",
+    "genres": [],
+    "label": "Verve Reissues",
+    "name": "Getz/Gilberto (Expanded Edition)",
+    "popularity": 68,
+    "release_date": "1964-01-01",
+    "total_tracks": 18,
+    "tracks": {
+        "items": [
+            {
+                "id": "7znjbX9XdoQayIrVNdd50Z",
+                "track_number": 1
+            },
+            {
+                "id": "2s9UFO4G23DGzo8kYBkZcT",
+                "track_number": 2
+            },
+            {
+                "id": "5UaJ4zxtCIi5WZomhoZIeq",
+                "track_number": 3
+            },
+            {
+                "id": "2tcfbkABIwzpepPyaFsYF4",
+                "track_number": 4
+            },
+            {
+                "id": "0Wh99eifNTNqDFRtzWhCE2",
+                "track_number": 5
+            },
+            {
+                "id": "4NxBcL5Po9ZNrtfbZ08SId",
+                "track_number": 6
+            },
+            {
+                "id": "5GjCLHeNC77C0IbTkOU3tI",
+                "track_number": 7
+            },
+            {
+                "id": "6bGoOBQ8bAorlQ5LoEOdiG",
+                "track_number": 8
+            },
+            {
+                "id": "60Q6N4cm0XB0BC5zSqAcBz",
+                "track_number": 9
+            },
+            {
+                "id": "0FIROuwLtSxamWMGn95wKt",
+                "track_number": 10
+            },
+            {
+                "id": "42rXX0DM1QozuIJaO1hYxs",
+                "track_number": 11
+            },
+            {
+                "id": "3kkAzEqJeLv61hCb7Mrmak",
+                "track_number": 12
+            },
+            {
+                "id": "5US7J0XZ9GVRqUTGeaDxgG",
+                "track_number": 13
+            },
+            {
+                "id": "3mxxERVYahfAfODIeWjEw7",
+                "track_number": 14
+            },
+            {
+                "id": "2L2wjSyKmViJFFc0FM5WU7",
+                "track_number": 15
+            },
+            {
+                "id": "43gG3PAZZc86LBc5UAxQLw",
+                "track_number": 16
+            },
+            {
+                "id": "4qGfJb2KByjvzrwo8HNibg",
+                "track_number": 17
+            },
+            {
+                "id": "5nU7dvOfzYs9QVVL7YVNPE",
+                "track_number": 18
+            }
+        ],
+        "total": 18
+    },
+    "type": "album",
+    "artist_id": "0FMucZsEnCxs5pqBjHjIc8",
+    "album_id": "2W6Hvrtg2Zpc9dW4aBDbdP",
+    "upc": "00602567832690",
+    "image": "https://i.scdn.co/image/ab67616d0000b273417cc363d7286a88489dee3c"
+}

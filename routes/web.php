@@ -10,7 +10,7 @@ use App\Http\Controllers\PerformerController;
 use App\Http\Controllers\SongRatingController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\DashboardController; // Import DashboardController
-
+use App\Http\Controllers\AnalysisController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,7 +36,6 @@ Route::get('/login', [UserController::class, 'login'])->name('login')->middlewar
 
 Route::get('/add', [SongController::class, 'add'])->name('add')->middleware(['auth']);
 
-
 Route::post('/upload-via-spotify', [SpotifyController::class, 'importSong'])->name('importSong');
 
 Route::post('/rate', [SongRatingController::class, 'store'])->name('store')->middleware(['auth']);
@@ -61,6 +60,26 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/settings', [SettingsController::class, 'index'])->name('settings');
     Route::post('/settings/update', [SettingsController::class, 'update'])->name('settings.update');
 });
+
+// Analysis
+Route::get('/analysis/favorite_albums', [AnalysisController::class, 'favoriteAlbums'])
+    ->name('analysis.favorite_albums');
+Route::get('/analysis/favorite_songs', [AnalysisController::class, 'favoriteSongs'])
+    ->name('analysis.favorite_songs');
+Route::get('/analysis/average_ratings', [AnalysisController::class, 'averageRatings'])
+    ->name('analysis.average_ratings');
+Route::get('/analysis/daily_average', [AnalysisController::class, 'dailyAverage'])
+    ->name('analysis.daily_average');
+
+
+// Recommendations
+Route::get('/dashboard/genretaste', [UserController::class, 'showDashboard'])
+    ->name('dashboard.genretaste')
+    ->middleware('auth');
+
+Route::get('/dashboard/energy', [UserController::class, 'showDashboardEnergy'])
+    ->name('dashboard.energy')
+    ->middleware('auth');
 
 // Logout
 Route::post('/logout', [DashboardController::class, 'logout'])->middleware(['auth'])->name('logout');

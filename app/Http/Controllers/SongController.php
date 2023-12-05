@@ -128,8 +128,7 @@ class SongController extends Controller
         ]);
     }
 
-    public function store(Request $request)
-    {
+    public function store(Request $request){
         $uniqueAttributes = [
             'song_id' => $request->song_id
         ];
@@ -273,4 +272,29 @@ class SongController extends Controller
         return response()->json($songsWithGenres); // Returns all the fields from the songs table 
         // and an additional field performer_genres for each song
     }
+
+    public function getSongsQuery($genre = null, $searchTerm = null) {
+        $query = Song::leftJoin('song_ratings', 'songs.song_id', '=', 'song_ratings.song_id')
+                     ->select('songs.*', DB::raw('IFNULL(AVG(song_ratings.rating), 0) as average_rating'))
+                     ->groupBy('songs.song_id')
+                     ->orderByDesc('average_rating');
+    
+        if ($genre) {
+            // Assuming getSongsByGenre() is another method in your controller
+            $songIds = $this->getSongsByGenre($genre)->pluck('song_id')->toArray();
+            $query->whereIn('songs.song_id', $songIds);
+        }
+    
+        if ($searchTerm) {
+            $query->where(function ($query) use ($searchTerm) {
+                $query->where('songs.name', 'like', '%' . $searchTerm . '%')
+                      ->orWhereHas('album', function ($subquery) use ($searchTerm) {
+                          $subquery->where('albums.name', 'like', '%' . $searchTerm . '%');
+                      });
+            });
+        }
+    
+        return $query;
+    }
+    
 }
