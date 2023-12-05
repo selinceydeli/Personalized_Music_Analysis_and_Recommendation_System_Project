@@ -54,3 +54,15 @@ Our implementation will focus on delivering the MVP functionalities as outlined,
 ### Mobile App Team
 - Ozan Çelebi
 - Şimal Yücel
+
+## Backend Team Deliverables
+
+
+## Web Team Deliverables
+The main page of our Web application is as follows:
+<img width="1440" alt="Screenshot 2023-12-05 at 10 21 56 AM" src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/f300a4cf-65c1-4d46-a9b5-d0f8bc7dcc99">
+
+
+
+
+
