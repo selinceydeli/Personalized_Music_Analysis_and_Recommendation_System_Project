@@ -1,0 +1,144 @@
+{
+    "album_type": "album",
+    "copyrights": "\u00a9 2017 UMG Recordings, Inc.",
+    "genres": [],
+    "label": "Geffen",
+    "name": "Poison (Expanded Edition)",
+    "popularity": 49,
+    "release_date": "1990-03-20",
+    "total_tracks": 31,
+    "tracks": {
+        "items": [
+            {
+                "id": "4KrIePx4YVuGdcrTjym6Pk",
+                "track_number": 1
+            },
+            {
+                "id": "3KNH9AoufxNYVdZTWpADsK",
+                "track_number": 2
+            },
+            {
+                "id": "71arrl2jACcdwP8sCRCIzA",
+                "track_number": 3
+            },
+            {
+                "id": "47uDHNJpq4zUfOM0RFdEbV",
+                "track_number": 4
+            },
+            {
+                "id": "52fyeUBMzTTTaed2vh09HQ",
+                "track_number": 5
+            },
+            {
+                "id": "50DAHcCqneoupFyh96P2GP",
+                "track_number": 6
+            },
+            {
+                "id": "50P58WHhRsMUqwGK7KaQzp",
+                "track_number": 7
+            },
+            {
+                "id": "3odSfkCLS8XIKC0cxcXYwW",
+                "track_number": 8
+            },
+            {
+                "id": "4ZJjBtGeK3zjiaaU1M0cUT",
+                "track_number": 9
+            },
+            {
+                "id": "4puIzcDXGDgwYGoFcCiCUg",
+                "track_number": 10
+            },
+            {
+                "id": "3YBf8FuASmVWVnpgBGNGMJ",
+                "track_number": 11
+            },
+            {
+                "id": "60ewT5ZdzZiXtgCQwgW4NY",
+                "track_number": 12
+            },
+            {
+                "id": "18b8gDOFadxp575V2nHEkY",
+                "track_number": 13
+            },
+            {
+                "id": "0hPhg9OrPp9TNAoDcNaqZz",
+                "track_number": 14
+            },
+            {
+                "id": "6sbAoCtEsDYjqdMFYXWwUn",
+                "track_number": 15
+            },
+            {
+                "id": "0rjJeMT6fmL401oEIsh37i",
+                "track_number": 16
+            },
+            {
+                "id": "6IBkuPJkPKmy7poDaUlHjU",
+                "track_number": 17
+            },
+            {
+                "id": "51Nd2n7kE1UerczJE1OGih",
+                "track_number": 18
+            },
+            {
+                "id": "3n9fgpcRi1Dh8MHD2KTyxu",
+                "track_number": 19
+            },
+            {
+                "id": "3Pt1nJey3a0KXVgPLx33z9",
+                "track_number": 20
+            },
+            {
+                "id": "5O8QDnAeJ3yYP2KtGgQuCH",
+                "track_number": 21
+            },
+            {
+                "id": "4OHP9DBqY64kNbHW7YVDEZ",
+                "track_number": 22
+            },
+            {
+                "id": "5uC1hBujhcBjV7muk6emig",
+                "track_number": 23
+            },
+            {
+                "id": "0lthjn70tGYyzsWpHEnPsv",
+                "track_number": 24
+            },
+            {
+                "id": "7dhmTyMb6LxYKw29JeOSi1",
+                "track_number": 25
+            },
+            {
+                "id": "2Ya6Qt73Lp7eTQp0xvSx0D",
+                "track_number": 26
+            },
+            {
+                "id": "3aS2Y8My6rVSRi7uSE7L3U",
+                "track_number": 27
+            },
+            {
+                "id": "2AA3L6aFfczae5R03H2cgv",
+                "track_number": 28
+            },
+            {
+                "id": "0GNSqB42empwA6V51BNzl3",
+                "track_number": 29
+            },
+            {
+                "id": "4pfzmeBypGo17LmfiECgZc",
+                "track_number": 30
+            },
+            {
+                "id": "7sJSwxhcBLneYyMsSPpvoC",
+                "track_number": 31
+            }
+        ],
+        "total": 31
+    },
+    "type": "album",
+    "artist_id": "2zFZiWQJFFshzojycnXoTL",
+    "album_id": "3Fa7c5eB1TiAhoyhS4ReNi",
+    "upc": "00602508392894",
+    "image": "https://i.scdn.co/image/ab67616d0000b273ebec4b1e0f140a29335fd529"
+}

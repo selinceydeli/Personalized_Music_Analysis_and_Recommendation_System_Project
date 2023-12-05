@@ -1,0 +1,25 @@
+[
+    {
+        "followers": 3190432,
+        "genres": [
+            "classical",
+            "early romantic era",
+            "polish classical"
+        ],
+        "name": "Fr\u00e9d\u00e9ric Chopin",
+        "popularity": 71,
+        "image": "https://i.scdn.co/image/ab6761610000e5ebe55372097569b7b56b439365",
+        "artist_id": "7y97mc3bZRFXzT2szRM4L4"
+    },
+    {
+        "followers": 18998,
+        "genres": [
+            "classical performance",
+            "russian classical piano"
+        ],
+        "name": "Mikhail Pletnev",
+        "popularity": 56,
+        "image": "https://i.scdn.co/image/ab6772690000c46cf77e6a84cfbfdf136d8470a3",
+        "artist_id": "2YdRnOqBXCl9g8xCLcGh8C"
+    }
+]

@@ -1,0 +1,68 @@
+[
+    {
+        "followers": 431,
+        "genres": [],
+        "name": "Louil Silas Jr.",
+        "popularity": 35,
+        "image": null,
+        "artist_id": "4aknOZmKFnayYvd03Avoz6"
+    },
+    {
+        "followers": 4,
+        "genres": [],
+        "name": "Wolf & Epic",
+        "popularity": 3,
+        "image": null,
+        "artist_id": "6RRj8U5qLs6iibFLiXZqVs"
+    },
+    {
+        "followers": 43,
+        "genres": [],
+        "name": "Eric Sadler",
+        "popularity": 15,
+        "image": null,
+        "artist_id": "2DlOvY3hJQtlEyNlet9iH5"
+    },
+    {
+        "followers": 1050353,
+        "genres": [
+            "boy band",
+            "contemporary r&b",
+            "new jack swing",
+            "r&b",
+            "urban contemporary"
+        ],
+        "name": "Bell Biv DeVoe",
+        "popularity": 52,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb6d096b2195e267e4946b16aa",
+        "artist_id": "2zFZiWQJFFshzojycnXoTL"
+    },
+    {
+        "followers": 60052,
+        "genres": [
+            "east coast hip hop",
+            "golden age hip hop",
+            "old school hip hop"
+        ],
+        "name": "Marley Marl",
+        "popularity": 38,
+        "image": "https://i.scdn.co/image/e5a9924ed775117099c2a069b3fa0db718dc1303",
+        "artist_id": "0AqfGv5Nifg1klh0iH4Nqs"
+    },
+    {
+        "followers": 101,
+        "genres": [],
+        "name": "Keith Shocklee",
+        "popularity": 13,
+        "image": null,
+        "artist_id": "3ClR2k3zX56ArUOve5SGMX"
+    },
+    {
+        "followers": 666,
+        "genres": [],
+        "name": "Hank Shocklee",
+        "popularity": 18,
+        "image": null,
+        "artist_id": "1Yn1iFMHMsUWzNt0Pdweih"
+    }
+]

@@ -1,0 +1,68 @@
+{
+    "album_type": "album",
+    "copyrights": "2019 SuMusic",
+    "genres": [],
+    "label": "SuMusic",
+    "name": "Karsu",
+    "popularity": 52,
+    "release_date": "2019-10-10",
+    "total_tracks": 12,
+    "tracks": {
+        "items": [
+            {
+                "id": "5nMmTA79ZoQ3ENWu7wVsz1",
+                "track_number": 1
+            },
+            {
+                "id": "131T3kM6o8YB7KXhvjyuPN",
+                "track_number": 2
+            },
+            {
+                "id": "01idfkVPJ19aKnF1SyBjtb",
+                "track_number": 3
+            },
+            {
+                "id": "4zvluMaWTXLLhWhxe6F1E1",
+                "track_number": 4
+            },
+            {
+                "id": "7yVLwyU1etVFLWUa41IVA6",
+                "track_number": 5
+            },
+            {
+                "id": "4sZzEpRhgovkKtbAhiSoyU",
+                "track_number": 6
+            },
+            {
+                "id": "4VOxqrODvwVTgZsFT3Dc3B",
+                "track_number": 7
+            },
+            {
+                "id": "5WFJ1tJPVIIepITJX7lJww",
+                "track_number": 8
+            },
+            {
+                "id": "6sq6vG1z37fwJtmInhEX7t",
+                "track_number": 9
+            },
+            {
+                "id": "5793JG08BWmE4Juejd4i9F",
+                "track_number": 10
+            },
+            {
+                "id": "1HX6J2M86vvM8L5rUEVvUm",
+                "track_number": 11
+            },
+            {
+                "id": "01tsXHHANCivXUyFoT7bB0",
+                "track_number": 12
+            }
+        ],
+        "total": 12
+    },
+    "type": "album",
+    "artist_id": "0rRu3Co1oQ6Ce3yz7btJzB",
+    "album_id": "4tKiQFQ4j6fzMdoriugGvv",
+    "upc": "194676638183",
+    "image": "https://i.scdn.co/image/ab67616d0000b2732be680b9cc0933b67f8026a7"
+}
