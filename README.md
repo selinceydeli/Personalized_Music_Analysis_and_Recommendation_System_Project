@@ -57,6 +57,39 @@ Our implementation will focus on delivering the MVP functionalities as outlined,
 
 ## Backend Team Deliverables
 
+### ER Diagram Showing Entity Relationships
+<img width="640" alt="Screenshot 2023-12-05 at 10 44 50 AM" src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/817d14dc-c12e-42a8-b034-10a80ebd6590">
+
+### Data Collection
+The backend team has constituted a well-structured approach to backend data collection and processing, leveraging external APIs, and efficiently handling and storing data in a database. The step-by-step explanation of data collection by getting Spotify Links from the users is as follows:
+
+#### 1. Establishing Database Connection:
+-The script starts by connecting to a MySQL database using mysql.connector.
+-It provides the host, user, password, and database name for the connection.
+
+#### 2. Spotify API Integration:
+-The script uses Spotify's API to fetch data about music. It includes functions to get an access token (getToken) and to retrieve album data (getAlbum).
+
+#### 3. Parsing Spotify Links:
+The parseSpotifyLink function takes a Spotify track URL, parses it, and extracts the album ID from the track information.
+Fetching and Processing Data:
+
+The getAlbum function fetches detailed information about an album from Spotify, including its tracks and related artists.
+It cleans and formats the data by removing unnecessary fields and adjusting data types where necessary (e.g., changing explicit flags to binary, converting musical key numbers to note names).
+The script handles JSON data for albums, songs, and artists, saving them to local files.
+Inserting Data into the Database:
+
+After processing, the script inserts data into the MySQL database. It includes SQL INSERT statements for performers, albums, and songs.
+Each insert operation is wrapped in a try-except block to handle potential exceptions and ensure smooth database transactions.
+Command Line Interface (CLI):
+
+The script uses argparse to create a CLI, allowing users to input a Spotify link as an argument. This makes the script easily integrable with other backend systems (like your PHP code).
+Token Management and Security:
+
+The script includes client credentials for the Spotify API. In a production environment, it's crucial to manage these credentials securely, often using environment variables or a secure vault.
+Closing Database Connection:
+
+Finally, the script closes the database cursor and connection, ensuring there are no memory leaks or unclosed connections.
 
 ## Web Team Deliverables
 
