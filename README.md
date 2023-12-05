@@ -129,8 +129,8 @@ The login page of our Web application provides a user-friendly and intuitive int
 Users can enrich our music database by uploading songs. This feature not only adds the song to our database but also automatically extracts and stores relevant data like the artist and album, creating dedicated pages for each.
 <img width="445" alt="Screenshot 2023-12-05 at 11 22 00 AM" src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/efa697f4-90a6-49a9-a1c4-d6c9b4aeabac">
 
-### User's Page
-The user can customize its page with the information they want to present.
+### User's Page Overview
+The User's Page in our mobile application serves as a dedicated and personalized space, designed to offer users a uniquely tailored experience. This section of the app allows users to customize their individual pages with information and features that best represent their interests and preferences.
 <img width="446" alt="Screenshot 2023-12-05 at 11 23 15 AM" src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/cbdec956-7258-4fab-9a49-d907222c62a3">
 
 
