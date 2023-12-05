@@ -66,7 +66,7 @@ Our implementation will focus on delivering the MVP functionalities as outlined,
 - Album: Holds album-related data, including a unique album ID, name, and image URL. Albums consist of multiple songs and are rated by users.
 - Rating: This associative entity captures the many-to-many relationships between users and songs/albums/performers, including the specific rating and date it was given by a user.
 
-#### This schema forms the backbone of the data storage mechanism and enables the complex functionalities required for music analysis and recommendations.
+#### This schema forms the backbone of the data storage mechanism and enables the complex functionalities required for music analysis and recommendations. 
 
 <img width="640" alt="Screenshot 2023-12-05 at 10 44 50 AM" src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/817d14dc-c12e-42a8-b034-10a80ebd6590">
 
@@ -104,29 +104,29 @@ The backend team has adeptly developed a robust and modular approach for data co
 ## Web Team Deliverables
 
 ### Main Page Overview
-The main page of our Web application provides a user-friendly and intuitive interface, showcasing the core features of our music analysis and recommendation system. It's designed to be visually appealing and easy to navigate, ensuring a seamless user experience.
+The main page of our Web application provides a user-friendly and intuitive interface, showcasing the core features of our music analysis and recommendation system. It's designed to be visually appealing and easy to navigate, ensuring a seamless user experience. 
 <img width="1440" alt="Screenshot 2023-12-05 at 10 38 30 AM" src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/871b9d81-52ff-4a3d-a4d8-e1a91ff196b1">
 
 ### Search Music Functionality
-Our music search functionality allows users to easily find songs, artists, and albums. Users can input keywords, and our system performs a comprehensive search across various metadata fields to deliver accurate results.
+Our music search functionality allows users to easily find songs, artists, and albums. Users can input keywords, and our system performs a comprehensive search across various metadata fields to deliver accurate results. 
 <img width="1440" alt="Screenshot 2023-12-05 at 10 24 28 AM" src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/40d87730-840a-4a47-a1d3-6948691dab9e">
 
 ### Music Upload Functionality
-Users can enrich our music database by uploading songs via Spotify links. This feature not only adds the song to our database but also automatically extracts and stores relevant data like the artist and album, creating dedicated pages for each.
+Users can enrich our music database by uploading songs via Spotify links. This feature not only adds the song to our database but also automatically extracts and stores relevant data like the artist and album, creating dedicated pages for each. 
 <img width="1440" alt="Screenshot 2023-12-05 at 10 23 41 AM" src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/eed52279-afa0-4517-9136-8f0d8cfeb464">
 
 ### Personalized Music Recommendations
-Our system offers personalized song recommendations based on a user's specific taste in genres and preferences for energy and danceability. Recommendations are presented as interactive music cards, linking directly to detailed album pages.
+Our system offers personalized song recommendations based on a user's specific taste in genres and preferences for energy and danceability. Recommendations are presented as interactive music cards, linking directly to detailed album pages. 
 <img width="1440" alt="Screenshot 2023-12-05 at 10 23 34 AM" src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/566d581e-baff-44cf-9f46-a13d60810500">
 
 ## Mobile Team Deliverables
 
 ### Login Page Overview
-The login page of our Web application provides a user-friendly and intuitive interface and handles user authentication. 
+The login page of our Web application provides a user-friendly and intuitive interface and handles user authentication.  
 <img width="448" alt="Screenshot 2023-12-05 at 11 20 21 AM" src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/1f37210b-5f88-4021-b0ce-770826777178">
 
 ### Music Upload Functionality
-Users can enrich our music database by uploading songs. This feature not only adds the song to our database but also automatically extracts and stores relevant data like the artist and album, creating dedicated pages for each.
+Users can enrich our music database by uploading songs. This feature not only adds the song to our database but also automatically extracts and stores relevant data like the artist and album, creating dedicated pages for each. 
 <img width="445" alt="Screenshot 2023-12-05 at 11 22 00 AM" src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/efa697f4-90a6-49a9-a1c4-d6c9b4aeabac">
 
 ### User's Page Overview
