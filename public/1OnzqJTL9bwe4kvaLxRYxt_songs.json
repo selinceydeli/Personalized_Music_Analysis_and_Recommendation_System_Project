@@ -1,0 +1,28 @@
+[
+    {
+        "duration_ms": 208866,
+        "explicit": 1,
+        "name": "Kiss Me More (feat. SZA)",
+        "popularity": 78,
+        "preview_url": "https://p.scdn.co/mp3-preview/e3ea7622ca746e1e96c3dac7d7e07b7ccfdeb3f1?cid=0871147f112a492b88fc9fea2d3bf5e7",
+        "song_id": "748mdHapucXQri7IAO8yFK",
+        "isrc": "USRC12100543",
+        "album_id": "1OnzqJTL9bwe4kvaLxRYxt",
+        "artists_ids": [
+            "5cj0lLjcoR7YOSnhnX0Po5",
+            "7tYKF4w9nC0nq9CsPZTHyP"
+        ],
+        "danceability": 0.762,
+        "energy": 0.701,
+        "key": "G#",
+        "loudness": -3.541,
+        "mode": "Major",
+        "speechiness": 0.0286,
+        "acousticness": 0.235,
+        "instrumentalness": 0.000158,
+        "liveness": 0.123,
+        "valence": 0.742,
+        "tempo": 110.968,
+        "time_signature": 4
+    }
+]

@@ -28,7 +28,7 @@ class SpotifyController extends Controller
             //Session::flash('song_info', $result);
 
             // Redirect the user to the root URL ("/") with a success message
-            return redirect('/')->with('success', 'Song information uploaded successfully!');
+            return redirect('/')->with('message', 'Song information uploaded successfully!');
         } else {
             return response()->json(['message' => 'Invalid Spotify link!'], 400);
         }

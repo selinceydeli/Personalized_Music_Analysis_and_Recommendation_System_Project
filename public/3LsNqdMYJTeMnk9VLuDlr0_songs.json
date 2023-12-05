@@ -1,0 +1,102 @@
+[
+    {
+        "duration_ms": 137875,
+        "explicit": 1,
+        "name": "MONTERO (Call Me By Your Name)",
+        "popularity": 40,
+        "preview_url": "https://p.scdn.co/mp3-preview/f653a289186d0de9a7685e2958ed5d86e073f3c0?cid=0871147f112a492b88fc9fea2d3bf5e7",
+        "song_id": "2ehNBIKoJG5cvSTsRjrNRZ",
+        "isrc": "USSM12100531",
+        "album_id": "3LsNqdMYJTeMnk9VLuDlr0",
+        "artists_ids": [
+            "7jVv8c5Fj3E9VhNjxT4snq"
+        ],
+        "danceability": 0.61,
+        "energy": 0.508,
+        "key": "G#",
+        "loudness": -6.682,
+        "mode": "Minor",
+        "speechiness": 0.152,
+        "acousticness": 0.297,
+        "instrumentalness": 0,
+        "liveness": 0.384,
+        "valence": 0.758,
+        "tempo": 178.818,
+        "time_signature": 4
+    },
+    {
+        "duration_ms": 168031,
+        "explicit": 0,
+        "name": "MONTERO (Call Me By Your Name) - But Lil Nas X Is Silent The Entire Time",
+        "popularity": 28,
+        "preview_url": "https://p.scdn.co/mp3-preview/9450e4d2c4c56c79d8f04f3a5affc48bfb2555f2?cid=0871147f112a492b88fc9fea2d3bf5e7",
+        "song_id": "18MzOzTLoYLRXTLWYomjgZ",
+        "isrc": "USSM12101649",
+        "album_id": "3LsNqdMYJTeMnk9VLuDlr0",
+        "artists_ids": [
+            "7jVv8c5Fj3E9VhNjxT4snq"
+        ],
+        "danceability": 0.82,
+        "energy": 0.545,
+        "key": "G#",
+        "loudness": -7.652,
+        "mode": "Minor",
+        "speechiness": 0.668,
+        "acousticness": 0.168,
+        "instrumentalness": 0.886,
+        "liveness": 0.344,
+        "valence": 0.14,
+        "tempo": 178.997,
+        "time_signature": 4
+    },
+    {
+        "duration_ms": 170054,
+        "explicit": 1,
+        "name": "MONTERO (Call Me By Your Name) - SATAN'S EXTENDED VERSION",
+        "popularity": 40,
+        "preview_url": "https://p.scdn.co/mp3-preview/6290efc3a41f4415546fbbab3160f588443ad1ff?cid=0871147f112a492b88fc9fea2d3bf5e7",
+        "song_id": "3zmxD3oXEiB65gbBDrOoO0",
+        "isrc": "USSM12101203",
+        "album_id": "3LsNqdMYJTeMnk9VLuDlr0",
+        "artists_ids": [
+            "7jVv8c5Fj3E9VhNjxT4snq"
+        ],
+        "danceability": 0.511,
+        "energy": 0.54,
+        "key": "G#",
+        "loudness": -6.402,
+        "mode": "Minor",
+        "speechiness": 0.174,
+        "acousticness": 0.191,
+        "instrumentalness": 0,
+        "liveness": 0.377,
+        "valence": 0.711,
+        "tempo": 119.248,
+        "time_signature": 5
+    },
+    {
+        "duration_ms": 140441,
+        "explicit": 1,
+        "name": "MONTERO (Call Me By Your Name) - But Lil Nas X Makes All The Sounds With His Mouth",
+        "popularity": 39,
+        "preview_url": "https://p.scdn.co/mp3-preview/48e8711d1c9bc102ad135198ded41bab568f6052?cid=0871147f112a492b88fc9fea2d3bf5e7",
+        "song_id": "3VdCz72mvOvtT0k4neZ1Sg",
+        "isrc": "USSM12102121",
+        "album_id": "3LsNqdMYJTeMnk9VLuDlr0",
+        "artists_ids": [
+            "7jVv8c5Fj3E9VhNjxT4snq"
+        ],
+        "danceability": 0.581,
+        "energy": 0.505,
+        "key": "G#",
+        "loudness": -8.924,
+        "mode": "Minor",
+        "speechiness": 0.0658,
+        "acousticness": 0.255,
+        "instrumentalness": 0,
+        "liveness": 0.351,
+        "valence": 0.884,
+        "tempo": 178.796,
+        "time_signature": 4
+    }
+]
