@@ -119,6 +119,19 @@ Users can enrich our music database by uploading songs via Spotify links. This f
 Our system offers personalized song recommendations based on a user's specific taste in genres and preferences for energy and danceability. Recommendations are presented as interactive music cards, linking directly to detailed album pages.
 <img width="1440" alt="Screenshot 2023-12-05 at 10 23 34 AM" src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/566d581e-baff-44cf-9f46-a13d60810500">
 
+## Mobile Team Deliverables
+
+### Login Page Overview
+The login page of our Web application provides a user-friendly and intuitive interface and handles user authentication. 
+<img width="448" alt="Screenshot 2023-12-05 at 11 20 21 AM" src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/1f37210b-5f88-4021-b0ce-770826777178">
+
+### Music Upload Functionality
+Users can enrich our music database by uploading songs. This feature not only adds the song to our database but also automatically extracts and stores relevant data like the artist and album, creating dedicated pages for each.
+<img width="445" alt="Screenshot 2023-12-05 at 11 22 00 AM" src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/efa697f4-90a6-49a9-a1c4-d6c9b4aeabac">
+
+### User's Page
+The user can customize its page with the information they want to present.
+<img width="446" alt="Screenshot 2023-12-05 at 11 23 15 AM" src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/cbdec956-7258-4fab-9a49-d907222c62a3">
 
 
 
