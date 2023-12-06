@@ -15,6 +15,18 @@
         <button type="submit">Get Favorite Albums</button>
     </form>
 
-    {{-- Display the fetched favorite albums here --}}
+    @if (isset($topAlbums))
+        <h2>Top Rated Albums</h2>
+        <ul>
+            @foreach ($topAlbums as $album)
+                <li>
+                    <strong>{{ $album->name }}</strong>
+                    <p>Average Rating: {{ $album->average_rating }}</p>
+                    <img src="{{ $album->image_url }}" alt="{{ $album->name }}" width="100">
+                </li>
+            @endforeach
+        </ul>
+    @endif
+
     {{-- You can use Vue.js or Livewire to make this section dynamic --}}
 @endsection

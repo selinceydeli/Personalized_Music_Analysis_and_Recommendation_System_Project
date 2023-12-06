@@ -11,11 +11,15 @@ use App\Http\Controllers\PerformerRatingController;
 
 class AnalysisController extends Controller
 {
-    public function favoriteAlbums(Request $request, AlbumRatingController $albumRatingController)
+    public function favoriteAlbums(Request $request, $username, $era)
     {
-        $eras = $albumRatingController->getDistinctEras();
+        // Fetch the top rated albums data
+        $topAlbums = $this->topRatedAlbumsByEra($username, $era);
 
-        return view('analysis.favorite_albums', ['eras' => $eras]);
+        // Get eras (you may retrieve this data from a model or another source)
+        $eras = ['50s', '60s', '70s', '80s', '90s', '20s'];
+
+        return view('analysis.favorite_albums', compact('topAlbums', 'eras'));
     }
 
     public function favoriteSongs(Request $request, SongRatingController $songRatingController)

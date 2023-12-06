@@ -100,6 +100,7 @@ class AlbumRatingController extends Controller
             default:
                 // Handle invalid era input or set a default range
                 return response()->json(['error' => 'Invalid era provided.'], 400);
+            
         }
 
         // Create a subquery for the average rating of albums by the user
@@ -122,5 +123,8 @@ class AlbumRatingController extends Controller
             ->get();
 
         return response()->json($topAlbums);
+        // Return the view with the topAlbums data
+        return view('analysis.favorite_albums', compact('topAlbums', 'eras'));
+
     }
 }

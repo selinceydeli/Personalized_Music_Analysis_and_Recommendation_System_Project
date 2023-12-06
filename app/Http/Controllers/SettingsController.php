@@ -89,4 +89,27 @@ class SettingsController extends Controller
         // Redirect back to the settings page with a success message
         return redirect()->route('settings')->with('success', 'User information updated successfully.');
     }
+
+    public function subscriptionUpdate(Request $request)
+    {
+        // Get the authenticated user
+        $user = auth()->user();
+
+        // Check if the user is upgrading or downgrading the subscription
+        if ($user->subscription === 'free') {
+            // Upgrade to Premium
+            $user->subscription = 'premium';
+            $user->rateLimit = 1000; // Set the new rate limit for Premium (adjust as needed)
+        } elseif ($user->subscription === 'premium') {
+            // Downgrade to Free
+            $user->subscription = 'free';
+            $user->rateLimit = 500; // Set the new rate limit for Free (adjust as needed)
+        }
+
+        // Save the changes
+        $user->save();
+
+        // Redirect back to the settings page with a success message
+        return redirect()->route('settings')->with('success', 'Subscription updated successfully.');
+    }
 }

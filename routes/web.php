@@ -62,8 +62,9 @@ Route::middleware(['auth'])->group(function () {
 });
 
 // Analysis
-Route::get('/analysis/favorite_albums', [AnalysisController::class, 'favoriteAlbums'])
+Route::get('/analysis/favorite_albums/{username}/{era}', [AnalysisController::class, 'favoriteAlbums'])
     ->name('analysis.favorite_albums');
+
 Route::get('/analysis/favorite_songs', [AnalysisController::class, 'favoriteSongs'])
     ->name('analysis.favorite_songs');
 Route::get('/analysis/average_ratings', [AnalysisController::class, 'averageRatings'])
