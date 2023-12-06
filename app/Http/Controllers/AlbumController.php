@@ -99,7 +99,7 @@ class AlbumController extends Controller
 
     public function destroy($id){
         if (Album::where('album_id', $id) -> exists()){
-            $album = Album::find($id);
+            $album = Album::where('album_id',$id);
             $album->delete();
             return response()->json([
                 "message" => "Album deleted"

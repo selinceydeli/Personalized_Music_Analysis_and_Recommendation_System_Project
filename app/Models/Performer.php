@@ -16,4 +16,9 @@ class Performer extends Model
     {
         return $this->hasMany(PerformerRating::class, 'artist_id', 'artist_id');
     }
+
+    public function albums()
+    {
+        return $this->hasMany(Album::class, 'artist_id');
+    }
 }

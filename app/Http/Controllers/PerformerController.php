@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Performer;
+use App\Models\Album;
 use App\Http\Resources\PerformerResource;
 use PDO;
 
@@ -83,10 +84,15 @@ class PerformerController extends Controller
 
     public function destroy($id){
         if (Performer::where('artist_id', $id) -> exists()){
-            $performer = Performer::find($id);
+            $performer = Performer::where('artist_id',$id);
+
+            if(Album::where('artist_id', $id) -> exists()){
+                Album::where('artist_id', $id)->delete();
+            }
+
             $performer->delete();
             return response()->json([
-                "message" => "Performer deleted"
+                "message" => "Performer and his/her songs and albums are deleted"
             ], 200);
         }
         else{
