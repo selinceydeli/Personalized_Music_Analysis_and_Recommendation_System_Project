@@ -113,3 +113,5 @@ Route::get('/user/{username}/notifications', [UserController::class, 'getNotific
 // Handling song imports
 Route::post('/spotify/import', [SpotifyController::class, 'importSong']);
 
+// Mobile Login
+Route::post('/user/mobilelogin', [UserController::class, 'mobileauthenticate']);

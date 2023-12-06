@@ -248,6 +248,40 @@ class UserController extends Controller
         
             return view('components.dashboard-energy', ['recommendations' => $songs]);
         }
-
     
+        public function mobileauthenticate(Request $request) {
+            $formFields = $request->validate([
+                'email' => ['required', 'email'],
+                'password' => 'required',
+            ]);
+
+            if (auth()->attempt($formFields)) {
+        
+                return true;
+            }
+        
+            return false;
+        }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
