@@ -3,7 +3,7 @@
         <form method="POST" action="{{ route('settings.update') }}">
             @csrf <!-- Add this CSRF token for security -->
 
-            <!-- Display username at the top of the page -->
+            <!-- Display username at the top of the page because it is not changeable -->
             <h2 class="text-3xl font-bold text-white mb-8">Tail Your Account {{ $data['userInfo']['username'] }}</h2>
             
             <!-- User Info Box -->
@@ -75,6 +75,12 @@
                 @if ($data['subscription']['current'] === 'free')
                     <a href="{{ route('subscription.upgrade') }}" class="upgrade-button">
                         Upgrade to Premium
+                    </a>
+                @endif
+
+                @if ($data['subscription']['current'] === 'Premium')
+                    <a href="{{ route('subscription.upgrade') }}" class="upgrade-button">
+                        Change to Free
                     </a>
                 @endif
             </x-card>
