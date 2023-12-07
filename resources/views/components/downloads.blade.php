@@ -6,24 +6,29 @@
             </h1>
         </header>
 
-        <!-- List of Songs and Download Buttons -->
+        <!-- List of Songs -->
         <div id="songsContainer" class="flex flex-col items-center">
             <!-- Dynamically populated list of songs will go here -->
+        </div>
+
+        <!-- Container for Centering the Download Button -->
+        <div class="flex justify-center mt-4">
+            <button onclick="downloadAllSongs()" class="bg-green-500 text-white px-4 py-2 rounded">Download All Rated Songs</button>
         </div>
     </x-card>
 </x-layout>
 
 <script>
+    var authenticatedUsername = "{{ auth()->user()->username }}";
+
     window.onload = function() {
         fetchRatedSongs();
     };
 
     function fetchRatedSongs() {
-        // Replace 'username' with the actual username
-        fetch('/user/username/rated-songs')
+        fetch(`/user/${authenticatedUsername}/rated-songs`)
             .then(response => response.json())
             .then(songs => {
-                // Call a function to populate the songs into the DOM
                 populateSongs(songs);
             })
             .catch(error => console.error('Error:', error));
@@ -45,4 +50,9 @@
     function downloadSong(songId) {
         window.location.href = '/download-song/' + songId;
     }
+
+    function downloadAllSongs() {
+        window.location.href = '/download-all-rated-songs';
+    }
 </script>
+

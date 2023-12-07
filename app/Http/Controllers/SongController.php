@@ -311,20 +311,22 @@ class SongController extends Controller
         return response()->json($songs);
     }
 
-    public function downloadSong($songId)
+    public function downloadAllRatedSongs()
     {
-        $song = Song::find($songId);
-        if (!$song) {
-            return response()->json(['message' => 'Song not found'], 404);
-        }
+        $username = auth()->user()->username; // Get the authenticated user's username
+        $songs = SongRating::where('username', $username)
+                            ->with('song')
+                            ->get()
+                            ->map(function ($rating) {
+                                return $rating->song;
+                            });
 
-        $jsonData = $song->toJson(JSON_PRETTY_PRINT);
-        $filename = "song-{$songId}.json";
+        $jsonData = json_encode($songs, JSON_PRETTY_PRINT);
+        $filename = "all-rated-songs.json";
 
         return response($jsonData, 200, [
             'Content-Type' => 'application/json',
             'Content-Disposition' => "attachment; filename={$filename}"
         ]);
     }
-
 }
