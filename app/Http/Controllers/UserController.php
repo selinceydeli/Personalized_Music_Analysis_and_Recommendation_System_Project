@@ -266,6 +266,46 @@ class UserController extends Controller
         
             return false;
         }
+
+        //downloading recommendations (genre-based)
+        public function downloadRecommendations()
+        {
+            $username = auth()->user()->username;
+
+            // Instantiate UserController
+            $userController = new UserController();
+
+            // Fetch the recommendations using the method from UserController
+            $recommendations = $userController->favGenreRecomendationFromDifferentPerformers($username);
+
+            $jsonData = json_encode($recommendations, JSON_PRETTY_PRINT);
+            $filename = "recommendations.json";
+
+            return response($jsonData, 200, [
+                'Content-Type' => 'application/json',
+                'Content-Disposition' => "attachment; filename={$filename}"
+            ]);
+        }
+
+        //downloading recommendations (energy-based)
+        public function downloadRecommendationsEnergy()
+        {
+            $username = auth()->user()->username;
+
+            // Instantiate UserController
+            $userController = new UserController();
+
+            // Fetch the recommendations using the method from UserController
+            $recommendations = $userController->RecomendationByEnergyAndDanceability($username);
+
+            $jsonData = json_encode($recommendations, JSON_PRETTY_PRINT);
+            $filename = "recommendations.json";
+
+            return response($jsonData, 200, [
+                'Content-Type' => 'application/json',
+                'Content-Disposition' => "attachment; filename={$filename}"
+            ]);
+        }
 }
 
 

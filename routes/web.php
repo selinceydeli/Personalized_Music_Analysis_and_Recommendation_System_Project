@@ -105,3 +105,8 @@ Route::get('/hello', function () {
 });
 
 require __DIR__ . '/auth.php';
+
+// Downloading recommendations
+Route::get('/download-recommendations', [UserController::class, 'downloadRecommendations'])->middleware('auth');
+Route::get('/download-recommendations-energy', [UserController::class, 'downloadRecommendationsEnergy'])->middleware('auth');
+

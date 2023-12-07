@@ -1,0 +1,28 @@
+[
+    {
+        "duration_ms": 226652,
+        "explicit": 0,
+        "name": "Abu Simbel",
+        "popularity": 61,
+        "preview_url": "https://p.scdn.co/mp3-preview/0535c5704a8751ebb9f4fedc77f0794198e13a11?cid=0871147f112a492b88fc9fea2d3bf5e7",
+        "song_id": "1Y3yJHrBkkfj3GZKv1MVhF",
+        "isrc": "FR26V2066307",
+        "album_id": "3HVXzuVnuaWJyflpsF8MWj",
+        "artists_ids": [
+            "50Lr1puweM1hFsF1LpIZLM",
+            "08jywfUS0hp8XYlYs0cvz8"
+        ],
+        "danceability": 0.443,
+        "energy": 0.705,
+        "key": "C",
+        "loudness": -8.673,
+        "mode": "Minor",
+        "speechiness": 0.0335,
+        "acousticness": 0.0166,
+        "instrumentalness": 0.797,
+        "liveness": 0.179,
+        "valence": 0.073,
+        "tempo": 117.991,
+        "time_signature": 4
+    }
+]
