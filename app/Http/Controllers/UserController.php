@@ -164,6 +164,15 @@ class UserController extends Controller
     
         return false;
     }
+
+    public function bestSongs(){
+        $topRatedSongs = DB::table('song_ratings')
+                ->orderBy('rating', 'desc')
+                ->take(20)
+                ->pluck('song_id');
+
+        return SongResource::collection($topRatedSongs);
+    }
 }
 
 
