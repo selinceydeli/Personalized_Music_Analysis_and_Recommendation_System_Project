@@ -6,6 +6,7 @@ use App\Models\Song;
 use App\Models\Album;
 use App\Models\Performer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Resources\AlbumResource;
 
 class AlbumController extends Controller
@@ -31,14 +32,49 @@ class AlbumController extends Controller
 
         $song = Song::where('song_id', $songId)->first();
 
+        // Get the album's average rating separately
+        $albumAverageRating = Album::where('albums.album_id', $song->album->album_id)
+            ->leftJoin('album_ratings', 'albums.album_id', '=', 'album_ratings.album_id')
+            ->select(
+                'albums.*',
+                DB::raw('IFNULL(AVG(album_ratings.rating), 0) as average_album_rating')
+            )
+            ->groupBy('albums.album_id')
+            ->value('average_album_rating');
+
         // Retrieve all songs with the same album_id as $song->album->id
-        $songsWithSameAlbum = Song::where('album_id', $song->album->album_id)->get();
+        $songsWithSameAlbum = Song::where('album_id', $song->album->album_id)
+            ->leftJoin('song_ratings', 'songs.song_id', '=', 'song_ratings.song_id')
+            ->select('songs.*', DB::raw('IFNULL(AVG(song_ratings.rating), 0) as average_rating'))
+            ->groupBy('songs.song_id')
+            ->orderByDesc('average_rating')
+            ->get();
+
+        $songIds = $songsWithSameAlbum->pluck('song_id')->toArray();
+        // Initialize an empty array to store the mapping
+        $ratingsMap = [];
+
+        if (auth()->check()) {
+            $username = auth()->user()->username;
+
+            // Iterate through each song ID and retrieve the latest user rating
+            foreach ($songIds as $s) {
+                // Retrieve the latest user rating for the current song
+                $songRatingsController = new SongRatingController();
+                $latestUserRating = $songRatingsController->getLatestUserRating($username, $s);
+
+                // Build the ratings map entry for this song
+                $ratingsMap[$s] = [
+                    'latest_user_rating' => $latestUserRating ? $latestUserRating->rating : null,
+                ];
+            }
+            $latestAlbumRating=$songRatingsController->getLatestUserRatingForAlbum($username, $song->album->album_id);
+            $latestAlbumRating = $latestAlbumRating ? $latestAlbumRating->rating : null;
+        }
 
         // Access the performer IDs from the song
         $performersIds = $song->performers; // JSON field from the Song model
 
-        // Retrieve performer IDs from JSON data
-        //$performerIds = json_decode($performersJson);
 
         // Assuming $performerIds contains the performer IDs associated with the song
         $performers = Performer::whereIn('artist_id', $performersIds)->orderBy('name')->get();
@@ -63,10 +99,14 @@ class AlbumController extends Controller
             'songs' => $songsWithSameAlbum,
             'genres' => $uniqueGenresArray,
             'songId' => $songId,
+            'ratingsMap' => $ratingsMap,
+            'albumAverageRating' => $albumAverageRating,
+            'latestAlbumRating' => $latestAlbumRating,
         ]);
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         // Define the attributes you want to check for uniqueness.
         $uniqueAttributes = [
             'album_id' => $request->album_id
@@ -101,9 +141,10 @@ class AlbumController extends Controller
         }
     }
 
-    public function search_id($id){
+    public function search_id($id)
+    {
         $album = Album::find($id);
-        if(!empty($album)){
+        if (!empty($album)) {
             return response()->json($album);
         } else {
             return response()->json([

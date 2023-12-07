@@ -1,16 +1,20 @@
 <?php
 
+use App\Models\Song;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SongController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AlbumController;
+use Database\Factories\SongRatingFactory;
 use App\Http\Controllers\SpotifyController;
+use App\Http\Controllers\AnalysisController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\PerformerController;
 use App\Http\Controllers\SongRatingController;
+use App\Http\Controllers\AlbumRatingController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\DashboardController; // Import DashboardController
-use App\Http\Controllers\AnalysisController;
+use App\Http\Controllers\PerformerRatingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,7 +42,11 @@ Route::get('/add', [SongController::class, 'add'])->name('add')->middleware(['au
 
 Route::post('/upload-via-spotify', [SpotifyController::class, 'importSong'])->name('importSong');
 
-Route::post('/rate', [SongRatingController::class, 'store'])->name('store')->middleware(['auth']);
+Route::post('/ratesong', [SongRatingController::class, 'store'])->name('store')->middleware(['auth']);
+
+Route::post('/ratealbum', [AlbumRatingController::class, 'store'])->name('store')->middleware(['auth']);
+
+Route::post('/rateperformer', [PerformerRatingController::class, 'store'])->name('store')->middleware(['auth']);
 
 
 // Single Album
@@ -80,6 +88,12 @@ Route::get('/dashboard/genretaste', [UserController::class, 'showDashboard'])
 Route::get('/dashboard/energy', [UserController::class, 'showDashboardEnergy'])
     ->name('dashboard.energy')
     ->middleware('auth');
+
+// Downloading songs
+Route::get('/download-song/{songId}', [SongController::class, 'downloadSong']);
+Route::get('/downloads', function() {
+    return view('components.downloads');
+})->middleware('auth');
 
 // Logout
 Route::post('/logout', [DashboardController::class, 'logout'])->middleware(['auth'])->name('logout');

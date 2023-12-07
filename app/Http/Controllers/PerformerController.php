@@ -7,6 +7,7 @@ use App\Models\Song;
 use App\Models\Album;
 use App\Models\Performer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Resources\PerformerResource;
 
 class PerformerController extends Controller
@@ -21,12 +22,27 @@ class PerformerController extends Controller
 
         $songId = $request->input('song-id');
 
-        $songs = Song::whereJsonContains('performers', $performerId)->paginate(10);
+        $songs = Song::whereJsonContains('performers', $performerId)
+        ->leftJoin('song_ratings', 'songs.song_id', '=', 'song_ratings.song_id')
+        ->select('songs.*', DB::raw('IFNULL(AVG(song_ratings.rating), 0) as average_song_rating'))
+        ->groupBy('songs.song_id')
+        ->orderByDesc('average_song_rating')
+        ->paginate(10);
+    
+        $performer = Performer::where('performers.artist_id', $performerId)
+        ->leftJoin('performer_ratings', 'performers.artist_id', '=', 'performer_ratings.artist_id')
+        ->select('performers.*', DB::raw('IFNULL(AVG(performer_ratings.rating), 0) as average_performer_rating'))
+        ->groupBy('performers.artist_id')
+        ->orderByDesc('average_performer_rating')
+        ->first();
 
-        $performer = Performer::where('artist_id', $performerId)->orderBy('name')->first();
-
-        $albums = Album::where('artist_id', $performer->artist_id)->get();
-
+        $albums = Album::where('albums.artist_id', $performerId)
+        ->leftJoin('album_ratings', 'albums.album_id', '=', 'album_ratings.album_id')
+        ->select('albums.*', DB::raw('IFNULL(AVG(album_ratings.rating), 0) as average_album_rating'))
+        ->groupBy('albums.album_id')
+        ->orderByDesc('average_album_rating')
+        ->get();
+        
         $albumPerformers = [];
         foreach ($albums as $album) {
             $response = $this->search_id($album->artist_id);
@@ -77,6 +93,27 @@ class PerformerController extends Controller
             }
         }
 
+        // Initialize an empty array to store the mapping
+        $ratingsMap = [];
+
+        if (auth()->check()) {
+            $username = auth()->user()->username;
+
+            // Iterate through each song ID and retrieve the latest user rating
+            foreach ($songs as $s) {
+                // Retrieve the latest user rating for the current song
+                $songRatingsController = new SongRatingController();
+                $latestUserRating = $songRatingsController->getLatestUserRating($username, $s->song_id);
+
+                // Build the ratings map entry for this song
+                $ratingsMap[$s->song_id] = [
+                    'latest_user_rating' => $latestUserRating ? $latestUserRating->rating : null,
+                ];
+            }
+            $latestPerformerRating=$songRatingsController->getLatestUserRatingForPerformer($username, $performerId);
+            $latestPerformerRating = $latestPerformerRating ? $latestPerformerRating->rating : null;
+        }
+
         return view('performers.show', [
             'performer' => $performer,
             'albumPerformers' => $albumPerformers,
@@ -84,6 +121,8 @@ class PerformerController extends Controller
             'albums' => $albums,
             'songId' => $songId,
             'performersSongs' => $performersSongs,
+            'ratingsMap' => $ratingsMap,
+            'latestPerformerRating' => $latestPerformerRating,
         ]);
     }
 

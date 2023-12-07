@@ -46,6 +46,72 @@
                         </span>
                     </p>
                 </div>
+                <div class="flex items-center mt-2">
+                    @php
+                        $averageRating = $performer->average_performer_rating; // Get the average rating from the ratingsMap
+                        $fullStars = floor($averageRating); // Calculate the number of full stars
+                        $partialStar = $averageRating - $fullStars; // Calculate the fraction of the partial star
+                    @endphp
+                    @for ($i = 0; $i < 5; $i++)
+                        @if ($i < $fullStars)
+                            <i class="fas fa-star text-yellow-500" style="font-size: 24px;"></i> <!-- Full star icon -->
+                        @elseif ($partialStar > 0)
+                            <i class="fas fa-star-half-alt text-yellow-500" style="font-size: 24px;"></i>
+                            <!-- Half-filled star icon -->
+                            @php $partialStar = 0; @endphp <!-- Set partialStar to 0 to avoid more half stars -->
+                        @else
+                            <i class="far fa-star text-yellow-500" style="font-size: 24px;"></i>
+                            <!-- Empty star icon -->
+                        @endif
+                    @endfor
+                    @if ($averageRating !== null)
+                        <span class="text-lg ml-2">{{ number_format($averageRating, 1) }}</span>
+                    @endif
+                </div>
+            </div>
+            <div class="mt-4 text-align: center;">
+                <!-- User Rating Section -->
+                @if (auth()->check())
+                    @php
+                        $userRating = $latestPerformerRating ?? null; // Get the user rating from the ratingsMap
+                    @endphp
+                    <div class="text-lg" style="display: flex; flex-direction: column; align-items: center;">
+                        <!-- Center-align the content -->
+                        @if ($userRating !== null)
+                            <p>Most Recent Rating: {{ $userRating }}</p>
+                            <span>
+                                Rerate this performer:
+                                <form id="ratingForm_{{ $performer->artist_id }}" method="POST"
+                                    action="/rateperformer">
+                                    @csrf
+                                    <input type="hidden" name="artist_id" value="{{ $performer->artist_id }}">
+                                    <!-- Display 5 stars for rerating the song -->
+                                    @for ($i = 1; $i <= 5; $i++)
+                                        <button type="button" class="star-btn" data-rating="{{ $i }}">
+                                            <i class="far fa-star"></i> <!-- Empty star -->
+                                        </button>
+                                    @endfor
+                                    <input type="hidden" name="rating" id="ratingInput_{{ $performer->artist_id }}"
+                                        value="{{ $userRating }}">
+                                </form>
+                            </span>
+                        @else
+                            <p>Rate this performer:</p>
+                            <form id="ratingForm_{{ $performer->artist_id }}" method="POST" action="/rateperformer">
+                                @csrf
+                                <input type="hidden" name="artist_id" value="{{ $performer->artist_id }}">
+                                <!-- Display 5 stars for rating the song -->
+                                @for ($i = 1; $i <= 5; $i++)
+                                    <button type="button" class="star-btn" data-rating="{{ $i }}">
+                                        <i class="far fa-star"></i> <!-- Empty star -->
+                                    </button>
+                                @endfor
+                                <input type="hidden" name="rating" id="ratingInput_{{ $performer->artist_id }}"
+                                    value="">
+                            </form>
+                        @endif
+                    </div>
+                @endif
             </div>
         </x-card>
         <!-- Section for songs list -->
@@ -59,9 +125,35 @@
                                 src="{{ $album->image_url ? $album->image_url : asset('/images/no-image.png') }}"
                                 alt="Album Image" />
                             <div class="text-lg mt-4">
-                                    <a href="/albums/{{ $album->album_id }}?song-id={{ $album->songs->first()->song_id }}">
-                                        {{ $album->name }}
-                                    </a>
+                                <a
+                                    href="/albums/{{ $album->album_id }}?song-id={{ $album->songs->first()->song_id }}">
+                                    {{ $album->name }}
+                                </a>
+                                <div class="flex items-center mt-2">
+                                    @php
+                                        $averageRating = $album->average_album_rating; // Get the average rating from the ratingsMap
+                                        $fullStars = floor($averageRating); // Calculate the number of full stars
+                                        $partialStar = $averageRating - $fullStars; // Calculate the fraction of the partial star
+                                    @endphp
+                                    @for ($i = 0; $i < 5; $i++)
+                                        @if ($i < $fullStars)
+                                            <i class="fas fa-star text-yellow-500" style="font-size: 24px;"></i>
+                                            <!-- Full star icon -->
+                                        @elseif ($partialStar > 0)
+                                            <i class="fas fa-star-half-alt text-yellow-500"
+                                                style="font-size: 24px;"></i>
+                                            <!-- Half-filled star icon -->
+                                            @php $partialStar = 0; @endphp <!-- Set partialStar to 0 to avoid more half stars -->
+                                        @else
+                                            <i class="far fa-star text-yellow-500" style="font-size: 24px;"></i>
+                                            <!-- Empty star icon -->
+                                        @endif
+                                    @endfor
+
+                                    @if ($averageRating !== null)
+                                        <span class="text-lg ml-2">{{ number_format($averageRating, 2) }}</span>
+                                    @endif
+                                </div>
                                 <div class="mt-2">
                                     <i class="fas fa-clock"></i>
                                     @php
@@ -129,11 +221,12 @@
                     </p>
                 @else
                     @php
-                        $count=0;
+                        $count = 0;
                     @endphp
                     @foreach ($songs as $song)
                         <div class="performer-card" data-title="{{ $song->name }}">
-                            <x-performer-card :song="$song" :albumPerformers="$albumPerformers" :albums="$albums" :performer="$performer" :performersSongs="$performersSongs" :count="$count"/>
+                            <x-performer-card :song="$song" :albumPerformers="$albumPerformers" :albums="$albums" :performer="$performer"
+                                :performersSongs="$performersSongs" :count="$count" :ratingsMap="$ratingsMap" />
                         </div>
                         @php
                             $count++;
@@ -147,3 +240,43 @@
         </div>
     </div>
 </x-layout>
+<script>
+    $(document).ready(function() {
+        var currentRating = parseInt($('#ratingInput').val()) || 0;
+
+        $(document).on('mouseover', '.star-btn', function() {
+            var rating = $(this).data('rating');
+
+            $(this).siblings().addBack().find('i').each(function(index) {
+                if (index < rating) {
+                    $(this).removeClass('far').addClass('fas'); // Fill stars
+                } else {
+                    $(this).removeClass('fas').addClass('far'); // Empty stars
+                }
+            });
+        });
+
+        $(document).on('click', '.star-btn', function() {
+            var rating = $(this).data('rating');
+            var artistId = $(this).closest('form').find('input[name="artist_id"]').val();
+            $('#ratingInput_' + artistId).val(
+            rating); // Set the hidden input value to the selected rating for this specific card
+
+            // Submit the form for this specific card
+            $('#ratingForm_' + artistId).submit();
+        });
+
+        $(document).on('mouseout', '.star-rating', function(e) {
+            // Check if the mouse leaves the star rating area
+            if (!$(e.relatedTarget).hasClass('star-btn')) {
+                $('.star-btn i').each(function(index) {
+                    if (index < currentRating) {
+                        $(this).removeClass('far').addClass('fas-colored'); // Fill stars
+                    } else {
+                        $(this).removeClass('fas-colored').addClass('far'); // Empty stars
+                    }
+                });
+            }
+        });
+    });
+</script>

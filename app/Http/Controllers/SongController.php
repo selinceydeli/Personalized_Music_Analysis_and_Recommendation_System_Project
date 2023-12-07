@@ -29,6 +29,7 @@ class SongController extends Controller
             ->groupBy('songs.song_id')
             ->orderByDesc('average_rating');
 
+
         // Check if a genre filter is applied
         $selectedGenre = request('genre');
         if ($selectedGenre) {
@@ -38,7 +39,7 @@ class SongController extends Controller
             $songIds = collect($genres)->pluck('song_id')->toArray();
 
             // Update the query with the song IDs from the selected genre
-            $query->whereIn('song_id', $songIds);
+            $query->whereIn('songs.song_id', $songIds);
         }
 
         // Check if a search filter is applied
@@ -296,5 +297,34 @@ class SongController extends Controller
     
         return $query;
     }
-    
+
+    //Methods defined for downloading songs rated by the user
+    public function getSongsRatedByUser($username)
+    {
+        $songs = SongRating::where('username', $username)
+                            ->with('song')  // Load the song relationship
+                            ->get()
+                            ->map(function ($rating) {
+                                return $rating->song;  // Return only the song part
+                            });
+
+        return response()->json($songs);
+    }
+
+    public function downloadSong($songId)
+    {
+        $song = Song::find($songId);
+        if (!$song) {
+            return response()->json(['message' => 'Song not found'], 404);
+        }
+
+        $jsonData = $song->toJson(JSON_PRETTY_PRINT);
+        $filename = "song-{$songId}.json";
+
+        return response($jsonData, 200, [
+            'Content-Type' => 'application/json',
+            'Content-Disposition' => "attachment; filename={$filename}"
+        ]);
+    }
+
 }
