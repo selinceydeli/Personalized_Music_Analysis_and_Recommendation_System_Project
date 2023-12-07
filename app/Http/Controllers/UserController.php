@@ -212,7 +212,6 @@ class UserController extends Controller
             $notifications = $user->notifications; // or use ->unreadNotifications for only unread ones
             return response()->json($notifications);
         }
-    
         public function showDashboard() {
             $username = auth()->user()->name;
             $recommendations = $this->favGenreRecomendationFromDifferentPerformers($username) ?? [];
@@ -266,26 +265,13 @@ class UserController extends Controller
         
             return false;
         }
+    
+        public function bestSongs(){
+            $topRatedSongs = DB::table('song_ratings')
+                    ->orderBy('rating', 'desc')
+                    ->take(20)
+                    ->pluck('song_id');
+    
+            return SongResource::collection($topRatedSongs);
+        }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
