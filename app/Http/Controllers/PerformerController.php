@@ -112,6 +112,16 @@ class PerformerController extends Controller
             }
             $latestPerformerRating=$songRatingsController->getLatestUserRatingForPerformer($username, $performerId);
             $latestPerformerRating = $latestPerformerRating ? $latestPerformerRating->rating : null;
+            return view('performers.show', [
+                'performer' => $performer,
+                'albumPerformers' => $albumPerformers,
+                'songs' => $songs,
+                'albums' => $albums,
+                'songId' => $songId,
+                'performersSongs' => $performersSongs,
+                'ratingsMap' => $ratingsMap,
+                'latestPerformerRating' => $latestPerformerRating,
+            ]);
         }
 
         return view('performers.show', [
@@ -122,7 +132,6 @@ class PerformerController extends Controller
             'songId' => $songId,
             'performersSongs' => $performersSongs,
             'ratingsMap' => $ratingsMap,
-            'latestPerformerRating' => $latestPerformerRating,
         ]);
     }
 
