@@ -139,7 +139,7 @@ class UserController extends Controller
         ->take(30)
         ->get();
 
-        return SongResource::collection($recommendedSongs);
+        return $recommendedSongs;
     }
 
     public function dashboard()
@@ -237,7 +237,7 @@ class UserController extends Controller
         }        
 
         public function showDashboardEnergy() {
-            $username = auth()->user()->name;
+            $username = auth()->user()->username;
 
             if (SongRating::where('username', '=', "{$username}")->exists()){
                 $recommendations = $this->RecomendationByEnergyAndDanceability($username) ?? [];
@@ -267,12 +267,14 @@ class UserController extends Controller
         }
         
         public function bestSongs(){
-            $topRatedSongs = DB::table('song_ratings')
-                    ->orderBy('rating', 'desc')
-                    ->take(20)
-                    ->pluck('song_id');
-    
-            return SongResource::collection($topRatedSongs);
+            $topRatedSongs = Song::join('song_ratings', 'songs.song_id', '=', 'song_ratings.song_id')  // Adjust the key names based on your table structure
+                     ->select('songs.*', DB::raw('AVG(song_ratings.rating) as average_rating'))
+                     ->groupBy('songs.song_id')  // Group by song id to calculate average
+                     ->orderBy('average_rating', 'desc')  // Order by the average rating
+                     ->take(20)  // Take top 20
+                     ->get();
+
+            return $topRatedSongs;
         }
         //downloading recommendations (genre-based)
         public function downloadRecommendations()
