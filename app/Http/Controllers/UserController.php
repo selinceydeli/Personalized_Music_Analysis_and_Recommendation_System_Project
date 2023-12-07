@@ -208,6 +208,45 @@ class UserController extends Controller
             $notifications = $user->notifications; // or use ->unreadNotifications for only unread ones
             return response()->json($notifications);
         }
+
+
+    public function mobileauthenticate(Request $request) {
+        $formFields = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => 'required',
+        ]);
+
+        if (auth()->attempt($formFields)) {
+    
+            return true;
+        }
+    
+        return false;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
         public function showDashboard() {
             $username = auth()->user()->name;
