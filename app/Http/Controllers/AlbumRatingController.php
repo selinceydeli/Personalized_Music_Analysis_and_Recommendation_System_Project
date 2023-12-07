@@ -16,14 +16,12 @@ class AlbumRatingController extends Controller
 
     public function store(Request $request){
         $albumrating = new AlbumRating;
-        $albumrating->rating = $request->rating;
-        $albumrating->username = $request->username;
-        $albumrating->album_id = $request->album_id;
-        $albumrating->date_rated = $request->date_rated;
+        $albumrating->rating = $request->input('rating');
+        $albumrating->username = auth()->user()->username;
+        $albumrating->album_id = $request->input('album_id');
+        $albumrating->date_rated = now();
         $albumrating->save();
-        return response()->json([
-            "message" => "Album rating added"
-        ], 200);
+        return redirect('/')->with('message', 'Album rated successfully');
     }
 
     public function search_id_album($id){

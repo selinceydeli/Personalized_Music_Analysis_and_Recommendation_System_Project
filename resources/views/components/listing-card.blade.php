@@ -16,7 +16,7 @@
 
 <x-card>
     <div class="flex">
-        <img class="w-48 mr-6 md:block"
+        <img class="w-48 h-48 mr-6 md:block"
             src="{{ $song->album && $song->album->image_url ? $song->album->image_url : asset('/images/no-image.png') }}"
             alt="" />
         <div>
@@ -35,7 +35,7 @@
                 @for ($i = 0; $i < 5; $i++)
                     @if ($i < $fullStars)
                         <i class="fas fa-star text-yellow-500" style="font-size: 24px;"></i> <!-- Full star icon -->
-                    @elseif ($partialStar > 0)
+                    @elseif ($partialStar >= 0.01)
                         <i class="fas fa-star-half-alt text-yellow-500" style="font-size: 24px;"></i>
                         <!-- Half-filled star icon -->
                         @php $partialStar = 0; @endphp <!-- Set partialStar to 0 to avoid more half stars -->
@@ -45,7 +45,7 @@
                 @endfor
 
                 @if ($averageRating !== null)
-                    <span class="text-lg ml-2">{{ number_format($averageRating, 1) }}</span>
+                    <span class="text-lg ml-2">{{ number_format($averageRating, 2) }}</span>
                 @endif
             </div>
             <i class="fas fa-clock"></i>
@@ -105,7 +105,7 @@
                             <span>
                                 Rerate this song:
                                 <form id="ratingForm_{{ $song->song_id }}" method="POST"
-                                    action="/rate">
+                                    action="/ratesong">
                                     @csrf
                                     <input type="hidden" name="song_id" value="{{ $song->song_id }}">
                                     <!-- Display 5 stars for rerating the song -->
@@ -122,7 +122,7 @@
                             <br>
                             Rate this song:
                             <form id="ratingForm_{{ $song->song_id }}" method="POST"
-                                action="/rate">
+                                action="/ratesong">
                                 @csrf
                                 <input type="hidden" name="song_id" value="{{ $song->song_id }}">
                                 <!-- Display 5 stars for rating the song -->

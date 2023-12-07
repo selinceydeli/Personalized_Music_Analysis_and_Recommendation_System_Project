@@ -16,14 +16,12 @@ class PerformerRatingController extends Controller
 
     public function store(Request $request){
         $performerrating = new PerformerRating;
-        $performerrating->rating = $request->rating;
-        $performerrating->username = $request->username;
-        $performerrating->artist_id = $request->artist_id;
-        $performerrating->date_rated = $request->date_rated;
+        $performerrating->rating = $request->input('rating');
+        $performerrating->username = auth()->user()->username;
+        $performerrating->artist_id = $request->input('artist_id');
+        $performerrating->date_rated = now();
         $performerrating->save();
-        return response()->json([
-            "message" => "Performer rating added"
-        ], 200);
+        return redirect('/')->with('message', 'Performer rated successfully');
     }
 
     public function search_id_performer($id){

@@ -1,0 +1,68 @@
+{
+    "album_type": "album",
+    "copyrights": "(C) 2001 MEYPOM",
+    "genres": [],
+    "label": "MEYPOM",
+    "name": "Zaman",
+    "popularity": 56,
+    "release_date": "2001-11-30",
+    "total_tracks": 12,
+    "tracks": {
+        "items": [
+            {
+                "id": "7IfNHJ1URyXS0G0atCdh3j",
+                "track_number": 1
+            },
+            {
+                "id": "2gfnOfqQL0xMCV7rZXqVZY",
+                "track_number": 2
+            },
+            {
+                "id": "0Ekrw0popswEuIPRJCSK10",
+                "track_number": 3
+            },
+            {
+                "id": "4CjP7uSlt0iNCR2LEuaEhC",
+                "track_number": 4
+            },
+            {
+                "id": "0wHbxLfs45fmdrKtgUEJRK",
+                "track_number": 5
+            },
+            {
+                "id": "31l9MgXLVJZy08iRuaPd1k",
+                "track_number": 6
+            },
+            {
+                "id": "5n1MwdIRqFtsFO4qp86USa",
+                "track_number": 7
+            },
+            {
+                "id": "5rPCeP0UCjwKQgRCuYPTgq",
+                "track_number": 8
+            },
+            {
+                "id": "4Zk3MbEPCydu19WKASl8sk",
+                "track_number": 9
+            },
+            {
+                "id": "0nv4c8lM3IcOxvptVV5h50",
+                "track_number": 10
+            },
+            {
+                "id": "4nrsFCRgmOcEGZJEff7UXy",
+                "track_number": 11
+            },
+            {
+                "id": "4B1jrfg3zhHTGMbqL772hH",
+                "track_number": 12
+            }
+        ],
+        "total": 12
+    },
+    "type": "album",
+    "artist_id": "4XYD8wP6f1sfLtWfrY1luF",
+    "album_id": "2T6pxjnrgH5OHc09YPDvX5",
+    "upc": "803680840153",
+    "image": "https://i.scdn.co/image/ab67616d0000b27319a1b29fa587b3ee53bec864"
+}

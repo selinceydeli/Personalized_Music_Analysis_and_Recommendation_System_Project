@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\AlbumRatingResource;
 use Illuminate\Http\Request;
 use App\Models\SongRating;
 use App\Http\Resources\SongRatingResource;
+use App\Models\AlbumRating;
+use App\Models\PerformerRating;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Carbon;
 
@@ -24,7 +27,7 @@ class SongRatingController extends Controller
         $songrating->song_id = $request->input('song_id');
         $songrating->date_rated = now();
         $songrating->save();
-    
+
         return redirect('/')->with('message', 'Song rated successfully');
     }
 
@@ -50,6 +53,22 @@ class SongRatingController extends Controller
             ->orderByDesc('date_rated')
             ->first();
     }
+    public function getLatestUserRatingForAlbum($username, $albumId)
+    {
+        return AlbumRating::where('username', $username)
+            ->where('album_id', $albumId)
+            ->orderByDesc('date_rated')
+            ->first();
+    }
+    public function getLatestUserRatingForPerformer($username, $artist_id)
+    {
+        return PerformerRating::where('username', $username)
+            ->where('artist_id', $artist_id)
+            ->orderByDesc('date_rated')
+            ->first();
+    }
+
+
 
     public function update(Request $request, $id)
     {
