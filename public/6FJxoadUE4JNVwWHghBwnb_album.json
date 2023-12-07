@@ -1,0 +1,84 @@
+{
+    "album_type": "album",
+    "copyrights": "(P) 2022 Parkwood Entertainment LLC, under exclusive license to Columbia Records, a Division of Sony Music Entertainment",
+    "genres": [],
+    "label": "Parkwood Entertainment/Columbia",
+    "name": "RENAISSANCE",
+    "popularity": 86,
+    "release_date": "2022-07-29",
+    "total_tracks": 16,
+    "tracks": {
+        "items": [
+            {
+                "id": "1MpCaOeUWhox2Fgigbe1cL",
+                "track_number": 1
+            },
+            {
+                "id": "0mKGwFMHzTprtS2vpR3b6s",
+                "track_number": 2
+            },
+            {
+                "id": "1Hohk6AufHZOrrhMXZppax",
+                "track_number": 3
+            },
+            {
+                "id": "1xzi1Jcr7mEi9K2RfzLOqS",
+                "track_number": 4
+            },
+            {
+                "id": "0314PeD1sQNonfVWix3B2K",
+                "track_number": 5
+            },
+            {
+                "id": "5pyoxDZ1PX0KxBxiRVxA4U",
+                "track_number": 6
+            },
+            {
+                "id": "2mqTtvbKxH7SoEQ2oGAnsA",
+                "track_number": 7
+            },
+            {
+                "id": "6ufcuVInt0ocHrUimDjGlb",
+                "track_number": 8
+            },
+            {
+                "id": "0Fl4eWzVaMUOdXcOrj6F1q",
+                "track_number": 9
+            },
+            {
+                "id": "5YLGlPYkZBDXieMwzVve7g",
+                "track_number": 10
+            },
+            {
+                "id": "1w7cgGZR86yWz1pA2puVJD",
+                "track_number": 11
+            },
+            {
+                "id": "1LCm0lFnEsxR2oPqyHLGX9",
+                "track_number": 12
+            },
+            {
+                "id": "3k4CoiIQXiNBrwrmbBMDxj",
+                "track_number": 13
+            },
+            {
+                "id": "2XMAWynSTIst5KmLSv0Npf",
+                "track_number": 14
+            },
+            {
+                "id": "4DByEumlGTZKSzuVEZ35eo",
+                "track_number": 15
+            },
+            {
+                "id": "3HyR1j49TY5ACP2lseF1jx",
+                "track_number": 16
+            }
+        ],
+        "total": 16
+    },
+    "type": "album",
+    "artist_id": "6vWDO969PvNqNYHIOW5v0m",
+    "album_id": "6FJxoadUE4JNVwWHghBwnb",
+    "upc": "196589246974",
+    "image": "https://i.scdn.co/image/ab67616d0000b2730e58a0f8308c1ad403d105e7"
+}

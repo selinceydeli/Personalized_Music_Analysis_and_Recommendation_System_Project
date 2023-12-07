@@ -1,0 +1,60 @@
+{
+    "album_type": "album",
+    "copyrights": "\u00a9 2014 Imperial Galactic Limited t/a Black Mammoth under exclusive licence to Warner Music UK Limited",
+    "genres": [],
+    "label": "Warner Records",
+    "name": "Royal Blood",
+    "popularity": 67,
+    "release_date": "2014-08-22",
+    "total_tracks": 10,
+    "tracks": {
+        "items": [
+            {
+                "id": "1INksmStBpxdNlBzwGUvsg",
+                "track_number": 1
+            },
+            {
+                "id": "7qRmdDl9dnHkFT4MMboG7Y",
+                "track_number": 2
+            },
+            {
+                "id": "3MjrueDQKVr6xDDseZwhEd",
+                "track_number": 3
+            },
+            {
+                "id": "0LiSSTgysOjNcmpSUImimS",
+                "track_number": 4
+            },
+            {
+                "id": "0u2W89AQvH3sDVg7UX6YOT",
+                "track_number": 5
+            },
+            {
+                "id": "5fpj84RsT9cOTfWUCxBTXu",
+                "track_number": 6
+            },
+            {
+                "id": "48wDtXGVFNZHANlDYTKMAW",
+                "track_number": 7
+            },
+            {
+                "id": "6jXkTqOYgs27YVPkq12UpE",
+                "track_number": 8
+            },
+            {
+                "id": "0vjYxBDAcflD0358arIVZG",
+                "track_number": 9
+            },
+            {
+                "id": "1odEpn9xw2Hom1tRxS1IHR",
+                "track_number": 10
+            }
+        ],
+        "total": 10
+    },
+    "type": "album",
+    "artist_id": "2S5hlvw4CMtMGswFtfdK15",
+    "album_id": "0BFzNaeaNv4mahOzwZFGHK",
+    "upc": "825646266593",
+    "image": "https://i.scdn.co/image/ab67616d0000b27369471a9c0a6073a9beb81410"
+}
