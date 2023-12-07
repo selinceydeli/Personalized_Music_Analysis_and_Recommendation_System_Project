@@ -157,7 +157,7 @@ class UserController extends Controller
         ->take(20) // Limit to 20 songs for recommendation
         ->values();
 
-        return $recommendedSongs;
+        return view('components.dashboard-positive', ['recommendations' => $recommendedSongs]);
     }
 
     public function favNegativeRecomendation($username){
@@ -202,7 +202,7 @@ class UserController extends Controller
         ->take(20) // Limit to 20 songs for recommendation
         ->values();
 
-        return $recommendedSongs;
+        return view('components.dashboard-negative', ['recommendations' => $recommendedSongs]);
     }
     
 

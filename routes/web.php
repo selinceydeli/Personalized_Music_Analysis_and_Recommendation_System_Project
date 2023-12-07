@@ -89,6 +89,14 @@ Route::get('/dashboard/energy', [UserController::class, 'showDashboardEnergy'])
     ->name('dashboard.energy')
     ->middleware('auth');
 
+Route::get('/dashboard/positivevalence', [UserController::class, 'favPositiveRecomendation'])
+    ->name('dashboard.positivevalence')
+    ->middleware('auth');
+
+Route::get('/dashboard/negativevalence', [UserController::class, 'favNegativeRecomendation'])
+    ->name('dashboard.negativevalence')
+    ->middleware('auth');
+
 // Downloading songs
 Route::get('/download-all-rated-songs', [SongController::class, 'downloadAllRatedSongs']);
 Route::get('/downloads', function() {
