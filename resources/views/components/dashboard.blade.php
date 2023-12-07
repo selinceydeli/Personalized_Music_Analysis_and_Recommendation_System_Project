@@ -23,12 +23,12 @@
         <!-- Section for General Recommendations -->
         @if ($recommendations && count($recommendations) > 0)
             <div class="p-6">
-                <h2 class="text-2xl font-bold mb-4">Top Picks From Your Favorite Genres</h2>
+                <h2 class="text-2xl font-bold mb-4">{{ $title }}</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     @foreach ($recommendations as $song)
                         <div class="border rounded-lg p-4 shadow-lg">
-                            <img src="{{ $song['album']['image_url'] ?? asset('/images/no-image.png') }}"
-                                alt="{{ $song['name'] }}" class="w-full h-auto mb-3">
+                            <img src="{{ $song->album->image_url ?? asset('/images/no-image.png') }}"
+                                alt="{{ $song->name }}" class="w-full h-auto mb-3">
                             <h3 class="text-lg font-semibold">{{ $song['name'] }}</h3>
                             <i class="fas fa-folder"></i>
                             <strong>

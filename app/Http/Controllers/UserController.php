@@ -221,28 +221,35 @@ class UserController extends Controller
         public function showDashboard() {
             $username = auth()->user()->username;
 
+            $title = "";
+
             if (PerformerRating::where('username', '=', "{$username}")->exists()){
                 $recommendations = $this->favGenreRecomendationFromDifferentPerformers($username) ?? [];
+                $title = "Top Picks From Your Favorite Genres";
             }
             else{
                 $recommendations = $this->bestSongs() ?? [];
+                $title = "Top Picks From Best Rated Songs";
             }
             
-            
-            return view('components.dashboard', ['recommendations' => $recommendations]);
+            return view('components.dashboard', ['recommendations' => $recommendations, 
+                                                 'title' => $title]);
         }        
 
         public function showDashboardEnergy() {
             $username = auth()->user()->name;
 
-            if (PerformerRating::where('username', '=', "{$username}")->exists()){
+            if (SongRating::where('username', '=', "{$username}")->exists()){
                 $recommendations = $this->RecomendationByEnergyAndDanceability($username) ?? [];
+                $title = "Dynamic Beats: Tailored Picks Matching Your Energy & Dance Vibes";
             }
             else{
                 $recommendations = $this->bestSongs() ?? [];
+                $title = "Top Picks From Best Rated Songs";
             }
 
-            return view('components.dashboard-energy', ['recommendations' => $recommendations]);
+            return view('components.dashboard-energy', ['recommendations' => $recommendations, 
+                                                        'title' => $title]);
         }
     
         public function mobileauthenticate(Request $request) {
