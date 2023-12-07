@@ -1,0 +1,60 @@
+{
+    "album_type": "album",
+    "copyrights": "2004 Odeon M\u00fczik Yap\u0131mc\u0131l\u0131k",
+    "genres": [],
+    "label": "Odeon M\u00fczik Yap\u0131mc\u0131l\u0131k",
+    "name": "Selam S\u00f6yle",
+    "popularity": 61,
+    "release_date": "2004-05-14",
+    "total_tracks": 10,
+    "tracks": {
+        "items": [
+            {
+                "id": "1ClnNu5oASK5TwqxtXMZJP",
+                "track_number": 1
+            },
+            {
+                "id": "6r6Z8psBXD19ZC7R4mMztP",
+                "track_number": 2
+            },
+            {
+                "id": "4C2BEVMCOoTRYLQdxumczm",
+                "track_number": 3
+            },
+            {
+                "id": "0OgLrfcz3gqjmTwlBOFYrt",
+                "track_number": 4
+            },
+            {
+                "id": "1e1o1Im4NcyQlFOEKQyXvi",
+                "track_number": 5
+            },
+            {
+                "id": "54YPbaNigOv5PQk8CGrNmc",
+                "track_number": 6
+            },
+            {
+                "id": "0ojaNxijCapuu3GrfrWJUC",
+                "track_number": 7
+            },
+            {
+                "id": "2hrICFAM1gIjQhtObIkbUz",
+                "track_number": 8
+            },
+            {
+                "id": "43CSBpQqufzebAoFnThSry",
+                "track_number": 9
+            },
+            {
+                "id": "4rgjXPxKKYJyRjW0oAaF0F",
+                "track_number": 10
+            }
+        ],
+        "total": 10
+    },
+    "type": "album",
+    "artist_id": "3iVIrcJmrV7GawrxVWsBUF",
+    "album_id": "5PFNuphPszDP7rHHmGKfpm",
+    "upc": "8692329104129",
+    "image": "https://i.scdn.co/image/ab67616d0000b2734a8c391df8e63825344fba62"
+}

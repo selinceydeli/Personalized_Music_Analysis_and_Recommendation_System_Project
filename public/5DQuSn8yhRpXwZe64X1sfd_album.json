@@ -1,0 +1,112 @@
+{
+    "album_type": "album",
+    "copyrights": "2000 DO\u011eAN M\u00dcZ\u0130K",
+    "genres": [],
+    "label": "DO\u011eAN M\u00dcZ\u0130K YAPIM",
+    "name": "En \u0130yileriyle Alpay",
+    "popularity": 41,
+    "release_date": "2000-01-01",
+    "total_tracks": 23,
+    "tracks": {
+        "items": [
+            {
+                "id": "1bJcyzu66xsdRUphnXMg4B",
+                "track_number": 1
+            },
+            {
+                "id": "6IJWbA7KqmwlvAQmMCdFsN",
+                "track_number": 2
+            },
+            {
+                "id": "3zz6pcr9XRTxYyx3xvzwtn",
+                "track_number": 3
+            },
+            {
+                "id": "67EjrSQxdVB3SgYGfgB7AN",
+                "track_number": 4
+            },
+            {
+                "id": "5NT656x9ZtYV18zyObZLd2",
+                "track_number": 5
+            },
+            {
+                "id": "0sOhgPoEbJO5pFOJIurszr",
+                "track_number": 6
+            },
+            {
+                "id": "4viZUH98ubcQz6HTHJi4xY",
+                "track_number": 7
+            },
+            {
+                "id": "7uRflwXewUXfxHeYnbb08r",
+                "track_number": 8
+            },
+            {
+                "id": "4sOOhIc3qxAzODpXMIh3vi",
+                "track_number": 9
+            },
+            {
+                "id": "3dNxf2x7U7Oqu5s3xJelCS",
+                "track_number": 10
+            },
+            {
+                "id": "27SKKiggvUksQGN6gGkJnD",
+                "track_number": 11
+            },
+            {
+                "id": "6EqMKGmVxNHKR7lRwvIvW8",
+                "track_number": 12
+            },
+            {
+                "id": "3bjF2ifNco6AIVD78XdpuN",
+                "track_number": 13
+            },
+            {
+                "id": "1juEX8J3g8AQIZpbOXGSlN",
+                "track_number": 14
+            },
+            {
+                "id": "7BxRsY4uHE2HRRqYNNPkHr",
+                "track_number": 15
+            },
+            {
+                "id": "5KBAPAGguLcRlxaNkey8iZ",
+                "track_number": 16
+            },
+            {
+                "id": "0S7h5GsjOXvl4ON3kpRKp9",
+                "track_number": 17
+            },
+            {
+                "id": "3w2M6amZH0S7qJdvIjoFv8",
+                "track_number": 18
+            },
+            {
+                "id": "5atJPkEXEA15ZkkrqgsaB1",
+                "track_number": 19
+            },
+            {
+                "id": "4se81FNROnWqF1yCWytWz7",
+                "track_number": 20
+            },
+            {
+                "id": "67Sw97tAGWkm9pyJUQEFNL",
+                "track_number": 21
+            },
+            {
+                "id": "7xrcd51pIJBbHllxNFHWwl",
+                "track_number": 22
+            },
+            {
+                "id": "5zneAj9K7Qsx0Ae1LTLopZ",
+                "track_number": 23
+            }
+        ],
+        "total": 23
+    },
+    "type": "album",
+    "artist_id": "54dXUQ28NmpBHImIXjRsUg",
+    "album_id": "5DQuSn8yhRpXwZe64X1sfd",
+    "upc": "8697407055256",
+    "image": "https://i.scdn.co/image/ab67616d0000b273755ca6e7044a898e70583083"
+}

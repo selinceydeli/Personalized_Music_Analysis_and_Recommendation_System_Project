@@ -45,23 +45,21 @@ class SpotifyController extends Controller
 
         $spotifyLinks = $jsonData['spotify_links']; // Adjust this based on your JSON structure
         $scriptPath = 'path/to/importSongWithLink.py'; // Adjust the script path
+
+        $counter = 0;
         
         foreach ($spotifyLinks as $url) {
+            $counter++;
             if ($this->isSpotifyLink($url)) {
                 $command = "python3 tempFunctions/importSongWithLink.py " . escapeshellarg($url) . " 2>&1";
                 $result = shell_exec($command);
             }
 
             else {
-                return response()->json(['message' => 'Invalid Spotify link detected!'], 400);
+                return redirect('/')->with('message', 'Invalid Spotify Link at Song ' . $counter);
             }
         }
-
-        return response()->json([
-            'message' => 'Script executed',
-            'output' => $result,
-            'executed_command' => $command // Including the executed command can be helpful
-        ]);
+        return redirect('/')->with('message', 'Song information uploaded successfully!');
     }
 
     private function isSpotifyLink($input)

@@ -110,3 +110,5 @@ require __DIR__ . '/auth.php';
 Route::get('/download-recommendations', [UserController::class, 'downloadRecommendations'])->middleware('auth');
 Route::get('/download-recommendations-energy', [UserController::class, 'downloadRecommendationsEnergy'])->middleware('auth');
 
+// Importing songs with json file
+Route::post('/import-json', [SpotifyController::class, 'importJSON'])->name('import-json');

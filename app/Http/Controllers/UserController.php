@@ -217,44 +217,19 @@ class UserController extends Controller
             $notifications = $user->notifications; // or use ->unreadNotifications for only unread ones
             return response()->json($notifications);
         }
+
         public function showDashboard() {
-            $username = auth()->user()->name;
+            $username = auth()->user()->username;
             $recommendations = $this->favGenreRecomendationFromDifferentPerformers($username) ?? [];
-        
-            // Initialize SongController
-            $songController = new SongController();
-        
-            // Get recommended song IDs
-            $recommendedSongIds = collect($recommendations)->pluck('song_id')->toArray();
-        
-            // Use getSongsQuery() method from SongController
-            // Ensure it filters based on the recommended song IDs
-            $songsQuery = $songController->getSongsQuery()->whereIn('songs.song_id', $recommendedSongIds);
             
-            // Retrieve the songs
-            $songs = $songsQuery->get();
-        
-            return view('components.dashboard', ['recommendations' => $songs]);
-        }
+            return view('components.dashboard', ['recommendations' => $recommendations]);
+        }        
 
         public function showDashboardEnergy() {
             $username = auth()->user()->name;
             $recommendations = $this->RecomendationByEnergyAndDanceability($username) ?? [];
         
-            // Initialize SongController
-            $songController = new SongController();
-        
-            // Get recommended song IDs
-            $recommendedSongIds = collect($recommendations)->pluck('song_id')->toArray();
-        
-            // Use getSongsQuery() method from SongController
-            // Ensure it filters based on the recommended song IDs
-            $songsQuery = $songController->getSongsQuery()->whereIn('songs.song_id', $recommendedSongIds);
-            
-            // Retrieve the songs
-            $songs = $songsQuery->get();
-        
-            return view('components.dashboard-energy', ['recommendations' => $songs]);
+            return view('components.dashboard-energy', ['recommendations' => $recommendations]);
         }
     
         public function mobileauthenticate(Request $request) {
