@@ -109,9 +109,11 @@ Route::get('/user/{username}/friends', [UserController::class, 'getFriends']);
 Route::get('/user/{username}/blocked', [UserController::class, 'getBlockedUsers']);
 Route::get('/user/{username}/notifications', [UserController::class, 'getNotifications']);
 
-
 // Handling song imports
 Route::post('/spotify/import', [SpotifyController::class, 'importSong']);
 
 // Mobile Login
 Route::post('/user/mobilelogin', [UserController::class, 'mobileauthenticate']);
+
+// Downloading songs
+Route::get('/user/{username}/rated-songs', [SongController::class, 'getSongsRatedByUser']);

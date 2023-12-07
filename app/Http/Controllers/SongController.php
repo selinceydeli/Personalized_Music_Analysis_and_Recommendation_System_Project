@@ -297,5 +297,34 @@ class SongController extends Controller
     
         return $query;
     }
-    
+
+    //Methods defined for downloading songs rated by the user
+    public function getSongsRatedByUser($username)
+    {
+        $songs = SongRating::where('username', $username)
+                            ->with('song')  // Load the song relationship
+                            ->get()
+                            ->map(function ($rating) {
+                                return $rating->song;  // Return only the song part
+                            });
+
+        return response()->json($songs);
+    }
+
+    public function downloadSong($songId)
+    {
+        $song = Song::find($songId);
+        if (!$song) {
+            return response()->json(['message' => 'Song not found'], 404);
+        }
+
+        $jsonData = $song->toJson(JSON_PRETTY_PRINT);
+        $filename = "song-{$songId}.json";
+
+        return response($jsonData, 200, [
+            'Content-Type' => 'application/json',
+            'Content-Disposition' => "attachment; filename={$filename}"
+        ]);
+    }
+
 }

@@ -89,6 +89,12 @@ Route::get('/dashboard/energy', [UserController::class, 'showDashboardEnergy'])
     ->name('dashboard.energy')
     ->middleware('auth');
 
+// Downloading songs
+Route::get('/download-song/{songId}', [SongController::class, 'downloadSong']);
+Route::get('/downloads', function() {
+    return view('components.downloads');
+})->middleware('auth');
+
 // Logout
 Route::post('/logout', [DashboardController::class, 'logout'])->middleware(['auth'])->name('logout');
 
