@@ -1,0 +1,60 @@
+{
+    "album_type": "album",
+    "copyrights": "A Warner Classics/Erato release, \u00a9 2000 Parlophone Records Limited",
+    "genres": [],
+    "label": "Warner Classics",
+    "name": "Chopin: Piano Sonata No. 2, Nocturnes, Barcarolle & Scherzo",
+    "popularity": 60,
+    "release_date": "2000-01-01",
+    "total_tracks": 10,
+    "tracks": {
+        "items": [
+            {
+                "id": "70U7FWODcn9qsqTISqOypX",
+                "track_number": 1
+            },
+            {
+                "id": "7atPoMmqfQQCW5HXJkayEY",
+                "track_number": 2
+            },
+            {
+                "id": "4RZSNnZDdm5sZiGJYUjZEZ",
+                "track_number": 3
+            },
+            {
+                "id": "6P9EXPvdfbQZ903txUenrF",
+                "track_number": 4
+            },
+            {
+                "id": "6XagAysyRBIVW4fdQdlsiZ",
+                "track_number": 5
+            },
+            {
+                "id": "5TppkulFjobLUuiqbaHwft",
+                "track_number": 6
+            },
+            {
+                "id": "5dLDW6RKjYItx1jYjkCjMw",
+                "track_number": 7
+            },
+            {
+                "id": "2MSgFefjK0T7Iwjvr3OKqV",
+                "track_number": 8
+            },
+            {
+                "id": "5vUtr4WNA5wxT2ah21o9No",
+                "track_number": 9
+            },
+            {
+                "id": "4WeQI9OQyAgkUHekCehdQM",
+                "track_number": 10
+            }
+        ],
+        "total": 10
+    },
+    "type": "album",
+    "artist_id": "7y97mc3bZRFXzT2szRM4L4",
+    "album_id": "3hW1TEeZRJ01XycQFABjj9",
+    "upc": "0724356183650",
+    "image": "https://i.scdn.co/image/ab67616d0000b273898d333dc824bb64b643ff04"
+}

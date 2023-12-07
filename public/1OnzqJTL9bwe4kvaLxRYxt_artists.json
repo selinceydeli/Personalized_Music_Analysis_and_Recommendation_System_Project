@@ -1,0 +1,25 @@
+[
+    {
+        "followers": 16185088,
+        "genres": [
+            "pop",
+            "r&b",
+            "rap"
+        ],
+        "name": "SZA",
+        "popularity": 87,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb0895066d172e1f51f520bc65",
+        "artist_id": "7tYKF4w9nC0nq9CsPZTHyP"
+    },
+    {
+        "followers": 27573677,
+        "genres": [
+            "dance pop",
+            "pop"
+        ],
+        "name": "Doja Cat",
+        "popularity": 86,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb7f6d6cac38d494e87692af99",
+        "artist_id": "5cj0lLjcoR7YOSnhnX0Po5"
+    }
+]

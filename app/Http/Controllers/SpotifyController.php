@@ -16,17 +16,19 @@ class SpotifyController extends Controller
             $command = "python tempFunctions/importSongWithLink.py " . escapeshellarg($url) . " 2>&1";
             $result = shell_exec($command);
 
-            if ($result === null) {
-                return response()->json([
-                    'message' => 'Python is not found. Please install Python on the server.',
-                ], 500);
-            }
+            
+            //if ($result === null) {
+                //return response()->json([
+                    //'message' => 'Python is not found. Please install Python on the server.',
+                //], 500);
+            //}
+            
 
             // Store song information in the session flash data
             //Session::flash('song_info', $result);
 
             // Redirect the user to the root URL ("/") with a success message
-            return redirect('/')->with('success', 'Song information uploaded successfully!');
+            return redirect('/')->with('message', 'Song information uploaded successfully!');
         } else {
             return response()->json(['message' => 'Invalid Spotify link!'], 400);
         }

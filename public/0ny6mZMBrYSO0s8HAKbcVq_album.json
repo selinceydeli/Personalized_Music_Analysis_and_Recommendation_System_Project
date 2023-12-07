@@ -1,0 +1,80 @@
+{
+    "album_type": "album",
+    "copyrights": "\u00a9 2007 Capitol Records, LLC",
+    "genres": [],
+    "label": "Capitol Records",
+    "name": "A Jolly Christmas From Frank Sinatra",
+    "popularity": 83,
+    "release_date": "1957-09-01",
+    "total_tracks": 15,
+    "tracks": {
+        "items": [
+            {
+                "id": "4HEOgBHRCExyYVeTyrXsnL",
+                "track_number": 1
+            },
+            {
+                "id": "7uhWhGcR3kn9czLKlbO46q",
+                "track_number": 2
+            },
+            {
+                "id": "7faDzZnZYqTyYThx2sbHVQ",
+                "track_number": 3
+            },
+            {
+                "id": "0AY6UDs5EyeW45oQkEpsly",
+                "track_number": 4
+            },
+            {
+                "id": "6G7QhTqDsP5vIdLQTYXXOU",
+                "track_number": 5
+            },
+            {
+                "id": "2FPfeYlrbSBR8PwCU0zaqq",
+                "track_number": 6
+            },
+            {
+                "id": "6keKIzkXWdbwJWMBJQUwYl",
+                "track_number": 7
+            },
+            {
+                "id": "2BLwLAc1swTc4TC7K3J506",
+                "track_number": 8
+            },
+            {
+                "id": "53u4PToIoq0PEpl1BJYXJQ",
+                "track_number": 9
+            },
+            {
+                "id": "2HrRDfPZH1f277crhAwgRp",
+                "track_number": 10
+            },
+            {
+                "id": "1FcxOJucFpQRIV0yVwYq4D",
+                "track_number": 11
+            },
+            {
+                "id": "5yNgdD8E6WruhULb4n2Con",
+                "track_number": 12
+            },
+            {
+                "id": "3qcjMLT05VwLyZ8BNQgXZh",
+                "track_number": 13
+            },
+            {
+                "id": "6ppoXyBjTp22DXbU9HcSNS",
+                "track_number": 14
+            },
+            {
+                "id": "59rtc9KT1CQTYpsnVeVTnY",
+                "track_number": 15
+            }
+        ],
+        "total": 15
+    },
+    "type": "album",
+    "artist_id": "1Mxqyy3pSjf8kZZL4QVxS0",
+    "album_id": "0ny6mZMBrYSO0s8HAKbcVq",
+    "upc": "05099950001651",
+    "image": "https://i.scdn.co/image/ab67616d0000b27394fd2e614d0862bdd2592594"
+}

@@ -1,0 +1,36 @@
+{
+    "album_type": "single",
+    "copyrights": "(P) 2021 Columbia Records, a Division of Sony Music Entertainment",
+    "genres": [],
+    "label": "Columbia",
+    "name": "MONTERO (Call Me By Your Name)",
+    "popularity": 38,
+    "release_date": "2021-04-23",
+    "total_tracks": 4,
+    "tracks": {
+        "items": [
+            {
+                "id": "2ehNBIKoJG5cvSTsRjrNRZ",
+                "track_number": 1
+            },
+            {
+                "id": "3VdCz72mvOvtT0k4neZ1Sg",
+                "track_number": 2
+            },
+            {
+                "id": "3zmxD3oXEiB65gbBDrOoO0",
+                "track_number": 3
+            },
+            {
+                "id": "18MzOzTLoYLRXTLWYomjgZ",
+                "track_number": 4
+            }
+        ],
+        "total": 4
+    },
+    "type": "album",
+    "artist_id": "7jVv8c5Fj3E9VhNjxT4snq",
+    "album_id": "3LsNqdMYJTeMnk9VLuDlr0",
+    "upc": "886449252510",
+    "image": "https://i.scdn.co/image/ab67616d0000b27302376f33bb763fa30d34fd9b"
+}

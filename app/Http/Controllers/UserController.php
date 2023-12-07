@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Song;
+use App\Models\SongRating;
 use App\Models\User;
 use App\Models\Performer;
 use Illuminate\Http\Request;
@@ -90,6 +91,8 @@ class UserController extends Controller
             ->pluck('artist_id')
             ->toArray();
         
+        $ratedSongIds = SongRating::where('username', $username)->pluck('song_id')->toArray();
+
         // Retrieve top-rated songs from these performers
         $recommendedSongs = Song::where(function ($query) use ($similarPerformers) {
             foreach ($similarPerformers as $artistId) {
@@ -97,6 +100,7 @@ class UserController extends Controller
                 $query->orWhereJsonContains('performers', (string)$artistId);
             }
         })
+        ->whereNotIn('song_id', $ratedSongIds)
         ->with('ratings') // Load the song ratings relationship
         ->get()
         ->sortByDesc('average_rating') // Sort by the accessor 'average_rating'
