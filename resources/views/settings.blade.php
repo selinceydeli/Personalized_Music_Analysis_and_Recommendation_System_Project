@@ -4,10 +4,10 @@
             @csrf <!-- Add this CSRF token for security -->
 
             <!-- Display username at the top of the page because it is not changeable -->
-            <h2 class="text-3xl font-bold text-white mb-8">Tail Your Account {{ $data['userInfo']['username'] }}</h2>
+            <h2 class="text-3xl font-bold text-gray-800 mb-8">Tail Your Account {{ $data['userInfo']['username'] }}</h2>
             
             <!-- User Info Box -->
-            <x-card class="settings-box mb-8 bg-gradient-to-b from-red-300 to-pink-200 text-white rounded-lg p-6">
+            <x-card class="settings-box mb-8 bg-gradient-to-b from-red-300 to-pink-200 text-gray-800 rounded-lg p-6">
                 <h3 class="text-2xl font-bold mb-4">User Info</h3>
 
                 <!-- Editable fields -->
@@ -39,7 +39,7 @@
             </x-card>
 
             <!-- Language Box -->
-            <x-card class="settings-box mb-8 bg-gradient-to-b from-pink-200 to-red-300 text-white rounded-lg p-6">
+            <x-card class="settings-box mb-8 bg-gradient-to-b from-pink-200 to-red-300 text-gray-800 rounded-lg p-6">
                 <h3 class="text-2xl font-bold mb-4">Language</h3>
                 <p><strong>Current Language:</strong> {{ $data['language']['current'] }}</p>
                 <!-- Add dropdown menu for selecting a new language with increased size on transparent box -->
@@ -54,7 +54,7 @@
             </x-card>
 
             <!-- Theme Box -->
-            <x-card class="settings-box mb-8 bg-gradient-to-b from-red-300 to-pink-200 text-white rounded-lg p-6">
+            <x-card class="settings-box mb-8 bg-gradient-to-b from-red-300 to-pink-200 text-gray-800 rounded-lg p-6">
                 <h3 class="text-2xl font-bold mb-4">Theme</h3>
                     <div class="mb-4">
                         <label for="theme" class="block text-sm font-medium text-gray-700">Select Theme</label>
@@ -66,7 +66,7 @@
             </x-card>
 
             <!-- Subscription Box -->
-            <x-card class="settings-box mb-8 bg-gradient-to-b from-pink-200 to-red-300 text-white rounded-lg p-6">
+            <x-card class="settings-box mb-8 bg-gradient-to-b from-pink-200 to-red-300 text-gray-800 rounded-lg p-6">
                 <h3 class="text-2xl font-bold mb-4">Subscription</h3>
                 <p><strong>Current Subscription:</strong> {{ $data['subscription']['current'] }}</p>
                 <p><strong>Rate Limit:</strong> {{ $data['subscription']['rateLimit'] }}</p>

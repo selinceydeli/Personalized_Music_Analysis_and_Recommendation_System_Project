@@ -16,6 +16,10 @@
             <h1 class="text-3xl font-semibold text-center text-gray-800 mb-6">
                 Tailored Recommendations for {{ auth()->user()->name }}
             </h1>
+            <!-- Download Button -->
+            <div class="text-center mb-4">
+                <button onclick="downloadRecommendationsEnergy()" class="bg-blue-500 text-white px-4 py-2 rounded">Download Recommendations</button>
+            </div>
 
             <!-- Section for General Recommendations -->
             @if ($recommendations && count($recommendations) > 0)
@@ -76,3 +80,9 @@
         </div>
     </x-card>
 </x-layout>
+
+<script>
+    function downloadRecommendationsEnergy() {
+        window.location.href = '/download-recommendations-energy';
+    }
+</script>
