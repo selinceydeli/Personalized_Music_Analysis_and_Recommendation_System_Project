@@ -121,8 +121,18 @@ class AlbumRatingController extends Controller
             ->get();
 
         return response()->json($topAlbums);
-        // Return the view with the topAlbums data
-        return view('analysis.favorite_albums', compact('topAlbums', 'eras'));
+    }
 
+    public function favoriteAlbums(Request $request)
+    {
+        $user = auth()->user();
+
+        // Fetch the top rated albums data based on the selected era
+        $era = $request->input('era', '20s'); 
+        $topAlbums = $this->topRatedAlbumsByEra($user->name, $era);
+
+        $eras = ['50s', '60s', '70s', '80s', '90s', '20s'];
+
+        return view('analysis.favorite_albums', compact('topAlbums', 'eras', 'user'));
     }
 }

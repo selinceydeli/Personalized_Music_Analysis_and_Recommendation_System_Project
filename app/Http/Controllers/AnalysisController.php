@@ -17,7 +17,7 @@ class AnalysisController extends Controller
         $username = auth()->user()->name;
 
         // Fetch the top rated albums data
-        $topAlbums = $this->topRatedAlbumsByEra($username, $era);
+        $topAlbums = $AlbumRatingController->topRatedAlbumsByEra($username, $era);
 
         // Get eras (you may retrieve this data from a model or another source)
         $eras = ['50s', '60s', '70s', '80s', '90s', '20s'];
@@ -27,14 +27,14 @@ class AnalysisController extends Controller
 
     public function favoriteSongs(Request $request, SongRatingController $songRatingController)
     {
-        $months = $songRatingController->getDistinctMonths();
+        $months = $SongRatingController->getDistinctMonths();
 
         return view('analysis.favorite_songs', ['months' => $months]);
     }
 
     public function averageRatings(Request $request, PerformerRatingController $performerRatingController)
     {
-        $artists = $performerRatingController->getDistinctArtists();
+        $artists = $PerformerRatingController->getDistinctArtists();
 
         // You may also need to fetch time spans based on your requirements
 

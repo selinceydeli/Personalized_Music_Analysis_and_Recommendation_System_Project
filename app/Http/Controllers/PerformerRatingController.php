@@ -99,4 +99,13 @@ class PerformerRatingController extends Controller
 
         return $orderedRatings;
     }
+
+    public function averageRatings(Request $request, PerformerRatingController $performerRatingController)
+    {
+        $artists = $this->getDistinctArtists();
+
+        // You may also need to fetch time spans based on your requirements
+
+        return view('analysis.average_ratings', ['artists' => $artists]);
+    }
 }

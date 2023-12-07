@@ -151,4 +151,18 @@ class SongRatingController extends Controller
 
         return response()->json($dailyAverages);
     }
+
+    public function favoriteSongs(Request $request, SongRatingController $songRatingController)
+    {
+        $months = $this->getDistinctMonths();
+
+        return view('analysis.favorite_songs', ['months' => $months]);
+    }
+
+    public function dailyAverage(Request $request)
+    {
+        // Fetch necessary data, including time-related information
+
+        return view('analysis.daily_average');
+    }
 }
