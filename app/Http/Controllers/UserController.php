@@ -220,15 +220,28 @@ class UserController extends Controller
 
         public function showDashboard() {
             $username = auth()->user()->username;
-            $recommendations = $this->favGenreRecomendationFromDifferentPerformers($username) ?? [];
+
+            if (PerformerRating::where('username', '=', "{$username}")->exists()){
+                $recommendations = $this->favGenreRecomendationFromDifferentPerformers($username) ?? [];
+            }
+            else{
+                $recommendations = $this->bestSongs() ?? [];
+            }
+            
             
             return view('components.dashboard', ['recommendations' => $recommendations]);
         }        
 
         public function showDashboardEnergy() {
             $username = auth()->user()->name;
-            $recommendations = $this->RecomendationByEnergyAndDanceability($username) ?? [];
-        
+
+            if (PerformerRating::where('username', '=', "{$username}")->exists()){
+                $recommendations = $this->RecomendationByEnergyAndDanceability($username) ?? [];
+            }
+            else{
+                $recommendations = $this->bestSongs() ?? [];
+            }
+
             return view('components.dashboard-energy', ['recommendations' => $recommendations]);
         }
     

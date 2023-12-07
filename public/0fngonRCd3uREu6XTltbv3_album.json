@@ -1,0 +1,60 @@
+{
+    "album_type": "album",
+    "copyrights": "2014 Avrupa M\u00fczik Yapim",
+    "genres": [],
+    "label": "AVRUPA M\u00dcZ\u0130K YAPIM",
+    "name": "G\u00fcl\u00fc Soldurmam",
+    "popularity": 53,
+    "release_date": "2014-02-10",
+    "total_tracks": 10,
+    "tracks": {
+        "items": [
+            {
+                "id": "4aFjH5DC9JXnkVr9PkrtFH",
+                "track_number": 1
+            },
+            {
+                "id": "2OPwiX7PWVXlIRIh4HLJzZ",
+                "track_number": 2
+            },
+            {
+                "id": "0bHXxlcJsTLMZtQ1PABmUY",
+                "track_number": 3
+            },
+            {
+                "id": "3ra3iv7VBNKNTmGghk52V0",
+                "track_number": 4
+            },
+            {
+                "id": "4CXCGyowMEU7CvvAuLXkTK",
+                "track_number": 5
+            },
+            {
+                "id": "1njNUIhYkc1KVWlx2bfwDJ",
+                "track_number": 6
+            },
+            {
+                "id": "62357PI6DW1PDikpcJqCNw",
+                "track_number": 7
+            },
+            {
+                "id": "32NjX3ecO7BCfkxvQC5bkr",
+                "track_number": 8
+            },
+            {
+                "id": "33IvhYZ6N8e5BTZFLSBBhe",
+                "track_number": 9
+            },
+            {
+                "id": "6D3QWin4jUONgVIEML3O9Q",
+                "track_number": 10
+            }
+        ],
+        "total": 10
+    },
+    "type": "album",
+    "artist_id": "1btod3aNfVEYNrEzIQgx90",
+    "album_id": "0fngonRCd3uREu6XTltbv3",
+    "upc": "8697420641658",
+    "image": "https://i.scdn.co/image/ab67616d0000b273aa1aca4390ae8c89d4c8a9ab"
+}
