@@ -136,7 +136,7 @@ class UserController extends Controller
                 ->where('username', $username);
         })
         ->orderByRaw('ABS(danceability - ?) + ABS(energy - ?) ASC', [$averages->average_danceability, $averages->average_energy])
-        ->take(30)
+        ->take(15)
         ->get();
 
         return $recommendedSongs;
