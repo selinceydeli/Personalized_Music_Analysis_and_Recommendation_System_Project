@@ -34,16 +34,20 @@ class UserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'surname' => ['required', 'string', 'max:255'],
             'date_of_birth' => ['required', 'date'],
-            'language' => ['required', 'string', 'max:255'],
-            'subscription' => ['required', 'string', 'max:255'],
-            'rate_limit' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', Rule::unique('users', 'email')],
             'password' => ['required', 'confirmed', 'min:6', new SpecialCharacter],
         ]);
+    
         $response = (new ReCaptcha(env('RECAPTCHA_SECRET_KEY')))->verify($request->input('g-recaptcha-response'));
-
+    
         if ($response->isSuccess()) {
             $formFields['password'] = bcrypt($formFields['password']);
+    
+            // Assign default values
+            $formFields['language'] = 'English'; // Default language
+            $formFields['subscription'] = 'free'; // Default subscription
+            $formFields['rate_limit'] = '100'; // Default rate limit
+    
             $user = User::create($formFields);
             
             auth()->login($user);
@@ -53,6 +57,7 @@ class UserController extends Controller
             return redirect('/register')->with('message', 'reCAPTCHA validation failed');
         }
     }
+    
 
     // Instead of search_id() method, a search_username() method is defined
     // since the primary key of the Users table is username
