@@ -29,6 +29,7 @@ class SongController extends Controller
             ->groupBy('songs.song_id')
             ->orderByDesc('average_rating');
 
+
         // Check if a genre filter is applied
         $selectedGenre = request('genre');
         if ($selectedGenre) {
@@ -38,7 +39,7 @@ class SongController extends Controller
             $songIds = collect($genres)->pluck('song_id')->toArray();
 
             // Update the query with the song IDs from the selected genre
-            $query->whereIn('song_id', $songIds);
+            $query->whereIn('songs.song_id', $songIds);
         }
 
         // Check if a search filter is applied
