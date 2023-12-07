@@ -11,21 +11,20 @@
 @endif
 
 <x-layout>
-    <a href="/" class="inline-block text-black ml-4 mb-4"><i class="fa-solid fa-arrow-left"></i> Back
-    </a>
     <div class="container mx-auto px-4 py-6">
         <h1 class="text-3xl font-semibold text-center text-gray-800 mb-6">
             Tailored Recommendations for {{ auth()->user()->name }}
         </h1>
 
         <!-- Section for General Recommendations -->
-        @if($recommendations && count($recommendations) > 0)
+        @if ($recommendations && count($recommendations) > 0)
             <div class="p-6">
                 <h2 class="text-2xl font-bold mb-4">Top Picks From Your Favorite Genres</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     @foreach ($recommendations as $song)
                         <div class="border rounded-lg p-4 shadow-lg">
-                            <img src="{{ $song['album']['image_url'] ?? asset('/images/no-image.png') }}" alt="{{ $song['name'] }}" class="w-full h-auto mb-3">
+                            <img src="{{ $song['album']['image_url'] ?? asset('/images/no-image.png') }}"
+                                alt="{{ $song['name'] }}" class="w-full h-auto mb-3">
                             <h3 class="text-lg font-semibold">{{ $song['name'] }}</h3>
                             <i class="fas fa-folder"></i>
                             <strong>
@@ -33,15 +32,37 @@
                                     {{ $song->album->name }}
                                 </a>
                             </strong>
-                        <div>
-                            <i class="fas fa-clock"></i>
-                            @if ($song->duration)
-                                <span class="text-lg font-bold text-black-600"> ({{ formatSongDuration($song->duration) }})</span>
-                            @endif
-                        </div>
-             
-                            <p>Average Rating: {{ collect($song['ratings'])->avg('rating') }}</p>
-                            <!-- Additional song details can be added here as needed -->
+                            <div>
+                                <i class="fas fa-clock"></i>
+                                @if ($song->duration)
+                                    <span class="text-lg font-bold text-black-600">
+                                        ({{ formatSongDuration($song->duration) }})</span>
+                                @endif
+                            </div>
+                            <div class="flex items-center mt-2">
+                                @php
+                                    $averageRating = $song->average_rating; // Get the average rating from the ratingsMap
+                                    $fullStars = floor($averageRating); // Calculate the number of full stars
+                                    $partialStar = $averageRating - $fullStars; // Calculate the fraction of the partial star
+                                @endphp
+                                @for ($i = 0; $i < 5; $i++)
+                                    @if ($i < $fullStars)
+                                        <i class="fas fa-star text-yellow-500" style="font-size: 24px;"></i>
+                                        <!-- Full star icon -->
+                                    @elseif ($partialStar >= 0.01)
+                                        <i class="fas fa-star-half-alt text-yellow-500" style="font-size: 24px;"></i>
+                                        <!-- Half-filled star icon -->
+                                        @php $partialStar = 0; @endphp <!-- Set partialStar to 0 to avoid more half stars -->
+                                    @else
+                                        <i class="far fa-star text-yellow-500" style="font-size: 24px;"></i>
+                                        <!-- Empty star icon -->
+                                    @endif
+                                @endfor
+
+                                @if ($averageRating !== null)
+                                    <span class="text-lg ml-2">{{ number_format($averageRating, 2) }}</span>
+                                @endif
+                            </div>
                         </div>
                     @endforeach
                 </div>
