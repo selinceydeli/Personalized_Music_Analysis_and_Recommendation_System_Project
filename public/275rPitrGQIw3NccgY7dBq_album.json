@@ -1,0 +1,108 @@
+{
+    "album_type": "album",
+    "copyrights": "2019 Gen\u00e7 Fenerbah\u00e7eliler",
+    "genres": [],
+    "label": "Gen\u00e7 Fenerbah\u00e7eliler",
+    "name": "CANIMIZ, HER \u015eEY\u0130M\u0130Z, FENERBAH\u00c7EM\u0130Z",
+    "popularity": 41,
+    "release_date": "2019-10-15",
+    "total_tracks": 22,
+    "tracks": {
+        "items": [
+            {
+                "id": "1C45KsQsIWVGVLo6ow4AL4",
+                "track_number": 1
+            },
+            {
+                "id": "36NKwcpCQLR7oUlix9xCnV",
+                "track_number": 2
+            },
+            {
+                "id": "0if3ZXb3tBSp0ptU5v0PRt",
+                "track_number": 3
+            },
+            {
+                "id": "3O4xhCPFTbQauZHnrJPpBP",
+                "track_number": 4
+            },
+            {
+                "id": "6Q6AxKd9Rjlf3ZYqRCCg0S",
+                "track_number": 5
+            },
+            {
+                "id": "4FdrOhzvmK7S5PKdHQXtUm",
+                "track_number": 6
+            },
+            {
+                "id": "721TIHiEVBc1oEf6TYyeix",
+                "track_number": 7
+            },
+            {
+                "id": "2w3o5Kjqoma6Tbf8paiUFZ",
+                "track_number": 8
+            },
+            {
+                "id": "6RvV9VUpjdANKa4BHuF0nE",
+                "track_number": 9
+            },
+            {
+                "id": "5TRbOm1D0ut1rBBukc8PO7",
+                "track_number": 10
+            },
+            {
+                "id": "0i4QyPd7RsQYZoXwpA27UG",
+                "track_number": 11
+            },
+            {
+                "id": "0DDNWpX20zZIk45AL1cT4Z",
+                "track_number": 12
+            },
+            {
+                "id": "4rJxtUBsStfxW3dlU0Zw2Q",
+                "track_number": 13
+            },
+            {
+                "id": "1amj4NzDhauFihbSJptSDk",
+                "track_number": 14
+            },
+            {
+                "id": "6eaWaMObtCccidmCWmmMzQ",
+                "track_number": 15
+            },
+            {
+                "id": "1rWv7hQhH4ptxwMRiGknYf",
+                "track_number": 16
+            },
+            {
+                "id": "7u4ptcYA9KPdQN0yvS9Njj",
+                "track_number": 17
+            },
+            {
+                "id": "7g6C03lZwFR05XH1rMNhdA",
+                "track_number": 18
+            },
+            {
+                "id": "63BobAevMBg88194Gu8wKP",
+                "track_number": 19
+            },
+            {
+                "id": "1ijEHxLb3IWqgntpPnHqrX",
+                "track_number": 20
+            },
+            {
+                "id": "3WweX6ojdCrQp811YvQ2K8",
+                "track_number": 21
+            },
+            {
+                "id": "5crZxd5NMX0XfYMa1y1g8i",
+                "track_number": 22
+            }
+        ],
+        "total": 22
+    },
+    "type": "album",
+    "artist_id": "7zImeDZkh49i3we0Y5HlNw",
+    "album_id": "275rPitrGQIw3NccgY7dBq",
+    "upc": "194838604193",
+    "image": "https://i.scdn.co/image/ab67616d0000b273f377c2412bca87e16e86cab4"
+}

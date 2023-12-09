@@ -1,0 +1,53 @@
+[
+    {
+        "duration_ms": 163450,
+        "explicit": 0,
+        "name": "Belki",
+        "popularity": 74,
+        "preview_url": "https://p.scdn.co/mp3-preview/286b171f2e98873cadde0c91ddce0241354ba3f9?cid=0871147f112a492b88fc9fea2d3bf5e7",
+        "song_id": "5ATwkalJ9FnLp7Zcvxo1rl",
+        "isrc": "TR0532215036",
+        "album_id": "62fDebT76lyROboN5cha72",
+        "artists_ids": [
+            "5PRW6j58xEEWL4DDVEITKT",
+            "7vyG44Uv5jGIwwm2Ha0nE0"
+        ],
+        "danceability": 0.388,
+        "energy": 0.496,
+        "key": "C#",
+        "loudness": -8.707,
+        "mode": "Major",
+        "speechiness": 0.03,
+        "acousticness": 0.317,
+        "instrumentalness": 0.000182,
+        "liveness": 0.153,
+        "valence": 0.34,
+        "tempo": 183.965,
+        "time_signature": 4
+    },
+    {
+        "duration_ms": 180127,
+        "explicit": 0,
+        "name": "Belki - Akustik",
+        "popularity": 71,
+        "preview_url": "https://p.scdn.co/mp3-preview/3d558630f631af6b41c84be763484a8d80371bf3?cid=0871147f112a492b88fc9fea2d3bf5e7",
+        "song_id": "5nH1QRipfAJ8Pd9rFu3xHh",
+        "isrc": "TR0532215035",
+        "album_id": "62fDebT76lyROboN5cha72",
+        "artists_ids": [
+            "5PRW6j58xEEWL4DDVEITKT"
+        ],
+        "danceability": 0.449,
+        "energy": 0.711,
+        "key": "G#",
+        "loudness": -5.851,
+        "mode": "Minor",
+        "speechiness": 0.0282,
+        "acousticness": 0.111,
+        "instrumentalness": 0.000148,
+        "liveness": 0.0917,
+        "valence": 0.443,
+        "tempo": 91.91,
+        "time_signature": 4
+    }
+]

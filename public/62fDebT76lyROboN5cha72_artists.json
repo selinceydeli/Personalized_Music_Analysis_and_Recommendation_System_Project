@@ -1,0 +1,20 @@
+[
+    {
+        "followers": 4246,
+        "genres": [],
+        "name": "Mavzer Tabancas",
+        "popularity": 60,
+        "image": "https://i.scdn.co/image/ab6761610000e5ebe27525ec117a259476ce5d1c",
+        "artist_id": "7vyG44Uv5jGIwwm2Ha0nE0"
+    },
+    {
+        "followers": 1010449,
+        "genres": [
+            "turkce slow sarkilar"
+        ],
+        "name": "Dedubl\u00fcman",
+        "popularity": 67,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb01c788a11415f322aa46e1b9",
+        "artist_id": "5PRW6j58xEEWL4DDVEITKT"
+    }
+]

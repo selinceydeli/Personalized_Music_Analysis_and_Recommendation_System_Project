@@ -1,0 +1,23 @@
+[
+    {
+        "followers": 414886,
+        "genres": [
+            "turkish rock"
+        ],
+        "name": "Kargo",
+        "popularity": 47,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb0e4fbc6039d878f7d3cec0af",
+        "artist_id": "3eedpDhV8pocvTvTHLGq9R"
+    },
+    {
+        "followers": 1058171,
+        "genres": [
+            "turkish punk",
+            "turkish rock"
+        ],
+        "name": "Athena",
+        "popularity": 52,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb0c10dd4d5318adea5a1d694d",
+        "artist_id": "1Hy8tdpH9ygqoohumHZqVl"
+    }
+]
