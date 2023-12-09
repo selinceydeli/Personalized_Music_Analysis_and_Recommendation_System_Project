@@ -96,7 +96,12 @@ class PerformerRatingController extends Controller
         foreach ($artistNames as $artistName) {
             $orderedRatings[$artistName] = $ratings[$artistName]->average_rating ?? null;
         }
+        $allArtists = Performer::select('name')->get()->pluck('name')->toArray();
 
-        return $orderedRatings;
+        return view('analysis.average_ratings', [
+            'artists' => $artistNames,
+            'allArtists' => $allArtists,
+            'averageRatings' => $orderedRatings,
+        ]);
     }
 }

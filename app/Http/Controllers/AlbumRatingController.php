@@ -77,7 +77,14 @@ class AlbumRatingController extends Controller
     {
         $username = auth()->user()->username;
         $era = $request->input('era', '20s');
-
+        $eras = [
+            '50s' => '50s',
+            '60s' => '60s',
+            '70s' => '70s',
+            '80s' => '80s',
+            '90s' => '90s',
+            '20s' => '2000s',
+        ];
         // Define the start and end years based on the era
         switch ($era) {
             case '50s':
@@ -121,7 +128,7 @@ class AlbumRatingController extends Controller
             ->orderBy('average_rating', 'DESC')
             ->take(10)
             ->get();
-            
-        return view('analysis.favorite_albums', ['topAlbums' => $topAlbums]);
+
+        return view('analysis.favorite_albums', ['topAlbums' => $topAlbums, 'era' => $era, 'eras' => $eras]);
     } 
 }

@@ -111,12 +111,12 @@ class SongRatingController extends Controller
         $months = $request->input('months', 6);
         
         // Calculate the date $months ago from today
-        $sixMonthsAgo = now()->subMonths($months);
+        $MonthsAgo = now()->subMonths($months);
 
         // Create a subquery to get the top 10 rated, unique song IDs
         $subQuery = SongRating::select('song_id', DB::raw('AVG(rating) as average_rating'))
             ->where('username', $username)
-            ->where('date_rated', '>=', $sixMonthsAgo)
+            ->where('date_rated', '>=', $MonthsAgo)
             ->groupBy('song_id')
             ->orderBy('average_rating', 'DESC')
             ->take(10);
@@ -132,11 +132,22 @@ class SongRatingController extends Controller
                 'top_songs.average_rating', // Get the average rating as well
             ]);
 
-        return response()->json($topSongs);
+        //dd($months);
+        $monthArray = [
+            '1' => '1 Month',
+            '3' => '3 Months',
+            '6' => '6 Months',
+            '12' => '1 Year',
+        ];
+
+        return view('analysis.favorite_songs', ['topSongs' => $topSongs, 'monthArray' => $monthArray]);
+        //return response()->json($topSongs);
+
     }
 
-    public function getMonthlyAverageRatings($username)
+    public function getMonthlyAverageRatings()
     {
+        $username = auth()->user()->username;
         $oneMonthAgo = Carbon::now()->subMonth();
 
         $dailyAverages = SongRating::select(
@@ -152,6 +163,8 @@ class SongRatingController extends Controller
                 return [$item['date'] => $item['average_rating']];
             });
 
-        return response()->json($dailyAverages);
+        return view('analysis.daily_average', ['dailyAverages' => $dailyAverages]);
+        //return response()->json($dailyAverages);
+
     }
 }
