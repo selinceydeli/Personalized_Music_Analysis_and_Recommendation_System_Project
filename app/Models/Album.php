@@ -28,6 +28,11 @@ class Album extends Model
         return $this->hasMany(albumRating::class, 'album_id', 'album_id');
     }
 
+    public function performer()
+    {
+        return $this->belongsTo(Performer::class, 'artist_id');
+    }
+
     public function getAverageRatingAttribute()
     {
         if ($this->albumRatings->isNotEmpty()) {

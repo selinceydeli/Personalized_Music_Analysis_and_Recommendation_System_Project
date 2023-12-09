@@ -71,20 +71,24 @@ class SearchController extends Controller
     public function search_album($searchTerm){
 
         // Search in Albums with priority
-        $albums = Album::where('name', 'LIKE', "%{$searchTerm}%")
-        ->withAvg('albumRatings', 'rating') // assuming songRatings is the correct relationship
-        ->selectRaw("CASE WHEN name LIKE '{$searchTerm}%' THEN 1 ELSE 2 END as priority")
-        ->orderBy('priority') // Order by priority first
-        ->orderBy('album_ratings_avg_rating', 'desc') // Then order by average rating
-        ->limit(30) // Limit the results here
+        $albums = Album::where('albums.name', 'LIKE', "%{$searchTerm}%")
+        ->withAvg('albumRatings', 'rating') // This will create 'album_ratings_avg_rating' attribute
+        ->join('performers', 'albums.artist_id', '=', 'performers.artist_id')
+        ->select('albums.*', 'performers.name as performer_name')
+        ->selectRaw("CASE WHEN albums.name LIKE '{$searchTerm}%' THEN 1 ELSE 2 END as priority")
+        ->limit(30)
         ->get()
         ->map(function ($album) {
             $album->search_type = 'album';
             return $album;
         });
 
+        // Order by priority, then by average rating
+        $albums = $albums->sortBy('priority')
+                 ->sortByDesc('album_ratings_avg_rating');
+
         // Return sorted results
-        return $albums;
+        return $albums->values(); // reindex the keys
     }
     public function search_song($searchTerm){
 
