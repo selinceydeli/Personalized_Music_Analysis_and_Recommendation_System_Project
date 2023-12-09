@@ -1,0 +1,48 @@
+{
+    "album_type": "compilation",
+    "copyrights": "(C) 2007 TMC M\u00dcZ\u0130K",
+    "genres": [],
+    "label": "TMC M\u00dcZ\u0130K",
+    "name": "100. Y\u0131lda Fenerbah\u00e7e",
+    "popularity": 45,
+    "release_date": "2007-01-01",
+    "total_tracks": 7,
+    "tracks": {
+        "items": [
+            {
+                "id": "3BMDAD3CMfjcR6CxeSoj5H",
+                "track_number": 1
+            },
+            {
+                "id": "4QEYzHwEw6u4Ghj9IrnFig",
+                "track_number": 2
+            },
+            {
+                "id": "4dCxmOSZ6HJ5SYdsWMXPmB",
+                "track_number": 3
+            },
+            {
+                "id": "3XiDBFHgis0eUoLWTTDdUi",
+                "track_number": 4
+            },
+            {
+                "id": "0S240yTFJge2POHGezEFYH",
+                "track_number": 5
+            },
+            {
+                "id": "5tMN7W66RI45oMQg49QPlw",
+                "track_number": 6
+            },
+            {
+                "id": "031VpAOaE5Q8Dffxs2wkRf",
+                "track_number": 7
+            }
+        ],
+        "total": 7
+    },
+    "type": "album",
+    "artist_id": "0LyfQWJT6nXafLPZqxe9Of",
+    "album_id": "35b5GUEvDEc0DYIOf9cuGs",
+    "upc": "197187482603",
+    "image": "https://i.scdn.co/image/ab67616d0000b27301a462840daf411af9de030a"
+}

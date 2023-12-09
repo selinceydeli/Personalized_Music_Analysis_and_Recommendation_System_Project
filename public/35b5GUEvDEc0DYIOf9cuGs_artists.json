@@ -1,0 +1,52 @@
+[
+    {
+        "followers": 907147,
+        "genres": [
+            "turkish pop"
+        ],
+        "name": "Funda Arar",
+        "popularity": 56,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb5c236f84c4d90fab97fbd68f",
+        "artist_id": "6g7GF7BLC41JTHJwgB4wQW"
+    },
+    {
+        "followers": 412,
+        "genres": [],
+        "name": "Edis Ilhan",
+        "popularity": 20,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb1aaa4ccf24b05ed476594239",
+        "artist_id": "70Y7jA1KGFGJSzrQPhJDEj"
+    },
+    {
+        "followers": 499671,
+        "genres": [
+            "anadolu rock",
+            "turkish pop",
+            "turkish rock"
+        ],
+        "name": "K\u0131ra\u00e7",
+        "popularity": 51,
+        "image": "https://i.scdn.co/image/adefe617fe9bc1735f5e36c1aea24be6b157a8c3",
+        "artist_id": "4XYD8wP6f1sfLtWfrY1luF"
+    },
+    {
+        "followers": 355,
+        "genres": [
+            "armenian pop"
+        ],
+        "name": "Saro",
+        "popularity": 12,
+        "image": "https://i.scdn.co/image/ab67616d0000b2733a0ef3f8fd36d626e22c0702",
+        "artist_id": "5bA9W48PkSe8Oc0SyV4b73"
+    },
+    {
+        "followers": 1145,
+        "genres": [
+            "ilahiler"
+        ],
+        "name": "Koro",
+        "popularity": 26,
+        "image": "https://i.scdn.co/image/ab67616d0000b2732f7c52ea1a2dd573bd744dd0",
+        "artist_id": "4r4UfBBV6kUHw0yMQLX9IU"
+    }
+]

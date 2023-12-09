@@ -1,0 +1,49 @@
+[
+    {
+        "followers": 10,
+        "genres": [],
+        "name": "Feyyaz Kuru\u015f",
+        "popularity": 14,
+        "image": null,
+        "artist_id": "0TR0SzJTOaByJbfm0RvsNi"
+    },
+    {
+        "followers": 10861,
+        "genres": [
+            "classic turkish pop",
+            "cocuk sarkilari"
+        ],
+        "name": "Metin \u00d6z\u00fclk\u00fc",
+        "popularity": 26,
+        "image": "https://i.scdn.co/image/ab67616d0000b273c24774937b8dda881a2ddb82",
+        "artist_id": "60KWc0tXssJkTZFWB2lia9"
+    },
+    {
+        "followers": 14436,
+        "genres": [
+            "deep turkish pop"
+        ],
+        "name": "Ercan Saatci",
+        "popularity": 34,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb33cc2b783dcd493d3a4c7644",
+        "artist_id": "5tPQaMOyXCbkZ5DqQAhox5"
+    },
+    {
+        "followers": 83,
+        "genres": [],
+        "name": "A\u015fk\u0131n Tuna",
+        "popularity": 11,
+        "image": "https://i.scdn.co/image/ab67616d0000b2736c29eeff512b380db4dd157e",
+        "artist_id": "2OC0ww4gtNGWU0S2BH8pgm"
+    },
+    {
+        "followers": 7244,
+        "genres": [
+            "classic turkish pop"
+        ],
+        "name": "Fecri Ebcio\u011flu",
+        "popularity": 7,
+        "image": "https://i.scdn.co/image/ab67616d0000b27397b6b56a6b87abf79afe4e4e",
+        "artist_id": "3CsxmNZISD1QgXHlsKSx88"
+    }
+]

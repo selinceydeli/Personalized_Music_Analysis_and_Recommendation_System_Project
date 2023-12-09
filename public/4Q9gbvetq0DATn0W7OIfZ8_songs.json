@@ -1,0 +1,27 @@
+[
+    {
+        "duration_ms": 196800,
+        "explicit": 0,
+        "name": "Saklad\u0131\u011f\u0131n Bir \u015eeyler Var",
+        "popularity": 75,
+        "preview_url": "https://p.scdn.co/mp3-preview/2807eaf6997f85b9af4868aa86304139ab9af297?cid=0871147f112a492b88fc9fea2d3bf5e7",
+        "song_id": "6t18CcJVpnFAoWfcZxiZtk",
+        "isrc": "TR0532114355",
+        "album_id": "4Q9gbvetq0DATn0W7OIfZ8",
+        "artists_ids": [
+            "5PRW6j58xEEWL4DDVEITKT"
+        ],
+        "danceability": 0.473,
+        "energy": 0.839,
+        "key": "C#",
+        "loudness": -7.837,
+        "mode": "Minor",
+        "speechiness": 0.0399,
+        "acousticness": 0.19,
+        "instrumentalness": 0.000253,
+        "liveness": 0.0714,
+        "valence": 0.411,
+        "tempo": 100.033,
+        "time_signature": 4
+    }
+]

@@ -1,0 +1,24 @@
+{
+    "album_type": "single",
+    "copyrights": "2023 Avrupa M\u00fczik & Hypers Music",
+    "genres": [],
+    "label": "Avrupa M\u00fczik & Hypers Music",
+    "name": "Firuze",
+    "popularity": 55,
+    "release_date": "2023-04-28",
+    "total_tracks": 1,
+    "tracks": {
+        "items": [
+            {
+                "id": "4WBMMoqjsofE9fdSXSU41S",
+                "track_number": 1
+            }
+        ],
+        "total": 1
+    },
+    "type": "album",
+    "artist_id": "5PRW6j58xEEWL4DDVEITKT",
+    "album_id": "69EMFMME82E5gKCIrOIt9I",
+    "upc": "3617058687854",
+    "image": "https://i.scdn.co/image/ab67616d0000b2738537d574b82d29c7c7144999"
+}

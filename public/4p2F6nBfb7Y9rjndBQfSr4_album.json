@@ -1,0 +1,52 @@
+{
+    "album_type": "album",
+    "copyrights": "1998 Poll Production",
+    "genres": [],
+    "label": "Poll Production",
+    "name": "Fenerbah\u00e7e Mar\u015flar\u0131 1 (\u00c7\u00fcnk\u00fc Fenerbah\u00e7eliyiz)",
+    "popularity": 33,
+    "release_date": "1998-09-11",
+    "total_tracks": 8,
+    "tracks": {
+        "items": [
+            {
+                "id": "6SlGLd4LYtg6Wszc1wCJ0s",
+                "track_number": 1
+            },
+            {
+                "id": "3yN8HkjWhroOLjT4Vw0Qa4",
+                "track_number": 2
+            },
+            {
+                "id": "5Zlh6M0FmzShMg39Qwkofj",
+                "track_number": 3
+            },
+            {
+                "id": "29wEvVm1KajgzL2qMR0j4T",
+                "track_number": 4
+            },
+            {
+                "id": "5vFVj28jnFkaoMQPKRKqzm",
+                "track_number": 5
+            },
+            {
+                "id": "5nULXuoanZsjwwkZ33F5uH",
+                "track_number": 6
+            },
+            {
+                "id": "5BPupnrR7WV1qCiTklzRy0",
+                "track_number": 7
+            },
+            {
+                "id": "6V5qzXjNNvgMRIpJXNTQfN",
+                "track_number": 8
+            }
+        ],
+        "total": 8
+    },
+    "type": "album",
+    "artist_id": "5tPQaMOyXCbkZ5DqQAhox5",
+    "album_id": "4p2F6nBfb7Y9rjndBQfSr4",
+    "upc": "3617226638954",
+    "image": "https://i.scdn.co/image/ab67616d0000b2733a208d1ba85fbcce5814ef07"
+}
