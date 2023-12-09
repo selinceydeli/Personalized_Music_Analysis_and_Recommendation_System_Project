@@ -1,0 +1,53 @@
+[
+    {
+        "followers": 2417159,
+        "genres": [
+            "atl hip hop",
+            "crunk",
+            "dirty south rap",
+            "gangster rap",
+            "old school atlanta hip hop",
+            "rap",
+            "southern hip hop",
+            "trap"
+        ],
+        "name": "Jeezy",
+        "popularity": 69,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb075a4c9d6da66addd8247c12",
+        "artist_id": "4yBK75WVCQXej1p04GWqxH"
+    },
+    {
+        "followers": 59076841,
+        "genres": [
+            "barbadian pop",
+            "pop",
+            "urban contemporary"
+        ],
+        "name": "Rihanna",
+        "popularity": 88,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb99e4fca7c0b7cb166d915789",
+        "artist_id": "5pKCCKE2ajJHZ9KAiaK11H"
+    },
+    {
+        "followers": 3066189,
+        "genres": [
+            "hard rock",
+            "rock"
+        ],
+        "name": "Slash",
+        "popularity": 55,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb16bbce3d5fb8a51e7cc3dce0",
+        "artist_id": "4Cqia9vrAbm7ANXbJGXsTE"
+    },
+    {
+        "followers": 4170152,
+        "genres": [
+            "dance pop",
+            "pop"
+        ],
+        "name": "will.i.am",
+        "popularity": 71,
+        "image": "https://i.scdn.co/image/ab6761610000e5ebc9ab8da6f7a3ce02f0b16fd8",
+        "artist_id": "085pc2PYOi8bGKj0PNjekA"
+    }
+]

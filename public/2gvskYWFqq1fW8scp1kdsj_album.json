@@ -1,0 +1,68 @@
+{
+    "album_type": "album",
+    "copyrights": "\u00a9 2005 Murat Akad, under exclusive license to EMI - Kent Elektronik Sanayi ve Ticaret A.\u015e.",
+    "genres": [],
+    "label": "EMI - Kent Elektronik Sanayi ve Ticaret A.S.",
+    "name": "Seni Kendime Saklad\u0131m",
+    "popularity": 63,
+    "release_date": "2005-07-04",
+    "total_tracks": 12,
+    "tracks": {
+        "items": [
+            {
+                "id": "6zY8Ks0nmCbPDfrNlwqc1i",
+                "track_number": 1
+            },
+            {
+                "id": "2hm6U7yqFZEcpl0oTxGM9g",
+                "track_number": 2
+            },
+            {
+                "id": "5XMAeSjjinBwKjdANxHbeZ",
+                "track_number": 3
+            },
+            {
+                "id": "4TjX6QIQVSD3j2VAxlR2wa",
+                "track_number": 4
+            },
+            {
+                "id": "7BHJeDZuB9QiTz7y5jewSj",
+                "track_number": 5
+            },
+            {
+                "id": "7m1S7WDiIzuD62gfUu7fWg",
+                "track_number": 6
+            },
+            {
+                "id": "1Tuc5V9GEes0aCBppgJ9KH",
+                "track_number": 7
+            },
+            {
+                "id": "7pNPIL5BhYOQwy9nakSBdS",
+                "track_number": 8
+            },
+            {
+                "id": "0NeO8RLuVdFRigkKhjBgbT",
+                "track_number": 9
+            },
+            {
+                "id": "1hj4UAukZBMBwIjRAgadnz",
+                "track_number": 10
+            },
+            {
+                "id": "1Jx3fPnaUlewzREh3F8SFG",
+                "track_number": 11
+            },
+            {
+                "id": "0ZEpWx9SpZ9Z3otU1kslH4",
+                "track_number": 12
+            }
+        ],
+        "total": 12
+    },
+    "type": "album",
+    "artist_id": "6RTC1abMgBC7Krg6qJQHJh",
+    "album_id": "2gvskYWFqq1fW8scp1kdsj",
+    "upc": "00602567785804",
+    "image": "https://i.scdn.co/image/ab67616d0000b273d5a587c7de8efc3ba32bede7"
+}

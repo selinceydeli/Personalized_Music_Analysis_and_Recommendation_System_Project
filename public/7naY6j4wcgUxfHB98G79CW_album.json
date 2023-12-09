@@ -1,0 +1,80 @@
+{
+    "album_type": "album",
+    "copyrights": "2018",
+    "genres": [],
+    "label": "P2018",
+    "name": "I AM YOU",
+    "popularity": 75,
+    "release_date": "2018-08-03",
+    "total_tracks": 15,
+    "tracks": {
+        "items": [
+            {
+                "id": "4NwKC8ltCTCTcsnFViTZ7z",
+                "track_number": 1
+            },
+            {
+                "id": "4dqkKnzOJ3fWduqKcHi374",
+                "track_number": 2
+            },
+            {
+                "id": "0C4e5m5HogFCgAc5GaYSBD",
+                "track_number": 3
+            },
+            {
+                "id": "4zjf7NALy3IokMqGpF1TJa",
+                "track_number": 4
+            },
+            {
+                "id": "6IdY9Bc2TRygRcdfmbviTV",
+                "track_number": 5
+            },
+            {
+                "id": "2fSW54bA6x2iWePU7rpCiP",
+                "track_number": 6
+            },
+            {
+                "id": "0hjyDFEpTFsSODk0Nv4Sbx",
+                "track_number": 7
+            },
+            {
+                "id": "4lGH1ltQVvtaQLVdvau9mR",
+                "track_number": 8
+            },
+            {
+                "id": "6D3pVOWuSHOZQrtImim8IU",
+                "track_number": 9
+            },
+            {
+                "id": "2Tu0dSoVzuDGeaCFokhLxW",
+                "track_number": 10
+            },
+            {
+                "id": "76g0a2SWBucEFXVZbl9rhS",
+                "track_number": 11
+            },
+            {
+                "id": "7tKT0A1n0OYSb5Xa6XilOi",
+                "track_number": 12
+            },
+            {
+                "id": "7eBqSVxrzQZtK2mmgRG6lC",
+                "track_number": 13
+            },
+            {
+                "id": "2xBfOUdiRafSWGqTj4yToU",
+                "track_number": 14
+            },
+            {
+                "id": "5v5m7Mztg7uUwKbnBSTEgQ",
+                "track_number": 15
+            }
+        ],
+        "total": 15
+    },
+    "type": "album",
+    "artist_id": "1cNDP5yjU5vjeR8qMf4grg",
+    "album_id": "7naY6j4wcgUxfHB98G79CW",
+    "upc": "814908026372",
+    "image": "https://i.scdn.co/image/ab67616d0000b2730f5397dc6aa91374897182e0"
+}

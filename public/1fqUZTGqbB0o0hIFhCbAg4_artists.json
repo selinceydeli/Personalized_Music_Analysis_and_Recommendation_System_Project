@@ -1,0 +1,31 @@
+[
+    {
+        "followers": 1351,
+        "genres": [],
+        "name": "Ya Kid K",
+        "popularity": 28,
+        "image": "https://i.scdn.co/image/d4d3b863e05275dcfff74e4aa41ae57abd8dc4f6",
+        "artist_id": "6yav7YvxQmmD408mOoncXh"
+    },
+    {
+        "followers": 272015,
+        "genres": [
+            "eurodance",
+            "hip house",
+            "new beat",
+            "synthpop"
+        ],
+        "name": "Technotronic",
+        "popularity": 55,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb9d817d4cc3d55287f565c6a4",
+        "artist_id": "2Cd98zHVdZeOCisc6Gi2sB"
+    },
+    {
+        "followers": 174,
+        "genres": [],
+        "name": "MC Eric",
+        "popularity": 26,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb7164b25bcf44ac432e026bd7",
+        "artist_id": "5wzJouFXh7CfephG0hsLG3"
+    }
+]

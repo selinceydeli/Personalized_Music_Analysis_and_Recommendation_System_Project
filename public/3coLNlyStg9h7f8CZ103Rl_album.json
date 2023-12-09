@@ -1,0 +1,136 @@
+{
+    "album_type": "compilation",
+    "copyrights": "This compilation (P) 1998 Sony Music Entertainment UK Limited",
+    "genres": [],
+    "label": "Sony Music Entertainment",
+    "name": "Ladies And Gentlemen... The Best Of George Michael",
+    "popularity": 77,
+    "release_date": "1998-11-09",
+    "total_tracks": 29,
+    "tracks": {
+        "items": [
+            {
+                "id": "3fU2vOTRliELG90JJzduYz",
+                "track_number": 1
+            },
+            {
+                "id": "0SCk8WpBKSvK6QkSyixRAY",
+                "track_number": 2
+            },
+            {
+                "id": "4jDmJ51x1o9NZB5Nxxc7gY",
+                "track_number": 3
+            },
+            {
+                "id": "0q90594hk25yo0xZmBTqCd",
+                "track_number": 4
+            },
+            {
+                "id": "2C9pNj1NIvByTYrZ1yicIH",
+                "track_number": 5
+            },
+            {
+                "id": "4ZCaO5I6XdIHb0X2UwNDtZ",
+                "track_number": 6
+            },
+            {
+                "id": "2w4a4ur2uRf530cbzyTlWo",
+                "track_number": 7
+            },
+            {
+                "id": "0RyWSerkfZHy40PAkbHjrZ",
+                "track_number": 8
+            },
+            {
+                "id": "3kwuKy3v0jD1PUYgAegpLa",
+                "track_number": 9
+            },
+            {
+                "id": "1dBjIOqSrvbc5ovzKHl8EL",
+                "track_number": 10
+            },
+            {
+                "id": "7AfzZ0JxDreChBbtXT5SuO",
+                "track_number": 11
+            },
+            {
+                "id": "6yLZc9Tmei7eDX4Z62x4bW",
+                "track_number": 12
+            },
+            {
+                "id": "4tcRxE0u4DESAjidCNYD2i",
+                "track_number": 13
+            },
+            {
+                "id": "6khoye7kysa6cLGY0AO9dO",
+                "track_number": 14
+            },
+            {
+                "id": "6CTM0aon2TESJvdeacsqh9",
+                "track_number": 15
+            },
+            {
+                "id": "7r3KzVwHtr2iMZtqJvFn9A",
+                "track_number": 16
+            },
+            {
+                "id": "4KjPPpRbthW8dSNdisR2Wi",
+                "track_number": 17
+            },
+            {
+                "id": "7H2mMdSi5MRoekiECFlYYy",
+                "track_number": 18
+            },
+            {
+                "id": "1SKApv6ZfJ9bkUxeRObJEF",
+                "track_number": 19
+            },
+            {
+                "id": "3RNMmYzx3PCP9vwesDW1wI",
+                "track_number": 20
+            },
+            {
+                "id": "35dMyYTTvNQqCttgSwa5Yh",
+                "track_number": 21
+            },
+            {
+                "id": "414rldKC8G6GwdLg6i8Jcq",
+                "track_number": 22
+            },
+            {
+                "id": "1MEhFamfBt1rcsXbOarMGa",
+                "track_number": 23
+            },
+            {
+                "id": "6qMvNJ7gt9Wx3YIQgaG3yQ",
+                "track_number": 24
+            },
+            {
+                "id": "4HqzrFaDWY2MdnYnEGf5Vu",
+                "track_number": 25
+            },
+            {
+                "id": "26FGENKhX27Plh0sHs04Kr",
+                "track_number": 26
+            },
+            {
+                "id": "2XgDgIsVUOt9Lov5G4Wruy",
+                "track_number": 27
+            },
+            {
+                "id": "59eAcAyhYSLi5GKFrgHJzG",
+                "track_number": 28
+            },
+            {
+                "id": "4AzyjXvV5yVB691Y6AynOb",
+                "track_number": 29
+            }
+        ],
+        "total": 29
+    },
+    "type": "album",
+    "artist_id": "19ra5tSw0tWufvUp8GotLo",
+    "album_id": "3coLNlyStg9h7f8CZ103Rl",
+    "upc": "884977918779",
+    "image": "https://i.scdn.co/image/ab67616d0000b27364c19b24ce947ffa363f8f96"
+}

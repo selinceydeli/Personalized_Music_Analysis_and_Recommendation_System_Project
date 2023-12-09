@@ -1,0 +1,48 @@
+{
+    "album_type": "album",
+    "copyrights": "(P) 2020 Columbia Records, a Division of Sony Music Entertainment",
+    "genres": [],
+    "label": "Columbia",
+    "name": "Fallin'",
+    "popularity": 62,
+    "release_date": "2020-07-15",
+    "total_tracks": 7,
+    "tracks": {
+        "items": [
+            {
+                "id": "5XuMRtxE2yDIWMWtVUakWx",
+                "track_number": 1
+            },
+            {
+                "id": "5uzv5dmVvAZDwha4lU2Rdj",
+                "track_number": 2
+            },
+            {
+                "id": "3IJYUaN3tx04S4TYyZHKoP",
+                "track_number": 3
+            },
+            {
+                "id": "05hRLfWqAGDMKCOfwJqovi",
+                "track_number": 4
+            },
+            {
+                "id": "1Yr2j96lVXJayPJuzCc5BM",
+                "track_number": 5
+            },
+            {
+                "id": "2sJGHfp1le5vGo1QHrIXj7",
+                "track_number": 6
+            },
+            {
+                "id": "7ypfTDrHFQW6euA644Jy2V",
+                "track_number": 7
+            }
+        ],
+        "total": 7
+    },
+    "type": "album",
+    "artist_id": "1XLWox9w1Yvbodui0SRhUQ",
+    "album_id": "6OrpY5LSOnkC8xbI5qOTvw",
+    "upc": "886448626060",
+    "image": "https://i.scdn.co/image/ab67616d0000b273f1255abfe0381a9e6fedb301"
+}

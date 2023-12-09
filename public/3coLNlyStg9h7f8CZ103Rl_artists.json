@@ -1,0 +1,81 @@
+[
+    {
+        "followers": 3724164,
+        "genres": [
+            "dance pop",
+            "hip pop",
+            "neo soul",
+            "r&b",
+            "urban contemporary"
+        ],
+        "name": "Mary J. Blige",
+        "popularity": 69,
+        "image": "https://i.scdn.co/image/ab6761610000e5ebc9795e444b70d04beca52d5a",
+        "artist_id": "1XkoF8ryArs86LZvFOkbyr"
+    },
+    {
+        "followers": 4565471,
+        "genres": [
+            "new wave pop"
+        ],
+        "name": "George Michael",
+        "popularity": 71,
+        "image": "https://i.scdn.co/image/ab6761610000e5ebd919dbf4e6ed3e695ba6339d",
+        "artist_id": "19ra5tSw0tWufvUp8GotLo"
+    },
+    {
+        "followers": 257469,
+        "genres": [
+            "bossa nova",
+            "brazilian jazz",
+            "lounge",
+            "samba-jazz",
+            "vocal jazz"
+        ],
+        "name": "Astrud Gilberto",
+        "popularity": 58,
+        "image": "https://i.scdn.co/image/ab67616d0000b273b48a079c5273b6141af2dc35",
+        "artist_id": "5rX2c1zow6hCph8PnnU3kF"
+    },
+    {
+        "followers": 12620198,
+        "genres": [
+            "glam rock",
+            "mellow gold",
+            "piano rock",
+            "rock"
+        ],
+        "name": "Elton John",
+        "popularity": 81,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb0a7388b95df960b5c0da8970",
+        "artist_id": "3PhoLpVuITZKcymswpck5b"
+    },
+    {
+        "followers": 49135907,
+        "genres": [
+            "classic rock",
+            "glam rock",
+            "rock"
+        ],
+        "name": "Queen",
+        "popularity": 82,
+        "image": "https://i.scdn.co/image/b040846ceba13c3e9c125d68389491094e7f2982",
+        "artist_id": "1dfeR4HaWDbWqFHLkxsg1d"
+    },
+    {
+        "followers": 3272132,
+        "genres": [
+            "classic soul",
+            "jazz blues",
+            "memphis soul",
+            "neo soul",
+            "soul",
+            "southern soul",
+            "vocal jazz"
+        ],
+        "name": "Aretha Franklin",
+        "popularity": 68,
+        "image": "https://i.scdn.co/image/ab6761610000e5ebf12270128127ba170f90097d",
+        "artist_id": "7nwUJBm0HE4ZxD3f5cy5ok"
+    }
+]
