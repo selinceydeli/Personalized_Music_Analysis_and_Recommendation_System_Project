@@ -26,7 +26,7 @@ class SearchController extends Controller
         ->selectRaw("CASE WHEN name LIKE '{$searchTerm}%' THEN 1 ELSE 2 END as priority")
         ->orderBy('priority') // Order by priority first
         ->orderBy('song_ratings_avg_rating', 'desc') // Then order by average rating
-        ->limit(30) // Limit the results here
+        ->limit(8) // Limit the results here
         ->get()
         ->map(function ($song) {
             $song->search_type = 'song';
@@ -39,7 +39,7 @@ class SearchController extends Controller
         ->selectRaw("CASE WHEN name LIKE '{$searchTerm}%' THEN 1 ELSE 2 END as priority")
         ->orderBy('priority') // Order by priority first
         ->orderBy('album_ratings_avg_rating', 'desc') // Then order by average rating
-        ->limit(10) // Limit the results here
+        ->limit(3) // Limit the results here
         ->get()
         ->map(function ($album) {
             $album->search_type = 'album';
@@ -52,7 +52,7 @@ class SearchController extends Controller
             ->selectRaw("CASE WHEN name LIKE '{$searchTerm}%' THEN 1 ELSE 2 END as priority")
             ->orderBy('priority') // Order by priority first
             ->orderBy('performer_ratings_avg_rating', 'desc') // Then order by average rating
-            ->limit(10) // Limit the results here
+            ->limit(3) // Limit the results here
             ->get()
             ->map(function ($performer) {
                 $performer->search_type = 'performer';
