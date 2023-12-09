@@ -63,16 +63,16 @@ Route::middleware(['auth'])->group(function () {
 });
 
 // Analysis
-Route::get('/analysis/favorite_albums', [AlbumRatingController::class, 'favoriteAlbums'])
+Route::get('/analysis/favorite_albums', [AlbumRatingController::class, 'topRatedAlbumsByEra'])
     ->middleware(['auth', 'verified'])
     ->name('analysis.favorite_albums');
-Route::get('/analysis/favorite_songs', [SongRatingController::class, 'favoriteSongs'])
+Route::get('/analysis/favorite_songs', [SongRatingController::class, 'favorite10RatingsInGivenMonths'])
     ->middleware(['auth', 'verified'])
     ->name('analysis.favorite_songs');
-Route::get('/analysis/average_ratings', [PerformerRatingController::class, 'averageRatings'])
+Route::get('/analysis/average_ratings', [PerformerRatingController::class, 'getAverageRatingsForArtists'])
     ->middleware(['auth', 'verified'])
     ->name('analysis.average_ratings');
-Route::get('/analysis/daily_average', [SongRatingController::class, 'dailyAverage'])
+Route::get('/analysis/daily_average', [SongRatingController::class, 'getMonthlyAverageRatings'])
     ->middleware(['auth', 'verified'])
     ->name('analysis.daily_average');
 

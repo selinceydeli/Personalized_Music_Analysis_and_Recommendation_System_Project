@@ -105,8 +105,11 @@ class SongRatingController extends Controller
     }
 
     // Methods defined for analysis functionality
-    public function favorite10RatingsInGivenMonths($username, int $months)
+    public function favorite10RatingsInGivenMonths(Request $request)
     {
+        $username = auth()->user()->username;
+        $months = $request->input('months', 6);
+        
         // Calculate the date $months ago from today
         $sixMonthsAgo = now()->subMonths($months);
 
@@ -150,19 +153,5 @@ class SongRatingController extends Controller
             });
 
         return response()->json($dailyAverages);
-    }
-
-    public function favoriteSongs(Request $request, SongRatingController $songRatingController)
-    {
-        $months = $this->getDistinctMonths();
-
-        return view('analysis.favorite_songs', ['months' => $months]);
-    }
-
-    public function dailyAverage(Request $request)
-    {
-        // Fetch necessary data, including time-related information
-
-        return view('analysis.daily_average');
     }
 }
