@@ -30,6 +30,7 @@
                             <img src="{{ $song->album->image_url ?? asset('/images/no-image.png') }}"
                                 alt="{{ $song->name }}" class="w-full h-auto mb-3">
                             <h3 class="text-lg font-semibold">{{ $song['name'] }}</h3>
+                            <p>Valence: {{ $song->valence }}</p>
                             <i class="fas fa-folder"></i>
                             <strong>
                                 <a href="/albums/{{ $song->album->album_id }}?song-id={{ $song->song_id }}">
