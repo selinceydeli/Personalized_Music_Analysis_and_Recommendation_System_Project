@@ -1,0 +1,24 @@
+{
+    "album_type": "single",
+    "copyrights": "(P) 2019 Gesaffelstein, under exclusive license to Columbia Records, a Division of Sony Music Entertainment",
+    "genres": [],
+    "label": "Columbia",
+    "name": "Lost in the Fire",
+    "popularity": 0,
+    "release_date": "2019-01-01",
+    "total_tracks": 1,
+    "tracks": {
+        "items": [
+            {
+                "id": "7wFybC8jBH3zE139OpCtpG",
+                "track_number": 1
+            }
+        ],
+        "total": 1
+    },
+    "type": "album",
+    "artist_id": "3hteYQFiMFbJY7wS0xDymP",
+    "album_id": "3gXi45Aift9hCoB6lvuVJb",
+    "upc": "886447436196",
+    "image": "https://i.scdn.co/image/ab67616d0000b273b5afba489a7f5a5c1f101f56"
+}

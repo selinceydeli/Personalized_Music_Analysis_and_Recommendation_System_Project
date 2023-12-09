@@ -1,0 +1,104 @@
+{
+    "album_type": "album",
+    "copyrights": "(P) 2018 Columbia Records, a Division of Sony Music Entertainment",
+    "genres": [],
+    "label": "Columbia",
+    "name": "Hard To Imagine The Neighbourhood Ever Changing",
+    "popularity": 87,
+    "release_date": "2018-11-02",
+    "total_tracks": 21,
+    "tracks": {
+        "items": [
+            {
+                "id": "7inCfDM4S3xsVzgOUqSJOH",
+                "track_number": 1
+            },
+            {
+                "id": "2DBxhQbwnuXDioUVdL33S2",
+                "track_number": 2
+            },
+            {
+                "id": "4Cdb1dE3pfiWlqnAIcImyQ",
+                "track_number": 3
+            },
+            {
+                "id": "6TA5aymvVrtiPVbuAwmPIc",
+                "track_number": 4
+            },
+            {
+                "id": "2K7xn816oNHJZ0aVqdQsha",
+                "track_number": 5
+            },
+            {
+                "id": "2wXioTynVwrEWYRv6R6vEj",
+                "track_number": 6
+            },
+            {
+                "id": "1zkXUXNHpYQTcXZAaZbeEp",
+                "track_number": 7
+            },
+            {
+                "id": "6wbbeA1FcbqXiJs7aIA8x7",
+                "track_number": 8
+            },
+            {
+                "id": "7zwn1eykZtZ5LODrf7c0tS",
+                "track_number": 9
+            },
+            {
+                "id": "2xql0pid3EUwW38AsywxhV",
+                "track_number": 10
+            },
+            {
+                "id": "3BQbwXb8lMLLRBeLl6HTu8",
+                "track_number": 11
+            },
+            {
+                "id": "75iJMOH4oBobiRiBJVdw2m",
+                "track_number": 12
+            },
+            {
+                "id": "4ymD0FxX1fnWszSu9rMAtD",
+                "track_number": 13
+            },
+            {
+                "id": "6eMeqiSoQYtM8u3vvfth21",
+                "track_number": 14
+            },
+            {
+                "id": "0f7T8FO4ZM9XHpmncSUWND",
+                "track_number": 15
+            },
+            {
+                "id": "0YNtAadZvKBBEFARtfoCV8",
+                "track_number": 16
+            },
+            {
+                "id": "2Wj1cS0hUzWrQPzYgZJj94",
+                "track_number": 17
+            },
+            {
+                "id": "3dMPLD8cuzTtFLv8E7homA",
+                "track_number": 18
+            },
+            {
+                "id": "113xf7t4qNM7038YJvauik",
+                "track_number": 19
+            },
+            {
+                "id": "7sIYHDxjteT6RY29gAGzP2",
+                "track_number": 20
+            },
+            {
+                "id": "0ruhQupkyGoUxmsExWXEoa",
+                "track_number": 21
+            }
+        ],
+        "total": 21
+    },
+    "type": "album",
+    "artist_id": "77SW9BnxLY8rJ0RciFqkHh",
+    "album_id": "0ODLCdHBFVvKwJGeSfd1jy",
+    "upc": "886447414545",
+    "image": "https://i.scdn.co/image/ab67616d0000b2739b6ac98a52f62d5cb473da40"
+}

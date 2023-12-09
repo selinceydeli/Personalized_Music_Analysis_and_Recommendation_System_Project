@@ -1,0 +1,70 @@
+[
+    {
+        "followers": 2440192,
+        "genres": [
+            "dark trap",
+            "drill",
+            "hip hop",
+            "miami hip hop",
+            "pop rap",
+            "rap",
+            "trap",
+            "underground hip hop"
+        ],
+        "name": "Denzel Curry",
+        "popularity": 68,
+        "image": "https://i.scdn.co/image/ab6761610000e5ebb00f2e31d509ddc6fa0eb24b",
+        "artist_id": "6fxyWrfmjcbj5d12gXeiNV"
+    },
+    {
+        "followers": 458328,
+        "genres": [
+            "pop rap",
+            "underground hip hop"
+        ],
+        "name": "IDK",
+        "popularity": 53,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb14755a331872e2b9c1c5efe2",
+        "artist_id": "6aiFCgyKNwF9Rv5TOxnE8E"
+    },
+    {
+        "followers": 14591106,
+        "genres": [
+            "modern alternative rock",
+            "modern rock",
+            "pop",
+            "pov: indie"
+        ],
+        "name": "The Neighbourhood",
+        "popularity": 82,
+        "image": "https://i.scdn.co/image/ab6761610000e5ebdf0b5ac84376a0a4b2166816",
+        "artist_id": "77SW9BnxLY8rJ0RciFqkHh"
+    },
+    {
+        "followers": 3357493,
+        "genres": [
+            "conscious hip hop",
+            "gangster rap",
+            "hip hop",
+            "pop rap",
+            "rap",
+            "southern hip hop",
+            "trap"
+        ],
+        "name": "Nipsey Hussle",
+        "popularity": 64,
+        "image": "https://i.scdn.co/image/ab6761610000e5ebe9edae8fe232af1d2995c991",
+        "artist_id": "0EeQBlQJFiAfJeVN2vT9s0"
+    },
+    {
+        "followers": 862127,
+        "genres": [
+            "east coast hip hop",
+            "hardcore hip hop"
+        ],
+        "name": "Ghostface Killah",
+        "popularity": 63,
+        "image": "https://i.scdn.co/image/ee2180486a42e11b6a0dfafdba9e2dbb9297a9b3",
+        "artist_id": "6FD0unjzGQhX3b6eMccMJe"
+    }
+]
