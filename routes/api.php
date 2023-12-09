@@ -85,6 +85,8 @@ Route::get('/search/performer/{searchTerm}', [SearchController::class, 'search_p
 // User recommendation routes
 Route::get('/users/{username}/fav-genre-recommendations', [UserController::class, 'favGenreRecomendationFromDifferentPerformers']);
 Route::get('/users/{username}/energy-danceability-recommendations', [UserController::class, 'RecomendationByEnergyAndDanceability']);
+Route::get('/users/{username}/moody-recommendations', [UserController::class, 'favPositiveRecomendation']);
+Route::get('/users/{username}/positive-recommendations', [UserController::class, 'favNegativeRecomendation']);
 
 // Analysis routes
 Route::get('/songrating/user/{username}/top-10-in/{months}/months', [SongRatingController::class, 'favorite10RatingsInGivenMonths']);
