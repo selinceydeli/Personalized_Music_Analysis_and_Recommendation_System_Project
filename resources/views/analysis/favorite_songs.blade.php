@@ -53,8 +53,8 @@
                         datasets: [{
                             label: 'Average Rating',
                             data: ratings,
-                            backgroundColor: ratings.map(rating => `rgba(75, 192, 192, ${rating / 10})`),
-                            borderColor: 'rgba(75, 192, 192, 1)',
+                            backgroundColor: ratings.map(rating => `rgba(255, 77, 111, ${rating / 10})`),
+                            borderColor: 'rgba(255, 77, 111, 1)',
                             borderWidth: 1
                         }]
                     },
@@ -62,7 +62,19 @@
                         scales: {
                             y: {
                                 beginAtZero: true,
-                                max: 10 // Assuming ratings are on a scale of 0 to 10
+                                max: 5
+                            }
+                        },
+                        onClick: function (event, elements) {
+                            if (elements.length > 0) {
+                                // Get the index of the clicked bar
+                                var clickedIndex = elements[0].index;
+
+                                // Assuming you have a URL for each song, replace 'your_song_url_array' with your actual array of URLs
+                                var songUrl = your_song_url_array[clickedIndex];
+
+                                // Redirect the user to the song page
+                                window.location.href = songUrl;
                             }
                         }
                     }

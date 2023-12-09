@@ -7,6 +7,7 @@ use App\Models\PerformerRating;
 use App\Http\Resources\PerformerRatingResource;
 use Illuminate\Support\Facades\DB;
 
+
 class PerformerRatingController extends Controller
 {
     public function index(){
@@ -72,36 +73,52 @@ class PerformerRatingController extends Controller
         }
     }
 
+    public function searchArtists(Request $request)
+    {
+        $query = $request->input('query');
+
+        // Perform a case-insensitive search for artist names that match the query
+        $artists = PerformerRating::where('name', 'ilike', '%' . $query . '%')->pluck('name');
+
+        return response()->json($artists);
+    }
+
     // Methods defined for analysis functionality
     public function getAverageRatingsForArtists(Request $request)
     {
         // Extract the artist names and months from the request
-        $artistNames = $request->input('artistNames');
+        $artistNames = $request->input('artistNames', []); // Default to an empty array if not specified
         $months = $request->input('months', 6); // Default to 6 months if not specified
 
         // Calculate the start date
         $startDate = now()->subMonths($months);
 
-        // Get average ratings for the specified artists since the start date
-        $ratings = PerformerRating::select('performers.name', DB::raw('AVG(performer_ratings.rating) as average_rating'))
-                    ->join('performers', 'performer_ratings.artist_id', '=', 'performers.artist_id')
-                    ->whereIn('performers.name', $artistNames)
-                    ->where('performer_ratings.date_rated', '>=', $startDate)
-                    ->groupBy('performers.name')
-                    ->get()
-                    ->keyBy('name'); // Key the collection by performer name for easy lookup
+        // Ensure $artistNames is an array
+        $artistNames = is_array($artistNames) ? $artistNames : [];
 
-        // Prepare the results in the order of the inputted artist names
-        $orderedRatings = [];
-        foreach ($artistNames as $artistName) {
-            $orderedRatings[$artistName] = $ratings[$artistName]->average_rating ?? null;
+        if (!empty($artistNames)) {
+            // Get average ratings for the specified artists since the start date
+            $ratings = PerformerRating::select('performers.name', DB::raw('AVG(performer_ratings.rating) as average_rating'))
+                        ->join('performers', 'performer_ratings.artist_id', '=', 'performers.artist_id')
+                        ->whereIn('performers.name', $artistNames)
+                        ->where('performer_ratings.date_rated', '>=', $startDate)
+                        ->groupBy('performers.name')
+                        ->get()
+                        ->keyBy('name'); // Key the collection by performer name for easy lookup
+
+            // Prepare the results in the order of the inputted artist names
+            $orderedRatings = [];
+            foreach ($artistNames as $artistName) {
+                $orderedRatings[$artistName] = $ratings[$artistName]->average_rating ?? null;
+            }
+
+            return view('analysis.average_ratings', [
+                'artists' => $artistNames,
+                'averageRatings' => $orderedRatings
+            ]);        
         }
-        $allArtists = Performer::select('name')->get()->pluck('name')->toArray();
 
-        return view('analysis.average_ratings', [
-            'artists' => $artistNames,
-            'allArtists' => $allArtists,
-            'averageRatings' => $orderedRatings,
-        ]);
+        // Return an empty array if no artist names are provided
+        return view('analysis.average_ratings', ['artists' => $artistNames, 'averageRatings' => []]);
     }
 }

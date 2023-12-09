@@ -67,8 +67,8 @@
                         datasets: [{
                             label: 'Average Rating',
                             data: ratings,
-                            backgroundColor: ratings.map(rating => `rgba(75, 192, 192, ${rating / 10})`), // Dynamic color based on rating
-                            borderColor: 'rgba(75, 192, 192, 1)',
+                            backgroundColor: ratings.map(rating => `rgba(255, 77, 111, ${rating / 10})`), // Dynamic color based on rating
+                            borderColor: 'rgba(255, 77, 111, 1)',
                             borderWidth: 1
                         }]
                     },

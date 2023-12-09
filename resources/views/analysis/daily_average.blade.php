@@ -25,7 +25,7 @@
                             label: 'Daily Average Rating',
                             data: averageRatings,
                             fill: false,
-                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderColor: 'rgba(255, 77, 111, 1)',
                             borderWidth: 2
                         }]
                     },
@@ -47,7 +47,7 @@
                             },
                             y: {
                                 beginAtZero: true,
-                                max: 10 // Assuming ratings are on a scale of 0 to 10
+                                max: 5 
                             }
                         }
                     }

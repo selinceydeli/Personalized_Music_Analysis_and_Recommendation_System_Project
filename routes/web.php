@@ -84,6 +84,7 @@ Route::get('/analysis/average_ratings', [PerformerRatingController::class, 'getA
 Route::get('/analysis/daily_average', [SongRatingController::class, 'getMonthlyAverageRatings'])
     ->middleware(['auth', 'verified'])
     ->name('analysis.daily_average');
+Route::get('/search-artists', [PerformerRatingController::class, 'searchArtists']);
 
 
 // Recommendations

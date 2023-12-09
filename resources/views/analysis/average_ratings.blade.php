@@ -5,13 +5,9 @@
         <!-- Form to select artists and time span -->
         <form action="{{ route('analysis.average_ratings') }}" method="GET">
             @csrf
-            <label for="artistNames">Select Artists:</label>
-            <select name="artistNames[]" id="artistNames" multiple required>
-                <!-- Populate this dropdown with the list of artists from your database -->
-                @foreach($allArtists  as $artist)
-                    <option value="{{ $artist }}" {{ in_array($artist, $artists) ? 'selected' : '' }}>{{ $artist }}</option>
-                @endforeach
-            </select>
+            <label for="artistSearch">Search Artists:</label>
+            <input type="text" name="artistSearch" id="artistSearch" autocomplete="off">
+            <div id="searchResults"></div>
 
             <label for="months">Select Time Span (Months):</label>
             <input type="number" name="months" id="months" value="6" min="1" required>
@@ -57,6 +53,35 @@
                     }
                 });
             }
+
+            // Search functionality
+            var searchInput = document.getElementById('artistSearch');
+            var searchResults = document.getElementById('searchResults');
+
+            searchInput.addEventListener('input', function () {
+                var searchQuery = this.value;
+
+                // Clear previous results
+                searchResults.innerHTML = '';
+
+                // Perform AJAX request to fetch matching artist names
+                if (searchQuery.trim() !== '') {
+                    fetch('/search-artists?query=' + encodeURIComponent(searchQuery))
+                        .then(response => response.json())
+                        .then(data => {
+                            data.forEach(artist => {
+                                var resultItem = document.createElement('div');
+                                resultItem.textContent = artist;
+                                resultItem.addEventListener('click', function () {
+                                    searchInput.value = artist;
+                                    searchResults.innerHTML = '';
+                                });
+                                searchResults.appendChild(resultItem);
+                            });
+                        })
+                        .catch(error => console.error('Error fetching data:', error));
+                }
+            });
         }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
