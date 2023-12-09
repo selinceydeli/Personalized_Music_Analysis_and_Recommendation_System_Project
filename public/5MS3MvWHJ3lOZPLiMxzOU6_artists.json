@@ -1,0 +1,40 @@
+[
+    {
+        "followers": 83047557,
+        "genres": [
+            "canadian hip hop",
+            "canadian pop",
+            "hip hop",
+            "pop rap",
+            "rap"
+        ],
+        "name": "Drake",
+        "popularity": 95,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
+        "artist_id": "3TVXtAsR1Inumwj472S9r4"
+    },
+    {
+        "followers": 15834180,
+        "genres": [
+            "atl hip hop",
+            "hip hop",
+            "rap"
+        ],
+        "name": "21 Savage",
+        "popularity": 88,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb35ca7d2181258b51c0f2cf9e",
+        "artist_id": "1URnnhqYAYcrqrcwql10ft"
+    },
+    {
+        "followers": 25557930,
+        "genres": [
+            "hip hop",
+            "rap",
+            "slap house"
+        ],
+        "name": "Travis Scott",
+        "popularity": 90,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb19c2790744c792d05570bb71",
+        "artist_id": "0Y5tJX1MQlPlqiwlOH1tJY"
+    }
+]

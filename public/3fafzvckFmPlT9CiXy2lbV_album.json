@@ -1,0 +1,68 @@
+{
+    "album_type": "album",
+    "copyrights": "2018 Yeni D\u00fcnya M\u00fczik",
+    "genres": [],
+    "label": "YEN\u0130 D\u00dcNYA M\u00dcZ\u0130K",
+    "name": "Chilai, Vol. 4",
+    "popularity": 41,
+    "release_date": "2018-07-06",
+    "total_tracks": 12,
+    "tracks": {
+        "items": [
+            {
+                "id": "1WIMcdEcCUXHBoB9nowygZ",
+                "track_number": 1
+            },
+            {
+                "id": "0winf3CFrtZcnSuewBZrG5",
+                "track_number": 2
+            },
+            {
+                "id": "5T9DzHPtHnoE326Ay8Q0Jw",
+                "track_number": 3
+            },
+            {
+                "id": "2WhvFuWyHsZzVRJl6PLmqv",
+                "track_number": 4
+            },
+            {
+                "id": "2KGdWN9F4DhvpsbuQdKGc9",
+                "track_number": 5
+            },
+            {
+                "id": "4qrXlJvirHZ3SBAVT7Bf16",
+                "track_number": 6
+            },
+            {
+                "id": "1OQjg7REwzECQRn1u3kSyN",
+                "track_number": 7
+            },
+            {
+                "id": "2XcROK6hH6U62893M3fNsY",
+                "track_number": 8
+            },
+            {
+                "id": "10RvqaRQwS6KUFn3xenfNe",
+                "track_number": 9
+            },
+            {
+                "id": "6ImTiAmvqXuqs3EivfWcxN",
+                "track_number": 10
+            },
+            {
+                "id": "1H3loTcOkhjO8UvTbfzU4D",
+                "track_number": 11
+            },
+            {
+                "id": "6DO3YINL9KCMaNiS9qZrWJ",
+                "track_number": 12
+            }
+        ],
+        "total": 12
+    },
+    "type": "album",
+    "artist_id": "1UAs4FqSeogbj5Z9JWfVlT",
+    "album_id": "3fafzvckFmPlT9CiXy2lbV",
+    "upc": "3615933519672",
+    "image": "https://i.scdn.co/image/ab67616d0000b2733dbbce9b2ae44278c94b12a0"
+}

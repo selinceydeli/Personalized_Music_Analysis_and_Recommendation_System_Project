@@ -205,15 +205,16 @@ class PerformerController extends Controller
     public function destroy($id){
         if (Performer::where('artist_id', $id) -> exists()){
             $performer = Performer::where('artist_id',$id);
+            $p = Performer::where('artist_id',$id)->first();
+            $name=$p->name;
 
             if(Album::where('artist_id', $id) -> exists()){
                 Album::where('artist_id', $id)->delete();
             }
 
             $performer->delete();
-            return response()->json([
-                "message" => "Performer and his/her songs and albums are deleted"
-            ], 200);
+            return redirect('/')->with('message', 'Performer ' .$name . ' deleted successfully');
+
         } else {
             return response()->json([
                 "message" => "Performer not found"

@@ -1,0 +1,173 @@
+[
+    {
+        "followers": 15506192,
+        "genres": [
+            "atl hip hop",
+            "hip hop",
+            "rap",
+            "southern hip hop",
+            "trap"
+        ],
+        "name": "Future",
+        "popularity": 87,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb24e41f491b129093a6fee383",
+        "artist_id": "1RyvyyTE3xzB2ZywiAwp0i"
+    },
+    {
+        "followers": 75772,
+        "genres": [
+            "chill pop"
+        ],
+        "name": "Mustafa",
+        "popularity": 54,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb33247039143f6de81d86370e",
+        "artist_id": "1zkKkDDra0jlsiJYz57P3P"
+    },
+    {
+        "followers": 21013457,
+        "genres": [
+            "r&b",
+            "rap"
+        ],
+        "name": "Chris Brown",
+        "popularity": 85,
+        "image": "https://i.scdn.co/image/ab6761610000e5eba48397e590a1c70e2cda7728",
+        "artist_id": "7bXgB6jMjp9ATFy66eO08Z"
+    },
+    {
+        "followers": 6344324,
+        "genres": [
+            "atl hip hop",
+            "melodic rap",
+            "rap",
+            "trap"
+        ],
+        "name": "Gunna",
+        "popularity": 83,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb6501f8a7d50c56e86e46f920",
+        "artist_id": "2hlmm7s2ICUX0LVIhVFlZQ"
+    },
+    {
+        "followers": 3510751,
+        "genres": [
+            "pop rap",
+            "rap",
+            "trap"
+        ],
+        "name": "Don Toliver",
+        "popularity": 80,
+        "image": "https://i.scdn.co/image/ab6761610000e5ebeb63bf6379a9ea8453a30020",
+        "artist_id": "4Gso3d4CscCijv0lmajZWs"
+    },
+    {
+        "followers": 15834180,
+        "genres": [
+            "atl hip hop",
+            "hip hop",
+            "rap"
+        ],
+        "name": "21 Savage",
+        "popularity": 88,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb35ca7d2181258b51c0f2cf9e",
+        "artist_id": "1URnnhqYAYcrqrcwql10ft"
+    },
+    {
+        "followers": 1592577,
+        "genres": [
+            "atl hip hop",
+            "rap",
+            "trap"
+        ],
+        "name": "Takeoff",
+        "popularity": 68,
+        "image": "https://i.scdn.co/image/ab6761610000e5ebd986fb8037e0b8e2f9f4f37d",
+        "artist_id": "3EW0kQ1skZiK1NHg3Spt9J"
+    },
+    {
+        "followers": 75634369,
+        "genres": [
+            "canadian contemporary r&b",
+            "canadian pop",
+            "pop"
+        ],
+        "name": "The Weeknd",
+        "popularity": 93,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb214f3cf1cbe7139c1e26ffbb",
+        "artist_id": "1Xyo4u8uXC1ZmMpatF05PJ"
+    },
+    {
+        "followers": 6307803,
+        "genres": [
+            "rap"
+        ],
+        "name": "Metro Boomin",
+        "popularity": 86,
+        "image": "https://i.scdn.co/image/ab6761610000e5ebdf9a1555f53a20087b8c5a5c",
+        "artist_id": "0iEtIxbK0KxaSlF7G42ZOp"
+    },
+    {
+        "followers": 9255636,
+        "genres": [
+            "atl hip hop",
+            "atl trap",
+            "gangster rap",
+            "melodic rap",
+            "rap",
+            "trap"
+        ],
+        "name": "Young Thug",
+        "popularity": 82,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb547d2b41c9f2c97318aad0ed",
+        "artist_id": "50co4Is1HCEo8bhOyUWKpn"
+    },
+    {
+        "followers": 1367860,
+        "genres": [
+            "pluggnb",
+            "rap",
+            "trap"
+        ],
+        "name": "Young Nudy",
+        "popularity": 70,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb123cc54c9d92f97d911edc42",
+        "artist_id": "5yPzzu25VzEk8qrGTLIrE1"
+    },
+    {
+        "followers": 13200024,
+        "genres": [
+            "east coast hip hop",
+            "hip hop",
+            "rap",
+            "trap"
+        ],
+        "name": "A$AP Rocky",
+        "popularity": 80,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb5c58c41a506a0d6b32cc6cad",
+        "artist_id": "13ubrt8QOOCPljQ2FL1Kca"
+    },
+    {
+        "followers": 6669748,
+        "genres": [
+            "neo soul",
+            "pop",
+            "pop soul",
+            "urban contemporary"
+        ],
+        "name": "John Legend",
+        "popularity": 75,
+        "image": "https://i.scdn.co/image/ab6761610000e5ebba10593e25ec51a3ba4296a0",
+        "artist_id": "5y2Xq6xcjJb2jVM54GHK3t"
+    },
+    {
+        "followers": 25557930,
+        "genres": [
+            "hip hop",
+            "rap",
+            "slap house"
+        ],
+        "name": "Travis Scott",
+        "popularity": 90,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb19c2790744c792d05570bb71",
+        "artist_id": "0Y5tJX1MQlPlqiwlOH1tJY"
+    }
+]

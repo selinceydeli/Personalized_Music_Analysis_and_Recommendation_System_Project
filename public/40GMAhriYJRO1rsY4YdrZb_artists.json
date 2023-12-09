@@ -1,0 +1,114 @@
+[
+    {
+        "followers": 4597387,
+        "genres": [
+            "afrobeats",
+            "afropop",
+            "azonto",
+            "nigerian hip hop",
+            "nigerian pop"
+        ],
+        "name": "Wizkid",
+        "popularity": 74,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb9050b61368975fda051cdc06",
+        "artist_id": "3tVQdUvClmAT7URs9V3rsp"
+    },
+    {
+        "followers": 15506192,
+        "genres": [
+            "atl hip hop",
+            "hip hop",
+            "rap",
+            "southern hip hop",
+            "trap"
+        ],
+        "name": "Future",
+        "popularity": 87,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb24e41f491b129093a6fee383",
+        "artist_id": "1RyvyyTE3xzB2ZywiAwp0i"
+    },
+    {
+        "followers": 1215031,
+        "genres": [
+            "canadian contemporary r&b",
+            "r&b"
+        ],
+        "name": "dvsn",
+        "popularity": 55,
+        "image": "https://i.scdn.co/image/ab6761610000e5ebeb241673a5bd438b51ba124e",
+        "artist_id": "7e1ICztHM2Sc4JNLxeMXYl"
+    },
+    {
+        "followers": 5970720,
+        "genres": [
+            "r&b",
+            "rap",
+            "urban contemporary"
+        ],
+        "name": "PARTYNEXTDOOR",
+        "popularity": 77,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb4e3dee8baac75dad1fea791e",
+        "artist_id": "2HPaUgqeutzr3jx5a9WyDV"
+    },
+    {
+        "followers": 83047557,
+        "genres": [
+            "canadian hip hop",
+            "canadian pop",
+            "hip hop",
+            "pop rap",
+            "rap"
+        ],
+        "name": "Drake",
+        "popularity": 95,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
+        "artist_id": "3TVXtAsR1Inumwj472S9r4"
+    },
+    {
+        "followers": 930192,
+        "genres": [
+            "baton rouge rap",
+            "chopped and screwed",
+            "crunk",
+            "dirty south rap",
+            "houston rap"
+        ],
+        "name": "Pimp C",
+        "popularity": 47,
+        "image": "https://i.scdn.co/image/1dc3aa21b257e9d81b6d80ca6f14f23a4c082b49",
+        "artist_id": "7v9bFXCdSMA2o3gS4nvp0F"
+    },
+    {
+        "followers": 16097,
+        "genres": [
+            "uk funky"
+        ],
+        "name": "Kyla",
+        "popularity": 67,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb7af9765581856eae3a6a3f50",
+        "artist_id": "77DAFfvm3O9zT5dIoG0eIO"
+    },
+    {
+        "followers": 59025968,
+        "genres": [
+            "barbadian pop",
+            "pop",
+            "urban contemporary"
+        ],
+        "name": "Rihanna",
+        "popularity": 88,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb99e4fca7c0b7cb166d915789",
+        "artist_id": "5pKCCKE2ajJHZ9KAiaK11H"
+    },
+    {
+        "followers": 934060,
+        "genres": [
+            "canadian contemporary r&b",
+            "canadian hip hop"
+        ],
+        "name": "Majid Jordan",
+        "popularity": 66,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb7e858a6cb72979b727b5484b",
+        "artist_id": "4HzKw8XcD0piJmDrrPRCYk"
+    }
+]

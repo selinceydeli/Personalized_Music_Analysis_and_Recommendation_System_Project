@@ -21,7 +21,7 @@ class PerformerRatingController extends Controller
         $performerrating->artist_id = $request->input('artist_id');
         $performerrating->date_rated = now();
         $performerrating->save();
-        return redirect('/')->with('message', 'Performer rated successfully');
+        return back()->with('message', 'Performer rated successfully');
     }
 
     public function search_id_performer($id){

@@ -10,6 +10,9 @@ class SpotifyController extends Controller
     public function importSong(Request $request)
     {
         $url = $request->input('spotifyLink');
+        if (strpos($url, "/intl-tr") !== false) {
+            $url = str_replace("/intl-tr", "", $url);
+        }
 
         if ($this->isSpotifyLink($url)) {
             // Execute the Python script and capture the output, including any errors
@@ -28,7 +31,7 @@ class SpotifyController extends Controller
             //Session::flash('song_info', $result);
 
             // Redirect the user to the root URL ("/") with a success message
-            return redirect('/')->with('message', 'Song information uploaded successfully!');
+            return redirect('/')->with('message', 'Song uploaded successfully!');
         } else {
             return response()->json(['message' => 'Invalid Spotify link!'], 400);
         }
@@ -59,7 +62,7 @@ class SpotifyController extends Controller
                 return redirect('/')->with('message', 'Invalid Spotify Link at Song ' . $counter);
             }
         }
-        return redirect('/')->with('message', 'Song information uploaded successfully!');
+        return redirect('/')->with('message', 'Song uploaded successfully!');
     }
 
     private function isSpotifyLink($input)

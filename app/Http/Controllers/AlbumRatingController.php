@@ -21,7 +21,7 @@ class AlbumRatingController extends Controller
         $albumrating->album_id = $request->input('album_id');
         $albumrating->date_rated = now();
         $albumrating->save();
-        return redirect('/')->with('message', 'Album rated successfully');
+        return back()->with('message', 'Album rated successfully');
     }
 
     public function search_id_album($id){

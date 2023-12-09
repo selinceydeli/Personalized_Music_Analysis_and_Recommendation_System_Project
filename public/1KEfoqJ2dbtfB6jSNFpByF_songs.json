@@ -1,0 +1,27 @@
+[
+    {
+        "duration_ms": 176933,
+        "explicit": 0,
+        "name": "Parle \u00e0 ta t\u00eate",
+        "popularity": 58,
+        "preview_url": null,
+        "song_id": "3lTGqzJbMYDHXbqeV8pt7d",
+        "isrc": "FRUM71901332",
+        "album_id": "1KEfoqJ2dbtfB6jSNFpByF",
+        "artists_ids": [
+            "0FEJqmeLRzsXj8hgcZaAyB"
+        ],
+        "danceability": 0.661,
+        "energy": 0.813,
+        "key": "F",
+        "loudness": -4.428,
+        "mode": "Minor",
+        "speechiness": 0.347,
+        "acousticness": 0.335,
+        "instrumentalness": 0,
+        "liveness": 0.169,
+        "valence": 0.459,
+        "tempo": 127.808,
+        "time_signature": 4
+    }
+]
