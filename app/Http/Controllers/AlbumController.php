@@ -50,27 +50,6 @@ class AlbumController extends Controller
             ->orderByDesc('average_rating')
             ->get();
 
-        $songIds = $songsWithSameAlbum->pluck('song_id')->toArray();
-        // Initialize an empty array to store the mapping
-        $ratingsMap = [];
-
-        if (auth()->check()) {
-            $username = auth()->user()->username;
-
-            // Iterate through each song ID and retrieve the latest user rating
-            foreach ($songIds as $s) {
-                // Retrieve the latest user rating for the current song
-                $songRatingsController = new SongRatingController();
-                $latestUserRating = $songRatingsController->getLatestUserRating($username, $s);
-
-                // Build the ratings map entry for this song
-                $ratingsMap[$s] = [
-                    'latest_user_rating' => $latestUserRating ? $latestUserRating->rating : null,
-                ];
-            }
-            $latestAlbumRating=$songRatingsController->getLatestUserRatingForAlbum($username, $song->album->album_id);
-            $latestAlbumRating = $latestAlbumRating ? $latestAlbumRating->rating : null;
-        }
 
         // Access the performer IDs from the song
         $performersIds = $song->performers; // JSON field from the Song model
@@ -92,6 +71,41 @@ class AlbumController extends Controller
         // Convert the unique genres collection back to an array
         $uniqueGenresArray = $uniqueGenres->values()->all();
 
+        $songIds = $songsWithSameAlbum->pluck('song_id')->toArray();
+        // Initialize an empty array to store the mapping
+        $ratingsMap = [];
+
+        if (auth()->check()) {
+            $username = auth()->user()->username;
+
+            // Iterate through each song ID and retrieve the latest user rating
+            foreach ($songIds as $s) {
+                // Retrieve the latest user rating for the current song
+                $songRatingsController = new SongRatingController();
+                $latestUserRating = $songRatingsController->getLatestUserRating($username, $s);
+
+                // Build the ratings map entry for this song
+                $ratingsMap[$s] = [
+                    'latest_user_rating' => $latestUserRating ? $latestUserRating->rating : null,
+                ];
+            }
+            $latestAlbumRating=$songRatingsController->getLatestUserRatingForAlbum($username, $song->album->album_id);
+            $latestAlbumRating = $latestAlbumRating ? $latestAlbumRating->rating : null;
+            
+            return view('songs.show', [
+                'album' => $album,
+                'song' => $song,
+                'performers' => $performers,
+                'songs' => $songsWithSameAlbum,
+                'genres' => $uniqueGenresArray,
+                'songId' => $songId,
+                'ratingsMap' => $ratingsMap,
+                'albumAverageRating' => $albumAverageRating,
+                'latestAlbumRating' => $latestAlbumRating,
+            ]);
+
+        }
+
         return view('songs.show', [
             'album' => $album,
             'song' => $song,
@@ -101,7 +115,6 @@ class AlbumController extends Controller
             'songId' => $songId,
             'ratingsMap' => $ratingsMap,
             'albumAverageRating' => $albumAverageRating,
-            'latestAlbumRating' => $latestAlbumRating,
         ]);
     }
 
@@ -187,10 +200,10 @@ class AlbumController extends Controller
     public function destroy($id){
         if (Album::where('album_id', $id) -> exists()){
             $album = Album::where('album_id',$id);
+            $a = Album::where('album_id',$id)->first();
+            $name = $a->name;
             $album->delete();
-            return response()->json([
-                "message" => "Album deleted"
-            ], 200);
+            return redirect('/')->with('message','Album ' . $name . ' deleted successfully');
         } else {
             return response()->json([
                 "message" => "Album not found"

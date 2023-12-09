@@ -1,0 +1,60 @@
+{
+    "album_type": "album",
+    "copyrights": "Esen",
+    "genres": [],
+    "label": "Esen",
+    "name": "Senden Vazge\u00e7mem",
+    "popularity": 52,
+    "release_date": "1994-04-18",
+    "total_tracks": 10,
+    "tracks": {
+        "items": [
+            {
+                "id": "5NkPLrPN854wRjLqfSqfVm",
+                "track_number": 1
+            },
+            {
+                "id": "1Mw4JiiSl5EuE7SYfc5Vks",
+                "track_number": 2
+            },
+            {
+                "id": "3EH2gpL4wb4vND339QcBRF",
+                "track_number": 3
+            },
+            {
+                "id": "3Q8xiRke4Ta5z4zuaDTI3s",
+                "track_number": 4
+            },
+            {
+                "id": "67j5dSkCwVhZweVhS0IDEf",
+                "track_number": 5
+            },
+            {
+                "id": "61ntvEM9im8i0YeXyBE7vy",
+                "track_number": 6
+            },
+            {
+                "id": "3d9mmrZBh8cF3h9vulPWWe",
+                "track_number": 7
+            },
+            {
+                "id": "3ReiV8BfVBADx7qWE7mNG4",
+                "track_number": 8
+            },
+            {
+                "id": "1oYhbS9Pp9uo8Y2dy2I7fH",
+                "track_number": 9
+            },
+            {
+                "id": "2Qt6iwSoi0VtO7sIOaaY6u",
+                "track_number": 10
+            }
+        ],
+        "total": 10
+    },
+    "type": "album",
+    "artist_id": "4cMwyqmHCwJjRZ3frIVHTr",
+    "album_id": "104zYaJUOI9EVR0Fp4yfiB",
+    "upc": "3614974376459",
+    "image": "https://i.scdn.co/image/ab67616d0000b273cb23a1557853aabf00bc84d2"
+}

@@ -1,0 +1,27 @@
+[
+    {
+        "duration_ms": 195957,
+        "explicit": 0,
+        "name": "Firuze",
+        "popularity": 65,
+        "preview_url": "https://p.scdn.co/mp3-preview/8919551521dcfc2ad0c089e7e98d1945157a57fa?cid=0871147f112a492b88fc9fea2d3bf5e7",
+        "song_id": "4WBMMoqjsofE9fdSXSU41S",
+        "isrc": "TRAUR2300016",
+        "album_id": "69EMFMME82E5gKCIrOIt9I",
+        "artists_ids": [
+            "5PRW6j58xEEWL4DDVEITKT"
+        ],
+        "danceability": 0.369,
+        "energy": 0.858,
+        "key": "A",
+        "loudness": -6.574,
+        "mode": "Minor",
+        "speechiness": 0.0644,
+        "acousticness": 0.114,
+        "instrumentalness": 1.43e-06,
+        "liveness": 0.703,
+        "valence": 0.564,
+        "tempo": 150.035,
+        "time_signature": 4
+    }
+]

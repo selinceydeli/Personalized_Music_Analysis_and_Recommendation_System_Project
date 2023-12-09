@@ -1,0 +1,24 @@
+[
+    {
+        "followers": 1335993,
+        "genres": [
+            "turkish pop"
+        ],
+        "name": "Beng\u00fc",
+        "popularity": 60,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb40490de176f86b734507ee49",
+        "artist_id": "6wxh9aTFgTS4OiyYlnQBq6"
+    },
+    {
+        "followers": 982149,
+        "genres": [
+            "turkish pop",
+            "turkish rock",
+            "turkish singer-songwriter"
+        ],
+        "name": "emre ayd\u0131n",
+        "popularity": 58,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb242039bb64de192ec0e83fac",
+        "artist_id": "66vIaZFb8okZH0npc4eQ5q"
+    }
+]

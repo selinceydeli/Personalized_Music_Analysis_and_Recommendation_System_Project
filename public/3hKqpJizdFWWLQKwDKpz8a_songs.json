@@ -1,0 +1,27 @@
+[
+    {
+        "duration_ms": 277166,
+        "explicit": 0,
+        "name": "\u00c7\u00f6zemezsin",
+        "popularity": 69,
+        "preview_url": "https://p.scdn.co/mp3-preview/fb0dcddf4be6e891a0494020cdeb428bbda467d6?cid=0871147f112a492b88fc9fea2d3bf5e7",
+        "song_id": "1zMcj4YDWun0XN0BCzZc4P",
+        "isrc": "TR0532114185",
+        "album_id": "3hKqpJizdFWWLQKwDKpz8a",
+        "artists_ids": [
+            "5PRW6j58xEEWL4DDVEITKT"
+        ],
+        "danceability": 0.477,
+        "energy": 0.887,
+        "key": "D",
+        "loudness": -6.089,
+        "mode": "Minor",
+        "speechiness": 0.049,
+        "acousticness": 0.0783,
+        "instrumentalness": 0.0287,
+        "liveness": 0.247,
+        "valence": 0.488,
+        "tempo": 90.0,
+        "time_signature": 4
+    }
+]

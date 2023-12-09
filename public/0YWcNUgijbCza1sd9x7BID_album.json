@@ -1,0 +1,68 @@
+{
+    "album_type": "album",
+    "copyrights": "1975 Yavuz Bur\u00e7 Plak-Yavuz As\u00f6cal",
+    "genres": [],
+    "label": "Yavuz Bur\u00e7 Plak-Yavuz As\u00f6cal",
+    "name": "Nem Kald\u0131?",
+    "popularity": 41,
+    "release_date": "1975-01-01",
+    "total_tracks": 12,
+    "tracks": {
+        "items": [
+            {
+                "id": "2aTPG2sMZkoxTTNRfaxbtV",
+                "track_number": 1
+            },
+            {
+                "id": "6mtwWtDzr9fXY4jXvYXxVb",
+                "track_number": 2
+            },
+            {
+                "id": "1oWAGu1ArQetRtEiRKi2xi",
+                "track_number": 3
+            },
+            {
+                "id": "4qeb6PxKcY8uai54FGx3vg",
+                "track_number": 4
+            },
+            {
+                "id": "5BS2lPedRipm7TCkNAla7n",
+                "track_number": 5
+            },
+            {
+                "id": "2QoXTYV50BFg0XUoIokRtW",
+                "track_number": 6
+            },
+            {
+                "id": "18TSFIXx3mfk8lusOZCtxG",
+                "track_number": 7
+            },
+            {
+                "id": "3ZL5pQZrqyOyKxC1ZaRiga",
+                "track_number": 8
+            },
+            {
+                "id": "09440V9bUdp4QsKrIfBfvg",
+                "track_number": 9
+            },
+            {
+                "id": "0H9mXxPHhNxr1bPPnHRSW8",
+                "track_number": 10
+            },
+            {
+                "id": "3rMoASbCxIH0YdboOgpPNJ",
+                "track_number": 11
+            },
+            {
+                "id": "5tdmdW7rZtAQ5XBiRWhWnn",
+                "track_number": 12
+            }
+        ],
+        "total": 12
+    },
+    "type": "album",
+    "artist_id": "1lIbZfJvMQRqzhtCQsg5EI",
+    "album_id": "0YWcNUgijbCza1sd9x7BID",
+    "upc": "8697869704389",
+    "image": "https://i.scdn.co/image/ab67616d0000b2735238b431d6a7388b191a9996"
+}

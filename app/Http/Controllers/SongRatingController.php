@@ -28,7 +28,7 @@ class SongRatingController extends Controller
         $songrating->date_rated = now();
         $songrating->save();
 
-        return redirect('/')->with('message', 'Song rated successfully');
+        return back()->with('message', 'Song rated successfully');
     }
 
     public function search_id_song($id)

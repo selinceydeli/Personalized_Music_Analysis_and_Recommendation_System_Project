@@ -1,0 +1,24 @@
+{
+    "album_type": "single",
+    "copyrights": "2020 Cercle Records",
+    "genres": [],
+    "label": "Cercle Records",
+    "name": "Abu Simbel",
+    "popularity": 51,
+    "release_date": "2021-03-04",
+    "total_tracks": 1,
+    "tracks": {
+        "items": [
+            {
+                "id": "1Y3yJHrBkkfj3GZKv1MVhF",
+                "track_number": 1
+            }
+        ],
+        "total": 1
+    },
+    "type": "album",
+    "artist_id": "50Lr1puweM1hFsF1LpIZLM",
+    "album_id": "3HVXzuVnuaWJyflpsF8MWj",
+    "upc": "3616550719001",
+    "image": "https://i.scdn.co/image/ab67616d0000b27315eab6e46946b5cb27a95d99"
+}

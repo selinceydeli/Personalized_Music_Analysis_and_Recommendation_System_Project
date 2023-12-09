@@ -1,0 +1,46 @@
+[
+    {
+        "followers": 36625984,
+        "genres": [
+            "pop",
+            "r&b"
+        ],
+        "name": "Beyonc\u00e9",
+        "popularity": 83,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb12e3f20d05a8d6cfde988715",
+        "artist_id": "6vWDO969PvNqNYHIOW5v0m"
+    },
+    {
+        "followers": 65226,
+        "genres": [
+            "canadian hip hop",
+            "trap soul"
+        ],
+        "name": "BEAM",
+        "popularity": 61,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb057a84dd63ea0cabb05ad4bd",
+        "artist_id": "46MWeeHNVMYRIIofQBEX98"
+    },
+    {
+        "followers": 315305,
+        "genres": [
+            "art pop"
+        ],
+        "name": "Grace Jones",
+        "popularity": 54,
+        "image": "https://i.scdn.co/image/ab6761610000e5ebc1c97da9c6326675e8c493cd",
+        "artist_id": "2f9ZiYA2ic1r1voObUimdd"
+    },
+    {
+        "followers": 1346798,
+        "genres": [
+            "afro r&b",
+            "alte",
+            "nigerian pop"
+        ],
+        "name": "Tems",
+        "popularity": 73,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb3c67a8b793f5b3a9d52a493f",
+        "artist_id": "687cZJR45JO7jhk1LHIbgq"
+    }
+]

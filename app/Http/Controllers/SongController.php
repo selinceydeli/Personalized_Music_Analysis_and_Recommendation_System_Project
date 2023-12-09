@@ -44,15 +44,22 @@ class SongController extends Controller
 
         // Check if a search filter is applied
         $searchTerm = request('search');
+        $searchController = new SearchController();
         if ($searchTerm) {
-            $query->where(function ($query) use ($searchTerm) {
+            $performerResults = $searchController->search_performer($searchTerm)->pluck('artist_id')->toArray();
+
+            $query->where(function ($query) use ($searchTerm, $performerResults) {
                 $query->where('songs.name', 'like', '%' . $searchTerm . '%')
                     ->orWhereHas('album', function ($subquery) use ($searchTerm) {
                         $subquery->where('albums.name', 'like', '%' . $searchTerm . '%');
+                    })
+                    ->orWhere(function ($subquery) use ($performerResults) {
+                        foreach ($performerResults as $artistId) {
+                            $subquery->orWhereJsonContains('performers', $artistId);
+                        }
                     });
             });
         }
-
 
         $songs = $query->paginate(6);
 
@@ -65,9 +72,9 @@ class SongController extends Controller
             $username = auth()->user()->username;
 
             // Iterate through each song ID and retrieve the latest user rating
+            $songRatingsController = new SongRatingController();
             foreach ($songIds as $songId) {
                 // Retrieve the latest user rating for the current song
-                $songRatingsController = new SongRatingController();
                 $latestUserRating = $songRatingsController->getLatestUserRating($username, $songId);
 
                 // Build the ratings map entry for this song
@@ -129,7 +136,13 @@ class SongController extends Controller
         ]);
     }
 
-    public function store(Request $request){
+    public function shows()
+    {
+        return view('songs.showSingle');
+    }
+
+    public function store(Request $request)
+    {
         $uniqueAttributes = [
             'song_id' => $request->song_id
         ];
@@ -247,10 +260,9 @@ class SongController extends Controller
     {
         if (Song::where('song_id', $id)->exists()) {
             $song = Song::find($id);
+            $name = $song->name;
             $song->delete();
-            return response()->json([
-                "message" => "Song deleted"
-            ], 200);
+            return redirect('/')->with('message', 'Song ' . $name . ' deleted successfully');
         } else {
             return response()->json([
                 "message" => "Song not found"
@@ -274,27 +286,28 @@ class SongController extends Controller
         // and an additional field performer_genres for each song
     }
 
-    public function getSongsQuery($genre = null, $searchTerm = null) {
+    public function getSongsQuery($genre = null, $searchTerm = null)
+    {
         $query = Song::leftJoin('song_ratings', 'songs.song_id', '=', 'song_ratings.song_id')
-                     ->select('songs.*', DB::raw('IFNULL(AVG(song_ratings.rating), 0) as average_rating'))
-                     ->groupBy('songs.song_id')
-                     ->orderByDesc('average_rating');
-    
+            ->select('songs.*', DB::raw('IFNULL(AVG(song_ratings.rating), 0) as average_rating'))
+            ->groupBy('songs.song_id')
+            ->orderByDesc('average_rating');
+
         if ($genre) {
             // Assuming getSongsByGenre() is another method in your controller
             $songIds = $this->getSongsByGenre($genre)->pluck('song_id')->toArray();
             $query->whereIn('songs.song_id', $songIds);
         }
-    
+
         if ($searchTerm) {
             $query->where(function ($query) use ($searchTerm) {
                 $query->where('songs.name', 'like', '%' . $searchTerm . '%')
-                      ->orWhereHas('album', function ($subquery) use ($searchTerm) {
-                          $subquery->where('albums.name', 'like', '%' . $searchTerm . '%');
-                      });
+                    ->orWhereHas('album', function ($subquery) use ($searchTerm) {
+                        $subquery->where('albums.name', 'like', '%' . $searchTerm . '%');
+                    });
             });
         }
-    
+
         return $query;
     }
 
@@ -302,11 +315,11 @@ class SongController extends Controller
     public function getSongsRatedByUser($username)
     {
         $songs = SongRating::where('username', $username)
-                            ->with('song')  // Load the song relationship
-                            ->get()
-                            ->map(function ($rating) {
-                                return $rating->song;  // Return only the song part
-                            });
+            ->with('song')  // Load the song relationship
+            ->get()
+            ->map(function ($rating) {
+                return $rating->song;  // Return only the song part
+            });
 
         return response()->json($songs);
     }
@@ -315,11 +328,11 @@ class SongController extends Controller
     {
         $username = auth()->user()->username; // Get the authenticated user's username
         $songs = SongRating::where('username', $username)
-                            ->with('song')
-                            ->get()
-                            ->map(function ($rating) {
-                                return $rating->song;
-                            });
+            ->with('song')
+            ->get()
+            ->map(function ($rating) {
+                return $rating->song;
+            });
 
         $jsonData = json_encode($songs, JSON_PRETTY_PRINT);
         $filename = "all-rated-songs.json";

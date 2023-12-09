@@ -50,10 +50,8 @@
 
 
 <x-layout>
-    <a href="/" class="inline-block text-black ml-4 mb-4"><i class="fa-solid fa-arrow-left"></i> Back
-    </a>
     <div class="mx-4 text-align: center;">
-        <x-card class="p-10">
+        <x-card class="p-10 relative">
             <div class="flex flex-col items-center justify-center text-center">
                 <img class="w-64 h-64 mr-6 mb-6 md:block"
                     src="{{ $album->image_url ? $album->image_url : asset('public/images/no-album.png') }}"
@@ -156,11 +154,21 @@
                         @endif
                     </div>
                 @endif
+                @if (auth()->check())
+                    <form id="deleteForm_{{ $song->album->album_id }}" method="POST"
+                        action="/deletealbum/{{ $song->album->album_id }}"
+                        class="absolute bottom-5 right-10 bg-red-500 text-white p-1 rounded-full">
+                        @csrf
+                        <button type="submit" class="delete-song-btn" data-song-id="{{ $song->album->album_id }}">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </form>
+                @endif
             </div>
         </x-card>
         <!-- Section for songs list -->
         @foreach ($songs as $s)
-            <x-card>
+            <x-card class="relative">
                 <div class="flex">
                     <img class="w-48 mr-6 md:block"
                         src="{{ $s->album && $s->album->image_url ? $s->album->image_url : asset('/images/no-image.png') }}"
@@ -265,6 +273,16 @@
                                 </p>
                             @endif
                         </div>
+                        @if (auth()->check())
+                            <form id="deleteForm_{{ $s->song_id }}" method="POST"
+                                action="/deletesong/{{ $s->song_id }}"
+                                class="absolute bottom-5 right-5 bg-red-500 text-white p-1 rounded-full">
+                                @csrf
+                                <button type="submit" class="delete-song-btn" data-song-id="{{ $s->song_id }}">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </form>
+                        @endif
                     </div>
                 </div>
             </x-card>
@@ -332,7 +350,7 @@
             var rating = $(this).data('rating');
             var albumId = $(this).closest('form').find('input[name="album_id"]').val();
             $('#ratingInput_' + albumId).val(
-            rating); // Set the hidden input value to the selected rating for this specific card
+                rating); // Set the hidden input value to the selected rating for this specific card
 
             // Submit the form for this specific card
             $('#ratingForm_' + albumId).submit();

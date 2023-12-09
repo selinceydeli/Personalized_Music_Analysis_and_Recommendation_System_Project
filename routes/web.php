@@ -37,9 +37,18 @@ Route::get('/login', [UserController::class, 'login'])->name('login')->middlewar
 
 Route::get('/add', [SongController::class, 'add'])->name('add')->middleware(['auth']);
 
+Route::get('/songs/{id}', [SongController::class, 'show'])->name('show');
+
 Route::post('/upload-via-spotify', [SpotifyController::class, 'importSong'])->name('importSong');
 
 Route::post('/rate', [SongRatingController::class, 'store'])->name('store')->middleware(['auth']);
+
+Route::post('/deletesong/{id}', [SongController::class, 'destroy'])->name('destroy')->middleware(['auth']);
+
+Route::post('/deletealbum/{id}', [AlbumController::class, 'destroy'])->name('destroy')->middleware(['auth']);
+
+Route::post('deleteperformer/{id}', [PerformerController::class, 'destroy'])->name('destroy')->middleware(['auth']);
+
 
 
 // Single Album
@@ -86,6 +95,14 @@ Route::get('/dashboard/energy', [UserController::class, 'showDashboardEnergy'])
     ->name('dashboard.energy')
     ->middleware('auth');
 
+Route::get('/dashboard/positivevalence', [UserController::class, 'showDashboardPositive'])
+    ->name('dashboard.positivevalence')
+    ->middleware('auth');
+
+Route::get('/dashboard/negativevalence', [UserController::class, 'showDashboardNegative'])
+    ->name('dashboard.negativevalence')
+    ->middleware('auth');
+
 // Downloading songs
 Route::get('/download-all-rated-songs', [SongController::class, 'downloadAllRatedSongs']);
 Route::get('/downloads', function() {
@@ -102,3 +119,12 @@ Route::get('/hello', function () {
 });
 
 require __DIR__ . '/auth.php';
+
+// Downloading recommendations
+Route::get('/download-recommendations', [UserController::class, 'downloadRecommendations'])->middleware('auth');
+Route::get('/download-recommendations-energy', [UserController::class, 'downloadRecommendationsEnergy'])->middleware('auth');
+Route::get('/download-positive-recommendations', [UserController::class, 'downloadPositiveRecommendations'])->middleware('auth');
+Route::get('/download-negative-recommendations', [UserController::class, 'downloadNegativeRecommendations'])->middleware('auth');
+
+// Importing songs with json file
+Route::post('/import-json', [SpotifyController::class, 'importJSON'])->name('import-json');

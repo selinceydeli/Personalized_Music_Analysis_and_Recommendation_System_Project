@@ -1,0 +1,92 @@
+{
+    "album_type": "album",
+    "copyrights": "(P) 2017 Bad Boy Entertainment / Epic Records, a division of Sony Music Entertainment",
+    "genres": [],
+    "label": "Bad Boy Entertainment/Epic Records",
+    "name": "Jungle Rules",
+    "popularity": 77,
+    "release_date": "2017-07-14",
+    "total_tracks": 18,
+    "tracks": {
+        "items": [
+            {
+                "id": "0lI3C7jXLDY88pQPRjUCLR",
+                "track_number": 1
+            },
+            {
+                "id": "3B54sVLJ402zGa6Xm4YGNe",
+                "track_number": 2
+            },
+            {
+                "id": "5paFScPOaRDDlQu6gzHzeL",
+                "track_number": 3
+            },
+            {
+                "id": "1vVNlXi8gf8tZ7OhnEs4VE",
+                "track_number": 4
+            },
+            {
+                "id": "58wSQNRC9QE70EkDF2BEtm",
+                "track_number": 5
+            },
+            {
+                "id": "2mR5fQtkgi23sHVDfm5bo3",
+                "track_number": 6
+            },
+            {
+                "id": "3LRddJIw2ymm1CHIO9xlkC",
+                "track_number": 7
+            },
+            {
+                "id": "2Q5rgdW9RQxJTd4qwPH4VU",
+                "track_number": 8
+            },
+            {
+                "id": "2Y3zcR4Zk0XyNtscjr7qvN",
+                "track_number": 9
+            },
+            {
+                "id": "129PKoRRCYytSf62vGQyOI",
+                "track_number": 10
+            },
+            {
+                "id": "3oypEAkR7cV0tG8Fds2mPS",
+                "track_number": 11
+            },
+            {
+                "id": "2Lq3YslcqmTddz68ennyvs",
+                "track_number": 12
+            },
+            {
+                "id": "0qqS7xbYKBjMwSreV9aEqy",
+                "track_number": 13
+            },
+            {
+                "id": "09FMjUCLnkdnSBlZba6VMc",
+                "track_number": 14
+            },
+            {
+                "id": "6VYHQu2gmnyrQhBcI3NzxY",
+                "track_number": 15
+            },
+            {
+                "id": "6aTNfIir5pZmrFOC1gnxXB",
+                "track_number": 16
+            },
+            {
+                "id": "1jP3M6DPaKEIP8GQpTdHNX",
+                "track_number": 17
+            },
+            {
+                "id": "5ToQFiuatsVjWZEdWo4xaK",
+                "track_number": 18
+            }
+        ],
+        "total": 18
+    },
+    "type": "album",
+    "artist_id": "6vXTefBL93Dj5IqAWq6OTv",
+    "album_id": "4c2p3TdN7NcQfCXyueCNnC",
+    "upc": "886446608112",
+    "image": "https://i.scdn.co/image/ab67616d0000b2738a31195a371b2233456f6c07"
+}

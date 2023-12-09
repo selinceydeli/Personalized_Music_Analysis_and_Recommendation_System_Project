@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="images/circ-logo.jpg" sizes="16x16" type="image/png">
+    <link rel="icon" href="/images/circ-logo.jpg" sizes="16x16" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -32,7 +32,7 @@
 
 <body class="mb-48">
     <nav class="flex justify-between items-center mb-4">
-        <a href="/"><img class="w-24" src="images/circ-logo.jpg" alt="" class="logo" /></a>
+        <a href="/"><img class="w-24" src="/images/circ-logo.jpg" alt="" class="logo" /></a>
         <ul class="flex space-x-6 mr-6 text-lg">
             @auth
                 <!-- User Menu Item -->
@@ -58,6 +58,8 @@
                     <div x-show="open" @click.away="open = false" class="absolute mt-2 w-48 rounded-md shadow-lg bg-white z-50" style="display: none">
                         <a href="{{ route('dashboard.genretaste') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Genre Taste</a>
                         <a href="{{ route('dashboard.energy') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Energy & Dance Vibes</a>
+                        <a href="{{ route('dashboard.negativevalence') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Moody Mix</a>
+                        <a href="{{ route('dashboard.positivevalence') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Energetic Mix</a>
                     </div>
                 </li>
                 <!-- Analysis Menu Item -->
@@ -101,8 +103,6 @@
     <footer
         class="fixed bottom-0 left-0 w-full flex items-center justify-start font-bold bg-laravel text-white h-24 mt-24 opacity-90 md:justify-center">
         <p class="ml-2">Copyright &copy; 2023, All Rights reserved</p>
-
-        <a href="/add" class="absolute top-1/3 right-10 bg-black text-white py-2 px-5">Upload Music</a>
     </footer>
     <x-flash-message />
     <script src="{{ asset('js/password-checklist.js') }}"></script>

@@ -1,0 +1,27 @@
+[
+    {
+        "followers": 106002,
+        "genres": [
+            "deep disco house",
+            "melodic house"
+        ],
+        "name": "Rampa",
+        "popularity": 57,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb350efff32f3a579155fe40d2",
+        "artist_id": "08jywfUS0hp8XYlYs0cvz8"
+    },
+    {
+        "followers": 215078,
+        "genres": [
+            "alternative dance",
+            "dance-punk",
+            "danish indie",
+            "electronica",
+            "experimental pop"
+        ],
+        "name": "WhoMadeWho",
+        "popularity": 54,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb842f8096376d3308fe6fceb1",
+        "artist_id": "50Lr1puweM1hFsF1LpIZLM"
+    }
+]

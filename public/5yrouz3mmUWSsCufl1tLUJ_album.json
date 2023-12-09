@@ -1,0 +1,68 @@
+{
+    "album_type": "album",
+    "copyrights": "\u00a9 1990 Virgin Records Limited",
+    "genres": [],
+    "label": "Virgin Records",
+    "name": "Still Got The Blues",
+    "popularity": 60,
+    "release_date": "1990-01-01",
+    "total_tracks": 12,
+    "tracks": {
+        "items": [
+            {
+                "id": "0f8mDd5389l9t6I07vb5AK",
+                "track_number": 1
+            },
+            {
+                "id": "7LpcB50dBOGO3Ph6zlJyyH",
+                "track_number": 2
+            },
+            {
+                "id": "3giA44zxPL9lXeYhzdcMpX",
+                "track_number": 3
+            },
+            {
+                "id": "0DnGfA1r8pAssJCuq4ojla",
+                "track_number": 4
+            },
+            {
+                "id": "2Ek7APjm4D4NOmBHNHnerg",
+                "track_number": 5
+            },
+            {
+                "id": "7ft4TX7zpscb99cGTykFLh",
+                "track_number": 6
+            },
+            {
+                "id": "3yMiNNWzQKxivxkWWlskYZ",
+                "track_number": 7
+            },
+            {
+                "id": "56UsciEGCYrmCTSI3veuvC",
+                "track_number": 8
+            },
+            {
+                "id": "2n5LevrNK3JbN1WWtXuLD6",
+                "track_number": 9
+            },
+            {
+                "id": "39XeoQP9PicaydEPPJ2U5C",
+                "track_number": 10
+            },
+            {
+                "id": "6n6pNDA5p8SLTirQbjAf2A",
+                "track_number": 11
+            },
+            {
+                "id": "0JdwxBaCnq90T2Av4U6rzC",
+                "track_number": 12
+            }
+        ],
+        "total": 12
+    },
+    "type": "album",
+    "artist_id": "23wr9RJZg0PmYvVFyNkQ4j",
+    "album_id": "5yrouz3mmUWSsCufl1tLUJ",
+    "upc": "00077778616757",
+    "image": "https://i.scdn.co/image/ab67616d0000b273b586fc87d8bde3ba953f233a"
+}

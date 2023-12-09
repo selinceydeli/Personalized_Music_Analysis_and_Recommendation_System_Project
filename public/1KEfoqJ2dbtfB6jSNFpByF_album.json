@@ -1,0 +1,24 @@
+{
+    "album_type": "single",
+    "copyrights": "\u00a9 2019 Island Def Jam",
+    "genres": [],
+    "label": "Universal Music Division Island Def Jam",
+    "name": "Parle \u00e0 ta t\u00eate",
+    "popularity": 49,
+    "release_date": "2019-08-23",
+    "total_tracks": 1,
+    "tracks": {
+        "items": [
+            {
+                "id": "3lTGqzJbMYDHXbqeV8pt7d",
+                "track_number": 1
+            }
+        ],
+        "total": 1
+    },
+    "type": "album",
+    "artist_id": "0FEJqmeLRzsXj8hgcZaAyB",
+    "album_id": "1KEfoqJ2dbtfB6jSNFpByF",
+    "upc": "00602508169854",
+    "image": "https://i.scdn.co/image/ab67616d0000b273807631fcd1e357039a9a52a1"
+}
