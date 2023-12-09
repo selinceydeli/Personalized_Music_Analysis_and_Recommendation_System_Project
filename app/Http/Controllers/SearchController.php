@@ -30,6 +30,7 @@ class SearchController extends Controller
                         $song->rating = $song->songRatings->avg('rating'); // calculate average rating
                         return $song;
                     });
+        
 
         // Search in Albums
         $albums = Album::where('name', 'LIKE', "%{$searchTerm}%")
@@ -40,7 +41,7 @@ class SearchController extends Controller
                         $album->rating = $album->albumRatings->avg('rating'); // calculate average rating
                         return $album;
                     });
-
+        
         // Search in Performers
         $performers = Performer::where('name', 'LIKE', "%{$searchTerm}%")
                             ->with('performerRatings') // assuming you have a relationship set up to fetch ratings
@@ -50,10 +51,9 @@ class SearchController extends Controller
                                 $performer->rating = $performer->performerRatings->avg('rating'); // calculate average rating
                                 return $performer;
                             });
-
+        
         // Aggregate Results
-        $results = $songs->merge($albums)->merge($performers);
-
+        $results = $songs->concat($albums)->concat($performers);
         // Sort by Rating
         $sortedResults = $results->sortByDesc('rating');
 
