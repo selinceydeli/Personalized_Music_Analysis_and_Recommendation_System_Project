@@ -14,7 +14,7 @@
     @endphp
 @endif
 
-<x-card>
+<x-card class="relative">
     <div class="flex">
         <img class="w-48 h-48 mr-6 md:block"
             src="{{ $song->album && $song->album->image_url ? $song->album->image_url : asset('/images/no-image.png') }}"
@@ -78,13 +78,18 @@
                             @endif
                         @endforeach
                     @endforeach
+                    @php
+                        $matchedPerformers = $matchedPerformers->sortBy(function ($detail) {
+                            return $detail->name;
+                        });
+                    @endphp
 
                     @foreach ($matchedPerformers as $index => $details)
                         <a href="/performers/{{ $details->artist_id }}?song-id={{ $song->song_id }}"
                             class="text-lg font-bold">
                             {{ $details->name }} <!-- Assuming 'name' is the property you want to display -->
                         </a>
-                        @if (!$loop->last && $index !== $matchedPerformers->count() - 1)
+                        @if (!$loop->last)
                             , <!-- Add a comma if it's not the last performer -->
                         @endif
                     @endforeach
@@ -104,8 +109,7 @@
                             <br>
                             <span>
                                 Rerate this song:
-                                <form id="ratingForm_{{ $song->song_id }}" method="POST"
-                                    action="/ratesong">
+                                <form id="ratingForm_{{ $song->song_id }}" method="POST" action="/ratesong">
                                     @csrf
                                     <input type="hidden" name="song_id" value="{{ $song->song_id }}">
                                     <!-- Display 5 stars for rerating the song -->
@@ -121,8 +125,7 @@
                         @else
                             <br>
                             Rate this song:
-                            <form id="ratingForm_{{ $song->song_id }}" method="POST"
-                                action="/ratesong">
+                            <form id="ratingForm_{{ $song->song_id }}" method="POST" action="/ratesong">
                                 @csrf
                                 <input type="hidden" name="song_id" value="{{ $song->song_id }}">
                                 <!-- Display 5 stars for rating the song -->
@@ -139,8 +142,17 @@
                 @endif
             </div>
         </div>
+        @if (auth()->check())
+            <form id="deleteForm_{{ $song->song_id }}" method="POST" action="/deletesong/{{ $song->song_id }}" class="absolute bottom-5 right-5 bg-red-500 text-white p-1 rounded-full">
+                @csrf
+                <button type="submit" class="delete-song-btn" data-song-id="{{ $song->song_id }}">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </form>
+        @endif
     </div>
 </x-card>
+
 
 <script>
     $(document).ready(function() {
@@ -162,7 +174,7 @@
             var rating = $(this).data('rating');
             var songId = $(this).closest('form').find('input[name="song_id"]').val();
             $('#ratingInput_' + songId).val(
-            rating); // Set the hidden input value to the selected rating for this specific card
+                rating); // Set the hidden input value to the selected rating for this specific card
 
             // Submit the form for this specific card
             $('#ratingForm_' + songId).submit();

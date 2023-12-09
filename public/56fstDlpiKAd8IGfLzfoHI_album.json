@@ -1,0 +1,80 @@
+{
+    "album_type": "album",
+    "copyrights": "\u00a9 2014 Island Def Jam",
+    "genres": [],
+    "label": "Universal Music Division Island Def Jam",
+    "name": "Mini World (Deluxe)",
+    "popularity": 50,
+    "release_date": "2014-11-17",
+    "total_tracks": 15,
+    "tracks": {
+        "items": [
+            {
+                "id": "6b0EZvJmjOliu7Kikjn1Yy",
+                "track_number": 1
+            },
+            {
+                "id": "5BgX4KuvbDI0MzWmnP3Bll",
+                "track_number": 2
+            },
+            {
+                "id": "5ZBujya0xJOk5Gqg8Gu8wm",
+                "track_number": 3
+            },
+            {
+                "id": "263Q1XrSyLIycTfZTAaWSD",
+                "track_number": 4
+            },
+            {
+                "id": "7kNukVvhG2FmCPtA2kMzet",
+                "track_number": 5
+            },
+            {
+                "id": "1X9rNFS02LauW8IRrJb35p",
+                "track_number": 6
+            },
+            {
+                "id": "4J88VhIjeAuDPb8q8IF2GT",
+                "track_number": 7
+            },
+            {
+                "id": "5dvMHDHaB6Y2au3DXsWXEa",
+                "track_number": 8
+            },
+            {
+                "id": "6owjZ3xRNdnsDffUeDp6A0",
+                "track_number": 9
+            },
+            {
+                "id": "6nOWeFf3ofHaxlPmYBiEaL",
+                "track_number": 10
+            },
+            {
+                "id": "4FzGx0UiusrwGAyrDKZYrk",
+                "track_number": 11
+            },
+            {
+                "id": "0OTlwMOf0JFJlHe2w3Ue4f",
+                "track_number": 12
+            },
+            {
+                "id": "0OhMbTki7PEfNoEqae126h",
+                "track_number": 13
+            },
+            {
+                "id": "53cV42h1U35QKMpRCwjRa3",
+                "track_number": 14
+            },
+            {
+                "id": "0DP5S49zIPb16bufM4GW7o",
+                "track_number": 15
+            }
+        ],
+        "total": 15
+    },
+    "type": "album",
+    "artist_id": "0FEJqmeLRzsXj8hgcZaAyB",
+    "album_id": "56fstDlpiKAd8IGfLzfoHI",
+    "upc": "00602547118523",
+    "image": "https://i.scdn.co/image/ab67616d0000b27340a4e4510e0fba3633ab87d3"
+}

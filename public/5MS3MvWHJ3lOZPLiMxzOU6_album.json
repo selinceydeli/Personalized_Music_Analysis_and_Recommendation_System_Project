@@ -1,0 +1,84 @@
+{
+    "album_type": "album",
+    "copyrights": "\u00a9 2022 OVO, under exclusive license to Republic Records, a division of UMG Recordings, Inc",
+    "genres": [],
+    "label": "OVO / Republic Records",
+    "name": "Her Loss",
+    "popularity": 87,
+    "release_date": "2022-11-04",
+    "total_tracks": 16,
+    "tracks": {
+        "items": [
+            {
+                "id": "1bDbXMyjaUIooNwFE9wn0N",
+                "track_number": 1
+            },
+            {
+                "id": "46s57QULU02Voy0Kup6UEb",
+                "track_number": 2
+            },
+            {
+                "id": "34tz0eDhGuFErIuW3q4mPX",
+                "track_number": 3
+            },
+            {
+                "id": "0wshkEEcJUQU33RSRBb5dv",
+                "track_number": 4
+            },
+            {
+                "id": "7l2nxyx7IkBX5orhkALg0V",
+                "track_number": 5
+            },
+            {
+                "id": "2ZL7WZcjuYKi1KUDtp4kCC",
+                "track_number": 6
+            },
+            {
+                "id": "0sSRLXxknVTQDStgU1NqpY",
+                "track_number": 7
+            },
+            {
+                "id": "4Flfb4fGscN9kXPOduQLrv",
+                "track_number": 8
+            },
+            {
+                "id": "7GeTsDIc5ykNB6lORO6Cee",
+                "track_number": 9
+            },
+            {
+                "id": "2KLwPaRDOB87XOYAT2fgxh",
+                "track_number": 10
+            },
+            {
+                "id": "45pUWUeEWGoSdH6UF162G8",
+                "track_number": 11
+            },
+            {
+                "id": "410TZrK18uRjtsTunG14cl",
+                "track_number": 12
+            },
+            {
+                "id": "2ZlABhxMMa43COmZ97kKsJ",
+                "track_number": 13
+            },
+            {
+                "id": "29YW2xXlo6Pc6M0SBTCXYN",
+                "track_number": 14
+            },
+            {
+                "id": "1MTXYvJ9TSqg9x6WPCDx2n",
+                "track_number": 15
+            },
+            {
+                "id": "31bsuKDOzFGzBAoXxtnAJm",
+                "track_number": 16
+            }
+        ],
+        "total": 16
+    },
+    "type": "album",
+    "artist_id": "3TVXtAsR1Inumwj472S9r4",
+    "album_id": "5MS3MvWHJ3lOZPLiMxzOU6",
+    "upc": "00602448926197",
+    "image": "https://i.scdn.co/image/ab67616d0000b27302854a7060fccc1a66a4b5ad"
+}

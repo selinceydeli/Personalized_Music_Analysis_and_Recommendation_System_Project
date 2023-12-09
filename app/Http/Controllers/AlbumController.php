@@ -91,6 +91,7 @@ class AlbumController extends Controller
             }
             $latestAlbumRating=$songRatingsController->getLatestUserRatingForAlbum($username, $song->album->album_id);
             $latestAlbumRating = $latestAlbumRating ? $latestAlbumRating->rating : null;
+            
             return view('songs.show', [
                 'album' => $album,
                 'song' => $song,
@@ -199,10 +200,10 @@ class AlbumController extends Controller
     public function destroy($id){
         if (Album::where('album_id', $id) -> exists()){
             $album = Album::where('album_id',$id);
+            $a = Album::where('album_id',$id)->first();
+            $name = $a->name;
             $album->delete();
-            return response()->json([
-                "message" => "Album deleted"
-            ], 200);
+            return redirect('/')->with('message','Album ' . $name . ' deleted successfully');
         } else {
             return response()->json([
                 "message" => "Album not found"

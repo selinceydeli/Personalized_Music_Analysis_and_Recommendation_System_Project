@@ -18,7 +18,7 @@
     @endphp
 @endif
 
-<x-card>
+<x-card class="relative">
     <div class="flex">
         <img class="w-48 mr-6 md:block"
             src="{{ $song->album && $song->album->image_url ? $song->album->image_url : asset('/images/no-image.png') }}"
@@ -130,6 +130,16 @@
                             </form>
                         @endif
                     </p>
+                @endif
+                @if (auth()->check())
+                    <form id="deleteForm_{{ $song->song_id }}" method="POST"
+                        action="/deletesong/{{ $song->song_id }}"
+                        class="absolute bottom-5 right-5 bg-red-500 text-white p-1 rounded-full">
+                        @csrf
+                        <button type="submit" class="delete-song-btn" data-song-id="{{ $song->song_id }}">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </form>
                 @endif
             </div>
         </div>

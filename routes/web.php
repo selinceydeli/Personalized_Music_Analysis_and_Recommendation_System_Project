@@ -40,6 +40,8 @@ Route::get('/login', [UserController::class, 'login'])->name('login')->middlewar
 
 Route::get('/add', [SongController::class, 'add'])->name('add')->middleware(['auth']);
 
+Route::get('/songs/{id}', [SongController::class, 'show'])->name('show');
+
 Route::post('/upload-via-spotify', [SpotifyController::class, 'importSong'])->name('importSong');
 
 Route::post('/ratesong', [SongRatingController::class, 'store'])->name('store')->middleware(['auth']);
@@ -47,6 +49,13 @@ Route::post('/ratesong', [SongRatingController::class, 'store'])->name('store')-
 Route::post('/ratealbum', [AlbumRatingController::class, 'store'])->name('store')->middleware(['auth']);
 
 Route::post('/rateperformer', [PerformerRatingController::class, 'store'])->name('store')->middleware(['auth']);
+
+Route::post('/deletesong/{id}', [SongController::class, 'destroy'])->name('destroy')->middleware(['auth']);
+
+Route::post('/deletealbum/{id}', [AlbumController::class, 'destroy'])->name('destroy')->middleware(['auth']);
+
+Route::post('deleteperformer/{id}', [PerformerController::class, 'destroy'])->name('destroy')->middleware(['auth']);
+
 
 
 // Single Album

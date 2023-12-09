@@ -1,0 +1,170 @@
+[
+    {
+        "followers": 196350,
+        "genres": [
+            "queens hip hop"
+        ],
+        "name": "Chinx",
+        "popularity": 40,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb860cd997644ba887fd344887",
+        "artist_id": "2DctCFD8X80VeY7WLC86PS"
+    },
+    {
+        "followers": 75634369,
+        "genres": [
+            "canadian contemporary r&b",
+            "canadian pop",
+            "pop"
+        ],
+        "name": "The Weeknd",
+        "popularity": 93,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb214f3cf1cbe7139c1e26ffbb",
+        "artist_id": "1Xyo4u8uXC1ZmMpatF05PJ"
+    },
+    {
+        "followers": 539,
+        "genres": [],
+        "name": "Ziico Niico",
+        "popularity": 12,
+        "image": "https://i.scdn.co/image/ab67616d0000b273897916fc396c556240c0c0e0",
+        "artist_id": "25Pp1BugEoqaXprdVihSwj"
+    },
+    {
+        "followers": 484578,
+        "genres": [
+            "dancehall",
+            "jamaican hip hop",
+            "traphall"
+        ],
+        "name": "Alkaline",
+        "popularity": 54,
+        "image": "https://i.scdn.co/image/ab6761610000e5ebbdfce3be44d007b421ea03db",
+        "artist_id": "2LIAgeQ5NZurwixfoG3CWZ"
+    },
+    {
+        "followers": 4335099,
+        "genres": [
+            "dance pop",
+            "pop"
+        ],
+        "name": "Pharrell Williams",
+        "popularity": 76,
+        "image": "https://i.scdn.co/image/ab6761610000e5ebf0789cd783c20985ec3deb4e",
+        "artist_id": "2RdwBSPQiwcmiDo9kixcl8"
+    },
+    {
+        "followers": 417511,
+        "genres": [
+            "indie pop rap"
+        ],
+        "name": "Marc E. Bassy",
+        "popularity": 56,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb6c044c16a167a8b1ebcf5965",
+        "artist_id": "3tQx1LPXbsYjE9VwN1Peaa"
+    },
+    {
+        "followers": 5273875,
+        "genres": [
+            "hip hop",
+            "pop rap",
+            "rap",
+            "southern hip hop",
+            "trap"
+        ],
+        "name": "French Montana",
+        "popularity": 72,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb4817f2b6ca81e55e2c1f79d9",
+        "artist_id": "6vXTefBL93Dj5IqAWq6OTv"
+    },
+    {
+        "followers": 4734664,
+        "genres": [
+            "atl hip hop",
+            "dirty south rap",
+            "gangster rap",
+            "hip hop",
+            "pop rap",
+            "rap",
+            "southern hip hop",
+            "trap"
+        ],
+        "name": "T.I.",
+        "popularity": 71,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb12057d342f33c61b3768f2bc",
+        "artist_id": "4OBJLual30L7gRl5UkeRcT"
+    },
+    {
+        "followers": 230979,
+        "genres": [],
+        "name": "Max B",
+        "popularity": 42,
+        "image": "https://i.scdn.co/image/fc9e3f5acf8255daa7b368d68a825ceb0325c967",
+        "artist_id": "7f35VZGDpomj11PXdNn5D9"
+    },
+    {
+        "followers": 9255636,
+        "genres": [
+            "atl hip hop",
+            "atl trap",
+            "gangster rap",
+            "melodic rap",
+            "rap",
+            "trap"
+        ],
+        "name": "Young Thug",
+        "popularity": 82,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb547d2b41c9f2c97318aad0ed",
+        "artist_id": "50co4Is1HCEo8bhOyUWKpn"
+    },
+    {
+        "followers": 25557930,
+        "genres": [
+            "hip hop",
+            "rap",
+            "slap house"
+        ],
+        "name": "Travis Scott",
+        "popularity": 90,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb19c2790744c792d05570bb71",
+        "artist_id": "0Y5tJX1MQlPlqiwlOH1tJY"
+    },
+    {
+        "followers": 1917721,
+        "genres": [
+            "melodic rap",
+            "rap",
+            "trap"
+        ],
+        "name": "Swae Lee",
+        "popularity": 78,
+        "image": "https://i.scdn.co/image/ab6761610000e5ebf1be22786da29b0a1284c0a5",
+        "artist_id": "1zNqQNIdeOUZHb8zbZRFMX"
+    },
+    {
+        "followers": 15506192,
+        "genres": [
+            "atl hip hop",
+            "hip hop",
+            "rap",
+            "southern hip hop",
+            "trap"
+        ],
+        "name": "Future",
+        "popularity": 87,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb24e41f491b129093a6fee383",
+        "artist_id": "1RyvyyTE3xzB2ZywiAwp0i"
+    },
+    {
+        "followers": 7096298,
+        "genres": [
+            "atl hip hop",
+            "melodic rap",
+            "rap",
+            "trap"
+        ],
+        "name": "Quavo",
+        "popularity": 76,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb14f31cb638401481a5bdfc45",
+        "artist_id": "0VRj0yCOv2FXJNP47XQnx5"
+    }
+]

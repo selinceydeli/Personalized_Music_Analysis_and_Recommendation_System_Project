@@ -1,0 +1,80 @@
+{
+    "album_type": "album",
+    "copyrights": "\u00a9 2022 Boominati Worldwide, LLC, under exclusive license to Republic Records, a division of UMG Recordings, Inc.",
+    "genres": [],
+    "label": "Republic Records",
+    "name": "HEROES & VILLAINS",
+    "popularity": 92,
+    "release_date": "2022-12-02",
+    "total_tracks": 15,
+    "tracks": {
+        "items": [
+            {
+                "id": "0YFqKxV9uNu6LUeYkLOKRS",
+                "track_number": 1
+            },
+            {
+                "id": "0vjeOZ3Ft5jvAi9SBFJm1j",
+                "track_number": 2
+            },
+            {
+                "id": "2Hh3ETdQKrmSI3QS0hme7g",
+                "track_number": 3
+            },
+            {
+                "id": "1pacwLXyRO47ka0v6LTIiY",
+                "track_number": 4
+            },
+            {
+                "id": "2Yt4SXIgmoaPZHGdRafp4P",
+                "track_number": 5
+            },
+            {
+                "id": "5wG3HvLhF6Y5KTGlK0IW3J",
+                "track_number": 6
+            },
+            {
+                "id": "221qmpQeBNV87sUjQeUTVH",
+                "track_number": 7
+            },
+            {
+                "id": "2VtgzixdB967bHDNu5A1nh",
+                "track_number": 8
+            },
+            {
+                "id": "2N9LEu6Pf8nDcp3GjWJT1Z",
+                "track_number": 9
+            },
+            {
+                "id": "2dHHgzDwk4BJdRwy9uXhTO",
+                "track_number": 10
+            },
+            {
+                "id": "4WuOWVnAqvEQxgSRrspBgt",
+                "track_number": 11
+            },
+            {
+                "id": "1UsQe17Ef7tV1ahFqHEFR3",
+                "track_number": 12
+            },
+            {
+                "id": "0OoNzMdPSgbkM5MkcuEZfm",
+                "track_number": 13
+            },
+            {
+                "id": "3SsJ17EnPIu1B4GZshqjIS",
+                "track_number": 14
+            },
+            {
+                "id": "4a1fh9vJMMoRjNrBmEWoM0",
+                "track_number": 15
+            }
+        ],
+        "total": 15
+    },
+    "type": "album",
+    "artist_id": "0iEtIxbK0KxaSlF7G42ZOp",
+    "album_id": "7txGsnDSqVMoRl6RQ9XyZP",
+    "upc": "00602455047458",
+    "image": "https://i.scdn.co/image/ab67616d0000b273c4fee55d7b51479627c31f89"
+}
