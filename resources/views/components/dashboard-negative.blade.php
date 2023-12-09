@@ -17,7 +17,7 @@
         </h1>
         <!-- Download Button -->
         <div class="text-center mb-4">
-            <button onclick="downloadRecommendations()" class="bg-blue-500 text-white px-4 py-2 rounded">Download Recommendations</button>
+            <button onclick="downloadNegativeRecommendations()" class="bg-blue-500 text-white px-4 py-2 rounded">Download Recommendations</button>
         </div>
 
         <!-- Section for General Recommendations -->
@@ -78,7 +78,7 @@
 </x-layout>
 
 <script>
-    function downloadRecommendations() {
-        window.location.href = '/download-recommendations';
+    function downloadNegativeRecommendations() {
+        window.location.href = '/download-negative-recommendations';
     }
 </script>

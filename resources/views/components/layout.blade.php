@@ -46,6 +46,8 @@
                     <div x-show="open" @click.away="open = false" class="absolute mt-2 w-48 rounded-md shadow-lg bg-white z-50">
                         <a href="{{ route('dashboard.genretaste') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Genre Taste</a>
                         <a href="{{ route('dashboard.energy') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Energy & Dance Vibes</a>
+                        <a href="{{ route('dashboard.negativevalence') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Moody Recommendations</a>
+                        <a href="{{ route('dashboard.positivevalence') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Energetic Recommendations</a>
                     </div>
                 </li>
                 <!-- Analysis Menu Item -->

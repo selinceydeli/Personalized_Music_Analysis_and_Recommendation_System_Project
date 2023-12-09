@@ -154,10 +154,21 @@ class UserController extends Controller
         ->with('ratings') // Load the song ratings relationship
         ->get()
         ->sortByDesc('average_rating') // Sort by the accessor 'average_rating'
-        ->take(20) // Limit to 20 songs for recommendation
-        ->values();
+        ->take(20); // Limit to 20 songs for recommendation
 
-        return view('components.dashboard-positive', ['recommendations' => $recommendedSongs]);
+        return $recommendedSongs;
+    }
+
+    public function showDashboardNegative(){
+        $username = auth()->user()->username;
+        $recommendations = $this->favNegativeRecomendation($username) ?? [];
+        return view('components.dashboard-negative', ['recommendations' => $recommendations]);
+    }
+
+    public function showDashboardPositive(){
+        $username = auth()->user()->username;
+        $recommendations = $this->favPositiveRecomendation($username) ?? [];
+        return view('components.dashboard-positive', ['recommendations' => $recommendations]);
     }
 
     public function favNegativeRecomendation($username){
@@ -194,15 +205,14 @@ class UserController extends Controller
             }
         })
         ->whereNotIn('song_id', $ratedSongIds)
-        ->where('valence', '>=', 0.75)
-        ->where('valence', '<=', 1)
+        ->where('valence', '<=', 0.25)
+        ->where('valence', '>=', 0)
         ->with('ratings') // Load the song ratings relationship
         ->get()
         ->sortByDesc('average_rating') // Sort by the accessor 'average_rating'
-        ->take(20) // Limit to 20 songs for recommendation
-        ->values();
+        ->take(20); // Limit to 20 songs for recommendation
 
-        return view('components.dashboard-negative', ['recommendations' => $recommendedSongs]);
+        return $recommendedSongs;
     }
     
 
@@ -406,6 +416,46 @@ class UserController extends Controller
 
             // Fetch the recommendations using the method from UserController
             $recommendations = $userController->RecomendationByEnergyAndDanceability($username);
+
+            $jsonData = json_encode($recommendations, JSON_PRETTY_PRINT);
+            $filename = "recommendations.json";
+
+            return response($jsonData, 200, [
+                'Content-Type' => 'application/json',
+                'Content-Disposition' => "attachment; filename={$filename}"
+            ]);
+        }
+
+        //downloading recommendations (energy-based)
+        public function downloadPositiveRecommendations()
+        {
+            $username = auth()->user()->username;
+
+            // Instantiate UserController
+            $userController = new UserController();
+
+            // Fetch the recommendations using the method from UserController
+            $recommendations = $userController->favPositiveRecomendation($username);
+
+            $jsonData = json_encode($recommendations, JSON_PRETTY_PRINT);
+            $filename = "recommendations.json";
+
+            return response($jsonData, 200, [
+                'Content-Type' => 'application/json',
+                'Content-Disposition' => "attachment; filename={$filename}"
+            ]);
+        }
+
+        //downloading recommendations (energy-based)
+        public function downloadNegativeRecommendations()
+        {
+            $username = auth()->user()->username;
+
+            // Instantiate UserController
+            $userController = new UserController();
+
+            // Fetch the recommendations using the method from UserController
+            $recommendations = $userController->favNegativeRecomendation($username);
 
             $jsonData = json_encode($recommendations, JSON_PRETTY_PRINT);
             $filename = "recommendations.json";
