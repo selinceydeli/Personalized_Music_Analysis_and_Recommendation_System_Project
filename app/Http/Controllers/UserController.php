@@ -217,38 +217,46 @@ class UserController extends Controller
     
 
     public function RecomendationByEnergyAndDanceability($username) {
-        // Get top 20 rated songs by the user
-        $topRatedSongs = DB::table('song_ratings')
-                ->where('username', $username)
-                ->orderBy('rating', 'desc')
-                ->take(20)
-                ->pluck('song_id');
-    
-        // Calculate average danceability and energy values
-        $averages = Song::whereIn('song_id', $topRatedSongs)
-                ->selectRaw('AVG(danceability) as average_danceability, AVG(energy) as average_energy')
-                ->first();
-    
-        // Define a subquery to exclude songs already rated by the user
-        $exclusionSubquery = function($query) use ($username) {
-            $query->select('song_id')
-                  ->from('song_ratings')
-                  ->where('username', $username);
-        };
-    
-        // Get 15 songs with closest danceability and energy values
-        $recommendedSongs = Song::whereNotIn('song_id', $exclusionSubquery)
-            ->with(['ratings'])
+        // Retrieve user's top-rated performers
+        $topPerformersGenres = PerformerRating::where('username', $username)
+            ->orderBy('rating', 'desc')
+            ->with('performer') // Assuming a relationship is defined in the PerformerRating model
             ->get()
-            ->map(function ($song) use ($averages) {
-                // Calculate the difference in danceability and energy
-                $song->difference = abs($song->danceability - $averages->average_danceability) + 
-                                    abs($song->energy - $averages->average_energy);
-                return $song;
+            ->pluck('performer.genre')
+            ->map(function ($genres) {
+                return json_decode($genres); // Convert JSON string to PHP array
             })
-            ->sortBy('difference') // Sort by the calculated difference
-            ->take(15); // Limit to 15 songs
-    
+            ->flatten()
+            ->unique()
+            ->values()
+            ->all(); // $topPerformersGenres is an array of all unique genres that the top performers are associated with
+
+        // Find performers with any of the genres from top performers
+        $similarPerformers = Performer::where(function ($query) use ($topPerformersGenres) {
+            foreach ($topPerformersGenres as $genre) {
+                $query->orWhereJsonContains('genre', $genre); // Check if the performer's genres contain any of the top genres
+            }
+        })->get()
+            ->pluck('artist_id')
+            ->toArray();
+        
+        $ratedSongIds = SongRating::where('username', $username)->pluck('song_id')->toArray();
+
+        // Retrieve top-rated songs from these performers
+        $recommendedSongs = Song::where(function ($query) use ($similarPerformers) {
+            foreach ($similarPerformers as $artistId) {
+                // Adjust the query to check if the JSON array contains the artistId as a string
+                $query->orWhereJsonContains('performers', (string)$artistId);
+            }
+        })
+        ->whereNotIn('song_id', $ratedSongIds)
+        ->where('danceability', '>=', 0.75)
+        ->where('energy', '>=', 0.75)
+        ->with('ratings') // Load the song ratings relationship
+        ->get()
+        ->sortByDesc('average_rating') // Sort by the accessor 'average_rating'
+        ->take(20); // Limit to 20 songs for recommendation
+
         return $recommendedSongs;
     }
 
