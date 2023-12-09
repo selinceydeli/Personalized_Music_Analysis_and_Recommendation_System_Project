@@ -27,6 +27,7 @@ class SearchController extends Controller
                                WHEN name LIKE '{$searchTerm}%' THEN 1 
                                ELSE 2 
                              END as priority")
+                ->limit(20)
                 ->get()
                 ->map(function ($song) {
                     $song->search_type = 'song';
@@ -40,6 +41,7 @@ class SearchController extends Controller
                                     WHEN name LIKE '{$searchTerm}%' THEN 1 
                                     ELSE 2 
                                     END as priority")
+                    ->limit(10)
                     ->get()
                     ->map(function ($album) {
                         $album->search_type = 'album';
@@ -53,6 +55,7 @@ class SearchController extends Controller
                                             WHEN name LIKE '{$searchTerm}%' THEN 1 
                                             ELSE 2 
                                             END as priority")
+                            ->limit(10)
                             ->get()
                             ->map(function ($performer) {
                                 $performer->search_type = 'performer';
@@ -77,6 +80,7 @@ class SearchController extends Controller
                         WHEN name LIKE '{$searchTerm}%' THEN 1 
                         ELSE 2 
                         END as priority")
+            ->limit(20)
             ->get()
             ->map(function ($album) {
                 $album->search_type = 'album';
@@ -99,6 +103,7 @@ class SearchController extends Controller
                                     WHEN name LIKE '{$searchTerm}%' THEN 1 
                                     ELSE 2 
                                     END as priority")
+                        ->limit(30)
                         ->get()
                         ->map(function ($song) {
                             $song->search_type = 'song';
@@ -121,6 +126,7 @@ class SearchController extends Controller
                                           WHEN name LIKE '{$searchTerm}%' THEN 1 
                                           ELSE 2 
                                         END as priority")
+                           ->limit(20)
                            ->get()
                            ->map(function ($performer) {
                                $performer->search_type = 'performer';
