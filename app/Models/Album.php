@@ -27,4 +27,13 @@ class Album extends Model
     {
         return $this->hasMany(albumRating::class, 'album_id', 'album_id');
     }
+
+    public function getAverageRatingAttribute()
+    {
+        if ($this->albumRatings->isNotEmpty()) {
+            return $this->albumRatings->avg('rating');
+        }
+
+        return 0; // Default to 0 if there are no ratings
+    }
 }

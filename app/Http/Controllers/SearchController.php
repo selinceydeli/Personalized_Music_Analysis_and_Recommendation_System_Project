@@ -21,78 +21,93 @@ class SearchController extends Controller
 {
     public function search_all($searchTerm){
 
-        // Search in Songs
         $songs = Song::where('name', 'LIKE', "%{$searchTerm}%")
-                    ->with('songRatings') // assuming you have a relationship set up to fetch ratings
-                    ->get()
-                    ->map(function ($song) {
-                        $song->search_type = 'song';
-                        $song->rating = $song->songRatings->avg('rating'); // calculate average rating
-                        return $song;
-                    });
-        
+                ->selectRaw("songs.*, 
+                             CASE 
+                               WHEN name LIKE '{$searchTerm}%' THEN 1 
+                               ELSE 2 
+                             END as priority")
+                ->get()
+                ->map(function ($song) {
+                    $song->search_type = 'song';
+                    return $song;
+                });
 
-        // Search in Albums
+        // Search in Albums with priority
         $albums = Album::where('name', 'LIKE', "%{$searchTerm}%")
-                    ->with('albumRatings') // assuming you have a relationship set up to fetch ratings
+                    ->selectRaw("albums.*, 
+                                    CASE 
+                                    WHEN name LIKE '{$searchTerm}%' THEN 1 
+                                    ELSE 2 
+                                    END as priority")
                     ->get()
                     ->map(function ($album) {
                         $album->search_type = 'album';
-                        $album->rating = $album->albumRatings->avg('rating'); // calculate average rating
                         return $album;
                     });
-        
-        // Search in Performers
+
+        // Search in Performers with priority
         $performers = Performer::where('name', 'LIKE', "%{$searchTerm}%")
-                            ->with('performerRatings') // assuming you have a relationship set up to fetch ratings
+                            ->selectRaw("performers.*, 
+                                            CASE 
+                                            WHEN name LIKE '{$searchTerm}%' THEN 1 
+                                            ELSE 2 
+                                            END as priority")
                             ->get()
                             ->map(function ($performer) {
                                 $performer->search_type = 'performer';
-                                $performer->rating = $performer->performerRatings->avg('rating'); // calculate average rating
                                 return $performer;
                             });
-        
-        // Aggregate Results
+
+        // Concatenate Results
         $results = $songs->concat($albums)->concat($performers);
-        // Sort by Rating
-        $sortedResults = $results->sortByDesc('rating');
 
-        // Return sorted results
-        return $sortedResults;
-    }
-    public function search_song($searchTerm){
-
-        // Search in Songs
-        $songs = Song::where('name', 'LIKE', "%{$searchTerm}%")
-                    ->with('songRatings') // assuming you have a relationship set up to fetch ratings
-                    ->get()
-                    ->map(function ($song) {
-                        $song->search_type = 'song';
-                        $song->rating = $song->songRatings->avg('rating'); // calculate average rating
-                        return $song;
-                    });
-
-
-        // Sort by Rating
-        $sortedResults = $songs->sortByDesc('rating');
+        // Sort by Priority and then by Rating
+        $sortedResults = $results->sortBy([['priority', 'asc'], ['average_rating', 'desc']]);
 
         // Return sorted results
         return $sortedResults;
     }
     public function search_album($searchTerm){
 
-        $albums = Album::where('name', 'LIKE', "%{$searchTerm}%")
-                    ->with('albumRatings') // assuming you have a relationship set up to fetch ratings
-                    ->get()
-                    ->map(function ($album) {
-                        $album->search_type = 'album';
-                        $album->rating = $album->albumRatings->avg('rating'); // calculate average rating
-                        return $album;
-                    });
+        // Search in Albums with priority
+            $albums = Album::where('name', 'LIKE', "%{$searchTerm}%")
+            ->selectRaw("albums.*, 
+                        CASE 
+                        WHEN name LIKE '{$searchTerm}%' THEN 1 
+                        ELSE 2 
+                        END as priority")
+            ->get()
+            ->map(function ($album) {
+                $album->search_type = 'album';
+                return $album;
+            });
 
 
         // Sort by Rating
-        $sortedResults = $albums->sortByDesc('rating');
+        $sortedResults = $albums->sortBy([['priority', 'asc'], ['average_rating', 'desc']]);
+
+        // Return sorted results
+        return $sortedResults;
+    }
+    public function search_song($searchTerm){
+
+        // Search in Albums with priority
+        $songs = Song::where('name', 'LIKE', "%{$searchTerm}%")
+                        ->selectRaw("songs.*, 
+                                    CASE 
+                                    WHEN name LIKE '{$searchTerm}%' THEN 1 
+                                    ELSE 2 
+                                    END as priority")
+                        ->get()
+                        ->map(function ($song) {
+                            $song->search_type = 'song';
+                            return $song;
+        });
+
+
+        // Sort by Rating
+        $sortedResults = $songs->sortBy([['priority', 'asc'], ['average_rating', 'desc']]);
 
         // Return sorted results
         return $sortedResults;
@@ -101,17 +116,20 @@ class SearchController extends Controller
 
 
         $performers = Performer::where('name', 'LIKE', "%{$searchTerm}%")
-                            ->with('performerRatings') // assuming you have a relationship set up to fetch ratings
-                            ->get()
-                            ->map(function ($performer) {
-                                $performer->search_type = 'performer';
-                                $performer->rating = $performer->performerRatings->avg('rating'); // calculate average rating
-                                return $performer;
-                            });
+                           ->selectRaw("performers.*, 
+                                        CASE 
+                                          WHEN name LIKE '{$searchTerm}%' THEN 1 
+                                          ELSE 2 
+                                        END as priority")
+                           ->get()
+                           ->map(function ($performer) {
+                               $performer->search_type = 'performer';
+                               return $performer;
+                           });
 
 
         // Sort by Rating
-        $sortedResults = $performers->sortByDesc('rating');
+        $sortedResults = $performers->sortBy([['priority', 'asc'], ['average_rating', 'desc']]);
 
         // Return sorted results
         return $sortedResults;

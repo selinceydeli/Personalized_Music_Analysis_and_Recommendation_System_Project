@@ -21,4 +21,13 @@ class Performer extends Model
     {
         return $this->hasMany(Album::class, 'artist_id');
     }
+
+    public function getAverageRatingAttribute()
+    {
+        if ($this->performerRatings->isNotEmpty()) {
+            return $this->performerRatings->avg('rating');
+        }
+
+        return 0; // Default to 0 if there are no ratings
+    }
 }

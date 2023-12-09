@@ -18,8 +18,8 @@ class Song extends Model
 
     public function getAverageRatingAttribute()
     {
-        if ($this->ratings->isNotEmpty()) {
-            return $this->ratings->avg('rating');
+        if ($this->songRatings->isNotEmpty()) {
+            return $this->songRatings->avg('rating');
         }
 
         return 0; // Default to 0 if there are no ratings
