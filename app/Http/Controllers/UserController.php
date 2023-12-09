@@ -134,55 +134,150 @@ class UserController extends Controller
         return $recommendedSongs;
     }
 
+    public function favPositiveRecomendation($username){
+        // Retrieve user's top-rated performers
+        $topPerformersGenres = PerformerRating::where('username', $username)
+            ->orderBy('rating', 'desc')
+            ->with('performer') // Assuming a relationship is defined in the PerformerRating model
+            ->get()
+            ->pluck('performer.genre')
+            ->map(function ($genres) {
+                return json_decode($genres); // Convert JSON string to PHP array
+            })
+            ->flatten()
+            ->unique()
+            ->values()
+            ->all(); // $topPerformersGenres is an array of all unique genres that the top performers are associated with
 
-    public function RecomendationByEnergyAndDanceability($username)
-    {
+        // Find performers with any of the genres from top performers
+        $similarPerformers = Performer::where(function ($query) use ($topPerformersGenres) {
+            foreach ($topPerformersGenres as $genre) {
+                $query->orWhereJsonContains('genre', $genre); // Check if the performer's genres contain any of the top genres
+            }
+        })->get()
+            ->pluck('artist_id')
+            ->toArray();
+        
+            $ratedSongIds = SongRating::where('username', $username)->pluck('song_id')->toArray();
+
+            // Retrieve the latest user ratings for songs
+            $ratingsMap = [];
+            $songRatingsController = new SongRatingController();
+            foreach ($ratedSongIds as $songId) {
+                $latestUserRating = $songRatingsController->getLatestUserRating($username, $songId);
+                $ratingsMap[$songId] = [
+                    'latest_user_rating' => $latestUserRating ? $latestUserRating->rating : null,
+                ];
+            }
+    
+            // Retrieve unrated songs from similar performers
+            $recommendedSongs = Song::where(function ($query) use ($similarPerformers) {
+                foreach ($similarPerformers as $artistId) {
+                    $query->orWhereJsonContains('performers', (string)$artistId);
+                }
+            })
+                ->whereNotIn('song_id', $ratedSongIds)
+                ->with('ratings')
+                ->get()
+                ->filter(function ($song) use ($ratingsMap) {
+                    // Filter out songs that the user has already rated
+                    return !isset($ratingsMap[$song->song_id]);
+                })
+                ->sortByDesc('average_rating')
+                ->take(15)
+                ->values();
+    
+            return $recommendedSongs;
+    }
+
+    public function showDashboardNegative(){
+        $username = auth()->user()->username;
+        $recommendations = $this->favNegativeRecomendation($username) ?? [];
+        return view('components.dashboard-negative', ['recommendations' => $recommendations]);
+    }
+
+    public function showDashboardPositive(){
+        $username = auth()->user()->username;
+        $recommendations = $this->favPositiveRecomendation($username) ?? [];
+        return view('components.dashboard-positive', ['recommendations' => $recommendations]);
+    }
+
+    public function favNegativeRecomendation($username){
+        // Retrieve user's top-rated performers
+        $topPerformersGenres = PerformerRating::where('username', $username)
+            ->orderBy('rating', 'desc')
+            ->with('performer') // Assuming a relationship is defined in the PerformerRating model
+            ->get()
+            ->pluck('performer.genre')
+            ->map(function ($genres) {
+                return json_decode($genres); // Convert JSON string to PHP array
+            })
+            ->flatten()
+            ->unique()
+            ->values()
+            ->all(); // $topPerformersGenres is an array of all unique genres that the top performers are associated with
+
+        // Find performers with any of the genres from top performers
+        $similarPerformers = Performer::where(function ($query) use ($topPerformersGenres) {
+            foreach ($topPerformersGenres as $genre) {
+                $query->orWhereJsonContains('genre', $genre); // Check if the performer's genres contain any of the top genres
+            }
+        })->get()
+            ->pluck('artist_id')
+            ->toArray();
+        
+        $ratedSongIds = SongRating::where('username', $username)->pluck('song_id')->toArray();
+
+        // Retrieve top-rated songs from these performers
+        $recommendedSongs = Song::where(function ($query) use ($similarPerformers) {
+            foreach ($similarPerformers as $artistId) {
+                // Adjust the query to check if the JSON array contains the artistId as a string
+                $query->orWhereJsonContains('performers', (string)$artistId);
+            }
+        })
+        ->whereNotIn('song_id', $ratedSongIds)
+        ->where('valence', '<=', 0.25)
+        ->where('valence', '>=', 0)
+        ->with('ratings') // Load the song ratings relationship
+        ->get()
+        ->sortByDesc('average_rating') // Sort by the accessor 'average_rating'
+        ->take(20); // Limit to 20 songs for recommendation
+
+        return $recommendedSongs;
+    }
+
+    public function RecomendationByEnergyAndDanceability($username) {
         // Get top 20 rated songs by the user
         $topRatedSongs = DB::table('song_ratings')
-            ->where('username', $username)
-            ->orderBy('rating', 'desc')
-            ->take(20)
-            ->pluck('song_id');
-
+                ->where('username', $username)
+                ->orderBy('rating', 'desc')
+                ->take(20)
+                ->pluck('song_id');
         // Calculate average danceability and energy values
         $averages = Song::whereIn('song_id', $topRatedSongs)
-            ->selectRaw('AVG(danceability) as average_danceability, AVG(energy) as average_energy')
-            ->first();
-
-        // Get 30 songs with closest danceability and energy values
-        // and exclude songs already rated by the user
-        $recommendedSongs = Song::whereNotIn('song_id', function ($query) use ($username) {
+                ->selectRaw('AVG(danceability) as average_danceability, AVG(energy) as average_energy')
+                ->first();
+    
+        // Define a subquery to exclude songs already rated by the user
+        $exclusionSubquery = function($query) use ($username) {
             $query->select('song_id')
-                ->from('song_ratings')
-                ->where('username', $username);
-        })
-            ->orderByRaw('ABS(danceability - ?) + ABS(energy - ?) ASC', [$averages->average_danceability, $averages->average_energy])
-            ->take(15)
-            ->get();
-        foreach ($recommendedSongs as $song) {
-            $ratings = SongRating::where('song_id', $song->song_id)->pluck('rating')->toArray();
-            $averageRating = count($ratings) > 0 ? array_sum($ratings) / count($ratings) : 0;
-
-            // Assign the average rating to the song object
-            $song->average_rating = $averageRating;
-        }
-        $recommendedSongs = $recommendedSongs->sortByDesc('average_rating')->values();
-
-        $ratedSongIds = SongRating::where('username', $username)->pluck('song_id')->toArray();
-        // Retrieve the latest user ratings for songs
-        $ratingsMap = [];
-        $songRatingsController = new SongRatingController();
-        foreach ($ratedSongIds as $songId) {
-            $latestUserRating = $songRatingsController->getLatestUserRating($username, $songId);
-            $ratingsMap[$songId] = [
-                'latest_user_rating' => $latestUserRating ? $latestUserRating->rating : null,
-            ];
-        }
-        $recommendedSongs = $recommendedSongs->filter(function ($song) use ($ratingsMap) {
-            // Filter out songs that have a null rating in the ratingsMap
-            return !isset($ratingsMap[$song->song_id]['latest_user_rating']);
-        });
-
+                  ->from('song_ratings')
+                  ->where('username', $username);
+        };
+    
+        // Get 15 songs with closest danceability and energy values
+        $recommendedSongs = Song::whereNotIn('song_id', $exclusionSubquery)
+            ->with(['ratings'])
+            ->get()
+            ->map(function ($song) use ($averages) {
+                // Calculate the difference in danceability and energy
+                $song->difference = abs($song->danceability - $averages->average_danceability) + 
+                                    abs($song->energy - $averages->average_energy);
+                return $song;
+            })
+            ->sortBy('difference') // Sort by the calculated difference
+            ->take(15); // Limit to 15 songs
+    
         return $recommendedSongs;
     }
 
@@ -486,9 +581,48 @@ class UserController extends Controller
         $jsonData = json_encode($recommendations, JSON_PRETTY_PRINT);
         $filename = "recommendations.json";
 
-        return response($jsonData, 200, [
-            'Content-Type' => 'application/json',
-            'Content-Disposition' => "attachment; filename={$filename}"
-        ]);
-    }
+            return response($jsonData, 200, [
+                'Content-Type' => 'application/json',
+                'Content-Disposition' => "attachment; filename={$filename}"
+            ]);
+        }
+        //downloading recommendations (energy-based)
+        public function downloadPositiveRecommendations()
+        {
+            $username = auth()->user()->username;
+
+            // Instantiate UserController
+            $userController = new UserController();
+
+            // Fetch the recommendations using the method from UserController
+            $recommendations = $userController->favPositiveRecomendation($username);
+
+            $jsonData = json_encode($recommendations, JSON_PRETTY_PRINT);
+            $filename = "recommendations.json";
+
+            return response($jsonData, 200, [
+                'Content-Type' => 'application/json',
+                'Content-Disposition' => "attachment; filename={$filename}"
+            ]);
+        }
+
+        //downloading recommendations (energy-based)
+        public function downloadNegativeRecommendations()
+        {
+            $username = auth()->user()->username;
+
+            // Instantiate UserController
+            $userController = new UserController();
+
+            // Fetch the recommendations using the method from UserController
+            $recommendations = $userController->favNegativeRecomendation($username);
+
+            $jsonData = json_encode($recommendations, JSON_PRETTY_PRINT);
+            $filename = "recommendations.json";
+
+            return response($jsonData, 200, [
+                'Content-Type' => 'application/json',
+                'Content-Disposition' => "attachment; filename={$filename}"
+            ]);
+        }
 }
