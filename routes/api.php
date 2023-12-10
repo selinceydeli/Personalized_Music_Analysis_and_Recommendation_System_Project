@@ -106,6 +106,7 @@ Route::post('/unblock-user/{id}', [BlockController::class, 'unblockUser']);
 Route::get('/user/{username}/friends', [UserController::class, 'getFriends']);
 Route::get('/user/{username}/blocked', [UserController::class, 'getBlockedUsers']);
 Route::get('/user/{username}/notifications', [UserController::class, 'getNotifications']);
+Route::get('/test-friendships/{username}', [UserController::class, 'testFriendships']);
 
 
 // Handling song imports

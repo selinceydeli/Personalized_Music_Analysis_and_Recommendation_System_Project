@@ -12,6 +12,10 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    protected $primaryKey = 'username'; // Set the primary key to 'username'
+    public $incrementing = false; // Indicate that the primary key is not auto-incrementing
+    protected $keyType = 'string'; // Indicate the data type of the primary key
+
     /**
      * The attributes that are mass assignable.
      *
@@ -65,6 +69,9 @@ class User extends Authenticatable
 
     // Accessor to get all friends
     public function getFriendsAttribute() {
-        return $this->friendsOfMine->merge($this->friendOf);
+        $friendsOfMine = $this->friendsOfMine ?: collect([]);
+        $friendOf = $this->friendOf ?: collect([]);
+
+        return $friendsOfMine->merge($friendOf);
     }
 }

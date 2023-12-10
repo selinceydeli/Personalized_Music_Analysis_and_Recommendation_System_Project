@@ -242,8 +242,8 @@ class UserController extends Controller
 
     public function getFriends($username)
         {
-            $user = User::where('username', $username)->firstOrFail();
-            return response()->json($user->allFriends);
+            $user = User::with(['friendsOfMine', 'friendOf'])->where('username', $username)->first();
+            return response()->json($user->friends);
         }
         
     public function getBlockedUsers($username)
@@ -286,6 +286,26 @@ class UserController extends Controller
                 ->pluck('song_id');
 
         return SongResource::collection($topRatedSongs);
+    }
+
+
+    public function testFriendships($username) {
+        $user = User::with(['friendsOfMine', 'friendOf'])->where('username', $username)->first();
+    
+        if (!$user) {
+            return response()->json(['error' => 'User not found'], 404);
+        }
+    
+        // Test friendsOfMine
+        $friendsOfMine = $user->friendsOfMine;
+        // Test friendOf
+        $friendOf = $user->friendOf;
+    
+        // Return the results
+        return response()->json([
+            'friendsOfMine' => $friendsOfMine,
+            'friendOf' => $friendOf,
+        ]);
     }
 }
 
