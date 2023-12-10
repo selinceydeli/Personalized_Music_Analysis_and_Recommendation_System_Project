@@ -87,7 +87,7 @@ class SongRatingController extends Controller
                         ->where('date_rated', '>=', $sixMonthsAgo)
                         ->groupBy('song_id')
                         ->orderBy('average_rating', 'DESC')
-                        ->take(10);
+                        ->take(5);
 
         // Now, perform a join to get the song information based on the top song IDs
         $topSongs = DB::table('songs')
