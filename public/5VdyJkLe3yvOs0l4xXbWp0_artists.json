@@ -1,0 +1,26 @@
+[
+    {
+        "followers": 9220020,
+        "genres": [
+            "melodic rap",
+            "rap",
+            "trap"
+        ],
+        "name": "Trippie Redd",
+        "popularity": 79,
+        "image": "https://i.scdn.co/image/ab6761610000e5ebf2db81b3312a1f167fc54096",
+        "artist_id": "6Xgp2XMz1fhVYe7i6yNAax"
+    },
+    {
+        "followers": 43810215,
+        "genres": [
+            "emo rap",
+            "miami hip hop",
+            "rap"
+        ],
+        "name": "XXXTENTACION",
+        "popularity": 84,
+        "image": "https://i.scdn.co/image/ab6761610000e5ebf0c20db5ef6c6fbe5135d2e4",
+        "artist_id": "15UsOTVnJzReFVN1VCnxy4"
+    }
+]
