@@ -11,15 +11,15 @@ class Song extends Model
 {
     use HasFactory;
 
-    public function ratings()
+    public function songRatings()
     {
         return $this->hasMany(SongRating::class, 'song_id', 'song_id');
     }
 
     public function getAverageRatingAttribute()
     {
-        if ($this->ratings->isNotEmpty()) {
-            return $this->ratings->avg('rating');
+        if ($this->songRatings->isNotEmpty()) {
+            return $this->songRatings->avg('rating');
         }
 
         return 0; // Default to 0 if there are no ratings

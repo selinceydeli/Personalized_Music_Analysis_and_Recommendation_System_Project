@@ -66,7 +66,7 @@ class SearchController extends Controller
         $sortedResults = $results->sortBy([['priority', 'asc'],['average_rating', 'desc']]);
 
         // Return sorted results
-        return $sortedResults;
+        return $sortedResults->values()->all();
     }
     public function search_album($searchTerm){
 
