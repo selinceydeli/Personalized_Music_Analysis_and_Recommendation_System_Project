@@ -24,7 +24,7 @@
         <!-- Section for General Recommendations -->
         @if ($recommendations && count($recommendations) > 0)
             <div class="p-6">
-                <h2 class="text-2xl font-bold mb-4">Energetic Song Mix For You</h2>
+                <h2 class="text-2xl font-bold mb-4">Positive Song Mix For You</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     @foreach ($recommendations as $song)
                         <div class="border rounded-lg p-4 shadow-lg">
@@ -34,6 +34,7 @@
                                 <a href="/songs/{{ $song->song_id }}" class="text-lg font-semibold">
                                     {{ $song->name }}
                                 </a>
+                                <p class="text-sm text-gray-600">Valence: {{ $song->valence }}</p>
                             </div>
                             <i class="fas fa-folder"></i>
                             <strong>

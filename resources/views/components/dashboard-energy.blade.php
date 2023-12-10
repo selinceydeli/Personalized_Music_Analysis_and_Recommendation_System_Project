@@ -34,6 +34,8 @@
                                 <a href="/songs/{{ $song->song_id }}" class="text-lg font-semibold">
                                     {{ $song->name }}
                                 </a>
+                                <p class="text-sm text-gray-600">Energy: {{ $song->energy }}</p>
+                                <p class="text-sm text-gray-600">Danceability: {{ $song->danceability }}</p>
                             </div>
                             <i class="fas fa-folder"></i>
                             <strong>

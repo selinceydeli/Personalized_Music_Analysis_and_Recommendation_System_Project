@@ -22,7 +22,7 @@ class SongRatingFactory extends Factory
         $usernames = User::pluck('username')->all();
         $songIds = Song::pluck('song_id')->all();
         return [
-            'rating' => $this->faker->randomFloat(1, 40, 50) / 10,
+            'rating' => $this->faker->randomFloat(1, 00, 50) / 10,
             'username' => $this->faker->randomElement($usernames),
             'song_id' => $this->faker->randomElement($songIds),
             'date_rated' => $this->faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now', $timezone = null),
