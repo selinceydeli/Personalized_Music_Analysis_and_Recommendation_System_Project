@@ -21,7 +21,7 @@ class AlbumRatingFactory extends Factory
         $usernames = User::pluck('username')->all();
         $albumIds = Album::pluck('album_id')->all();
         return [
-            'rating' => $this->faker->randomFloat(1, 0, 50) / 10,
+            'rating' => $this->faker->randomFloat(1, 40, 50) / 10,
             'username' => $this->faker->randomElement($usernames),
             'album_id' => $this->faker->randomElement($albumIds),
             'date_rated' => $this->faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now', $timezone = null),

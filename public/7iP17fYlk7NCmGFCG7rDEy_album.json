@@ -1,0 +1,120 @@
+{
+    "album_type": "compilation",
+    "copyrights": "2013 Armada Music B.V.",
+    "genres": [],
+    "label": "ARVA",
+    "name": "25 Best Dance Hits Ever",
+    "popularity": 44,
+    "release_date": "2013-04-26",
+    "total_tracks": 25,
+    "tracks": {
+        "items": [
+            {
+                "id": "1zvVTYmpUAO1bXpV9Q9giy",
+                "track_number": 1
+            },
+            {
+                "id": "0voM9kTCwli5RsC0VVKvvC",
+                "track_number": 2
+            },
+            {
+                "id": "7M0YiB7BO5aqC79WLQEYXg",
+                "track_number": 3
+            },
+            {
+                "id": "2Ter3spX4wzexYMtvAMZum",
+                "track_number": 4
+            },
+            {
+                "id": "6BXhyuhMh18ZzDHRS2kuNi",
+                "track_number": 5
+            },
+            {
+                "id": "2F4tMG7BVb3n2quK8CeOSE",
+                "track_number": 6
+            },
+            {
+                "id": "69eiCz4a5QxZgpTiRroVkC",
+                "track_number": 7
+            },
+            {
+                "id": "3gvCxqRP9z3gV0CfriltMA",
+                "track_number": 8
+            },
+            {
+                "id": "5zoXK2nP0zzI7WRguabZCg",
+                "track_number": 9
+            },
+            {
+                "id": "72f75Pl1YzwIjJYytpbWjY",
+                "track_number": 10
+            },
+            {
+                "id": "0ucmjTnrcwLwlkQum16ort",
+                "track_number": 11
+            },
+            {
+                "id": "4r8XpXXDwuNBQ8m87YxuUi",
+                "track_number": 12
+            },
+            {
+                "id": "2uxJ8tX6QHkLt6FoTcurDe",
+                "track_number": 13
+            },
+            {
+                "id": "66X2qJHNd5PSNFZPVX13cX",
+                "track_number": 14
+            },
+            {
+                "id": "3ocl0vvpnWOV0kVVJf5vqO",
+                "track_number": 15
+            },
+            {
+                "id": "6sBN5JLrO20uE6fFhBrtzS",
+                "track_number": 16
+            },
+            {
+                "id": "13Zx2RaWynkeBU3p4XnGxI",
+                "track_number": 17
+            },
+            {
+                "id": "75juV0FFMtkviyX70KFZoW",
+                "track_number": 18
+            },
+            {
+                "id": "11o2Gc2cdEqcdfdPt6svZd",
+                "track_number": 19
+            },
+            {
+                "id": "3YfFBumUV1YMOBY6OM4Qvj",
+                "track_number": 20
+            },
+            {
+                "id": "5VWiwEeEaJyWhZ6wqGJiH8",
+                "track_number": 21
+            },
+            {
+                "id": "3NjTPTVCRlouE9sEDL6Pzb",
+                "track_number": 22
+            },
+            {
+                "id": "2OAno78ypFi5EnmpI5DV6j",
+                "track_number": 23
+            },
+            {
+                "id": "1Uog2KiLBTaqWjADKcY7Pg",
+                "track_number": 24
+            },
+            {
+                "id": "1tYAcFesWCrT68KoYdCNDD",
+                "track_number": 25
+            }
+        ],
+        "total": 25
+    },
+    "type": "album",
+    "artist_id": "0LyfQWJT6nXafLPZqxe9Of",
+    "album_id": "7iP17fYlk7NCmGFCG7rDEy",
+    "upc": "8718522020933",
+    "image": "https://i.scdn.co/image/ab67616d0000b273ab76dd88fe53958558941dd9"
+}
