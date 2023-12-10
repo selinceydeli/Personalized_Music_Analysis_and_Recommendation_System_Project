@@ -133,7 +133,8 @@ class UserController extends Controller
         ->with('ratings') // Load the song ratings relationship
         ->get()
         ->sortByDesc('average_rating') // Sort by the accessor 'average_rating'
-        ->take(20); // Limit to 20 songs for recommendation
+        ->take(20) // Limit to 20 songs for recommendation
+        ->makeHidden(['ratings']); // Hides the ratings field
 
         return $recommendedSongs;
     }
@@ -177,7 +178,8 @@ class UserController extends Controller
         ->with('ratings') // Load the song ratings relationship
         ->get()
         ->sortByDesc('average_rating') // Sort by the accessor 'average_rating'
-        ->take(20); // Limit to 20 songs for recommendation
+        ->take(20) // Limit to 20 songs for recommendation
+        ->makeHidden(['ratings']); // Hides the ratings field
 
         return $recommendedSongs;
     }

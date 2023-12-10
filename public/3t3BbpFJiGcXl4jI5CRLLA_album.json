@@ -1,0 +1,64 @@
+{
+    "album_type": "compilation",
+    "copyrights": "(P) 1993 Chrysalis Records Ltd.; 1982, 1985, 1986, 2006 Volcano Entertainment III, LLC",
+    "genres": [],
+    "label": "Volcano/Legacy",
+    "name": "Rocky IV",
+    "popularity": 73,
+    "release_date": "1985-01-01",
+    "total_tracks": 11,
+    "tracks": {
+        "items": [
+            {
+                "id": "2avaSeKHI5l4sLruVfLdi2",
+                "track_number": 1
+            },
+            {
+                "id": "5vI0C3TDTxySR6Oq8NWjE0",
+                "track_number": 2
+            },
+            {
+                "id": "2i6OkzGsxts1J1ZubuZyWU",
+                "track_number": 3
+            },
+            {
+                "id": "2KH16WveTQWT6KOG9Rg6e2",
+                "track_number": 4
+            },
+            {
+                "id": "409WAJPEw4a73vs2c5FIZI",
+                "track_number": 5
+            },
+            {
+                "id": "4Y5yjzs9FFw5qIgfZBd43I",
+                "track_number": 6
+            },
+            {
+                "id": "5bnMKUXkMfYVXW8FjvFTuV",
+                "track_number": 7
+            },
+            {
+                "id": "3SRUDNjqytG9EPSz5VZkE5",
+                "track_number": 8
+            },
+            {
+                "id": "7aZcGRPjgCu7pv9LL5Nxic",
+                "track_number": 9
+            },
+            {
+                "id": "5PKtqiUwkjveVYzmj4gMnz",
+                "track_number": 10
+            },
+            {
+                "id": "194q6RR0JRyNKZPHiJIvaw",
+                "track_number": 11
+            }
+        ],
+        "total": 11
+    },
+    "type": "album",
+    "artist_id": "0LyfQWJT6nXafLPZqxe9Of",
+    "album_id": "3t3BbpFJiGcXl4jI5CRLLA",
+    "upc": "828767598925",
+    "image": "https://i.scdn.co/image/ab67616d0000b273f4a2ccbe20d6d52f16816812"
+}
