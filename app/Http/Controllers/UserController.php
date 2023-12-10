@@ -85,7 +85,7 @@ class UserController extends Controller
             }
         })
         ->whereNotIn('song_id', $ratedSongIds)
-        ->with('ratings') // Load the song ratings relationship
+        ->with('songRatings') // Load the song ratings relationship
         ->get()
         ->sortByDesc('average_rating') // Sort by the accessor 'average_rating'
         ->take(20) // Limit to 20 songs for recommendation
@@ -130,7 +130,7 @@ class UserController extends Controller
         ->whereNotIn('song_id', $ratedSongIds)
         ->where('valence', '>=', 0.75)
         ->where('valence', '<=', 1)
-        ->with('ratings') // Load the song ratings relationship
+        ->with('songRatings') // Load the song ratings relationship
         ->get()
         ->sortByDesc('average_rating') // Sort by the accessor 'average_rating'
         ->take(20) // Limit to 20 songs for recommendation
@@ -175,7 +175,7 @@ class UserController extends Controller
         ->whereNotIn('song_id', $ratedSongIds)
         ->where('valence', '<=', 0.25)
         ->where('valence', '>=', 0)
-        ->with('ratings') // Load the song ratings relationship
+        ->with('songRatings') // Load the song ratings relationship
         ->get()
         ->sortByDesc('average_rating') // Sort by the accessor 'average_rating'
         ->take(20) // Limit to 20 songs for recommendation
