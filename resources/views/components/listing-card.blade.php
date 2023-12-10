@@ -22,9 +22,9 @@
         <div>
             <h3 class="text-2xl">
                 <i class="fas fa-music"></i>
-                <span style="font-size: 1.5rem">
+                <a href="/songs/{{$song->song_id}}" style="font-size: 1.5rem">
                     {{ $song->name }}
-                </span>
+                </a>
             </h3>
             <div class="flex items-center mt-2">
                 @php

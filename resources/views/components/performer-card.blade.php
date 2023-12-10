@@ -24,12 +24,12 @@
             src="{{ $song->album && $song->album->image_url ? $song->album->image_url : asset('/images/no-image.png') }}"
             alt="" />
         <div>
-            <h3 class="text-2xl">
-                <i class="fas fa-music"></i>
+            <a href="/songs/{{$song->song_id}}" class="text-2xl flex items-center">
+                <i class="fas fa-music mr-2"></i>
                 <span style="font-size: {{ strlen($song->name) > 20 ? '1.5rem' : '2rem' }}">
                     {{ $song->name }}
                 </span>
-            </h3>
+            </a>
             <div class="flex items-center mt-2">
                 @php
                     $averageRating = $song->average_song_rating; // Get the average rating from the ratingsMap
