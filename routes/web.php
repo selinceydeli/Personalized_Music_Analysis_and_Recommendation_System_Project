@@ -1,18 +1,19 @@
 <?php
 
 use App\Models\Song;
+use App\Models\PerformerRating;
 use App\Http\Controllers\SongController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AlbumController;
+use App\Http\Controllers\MysqlController;
 use App\Http\Controllers\SpotifyController;
 use App\Http\Controllers\SettingsController;
-use App\Http\Controllers\PerformerController;
-use App\Http\Controllers\AlbumRatingController;
-use App\Http\Controllers\SongRatingController;
-use App\Http\Controllers\PerformerRatingController;
-use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\DashboardController;
-use App\Models\PerformerRating;
+use App\Http\Controllers\PerformerController;
+use App\Http\Controllers\SongRatingController;
+use App\Http\Controllers\AlbumRatingController;
+use App\Http\Controllers\SubscriptionController;
+use App\Http\Controllers\PerformerRatingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,8 @@ Route::get('/add', [SongController::class, 'add'])->name('add')->middleware(['au
 Route::get('/songs/{id}', [SongController::class, 'show'])->name('show');
 
 Route::post('/upload-via-spotify', [SpotifyController::class, 'importSong'])->name('importSong');
+
+Route::post('/migrateMysql', [MysqlController::class, 'migrateMysql'])->name('migrateMysql');
 
 Route::post('/ratesong', [SongRatingController::class, 'store'])->name('store')->middleware(['auth']);
 

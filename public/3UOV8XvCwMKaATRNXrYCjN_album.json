@@ -1,0 +1,24 @@
+{
+    "album_type": "single",
+    "copyrights": "(P) 2023 RCA Records, a division of Sony Music Entertainment",
+    "genres": [],
+    "label": "RCA Records Label",
+    "name": "greedy",
+    "popularity": 90,
+    "release_date": "2023-09-15",
+    "total_tracks": 1,
+    "tracks": {
+        "items": [
+            {
+                "id": "3rUGC1vUpkDG9CZFHMur1t",
+                "track_number": 1
+            }
+        ],
+        "total": 1
+    },
+    "type": "album",
+    "artist_id": "45dkTj5sMRSjrmBSBeiHym",
+    "album_id": "3UOV8XvCwMKaATRNXrYCjN",
+    "upc": "196871341653",
+    "image": "https://i.scdn.co/image/ab67616d0000b27322fd802bc61db666c7c81aa8"
+}

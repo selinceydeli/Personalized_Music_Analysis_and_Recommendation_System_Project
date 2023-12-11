@@ -1,0 +1,28 @@
+{
+    "album_type": "single",
+    "copyrights": "2020 Maximilian Oberroither",
+    "genres": [],
+    "label": "Maximilian Oberroither",
+    "name": "Piano Soundtrack",
+    "popularity": 44,
+    "release_date": "2020-02-14",
+    "total_tracks": 2,
+    "tracks": {
+        "items": [
+            {
+                "id": "59d6uevB0QGLjUilTex8Qn",
+                "track_number": 1
+            },
+            {
+                "id": "1LlDzMkuVcmyH0Dtqg6KVv",
+                "track_number": 2
+            }
+        ],
+        "total": 2
+    },
+    "type": "album",
+    "artist_id": "6iawb1h0XmXI9k5GNhkTvJ",
+    "album_id": "5D9kFBMbPX4zZFZhGMk2rg",
+    "upc": "5056391704381",
+    "image": "https://i.scdn.co/image/ab67616d0000b273cbae589af3dd15be29b918f5"
+}

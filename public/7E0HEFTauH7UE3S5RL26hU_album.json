@@ -1,0 +1,72 @@
+{
+    "album_type": "album",
+    "copyrights": "\u00a9 1998 Deutsche Grammophon GmbH, Berlin",
+    "genres": [],
+    "label": "Deutsche Grammophon (DG)",
+    "name": "Ensemble Roby Lakatos - \"La Boh\u00e8me\"",
+    "popularity": 42,
+    "release_date": "1998-01-01",
+    "total_tracks": 13,
+    "tracks": {
+        "items": [
+            {
+                "id": "1oDYd6OX4LQJeuplTcPbe4",
+                "track_number": 1
+            },
+            {
+                "id": "4CSJyCzcYaPMjHH82gMv58",
+                "track_number": 2
+            },
+            {
+                "id": "026GGtBWb4AqRg5VXiDujX",
+                "track_number": 3
+            },
+            {
+                "id": "1k8q0uKc3m9uX35XgHhLGI",
+                "track_number": 4
+            },
+            {
+                "id": "4e7Mb5ZElxw0HKCNmpI5MB",
+                "track_number": 5
+            },
+            {
+                "id": "0orJc0XEn8vpLN0mDXy4Gr",
+                "track_number": 6
+            },
+            {
+                "id": "0jUXZa6ZvUXT5LC0bc2let",
+                "track_number": 7
+            },
+            {
+                "id": "3KKjyYwEaD7Z9IO1P8qbtZ",
+                "track_number": 8
+            },
+            {
+                "id": "08gOCFkKqY4sgV6HCDDOBn",
+                "track_number": 9
+            },
+            {
+                "id": "602Dk4C4T9tI7GRR3tWMoc",
+                "track_number": 10
+            },
+            {
+                "id": "6R3NFQKzQ1JEiluxNeU6BM",
+                "track_number": 11
+            },
+            {
+                "id": "4a5UuOghyWvfLZ7AVkdU6p",
+                "track_number": 12
+            },
+            {
+                "id": "6LmNocqCtc2MumtZdwMoBX",
+                "track_number": 13
+            }
+        ],
+        "total": 13
+    },
+    "type": "album",
+    "artist_id": "1vAcVpBfkfthBcu2G7GkLm",
+    "album_id": "7E0HEFTauH7UE3S5RL26hU",
+    "upc": "00028945787923",
+    "image": "https://i.scdn.co/image/ab67616d0000b2732d4ad9248b6f8abc18bb03a4"
+}

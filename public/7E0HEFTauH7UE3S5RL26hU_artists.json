@@ -1,0 +1,128 @@
+[
+    {
+        "followers": 71887,
+        "genres": [
+            "caucasian classical",
+            "classical",
+            "early modern classical",
+            "russian modern classical"
+        ],
+        "name": "Aram Khachaturian",
+        "popularity": 50,
+        "image": "https://i.scdn.co/image/bca34d6a52cd261605378f031da75b7bc50aa834",
+        "artist_id": "5WIoytpqi3VWoFSHnl49in"
+    },
+    {
+        "followers": 10895,
+        "genres": [
+            "early modern classical",
+            "neoclassicism"
+        ],
+        "name": "Zolt\u00e1n Kod\u00e1ly",
+        "popularity": 31,
+        "image": "https://i.scdn.co/image/2b96d5177f5daf7b04de907e975e6f328eafe40a",
+        "artist_id": "7MjAFDEchgyC28I0asclTE"
+    },
+    {
+        "followers": 966,
+        "genres": [
+            "violin"
+        ],
+        "name": "Grigoras Dinicu",
+        "popularity": 17,
+        "image": "https://i.scdn.co/image/fd83960b867c41d9a36067fb416377b1d7cda630",
+        "artist_id": "0TN0YzEMXFLCk8ThfYQk6O"
+    },
+    {
+        "followers": 64536,
+        "genres": [
+            "gregorian chant",
+            "hengelliset laulut",
+            "puirt-a-beul"
+        ],
+        "name": "Traditional",
+        "popularity": 66,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb8ce3e7c9e1c38c0edbe1528c",
+        "artist_id": "1U5zgr455OGyIkLNXvDdrf"
+    },
+    {
+        "followers": 54,
+        "genres": [],
+        "name": "K\u00e1lm\u00e1n Cs\u00e9ki",
+        "popularity": 9,
+        "image": null,
+        "artist_id": "2abz1ZrpH8lLw1uR4K0fdg"
+    },
+    {
+        "followers": 9274,
+        "genres": [
+            "italian romanticism",
+            "post-romantic era"
+        ],
+        "name": "Vittorio Monti",
+        "popularity": 39,
+        "image": "https://i.scdn.co/image/ab67616d0000b2737417b4d2db0bc50a7400245a",
+        "artist_id": "05ZN3Mgw6026ilsQzehDxC"
+    },
+    {
+        "followers": 32,
+        "genres": [],
+        "name": "Jacques Plante",
+        "popularity": 11,
+        "image": null,
+        "artist_id": "1OcMYIdNecLUvk7jaAJrJ1"
+    },
+    {
+        "followers": 2472,
+        "genres": [
+            "salon music"
+        ],
+        "name": "Lakatos",
+        "popularity": 29,
+        "image": "https://i.scdn.co/image/ab67616d0000b2732d4ad9248b6f8abc18bb03a4",
+        "artist_id": "2LBj0BZfiT0rbVU2OFE1ug"
+    },
+    {
+        "followers": 1316795,
+        "genres": [
+            "chanson"
+        ],
+        "name": "Charles Aznavour",
+        "popularity": 61,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb9df3ab10872287c871c7a1be",
+        "artist_id": "2hgP9Ap2tc10R5jrQaEpMT"
+    },
+    {
+        "followers": 5802,
+        "genres": [
+            "salon music"
+        ],
+        "name": "Roby Lakatos",
+        "popularity": 16,
+        "image": "https://i.scdn.co/image/66d55d9280b54c56724536bd2d9f313cdfae888e",
+        "artist_id": "1vAcVpBfkfthBcu2G7GkLm"
+    },
+    {
+        "followers": 1316553,
+        "genres": [
+            "orchestral soundtrack",
+            "soundtrack"
+        ],
+        "name": "John Williams",
+        "popularity": 75,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb86b13e4d2e65ebf694384ef4",
+        "artist_id": "3dRfiJ2650SZu6GbydcHNb"
+    },
+    {
+        "followers": 931871,
+        "genres": [
+            "classical",
+            "german romanticism",
+            "late romantic era"
+        ],
+        "name": "Johannes Brahms",
+        "popularity": 65,
+        "image": "https://i.scdn.co/image/d5c6af18beb1411ab49c2976647e0d370bf66a88",
+        "artist_id": "5wTAi7QkpP6kp8a54lmTOq"
+    }
+]
