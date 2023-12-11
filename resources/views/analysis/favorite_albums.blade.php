@@ -48,7 +48,6 @@
         var myChart;
 
         function updateChart() {
-            console.log('updateChart function called');
 
             
             var selectedEra = document.getElementById('eraSelect').value;
