@@ -11,13 +11,22 @@ class MysqlController extends Controller
 {
     public function migrateMysql(Request $request)
     {
+
         $hostDB = $request->input('hostDB');
         $hostUser = $request->input('hostUser');
         $hostPort = $request->input('hostPort');
         $hostIP = $request->input('hostIP');
         $hostPass = $request->input('hostPass');
+        if (empty($hostDB) || empty($hostUser) || empty($hostPort) || empty($hostIP) || empty($hostPass)){
+            return redirect('/add')->with('message', 'Please fill all the information');
+        }
         $result = $this->migrateSongs($hostIP,$hostUser,$hostPass,$hostDB,$hostPort);
-        return redirect('/')->with('message', 'Database is migrated to the destination');
+        if ($result != false){
+            return redirect('/add')->with('message', 'Database is migrated to the destination');
+        }
+        else{
+            return redirect('/add')->with('message', 'There is an error');
+        }
         
     }
     private function migrateSongs(string $hostTarget,string $userTarget,string $passTarget,string $dbTarget,string $portTarget){
@@ -26,10 +35,18 @@ class MysqlController extends Controller
         $passSource = "default";
         $dbSource = "music_tailor";
         $portSource = "8000";
-    
+        try{
         $connSource = new mysqli($hostSource, $userSource, $passSource, $dbSource,$portSource);
-    
+        }
+        catch(Exception $e){
+            return false;
+        }
+        try{
         $connTarget = new mysqli($hostTarget, $userTarget, $passTarget, $dbTarget,$portTarget);
+        }
+        catch(Exception $e){
+            return false;
+        }
         $tableArray = array("performers","albums","songs");
         foreach ($tableArray as $table){
             $query = "SHOW CREATE TABLE $table";
@@ -70,12 +87,16 @@ class MysqlController extends Controller
                 try{
                 $connTarget->query($albumInsertQuery);}
                 catch(Exception $e){
+                    $connSource->close();
+                    $connTarget->close();
+                    return false;
                 }
     
             }
         }
         $connSource->close();
         $connTarget->close();
+        return true;
     }
 
 }
