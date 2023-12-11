@@ -107,6 +107,74 @@
                         </p>
                         <x-album-tags :genresCsv="$matchedPerformers[0]->genre" />
                     </div>
+                    <div class="attributes-section">
+                        <p><strong>Song Attributes</strong></p>
+                        <ul class="attributes-list">
+                            <li>
+                                <strong>Key:</strong> {{ $song->key }}
+                            </li>
+                            <li>
+                                <strong>Tempo:</strong> {{ $song->tempo }}
+                            </li>
+                            <li>
+                                <strong>Mode:</strong> {{ $song->mode }}
+                            </li>
+                            <li>
+                                <strong>Danceability:</strong> 
+                                @php
+                                    $danceability = $song->danceability;
+                                    $danceLabels = [
+                                        '0.0 - 0.2' => 'Lead Feet',
+                                        '0.2 - 0.4' => 'Easy Moves',
+                                        '0.4 - 0.6' => 'Groovy',
+                                        '0.6 - 0.8' => 'Dancefloor Hit',
+                                        '0.8 - 1.0' => 'Dance Master'
+                                    ];
+                                    $danceLabel = collect($danceLabels)->filter(function ($range, $label) use ($danceability) {
+                                        [$min, $max] = explode(' - ', $label);
+                                        return $danceability >= $min && $danceability <= $max;
+                                    })->values()->first();
+                                @endphp
+                                {{ $danceLabel ?? '' }}
+                            </li>
+                            <li>
+                                <strong>Energy:</strong> 
+                                @php
+                                    $energy = $song->energy;
+                                    $energyLabels = [
+                                        '0.0 - 0.2' => 'Low Energy',
+                                        '0.2 - 0.4' => 'Relaxed',
+                                        '0.4 - 0.6' => 'Energetic',
+                                        '0.6 - 0.8' => 'High Energy',
+                                        '0.8 - 1.0' => 'Explosive'
+                                    ];
+                                    $energyLabel = collect($energyLabels)->filter(function ($range, $label) use ($energy) {
+                                        [$min, $max] = explode(' - ', $label);
+                                        return $energy >= $min && $energy <= $max;
+                                    })->values()->first();
+                                @endphp
+                                {{ $energyLabel ?? '' }}
+                            </li>
+                            <li>
+                                <strong>Valence:</strong> 
+                                @php
+                                    $valence = $song->valence;
+                                    $valenceLabels = [
+                                        '0.0 - 0.2' => 'Melancholic',
+                                        '0.2 - 0.4' => 'Somber',
+                                        '0.4 - 0.6' => 'Positive',
+                                        '0.6 - 0.8' => 'Happy',
+                                        '0.8 - 1.0' => 'Euphoric'
+                                    ];
+                                    $valenceLabel = collect($valenceLabels)->filter(function ($range, $label) use ($valence) {
+                                        [$min, $max] = explode(' - ', $label);
+                                        return $valence >= $min && $valence <= $max;
+                                    })->values()->first();
+                                @endphp
+                                {{ $valenceLabel ?? '' }}
+                            </li>
+                        </ul>
+                    </div>
                     <div class="mt-4 text-align: center;">
                         <!-- User Rating Section -->
                         @if (auth()->check())
@@ -232,6 +300,46 @@
         /* Other styles for the song card */
     }
 </style>
+
+<style>
+    .attributes-section {
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 16px;
+        margin-top: 20px;
+        background-color: #f9f9f9;
+    }
+
+    .section-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .attributes-list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px; /* Adjust the gap between attributes */
+    }
+
+    .attributes-list li {
+        display: flex;
+        align-items: center;
+    }
+
+    .attributes-list strong {
+        margin-right: 8px;
+    }
+
+    .attribute-label {
+        padding: 4px 8px;
+        border-radius: 4px;
+        background-color: #ffc107;
+        color: #333;
+        font-weight: bold;
+    }
+</style>
+
 
 <script>
     $(document).ready(function() {
