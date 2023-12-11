@@ -20,7 +20,7 @@
 
 <x-card class="relative">
     <div class="flex">
-        <img class="w-48 mr-6 md:block"
+        <img class="w-48 h-48 mr-6 md:block"
             src="{{ $song->album && $song->album->image_url ? $song->album->image_url : asset('/images/no-image.png') }}"
             alt="" />
         <div>

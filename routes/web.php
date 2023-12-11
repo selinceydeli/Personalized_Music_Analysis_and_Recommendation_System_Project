@@ -12,6 +12,7 @@ use App\Http\Controllers\SongRatingController;
 use App\Http\Controllers\PerformerRatingController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\DashboardController;
+use App\Models\PerformerRating;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,13 +42,17 @@ Route::get('/songs/{id}', [SongController::class, 'show'])->name('show');
 
 Route::post('/upload-via-spotify', [SpotifyController::class, 'importSong'])->name('importSong');
 
-Route::post('/rate', [SongRatingController::class, 'store'])->name('store')->middleware(['auth']);
+Route::post('/ratesong', [SongRatingController::class, 'store'])->name('store')->middleware(['auth']);
+
+Route::post('/ratealbum', [AlbumRatingController::class, 'store'])->name('store')->middleware(['auth']);
+
+Route::post('/rateperformer', [PerformerRatingController::class, 'store'])->name('store')->middleware(['auth']);
 
 Route::post('/deletesong/{id}', [SongController::class, 'destroy'])->name('destroy')->middleware(['auth']);
 
 Route::post('/deletealbum/{id}', [AlbumController::class, 'destroy'])->name('destroy')->middleware(['auth']);
 
-Route::post('deleteperformer/{id}', [PerformerController::class, 'destroy'])->name('destroy')->middleware(['auth']);
+Route::post('/deleteperformer/{id}', [PerformerController::class, 'destroy'])->name('destroy')->middleware(['auth']);
 
 
 
