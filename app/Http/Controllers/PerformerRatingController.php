@@ -75,7 +75,7 @@ class PerformerRatingController extends Controller
 
     public function searchArtists(Request $request)
     {
-        $query = $request->input('query');
+        $query = 'Beyonce, Duman'; //$request->input('query');
 
         // Perform a case-insensitive search for artist names that match the query
         $artists = PerformerRating::where('name', 'ilike', '%' . $query . '%')->pluck('name');
@@ -86,10 +86,9 @@ class PerformerRatingController extends Controller
     // Methods defined for analysis functionality
     public function getAverageRatingsForArtists(Request $request)
     {
-        // Extract the artist names and months from the request
         $artistNames = $request->input('artistNames', []); // Default to an empty array if not specified
-        $months = $request->input('months', 6); // Default to 6 months if not specified
-
+        $months =  6; // Default to 6 months 
+        
         // Calculate the start date
         $startDate = now()->subMonths($months);
 
@@ -113,12 +112,14 @@ class PerformerRatingController extends Controller
             }
 
             return view('analysis.average_ratings', [
-                'artists' => $artistNames,
-                'averageRatings' => $orderedRatings
+                'artistNames' => $artistNames,
+                'orderedRatings' => $orderedRatings
             ]);        
         }
 
         // Return an empty array if no artist names are provided
-        return view('analysis.average_ratings', ['artists' => $artistNames, 'averageRatings' => []]);
+        //return view('analysis.average_ratings', ['artistNames' => $artistNames, 'orderedRatings' => []]);
+        return response()->json($orderedRatings);
+
     }
 }

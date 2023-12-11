@@ -75,12 +75,24 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/analysis/favorite_albums', [AlbumRatingController::class, 'topRatedAlbumsByEra'])
     ->middleware(['auth', 'verified'])
     ->name('analysis.favorite_albums');
+Route::post('/analysis/favorite_albums', [AlbumRatingController::class, 'topRatedAlbumsByEra'])
+    ->middleware(['auth', 'verified'])
+    ->name('analysis.favorite_albums.post');
+
 Route::get('/analysis/favorite_songs', [SongRatingController::class, 'favorite10RatingsInGivenMonths'])
     ->middleware(['auth', 'verified'])
     ->name('analysis.favorite_songs');
+Route::post('/analysis/favorite_songs', [SongRatingController::class, 'favorite10RatingsInGivenMonths'])
+    ->middleware(['auth', 'verified'])
+    ->name('analysis.favorite_songs.post');
+
 Route::get('/analysis/average_ratings', [PerformerRatingController::class, 'getAverageRatingsForArtists'])
     ->middleware(['auth', 'verified'])
     ->name('analysis.average_ratings');
+Route::post('/analysis/average_ratings', [PerformerRatingController::class, 'getAverageRatingsForArtists'])
+    ->middleware(['auth', 'verified'])
+    ->name('analysis.average_ratings.post');
+
 Route::get('/analysis/daily_average', [SongRatingController::class, 'getMonthlyAverageRatings'])
     ->middleware(['auth', 'verified'])
     ->name('analysis.daily_average');

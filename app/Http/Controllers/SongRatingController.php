@@ -108,10 +108,15 @@ class SongRatingController extends Controller
     public function favorite10RatingsInGivenMonths(Request $request)
     {
         $username = auth()->user()->username;
-        $months = $request->input('months', 6);
-        
+        $monthSelect = intval($request->input('monthSelect', 6));
+        $monthArray = [
+            1,
+            3,
+            6,
+            12
+        ];
         // Calculate the date $months ago from today
-        $MonthsAgo = now()->subMonths($months);
+        $MonthsAgo = now()->subMonths($monthSelect);
 
         // Create a subquery to get the top 10 rated, unique song IDs
         $subQuery = SongRating::select('song_id', DB::raw('AVG(rating) as average_rating'))
@@ -132,15 +137,9 @@ class SongRatingController extends Controller
                 'top_songs.average_rating', // Get the average rating as well
             ]);
 
-        //dd($months);
-        $monthArray = [
-            '1' => '1 Month',
-            '3' => '3 Months',
-            '6' => '6 Months',
-            '12' => '1 Year',
-        ];
+        
 
-        return view('analysis.favorite_songs', ['topSongs' => $topSongs, 'monthArray' => $monthArray]);
+        return view('analysis.favorite_songs', ['topSongs' => $topSongs, 'monthArray' => $monthArray, 'monthSelect' => $monthSelect]);
         //return response()->json($topSongs);
 
     }

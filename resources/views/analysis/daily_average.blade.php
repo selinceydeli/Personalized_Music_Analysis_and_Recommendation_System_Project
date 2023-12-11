@@ -1,6 +1,26 @@
 <x-layout>
+<style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        h1 {
+            font-size: 36px; /* Increased font size for the heading */
+            font-weight: bold; /* Bold text */
+            margin-bottom: 20px; /* Added margin below the heading */
+        }
+
+        #dailyAverageChart {
+            max-width: 80%; /* Make the chart responsive */
+            max-height: 300px; /* Adjust the height as needed */
+        }
+    </style>
+
     <div class="container">
-        <h1>Daily Average Ratings</h1>
+        <h1>Rhythmic Ratings: </h1>
 
         <canvas id="dailyAverageChart" width="400" height="200"></canvas>
     </div>
