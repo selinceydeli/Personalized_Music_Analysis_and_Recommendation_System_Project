@@ -67,7 +67,7 @@ class SpotifyController extends Controller
 
     private function isSpotifyLink($input)
     {
-        $pattern = '/^(https:\/\/open\.spotify\.com\/(track|album|playlist)\/[a-zA-Z0-9]+)(\?.*)?$/i';
+        $pattern = '/^(https:\/\/open\.spotify\.com\/(track)\/[a-zA-Z0-9]+)(\?.*)?$/i';
         return preg_match($pattern, $input);
     }
 }
