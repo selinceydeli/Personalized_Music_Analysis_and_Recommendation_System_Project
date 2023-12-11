@@ -105,15 +105,23 @@ class SongRatingController extends Controller
     }
 
     // Methods defined for analysis functionality
-    public function favorite10RatingsInGivenMonths($username, int $months)
+    public function favorite10RatingsInGivenMonths(Request $request)
     {
+        $username = auth()->user()->username;
+        $monthSelect = intval($request->input('monthSelect', 6));
+        $monthArray = [
+            1,
+            3,
+            6,
+            12
+        ];
         // Calculate the date $months ago from today
-        $sixMonthsAgo = now()->subMonths($months);
+        $MonthsAgo = now()->subMonths($monthSelect);
 
         // Create a subquery to get the top 10 rated, unique song IDs
         $subQuery = SongRating::select('song_id', DB::raw('AVG(rating) as average_rating'))
             ->where('username', $username)
-            ->where('date_rated', '>=', $sixMonthsAgo)
+            ->where('date_rated', '>=', $MonthsAgo)
             ->groupBy('song_id')
             ->orderBy('average_rating', 'DESC')
             ->take(10);
@@ -129,11 +137,16 @@ class SongRatingController extends Controller
                 'top_songs.average_rating', // Get the average rating as well
             ]);
 
-        return response()->json($topSongs);
+        
+
+        return view('analysis.favorite_songs', ['topSongs' => $topSongs, 'monthArray' => $monthArray, 'monthSelect' => $monthSelect]);
+        //return response()->json($topSongs);
+
     }
 
-    public function getMonthlyAverageRatings($username)
+    public function getMonthlyAverageRatings()
     {
+        $username = auth()->user()->username;
         $oneMonthAgo = Carbon::now()->subMonth();
 
         $dailyAverages = SongRating::select(
@@ -149,6 +162,8 @@ class SongRatingController extends Controller
                 return [$item['date'] => $item['average_rating']];
             });
 
-        return response()->json($dailyAverages);
+        return view('analysis.daily_average', ['dailyAverages' => $dailyAverages]);
+        //return response()->json($dailyAverages);
+
     }
 }

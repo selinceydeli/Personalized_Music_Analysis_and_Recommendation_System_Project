@@ -73,10 +73,22 @@ class AlbumRatingController extends Controller
     }
     
     // Methods defined for analysis functionality
-    public function topRatedAlbumsByEra($username, $era)
+    public function topRatedAlbumsByEra(Request $request)
     {
+        $username = auth()->user()->username;
+        //dd($request->input('eraSelect'));
+        $eraSelect = $request->input('eraSelect', '20s');
+
+        $eras = [
+            '50s' => '50s',
+            '60s' => '60s',
+            '70s' => '70s',
+            '80s' => '80s',
+            '90s' => '90s',
+            '20s' => '2000s',
+        ];
         // Define the start and end years based on the era
-        switch ($era) {
+        switch ($eraSelect) {
             case '50s':
                 $yearsRange = ['1950-01-01', '1959-12-31'];
                 break;
@@ -97,8 +109,8 @@ class AlbumRatingController extends Controller
                 break;
             default:
                 // Handle invalid era input or set a default range
-                return response()->json(['error' => 'Invalid era provided.'], 400);
-            
+                $yearsRange = ['2000-01-01', '2029-12-31'];
+                //return response()->json(['error' => 'Invalid era provided.'], 400);
         }
 
         // Create a subquery for the average rating of albums by the user
@@ -120,9 +132,6 @@ class AlbumRatingController extends Controller
             ->take(10)
             ->get();
 
-        return response()->json($topAlbums);
-        // Return the view with the topAlbums data
-        return view('analysis.favorite_albums', compact('topAlbums', 'eras'));
-
-    }
+        return view('analysis.favorite_albums', ['topAlbums' => $topAlbums, 'eraSelect' => $eraSelect, 'eras' => $eras]);
+    } 
 }

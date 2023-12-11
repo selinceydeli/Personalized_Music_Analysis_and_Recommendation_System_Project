@@ -1,20 +1,17 @@
 <?php
 
 use App\Models\Song;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SongController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AlbumController;
-use Database\Factories\SongRatingFactory;
 use App\Http\Controllers\SpotifyController;
-use App\Http\Controllers\AnalysisController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\PerformerController;
-use App\Http\Controllers\SongRatingController;
 use App\Http\Controllers\AlbumRatingController;
-use App\Http\Controllers\SubscriptionController;
-use App\Http\Controllers\DashboardController; // Import DashboardController
+use App\Http\Controllers\SongRatingController;
 use App\Http\Controllers\PerformerRatingController;
+use App\Http\Controllers\SubscriptionController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,11 +41,7 @@ Route::get('/songs/{id}', [SongController::class, 'show'])->name('show');
 
 Route::post('/upload-via-spotify', [SpotifyController::class, 'importSong'])->name('importSong');
 
-Route::post('/ratesong', [SongRatingController::class, 'store'])->name('store')->middleware(['auth']);
-
-Route::post('/ratealbum', [AlbumRatingController::class, 'store'])->name('store')->middleware(['auth']);
-
-Route::post('/rateperformer', [PerformerRatingController::class, 'store'])->name('store')->middleware(['auth']);
+Route::post('/rate', [SongRatingController::class, 'store'])->name('store')->middleware(['auth']);
 
 Route::post('/deletesong/{id}', [SongController::class, 'destroy'])->name('destroy')->middleware(['auth']);
 
@@ -79,14 +72,31 @@ Route::middleware(['auth'])->group(function () {
 });
 
 // Analysis
-Route::get('/analysis/favorite_albums', [AnalysisController::class, 'favoriteAlbums'])
+Route::get('/analysis/favorite_albums', [AlbumRatingController::class, 'topRatedAlbumsByEra'])
+    ->middleware(['auth', 'verified'])
     ->name('analysis.favorite_albums');
-Route::get('/analysis/favorite_songs', [AnalysisController::class, 'favoriteSongs'])
+Route::post('/analysis/favorite_albums', [AlbumRatingController::class, 'topRatedAlbumsByEra'])
+    ->middleware(['auth', 'verified'])
+    ->name('analysis.favorite_albums.post');
+
+Route::get('/analysis/favorite_songs', [SongRatingController::class, 'favorite10RatingsInGivenMonths'])
+    ->middleware(['auth', 'verified'])
     ->name('analysis.favorite_songs');
-Route::get('/analysis/average_ratings', [AnalysisController::class, 'averageRatings'])
+Route::post('/analysis/favorite_songs', [SongRatingController::class, 'favorite10RatingsInGivenMonths'])
+    ->middleware(['auth', 'verified'])
+    ->name('analysis.favorite_songs.post');
+
+Route::get('/analysis/average_ratings', [PerformerRatingController::class, 'getAverageRatingsForArtists'])
+    ->middleware(['auth', 'verified'])
     ->name('analysis.average_ratings');
-Route::get('/analysis/daily_average', [AnalysisController::class, 'dailyAverage'])
+Route::post('/analysis/average_ratings', [PerformerRatingController::class, 'getAverageRatingsForArtists'])
+    ->middleware(['auth', 'verified'])
+    ->name('analysis.average_ratings.post');
+
+Route::get('/analysis/daily_average', [SongRatingController::class, 'getMonthlyAverageRatings'])
+    ->middleware(['auth', 'verified'])
     ->name('analysis.daily_average');
+Route::get('/search-artists', [PerformerRatingController::class, 'searchArtists']);
 
 
 // Recommendations
