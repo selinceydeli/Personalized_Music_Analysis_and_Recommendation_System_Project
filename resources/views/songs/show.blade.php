@@ -174,9 +174,9 @@
                         src="{{ $s->album && $s->album->image_url ? $s->album->image_url : asset('/images/no-image.png') }}"
                         alt="" />
                     <div>
-                        <h3 class="text-2xl">
+                        <a href="/songs/{{ $s->song_id }}" class="text-2xl flex items-center">
                             <i class="fas fa-music"></i> {{ $s->name }}
-                        </h3>
+                        </a> 
                         @php
                             $averageRating = $s->average_rating; // Get the average rating from the ratingsMap
                             $fullStars = floor($averageRating); // Calculate the number of full stars

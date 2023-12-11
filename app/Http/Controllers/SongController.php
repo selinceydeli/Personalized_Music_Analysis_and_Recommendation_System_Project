@@ -136,9 +136,82 @@ class SongController extends Controller
         ]);
     }
 
-    public function shows()
+    public function show($id)
     {
-        return view('songs.showSingle');
+        $song = Song::leftJoin('song_ratings', 'songs.song_id', '=', 'song_ratings.song_id')
+            ->select('songs.*', DB::raw('IFNULL(AVG(song_ratings.rating), 0) as average_rating'))
+            ->where('songs.song_id', $id) // Filter for the specific song ID
+            ->groupBy('songs.song_id')
+            ->first(); // Fetch a single result
+
+        // Extract the song_id values from the paginated songs
+        $songId = $song->song_id;
+        // Initialize an empty array to store the mapping
+        $ratingsMap = [];
+
+        if (auth()->check()) {
+            $username = auth()->user()->username;
+
+            // Iterate through each song ID and retrieve the latest user rating
+            $songRatingsController = new SongRatingController();
+            // Retrieve the latest user rating for the current song
+            $latestUserRating = $songRatingsController->getLatestUserRating($username, $songId);
+
+            // Build the ratings map entry for this song
+            $ratingsMap[$songId] = [
+                'latest_user_rating' => $latestUserRating ? $latestUserRating->rating : null,
+            ];
+        }
+
+        $performerIds = $song->performers;
+
+        // Remove the extra brackets and extract the IDs as strings
+        foreach ($performerIds as $key => $ids) {
+            if (is_string($ids) && strpos($ids, ',') !== false) {
+                $performerIds[$key] = array_map('trim', explode(',', trim($ids, '[]')));
+            } else {
+                $performerIds[$key] = trim($ids, '[]');
+            }
+        }
+
+        $performerController = new PerformerController();
+        $performers = [];
+        foreach ($performerIds as $key => $id) {
+            if (is_array($id)) {
+                foreach ($id as $subId) {
+                    // Make sure $subId is a string without quotes
+                    $subId = trim($subId, '"');
+
+                    // Make an HTTP request to fetch performer data for each subId
+                    $response = $performerController->search_id($subId); // Assuming search_id() takes a string parameter
+
+                    if ($response->getStatusCode() == 200) { // Checking if performer is found
+                        $performers[$key][$subId] = $response->getData(); // Assuming getData() gets the data from the response
+                    }
+                }
+            } else {
+                // Make an HTTP request to fetch performer data for $id
+                $id = trim($id, '"');
+
+                $response = $performerController->search_id($id); // Assuming search_id() takes a string parameter
+
+                if ($response->getStatusCode() == 200) { // Checking if performer is found
+                    $performers[$key][$id] = $response->getData(); // Assuming getData() gets the data from the response
+                }
+            }
+        }
+
+        $relatedSongs = Song::whereJsonContains('performers', $performerIds)
+                    ->where('songs.song_id', '!=', $id) // Exclude the current song
+                    ->take(15)
+                    ->get();
+
+        return view('songs.showSingle', [
+            'song' => $song,
+            'ratingsMap' => $ratingsMap,
+            'performers' => $performers,
+            'relatedSongs' => $relatedSongs
+        ]);
     }
 
     public function store(Request $request)

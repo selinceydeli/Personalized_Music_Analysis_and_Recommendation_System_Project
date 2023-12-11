@@ -11,6 +11,8 @@ use App\Http\Controllers\AlbumRatingController;
 use App\Http\Controllers\PerformerRatingController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\SpotifyController;
+use App\Http\Controllers\BlockController;
+use App\Http\Controllers\FriendshipController;
 use App\Http\Controllers\SettingsController;
 
 /*

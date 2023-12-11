@@ -1,0 +1,68 @@
+{
+    "album_type": "album",
+    "copyrights": "1994 EMRE GRAFSON M\u00dcZ\u0130K",
+    "genres": [],
+    "label": "EMRE GRAFSON M\u00dcZ\u0130K",
+    "name": "Merhaba Gen\u00e7ler",
+    "popularity": 53,
+    "release_date": "1987-01-01",
+    "total_tracks": 12,
+    "tracks": {
+        "items": [
+            {
+                "id": "0UgAZtkSkSf56vCjsCcnEA",
+                "track_number": 1
+            },
+            {
+                "id": "2v9RNssT0lv5CPipcOLTez",
+                "track_number": 2
+            },
+            {
+                "id": "6uIwC5U5VK4Islm9A9kRdv",
+                "track_number": 3
+            },
+            {
+                "id": "4zuTDWD2POZwKDvhJQoajs",
+                "track_number": 4
+            },
+            {
+                "id": "2tvGPQ3qP0xi94hqAPewsn",
+                "track_number": 5
+            },
+            {
+                "id": "1oMtoybrHHa0GtupGN5tcC",
+                "track_number": 6
+            },
+            {
+                "id": "7pxLdHzMSmGlp7GTpO3b1j",
+                "track_number": 7
+            },
+            {
+                "id": "0Nq9HI98lk4N2oTXnb7i2A",
+                "track_number": 8
+            },
+            {
+                "id": "5mkgbJH25lXjd7CbObvTcp",
+                "track_number": 9
+            },
+            {
+                "id": "5v0kY5pPWOL5mUCmq4jHUB",
+                "track_number": 10
+            },
+            {
+                "id": "5kicjZ9ygscnzxi2rB7TmW",
+                "track_number": 11
+            },
+            {
+                "id": "6bqAvy0MT2xnCTg4WLjiAM",
+                "track_number": 12
+            }
+        ],
+        "total": 12
+    },
+    "type": "album",
+    "artist_id": "1lIbZfJvMQRqzhtCQsg5EI",
+    "album_id": "1GmUZSBXGMA9lR1vPSCsZF",
+    "upc": "8691223004320",
+    "image": "https://i.scdn.co/image/ab67616d0000b273b874641c4382c44c72042f52"
+}

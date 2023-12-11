@@ -1,0 +1,64 @@
+{
+    "album_type": "album",
+    "copyrights": "2017 Bad Vibes Forever / EMPIRE",
+    "genres": [],
+    "label": "Bad Vibes Forever / EMPIRE",
+    "name": "17",
+    "popularity": 87,
+    "release_date": "2017-08-25",
+    "total_tracks": 11,
+    "tracks": {
+        "items": [
+            {
+                "id": "0VJYhKhrHgJ7fgjGaC2k07",
+                "track_number": 1
+            },
+            {
+                "id": "7m9OqQk4RVRkw9JJdeAw96",
+                "track_number": 2
+            },
+            {
+                "id": "2H3wWrnO758y0fPH7Ilerg",
+                "track_number": 3
+            },
+            {
+                "id": "3GVkPk8mqxz0itaAriG1L7",
+                "track_number": 4
+            },
+            {
+                "id": "5TXDeTFVRVY7Cvt0Dw4vWW",
+                "track_number": 5
+            },
+            {
+                "id": "2UwbhMie1EAYuTZ0QXeMwl",
+                "track_number": 6
+            },
+            {
+                "id": "2vQwlW8H1jFveGNXwZfJCV",
+                "track_number": 7
+            },
+            {
+                "id": "7AQim7LbvFVZJE3O8TYgf2",
+                "track_number": 8
+            },
+            {
+                "id": "2yZax79pOrYuyIFVW2cZY2",
+                "track_number": 9
+            },
+            {
+                "id": "05bnEv2dpFzmGVLGdjD9UP",
+                "track_number": 10
+            },
+            {
+                "id": "5xbrhx2tMMcN68IT3cJbhS",
+                "track_number": 11
+            }
+        ],
+        "total": 11
+    },
+    "type": "album",
+    "artist_id": "15UsOTVnJzReFVN1VCnxy4",
+    "album_id": "5VdyJkLe3yvOs0l4xXbWp0",
+    "upc": "888915443767",
+    "image": "https://i.scdn.co/image/ab67616d0000b273203c89bd4391468eea4cc3f5"
+}

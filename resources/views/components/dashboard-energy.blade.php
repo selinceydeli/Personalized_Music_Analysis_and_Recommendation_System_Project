@@ -17,7 +17,8 @@
         </h1>
         <!-- Download Button -->
         <div class="text-center mb-4">
-            <button onclick="downloadRecommendationsEnergy()" class="bg-blue-500 text-white px-4 py-2 rounded">Download Recommendations</button>
+            <button onclick="downloadRecommendationsEnergy()" class="bg-blue-500 text-white px-4 py-2 rounded">Download
+                Recommendations</button>
         </div>
 
         <!-- Section for General Recommendations -->
@@ -29,9 +30,13 @@
                         <div class="border rounded-lg p-4 shadow-lg">
                             <img src="{{ $song->album->image_url ?? asset('/images/no-image.png') }}"
                                 alt="{{ $song->name }}" class="w-full h-auto mb-3">
-                            <h3 class="text-lg font-semibold">{{ $song->name }}</h3>
-                            <p>Energy: {{ $song->energy }}</p>
-                            <p>Danceability: {{ $song->danceability }}</p>
+                            <div>
+                                <a href="/songs/{{ $song->song_id }}" class="text-lg font-semibold">
+                                    {{ $song->name }}
+                                </a>
+                                <p class="text-sm text-gray-600">Energy: {{ $song->energy }}</p>
+                                <p class="text-sm text-gray-600">Danceability: {{ $song->danceability }}</p>
+                            </div>
                             <i class="fas fa-folder"></i>
                             <strong>
                                 <a href="/albums/{{ $song->album->album_id }}?song-id={{ $song->song_id }}">
@@ -70,13 +75,14 @@
                                         @endif
                                     @endforeach
                                 </p>
-                                <x-listing-tags :matchedPerformers="$matchedPerformers" />
+                                <x-album-tags :genresCsv="$matchedPerformers[0]->genre" />
                             </div>
                             <div>
                                 <i class="fas fa-clock"></i>
                                 @if ($song->duration)
                                     <span class="text-lg font-bold text-black-600">
-                                        ({{ formatSongDuration($song->duration) }})</span>
+                                        ({{ formatSongDuration($song->duration) }})
+                                    </span>
                                 @endif
                             </div>
                             <div class="flex items-center mt-2">

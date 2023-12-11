@@ -1,0 +1,80 @@
+{
+    "album_type": "album",
+    "copyrights": "1994 Yavuz Bur\u00e7 Plak\u00e7ilik",
+    "genres": [],
+    "label": "YAVUZ BUR\u00c7 PLAK\u00c7ILIK",
+    "name": "Cemaz-\u00dbl-Evvel (G\u00fcldeste)",
+    "popularity": 49,
+    "release_date": "1994-11-01",
+    "total_tracks": 15,
+    "tracks": {
+        "items": [
+            {
+                "id": "1qz0rMOxjEfj5NGgg1B4Nh",
+                "track_number": 1
+            },
+            {
+                "id": "2CSdRX3PRc8wZK2PVCftxp",
+                "track_number": 2
+            },
+            {
+                "id": "33DH2PPsYSkXlTu0GVmbiL",
+                "track_number": 3
+            },
+            {
+                "id": "26SBalrU9PordftbSvP7FO",
+                "track_number": 4
+            },
+            {
+                "id": "4a1qSIk3zm2E1dRGljvt7r",
+                "track_number": 5
+            },
+            {
+                "id": "1kufYA2G4A8PKlqk0iCRTw",
+                "track_number": 6
+            },
+            {
+                "id": "1zfx0KZWQBKsBvQVDgS2Ic",
+                "track_number": 7
+            },
+            {
+                "id": "1FWtprHStw6VvFqFXDmLT9",
+                "track_number": 8
+            },
+            {
+                "id": "2H21y5h26IhzCa4rofDU6n",
+                "track_number": 9
+            },
+            {
+                "id": "1XNFNSmNfqHvjxJadykqkn",
+                "track_number": 10
+            },
+            {
+                "id": "32CRjvlpmUW2muwGxqSNPJ",
+                "track_number": 11
+            },
+            {
+                "id": "52rcsAkmPm53TwayFT1rNS",
+                "track_number": 12
+            },
+            {
+                "id": "6XLu9Dn8bcQJ4IWOQVBG3P",
+                "track_number": 13
+            },
+            {
+                "id": "2ApEN6NxTvPXInqTl8GuEL",
+                "track_number": 14
+            },
+            {
+                "id": "0BO2bGJuwobRA3NE2UPZsI",
+                "track_number": 15
+            }
+        ],
+        "total": 15
+    },
+    "type": "album",
+    "artist_id": "1lIbZfJvMQRqzhtCQsg5EI",
+    "album_id": "0GvX6hVH6flo2sZ2nTg5jf",
+    "upc": "8697869705362",
+    "image": "https://i.scdn.co/image/ab67616d0000b273e709b675435b35b045bb39dc"
+}

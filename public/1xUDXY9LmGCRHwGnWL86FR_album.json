@@ -1,0 +1,24 @@
+{
+    "album_type": "single",
+    "copyrights": "2019 Collabel",
+    "genres": [],
+    "label": "Collabel",
+    "name": "Susamam",
+    "popularity": 43,
+    "release_date": "2019-09-06",
+    "total_tracks": 1,
+    "tracks": {
+        "items": [
+            {
+                "id": "0NYRDUNbbWCtEA5738Qamv",
+                "track_number": 1
+            }
+        ],
+        "total": 1
+    },
+    "type": "album",
+    "artist_id": "5LUxu287CsPM7jy3yS3l86",
+    "album_id": "1xUDXY9LmGCRHwGnWL86FR",
+    "upc": "194694195682",
+    "image": "https://i.scdn.co/image/ab67616d0000b27347f2e0d414ff09d27751c832"
+}

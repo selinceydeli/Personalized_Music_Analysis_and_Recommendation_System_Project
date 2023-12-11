@@ -1,0 +1,318 @@
+[
+    {
+        "followers": 549,
+        "genres": [
+            "dutch trance"
+        ],
+        "name": "De Bos",
+        "popularity": 10,
+        "image": "https://i.scdn.co/image/ab67616d0000b273d52373b5cc338ce1794b8a11",
+        "artist_id": "091yDkBoDstJ1FOdIiIeMI"
+    },
+    {
+        "followers": 136,
+        "genres": [],
+        "name": "The Footclub",
+        "popularity": 4,
+        "image": "https://i.scdn.co/image/ab67616d0000b273b101c28867b6e8923270ac52",
+        "artist_id": "06T0kBIMACQRxDKyYYDppr"
+    },
+    {
+        "followers": 735,
+        "genres": [],
+        "name": "Stuart",
+        "popularity": 9,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb477b8fb7f77dd0511fe18c5c",
+        "artist_id": "20CJL0AvXib8J6jgO5SKKi"
+    },
+    {
+        "followers": 3679,
+        "genres": [],
+        "name": "Dominica",
+        "popularity": 45,
+        "image": "https://i.scdn.co/image/ab67616d0000b2734337c095ea2a9da81280353b",
+        "artist_id": "6bETcPKjsI4UE4ZMHtcZCh"
+    },
+    {
+        "followers": 103,
+        "genres": [],
+        "name": "Oliver Cheatam",
+        "popularity": 23,
+        "image": null,
+        "artist_id": "5x1v9mruQEUdgGt8Io5p80"
+    },
+    {
+        "followers": 155,
+        "genres": [],
+        "name": "Dan Daniel",
+        "popularity": 4,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb4b19435665f2209073ea5105",
+        "artist_id": "7nJLTOfmeL9UhJYa4CGZkM"
+    },
+    {
+        "followers": 1384,
+        "genres": [
+            "dutch trance"
+        ],
+        "name": "John Marks",
+        "popularity": 14,
+        "image": "https://i.scdn.co/image/ab67616d0000b273b673ca4dc05bf4e4cbc0aa1f",
+        "artist_id": "5T6v04k3OFl1jQeZqwSTsk"
+    },
+    {
+        "followers": 3610,
+        "genres": [
+            "dutch trance"
+        ],
+        "name": "DJ Jose",
+        "popularity": 26,
+        "image": "https://i.scdn.co/image/ab67616d0000b2734975950ce7b995abf62804b1",
+        "artist_id": "4pugYBYlQfhhuNkbwmmx0a"
+    },
+    {
+        "followers": 313799,
+        "genres": [
+            "edm",
+            "pop dance",
+            "progressive house",
+            "progressive trance",
+            "trance"
+        ],
+        "name": "Markus Schulz",
+        "popularity": 45,
+        "image": "https://i.scdn.co/image/ab6761610000e5ebae5588c75419c2ff89ffe915",
+        "artist_id": "6OO0PboZcIWUWL7j2IyeoL"
+    },
+    {
+        "followers": 82638,
+        "genres": [
+            "eurodance",
+            "hip house",
+            "italo dance"
+        ],
+        "name": "Gala",
+        "popularity": 59,
+        "image": "https://i.scdn.co/image/ab6761610000e5ebfe64161bc38e2b90b68907ce",
+        "artist_id": "3OqTvcWgb0xaainosGVvuZ"
+    },
+    {
+        "followers": 263765,
+        "genres": [
+            "dutch trance",
+            "edm",
+            "progressive house",
+            "progressive trance",
+            "trance",
+            "uplifting trance"
+        ],
+        "name": "Ferry Corsten",
+        "popularity": 51,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb270ac0c81b0af36a0feaa783",
+        "artist_id": "2ohlvFf9PBsDELdRstPtlP"
+    },
+    {
+        "followers": 29354,
+        "genres": [
+            "disco house",
+            "vocal house"
+        ],
+        "name": "Room 5",
+        "popularity": 45,
+        "image": "https://i.scdn.co/image/ab67616d0000b2733e4e6be7009f5481671322e4",
+        "artist_id": "0AEbDFXbsssoSoC3pj91eq"
+    },
+    {
+        "followers": 1849,
+        "genres": [
+            "hard trance"
+        ],
+        "name": "Svenson",
+        "popularity": 10,
+        "image": "https://i.scdn.co/image/ab67616d0000b273c96e9682ed307fe0b82ef906",
+        "artist_id": "69L1dSd8TzElYlV3Js86mw"
+    },
+    {
+        "followers": 100421,
+        "genres": [
+            "bboy",
+            "indie soul",
+            "nu disco"
+        ],
+        "name": "Kraak & Smaak",
+        "popularity": 50,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb07aa45aba94c8ca9facf2aed",
+        "artist_id": "7c5qu1gNlg8jWDzzmlp89O"
+    },
+    {
+        "followers": 2730,
+        "genres": [
+            "dutch trance"
+        ],
+        "name": "G-Spott",
+        "popularity": 25,
+        "image": "https://i.scdn.co/image/ab67616d0000b273751646dfc405e08d70042b7b",
+        "artist_id": "2bWZmsB2z12sT3dMZ2DYDb"
+    },
+    {
+        "followers": 1126,
+        "genres": [],
+        "name": "Milan & Phoenix",
+        "popularity": 14,
+        "image": "https://i.scdn.co/image/ab6761610000e5ebe59589afd48a18320c2f7b62",
+        "artist_id": "2zeVJU1siPlYZTidBjeMk7"
+    },
+    {
+        "followers": 426872,
+        "genres": [
+            "german techno",
+            "trance",
+            "uplifting trance"
+        ],
+        "name": "Paul van Dyk",
+        "popularity": 53,
+        "image": "https://i.scdn.co/image/ab6761610000e5ebf35904b11572a8e8203064de",
+        "artist_id": "7wU1naftD3lNq7rNsiDvOR"
+    },
+    {
+        "followers": 12082,
+        "genres": [
+            "acid trance",
+            "bubble trance",
+            "dream trance",
+            "german techno",
+            "german trance"
+        ],
+        "name": "Future Breeze",
+        "popularity": 44,
+        "image": "https://i.scdn.co/image/ab6761610000e5ebd6f1b2cbebdd04ad0041aa5f",
+        "artist_id": "2Qa4UBwzhEFt1Tpj95cZls"
+    },
+    {
+        "followers": 4362135,
+        "genres": [
+            "dutch trance",
+            "edm",
+            "pop dance",
+            "progressive house",
+            "trance"
+        ],
+        "name": "Armin van Buuren",
+        "popularity": 72,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb5328c468cef8019bc41b63a8",
+        "artist_id": "0SfsnGyD8FpIN4U4WCkBZ5"
+    },
+    {
+        "followers": 17041,
+        "genres": [
+            "bouncy house",
+            "bubble trance"
+        ],
+        "name": "Klubbheads",
+        "popularity": 39,
+        "image": "https://i.scdn.co/image/ab6761610000e5ebdc7f3676db960da07831a6f5",
+        "artist_id": "2j9KNQNo5B2mQ1isoa0eIe"
+    },
+    {
+        "followers": 110,
+        "genres": [],
+        "name": "Yvan",
+        "popularity": 3,
+        "image": "https://i.scdn.co/image/ab67616d0000b27375559ffb0146a5ff8a70d5cd",
+        "artist_id": "1s8boyuXsPNm2eOP85pVQa"
+    },
+    {
+        "followers": 5346,
+        "genres": [
+            "dutch trance"
+        ],
+        "name": "Dance Nation",
+        "popularity": 23,
+        "image": "https://i.scdn.co/image/ab6761610000e5eba2356a188ab0918448e33e4d",
+        "artist_id": "5ukuMJsKj4MuEuOTcoJww4"
+    },
+    {
+        "followers": 65461,
+        "genres": [
+            "dutch trance",
+            "progressive house",
+            "trance",
+            "uplifting trance"
+        ],
+        "name": "Rank 1",
+        "popularity": 48,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb9c3002e9bdf1f50a6ccb8020",
+        "artist_id": "1eQe86RbDKRIiGZk08r9YJ"
+    },
+    {
+        "followers": 1945,
+        "genres": [
+            "happy hardcore"
+        ],
+        "name": "The Ultimate Seduction",
+        "popularity": 20,
+        "image": "https://i.scdn.co/image/ab6761610000e5ebd76c46851aa9cc93534a6b45",
+        "artist_id": "34PGWtOdhHBdMwQRgMW3tA"
+    },
+    {
+        "followers": 263,
+        "genres": [],
+        "name": "Gielen",
+        "popularity": 3,
+        "image": "https://i.scdn.co/image/ab67616d0000b27338cca51519fcdd465eca0b3f",
+        "artist_id": "3sYzlnppivLi846PmERoP4"
+    },
+    {
+        "followers": 7696,
+        "genres": [
+            "dutch edm"
+        ],
+        "name": "Mischa Daniels",
+        "popularity": 27,
+        "image": "https://i.scdn.co/image/3bcef6877e6b2bc4f92ccd696683d00ca8f44410",
+        "artist_id": "2gsLJqpNYgfkAQJU9LJMuX"
+    },
+    {
+        "followers": 8226,
+        "genres": [],
+        "name": "J-Son",
+        "popularity": 31,
+        "image": "https://i.scdn.co/image/ab67616d0000b2735ca1948c551a8347e021aafa",
+        "artist_id": "0aImibWL2VPitiLu5WyiOA"
+    },
+    {
+        "followers": 34554,
+        "genres": [
+            "dutch trance",
+            "progressive house",
+            "trance",
+            "uplifting trance"
+        ],
+        "name": "Marco V",
+        "popularity": 37,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb367b846126b1591d350a6883",
+        "artist_id": "24xpaWFyBOwoB8lBBolWzv"
+    },
+    {
+        "followers": 14256,
+        "genres": [
+            "bubble trance",
+            "classic progressive house",
+            "trance"
+        ],
+        "name": "Three Drives On A Vinyl",
+        "popularity": 45,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb4cbf61d15f34e44c9c3d829c",
+        "artist_id": "10feV0eOe64kjUc95Lnfuv"
+    },
+    {
+        "followers": 3606,
+        "genres": [
+            "gabber",
+            "happy hardcore"
+        ],
+        "name": "DJ Paul",
+        "popularity": 40,
+        "image": "https://i.scdn.co/image/ab67616d0000b27384a8ceab868a481bef7fbfe8",
+        "artist_id": "6T9QVklRmYwXCCesJI0T54"
+    }
+]
