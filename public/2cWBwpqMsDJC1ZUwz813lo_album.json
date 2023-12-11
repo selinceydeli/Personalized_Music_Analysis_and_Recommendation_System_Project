@@ -1,0 +1,100 @@
+{
+    "album_type": "album",
+    "copyrights": "\u00a9 2002 Aftermath Records",
+    "genres": [],
+    "label": "Aftermath",
+    "name": "The Eminem Show",
+    "popularity": 89,
+    "release_date": "2002-05-26",
+    "total_tracks": 20,
+    "tracks": {
+        "items": [
+            {
+                "id": "0ttF21hZCPw2merE3GsHcP",
+                "track_number": 1
+            },
+            {
+                "id": "15qrWkkYCfmtu1uRpGf48L",
+                "track_number": 2
+            },
+            {
+                "id": "0x60P5taxdI5pcGbqbap6S",
+                "track_number": 3
+            },
+            {
+                "id": "7BMO7O7ImjV8HNTH74Tshv",
+                "track_number": 4
+            },
+            {
+                "id": "27mgDrExPa3obPAYXd3yQg",
+                "track_number": 5
+            },
+            {
+                "id": "2J3CYFUn6eAuHz5S9IKape",
+                "track_number": 6
+            },
+            {
+                "id": "5QD28FqaM3jTfsqWwvRZwv",
+                "track_number": 7
+            },
+            {
+                "id": "288e3FhmVuCqPmNEfAH0h6",
+                "track_number": 8
+            },
+            {
+                "id": "7io19rjxOFu3pGuZgBI6Pk",
+                "track_number": 9
+            },
+            {
+                "id": "7lQ8MOhq6IN2w8EYcFNSUk",
+                "track_number": 10
+            },
+            {
+                "id": "0EgkVzDidmq4MP57jZFeik",
+                "track_number": 11
+            },
+            {
+                "id": "3CpoeW0cZSDzIRv5z34F87",
+                "track_number": 12
+            },
+            {
+                "id": "4woTEX1wYOTGDqNXuavlRC",
+                "track_number": 13
+            },
+            {
+                "id": "6Db8IlZ7YY1pfIjJllejyH",
+                "track_number": 14
+            },
+            {
+                "id": "5ZxX55HFfi4aofGTxMp58x",
+                "track_number": 15
+            },
+            {
+                "id": "73qINA7ccO03wxD8nsJalr",
+                "track_number": 16
+            },
+            {
+                "id": "4EQkcrSLF3QdlwNca7sMXY",
+                "track_number": 17
+            },
+            {
+                "id": "4xkOaSrkexMciUUogZKVTS",
+                "track_number": 18
+            },
+            {
+                "id": "3F14hbIqy1JKKLTb1mzdYV",
+                "track_number": 19
+            },
+            {
+                "id": "51LeDAMy6nWqKdjVo7jK4j",
+                "track_number": 20
+            }
+        ],
+        "total": 20
+    },
+    "type": "album",
+    "artist_id": "7dGJo4pcD2V6oG8kP0tJRR",
+    "album_id": "2cWBwpqMsDJC1ZUwz813lo",
+    "upc": "00606949329020",
+    "image": "https://i.scdn.co/image/ab67616d0000b2736ca5c90113b30c3c43ffb8f4"
+}

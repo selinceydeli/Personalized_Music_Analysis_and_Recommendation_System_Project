@@ -1,0 +1,81 @@
+[
+    {
+        "followers": 79788004,
+        "genres": [
+            "detroit hip hop",
+            "hip hop",
+            "rap"
+        ],
+        "name": "Eminem",
+        "popularity": 89,
+        "image": "https://i.scdn.co/image/ab6761610000e5eba00b11c129b27a88fc72f36b",
+        "artist_id": "7dGJo4pcD2V6oG8kP0tJRR"
+    },
+    {
+        "followers": 7541,
+        "genres": [],
+        "name": "Dina Rae",
+        "popularity": 65,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb989960b3527fe8067ef3570b",
+        "artist_id": "5jNmxPYz8QE5rYp4GDil8t"
+    },
+    {
+        "followers": 1035676,
+        "genres": [
+            "detroit hip hop",
+            "gangster rap"
+        ],
+        "name": "Obie Trice",
+        "popularity": 56,
+        "image": "https://i.scdn.co/image/13998fd88695a34cec8350675cb3ceffa4573ae3",
+        "artist_id": "2XnnxQzxFZG8qEPjakokPM"
+    },
+    {
+        "followers": 9698,
+        "genres": [],
+        "name": "Hailie Jade",
+        "popularity": 43,
+        "image": null,
+        "artist_id": "4BmYRs3xOI8V1WCPDfxhQo"
+    },
+    {
+        "followers": 3064112,
+        "genres": [
+            "detroit hip hop",
+            "gangster rap",
+            "hip hop"
+        ],
+        "name": "D12",
+        "popularity": 63,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb4f52827861ae9b860a5e62f6",
+        "artist_id": "5Qi4Bb7a8C0a00NZcA77L0"
+    },
+    {
+        "followers": 10928288,
+        "genres": [
+            "g funk",
+            "gangster rap",
+            "hip hop",
+            "rap",
+            "west coast rap"
+        ],
+        "name": "Dr. Dre",
+        "popularity": 77,
+        "image": "https://i.scdn.co/image/83d2489cade1dadcdc533ddbcd74993d0ca6d4cb",
+        "artist_id": "6DPYiyq5kWVQS4RGwxzPC7"
+    },
+    {
+        "followers": 1548262,
+        "genres": [
+            "g funk",
+            "gangster rap",
+            "hardcore hip hop",
+            "hip hop",
+            "west coast rap"
+        ],
+        "name": "Nate Dogg",
+        "popularity": 74,
+        "image": "https://i.scdn.co/image/fd5d1f379a33ee26e2dfaf296bbab0970ec95ede",
+        "artist_id": "1Oa0bMld0A3u5OTYfMzp5h"
+    }
+]

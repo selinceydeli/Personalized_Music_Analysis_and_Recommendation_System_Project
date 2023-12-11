@@ -170,7 +170,7 @@
         @foreach ($songs as $s)
             <x-card class="relative">
                 <div class="flex">
-                    <img class="w-48 mr-6 md:block"
+                    <img class="w-48 h-48 mr-6 md:block"
                         src="{{ $s->album && $s->album->image_url ? $s->album->image_url : asset('/images/no-image.png') }}"
                         alt="" />
                     <div>

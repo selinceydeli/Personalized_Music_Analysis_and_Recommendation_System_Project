@@ -128,7 +128,7 @@
                 @foreach ($albums as $album)
                     <x-card>
                         <div class="flex relative">
-                            <img class="w-48 mr-6 md:block"
+                            <img class="w-48 h-48 mr-6 md:block"
                                 src="{{ $album->image_url ? $album->image_url : asset('/images/no-image.png') }}"
                                 alt="Album Image" />
                             <div class="text-lg mt-4">
