@@ -54,7 +54,7 @@
 
         if (Object.keys(orderedRatings).length > 0) {
             var artists = Object.keys(orderedRatings);
-            var ratings = artists.map(artist => orderedRatings[artist]);
+            var ratings = Object.values(orderedRatings);
             var ctx = document.getElementById('orderedRatingsChart').getContext('2d');
 
             // Function to generate random colors
