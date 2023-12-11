@@ -75,7 +75,7 @@ class PerformerRatingController extends Controller
 
     public function searchArtists(Request $request)
     {
-        $query = 'Beyonce, Duman'; //$request->input('query');
+        $query = $request->input('query');
 
         // Perform a case-insensitive search for artist names that match the query
         $artists = PerformerRating::where('name', 'ilike', '%' . $query . '%')->pluck('name');
@@ -86,9 +86,13 @@ class PerformerRatingController extends Controller
     // Methods defined for analysis functionality
     public function getAverageRatingsForArtists(Request $request)
     {
-        $artistNames = $request->input('artistNames', []); // Default to an empty array if not specified
-        $months =  6; // Default to 6 months 
         
+        $artistNamesString = $request->input('artistNames', ''); // Default to an empty array if not specified
+        $artistNames = explode(',', $artistNamesString);
+        $artistNames = array_map('trim', $artistNames);
+
+        $months =  6; // Default to 6 months 
+
         // Calculate the start date
         $startDate = now()->subMonths($months);
 
@@ -96,6 +100,7 @@ class PerformerRatingController extends Controller
         $artistNames = is_array($artistNames) ? $artistNames : [];
 
         if (!empty($artistNames)) {
+            
             // Get average ratings for the specified artists since the start date
             $ratings = PerformerRating::select('performers.name', DB::raw('AVG(performer_ratings.rating) as average_rating'))
                         ->join('performers', 'performer_ratings.artist_id', '=', 'performers.artist_id')
@@ -110,7 +115,7 @@ class PerformerRatingController extends Controller
             foreach ($artistNames as $artistName) {
                 $orderedRatings[$artistName] = $ratings[$artistName]->average_rating ?? null;
             }
-
+            //dd($orderedRatings);
             return view('analysis.average_ratings', [
                 'artistNames' => $artistNames,
                 'orderedRatings' => $orderedRatings
@@ -118,8 +123,6 @@ class PerformerRatingController extends Controller
         }
 
         // Return an empty array if no artist names are provided
-        //return view('analysis.average_ratings', ['artistNames' => $artistNames, 'orderedRatings' => []]);
-        return response()->json($orderedRatings);
-
+        return view('analysis.average_ratings', ['artistNames' => $artistNames, 'orderedRatings' => []]);
     }
 }
