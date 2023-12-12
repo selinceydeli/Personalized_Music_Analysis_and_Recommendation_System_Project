@@ -16,7 +16,7 @@ class SpotifyController extends Controller
         }
 
         // Execute the Python script and capture the output, including any errors
-        $command = "python tempFunctions/importSongWithLink.py " . escapeshellarg($url) . " 2>&1";
+        $command = "python3 tempFunctions/importSongWithLink.py " . escapeshellarg($url) . " 2>&1";
         $result = shell_exec($command);
 
         // Check the result of the script execution

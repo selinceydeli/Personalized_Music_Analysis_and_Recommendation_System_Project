@@ -1,0 +1,27 @@
+[
+    {
+        "duration_ms": 168888,
+        "explicit": 0,
+        "name": "Paks",
+        "popularity": 53,
+        "preview_url": "https://p.scdn.co/mp3-preview/27b974ce4ee5288814379ab61af2bf0863665a55?cid=0871147f112a492b88fc9fea2d3bf5e7",
+        "song_id": "3f526KslwaHSuamZFabgvk",
+        "isrc": "QZAKB2353816",
+        "album_id": "1gIvY2Q98QNFO4oLsC37jW",
+        "artists_ids": [
+            "0CfAjz9xgWzVTurMYXM9P7"
+        ],
+        "danceability": 0.718,
+        "energy": 0.642,
+        "key": "D#",
+        "loudness": -7.823,
+        "mode": "Minor",
+        "speechiness": 0.0789,
+        "acousticness": 0.408,
+        "instrumentalness": 0.96,
+        "liveness": 0.102,
+        "valence": 0.52,
+        "tempo": 81.006,
+        "time_signature": 4
+    }
+]
