@@ -1,0 +1,27 @@
+[
+    {
+        "duration_ms": 139795,
+        "explicit": 0,
+        "name": "El Camino de Mallorca",
+        "popularity": 46,
+        "preview_url": "https://p.scdn.co/mp3-preview/94d84f1768b34fb93bc48f1dfd4d1c42fab9a8ff?cid=0871147f112a492b88fc9fea2d3bf5e7",
+        "song_id": "25vabrg2p84UHPik2J7AWO",
+        "isrc": "DKW922003009",
+        "album_id": "5PtuxBevT9dT2vGaGpxCWg",
+        "artists_ids": [
+            "4haSSnvfxfNuKQ0Rxroodu"
+        ],
+        "danceability": 0.745,
+        "energy": 0.172,
+        "key": "D",
+        "loudness": -14.072,
+        "mode": "Minor",
+        "speechiness": 0.0495,
+        "acousticness": 0.994,
+        "instrumentalness": 0.935,
+        "liveness": 0.14,
+        "valence": 0.785,
+        "tempo": 128.904,
+        "time_signature": 4
+    }
+]

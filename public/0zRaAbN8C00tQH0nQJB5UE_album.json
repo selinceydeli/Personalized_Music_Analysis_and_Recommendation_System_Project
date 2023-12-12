@@ -1,0 +1,24 @@
+{
+    "album_type": "single",
+    "copyrights": "2022 NINETOFIVE",
+    "genres": [],
+    "label": "NINETOFIVE",
+    "name": "Jezerro",
+    "popularity": 44,
+    "release_date": "2022-01-21",
+    "total_tracks": 1,
+    "tracks": {
+        "items": [
+            {
+                "id": "0wO5Kuq82JCh1w5XZBSqiZ",
+                "track_number": 1
+            }
+        ],
+        "total": 1
+    },
+    "type": "album",
+    "artist_id": "6f2Y46Pw2IYGoURJREJDiA",
+    "album_id": "0zRaAbN8C00tQH0nQJB5UE",
+    "upc": "1963620485796",
+    "image": "https://i.scdn.co/image/ab67616d0000b273a9082e8f07c4c18c734b6e39"
+}

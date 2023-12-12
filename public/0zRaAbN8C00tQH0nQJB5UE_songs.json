@@ -1,0 +1,28 @@
+[
+    {
+        "duration_ms": 153973,
+        "explicit": 0,
+        "name": "Jezerro",
+        "popularity": 54,
+        "preview_url": "https://p.scdn.co/mp3-preview/1b12a4a15bdff9632a1cd8afa45129f46f018b92?cid=0871147f112a492b88fc9fea2d3bf5e7",
+        "song_id": "0wO5Kuq82JCh1w5XZBSqiZ",
+        "isrc": "QM3DF2193841",
+        "album_id": "0zRaAbN8C00tQH0nQJB5UE",
+        "artists_ids": [
+            "6f2Y46Pw2IYGoURJREJDiA",
+            "33mF58EgWRWcLJWIddSH7h"
+        ],
+        "danceability": 0.573,
+        "energy": 0.583,
+        "key": "F",
+        "loudness": -6.165,
+        "mode": "Minor",
+        "speechiness": 0.0529,
+        "acousticness": 0.239,
+        "instrumentalness": 0.704,
+        "liveness": 0.102,
+        "valence": 0.15,
+        "tempo": 88.379,
+        "time_signature": 4
+    }
+]
