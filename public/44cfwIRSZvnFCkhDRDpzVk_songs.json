@@ -1,0 +1,27 @@
+[
+    {
+        "duration_ms": 146000,
+        "explicit": 0,
+        "name": "Battery",
+        "popularity": 49,
+        "preview_url": "https://p.scdn.co/mp3-preview/8e6c3993815edc49698409f8c755d2966fbd11b7?cid=0871147f112a492b88fc9fea2d3bf5e7",
+        "song_id": "2R1q865i7OzATBbZCoX1YI",
+        "isrc": "SE5IB2309209",
+        "album_id": "44cfwIRSZvnFCkhDRDpzVk",
+        "artists_ids": [
+            "6bHl5CMbDUkkVJ0YUKqK30"
+        ],
+        "danceability": 0.725,
+        "energy": 0.128,
+        "key": "G",
+        "loudness": -18.61,
+        "mode": "Major",
+        "speechiness": 0.0435,
+        "acousticness": 0.894,
+        "instrumentalness": 0.901,
+        "liveness": 0.0802,
+        "valence": 0.211,
+        "tempo": 120.014,
+        "time_signature": 4
+    }
+]
