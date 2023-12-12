@@ -11,7 +11,7 @@ access_token = ""
 
 # Connect to the MySQL server
 connection = mysql.connector.connect(
-    host='46.2.65.203',
+    host='176.217.94.165',
     user='default',
     password='1aaf5a1fe37d97e8468ac9a7b1b1473ef8be50ff2bdf251a54c910fe0f36be6b',
     database='music_tailor',
