@@ -74,9 +74,4 @@ class User extends Authenticatable
 
         return $friendsOfMine->merge($friendOf);
     }
-
-    public function routeNotificationForDatabase($notification)
-    {
-        return $this->username;
-    }
 }
