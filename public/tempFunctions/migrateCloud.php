@@ -1,6 +1,6 @@
 <?php
 function migrateSongs(string $hostTarget,string $userTarget,string $passTarget,string $dbTarget,string $portTarget){
-    $hostSource = "46.2.65.203";
+    $hostSource = "176.217.245.160";
     $userSource = "anon";
     $passSource = "default";
     $dbSource = "music_tailor";
