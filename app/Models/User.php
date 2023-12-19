@@ -60,11 +60,11 @@ class User extends Authenticatable
     }
 
     public function blockedUsers() {
-        return $this->hasMany(Block::class, 'blocker_id');
+        return $this->hasMany(Block::class, 'blocker_username');
     }
 
     public function blockingUsers() {
-        return $this->hasMany(Block::class, 'blocked_id');
+        return $this->hasMany(Block::class, 'blocked_username');
     }
 
     // Accessor to get all friends
@@ -73,5 +73,10 @@ class User extends Authenticatable
         $friendOf = $this->friendOf ?: collect([]);
 
         return $friendsOfMine->merge($friendOf);
+    }
+
+    public function routeNotificationForDatabase($notification)
+    {
+        return $this->username;
     }
 }
