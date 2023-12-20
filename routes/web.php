@@ -84,7 +84,31 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/subscription/upgrade', [SubscriptionController::class, 'upgrade'])->name('subscription.upgrade');
     Route::get('/settings', [SettingsController::class, 'index'])->name('settings');
     Route::post('/settings/update', [SettingsController::class, 'update'])->name('settings.update');
+
+    Route::get('/payment', function () {
+        // You can return the Blade view for the payment form here
+        return view('subscription.payment');
+    })->name('payment');
+    
+    // Define a route for processing the payment form submission
+    Route::post('/payment.process', function () {
+        // Handle the form submission directly in this function
+        // You can access form data using the request() helper function
+    
+        // Example: Retrieve form input
+        $cvcCvv = request('cvc-cvv');
+        $cardNumbers = request('cardNumber');
+        $cardHolder = request('cardHolder');
+        $month = request('month');
+        $date = request('date');
+    
+        // Add your processing logic here
+    
+        // Redirect to the homepage or another route
+        return redirect('/subscription')->with('success', 'Payment succeeded');
+    })->name('payment.process');
 });
+
 
 // Analysis
 Route::get('/analysis/favorite_albums', [AlbumRatingController::class, 'topRatedAlbumsByEra'])->middleware(['auth', 'verified'])->name('analysis.favorite_albums');
