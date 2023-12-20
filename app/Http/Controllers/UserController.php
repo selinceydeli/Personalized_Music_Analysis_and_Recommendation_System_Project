@@ -456,6 +456,12 @@ class UserController extends Controller
         $user = User::where('username', $username)->firstOrFail();
         return response()->json($user->blockedUsers);
     }
+    public function addfriends() {
+        $username = auth()->user()->username;
+        $friends = $this->getFriends($username);
+        dd($friends);
+        //return view('friend.index');
+    }
     public function getNotifications($username)
     {
         $user = User::where('username', $username)->firstOrFail();

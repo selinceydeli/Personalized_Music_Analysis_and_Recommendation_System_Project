@@ -54,6 +54,17 @@
                         </form>
                     </div>
                 </li>
+                <!-- Friends -->
+                <li x-data="{ open: false }" class="relative">
+                    <button @click="open = !open" class="hover:text-laravel flex items-center">
+                        <i class="fa-solid fa-people-group"></i>&nbsp;Friends
+                    </button>                    
+                    <div x-show="open" @click.away="open = false" class="absolute mt-2 w-48 rounded-md shadow-lg bg-white z-50" style="display: none">
+                        <a href="/addfriends" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Add Friend</a>
+                        <a href="" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">My Friends</a>
+                        <a href="" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Blocked Users</a>
+                    </div>
+                </li>
                 <!-- Recommendations Menu Item -->
                 <li x-data="{ open: false }" class="relative">
                     <button @click="open = !open" class="hover:text-laravel flex items-center">
