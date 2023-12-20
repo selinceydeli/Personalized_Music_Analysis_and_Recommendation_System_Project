@@ -12,6 +12,7 @@ use App\Http\Controllers\SongRatingController;
 use App\Http\Controllers\PerformerRatingController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,42 +61,54 @@ Route::get("/performers/{performerId}", [PerformerController::class, 'show']);
 Route::post('/users/authenticate', [UserController::class, 'authenticate'])->name('login');
 
 // Dashboard
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+Route::view('dashboard', 'dashboard')->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/subscription', [SubscriptionController::class, 'show'])->name('subscription.show');
-    Route::get('/subscription/upgrade', [SubscriptionController::class, 'upgrade'])->name('subscription.upgrade');
+
+    //Settings
     Route::get('/settings', [SettingsController::class, 'index'])->name('settings');
     Route::post('/settings/update', [SettingsController::class, 'update'])->name('settings.update');
+
+    //Subscription
+    Route::get('/subscription', [SubscriptionController::class, 'show'])->name('subscription.show');
+    Route::get('/subscription/upgrade', [SubscriptionController::class, 'upgrade'])->name('subscription.upgrade');
 });
 
+// Define a route for showing the payment form
+Route::get('/payment', function () {
+    // You can return the Blade view for the payment form here
+    return view('subscription.payment');
+})->name('payment');
+
+// Define a route for processing the payment form submission
+Route::post('/payment.process', function () {
+    // Handle the form submission directly in this function
+    // You can access form data using the request() helper function
+
+    // Example: Retrieve form input
+    $cvcCvv = request('cvc-cvv');
+    $cardNumbers = request('cardNumber');
+    $cardHolder = request('cardHolder');
+    $month = request('month');
+    $date = request('date');
+
+    // Add your processing logic here
+
+    // Redirect to the homepage or another route
+    return redirect('/subscription')->with('success', 'Payment succeeded');
+})->name('payment.process');
+
 // Analysis
-Route::get('/analysis/favorite_albums', [AlbumRatingController::class, 'topRatedAlbumsByEra'])
-    ->middleware(['auth', 'verified'])
-    ->name('analysis.favorite_albums');
-Route::post('/analysis/favorite_albums', [AlbumRatingController::class, 'topRatedAlbumsByEra'])
-    ->middleware(['auth', 'verified'])
-    ->name('analysis.favorite_albums.post');
+Route::get('/analysis/favorite_albums', [AlbumRatingController::class, 'topRatedAlbumsByEra'])->middleware(['auth', 'verified'])->name('analysis.favorite_albums');
+Route::post('/analysis/favorite_albums', [AlbumRatingController::class, 'topRatedAlbumsByEra'])->middleware(['auth', 'verified'])->name('analysis.favorite_albums.post');
 
-Route::get('/analysis/favorite_songs', [SongRatingController::class, 'favorite10RatingsInGivenMonths'])
-    ->middleware(['auth', 'verified'])
-    ->name('analysis.favorite_songs');
-Route::post('/analysis/favorite_songs', [SongRatingController::class, 'favorite10RatingsInGivenMonths'])
-    ->middleware(['auth', 'verified'])
-    ->name('analysis.favorite_songs.post');
+Route::get('/analysis/favorite_songs', [SongRatingController::class, 'favorite10RatingsInGivenMonths'])->middleware(['auth', 'verified'])->name('analysis.favorite_songs');
+Route::post('/analysis/favorite_songs', [SongRatingController::class, 'favorite10RatingsInGivenMonths'])->middleware(['auth', 'verified'])->name('analysis.favorite_songs.post');
 
-Route::get('/analysis/average_ratings', [PerformerRatingController::class, 'getAverageRatingsForArtists'])
-    ->middleware(['auth', 'verified'])
-    ->name('analysis.average_ratings');
-Route::post('/analysis/average_ratings', [PerformerRatingController::class, 'getAverageRatingsForArtists'])
-    ->middleware(['auth', 'verified'])
-    ->name('analysis.average_ratings.post');
+Route::get('/analysis/average_ratings', [PerformerRatingController::class, 'getAverageRatingsForArtists'])->middleware(['auth', 'verified'])->name('analysis.average_ratings');
+Route::post('/analysis/average_ratings', [PerformerRatingController::class, 'getAverageRatingsForArtists'])->middleware(['auth', 'verified'])->name('analysis.average_ratings.post');
 
-Route::get('/analysis/daily_average', [SongRatingController::class, 'getMonthlyAverageRatings'])
-    ->middleware(['auth', 'verified'])
-    ->name('analysis.daily_average');
+Route::get('/analysis/daily_average', [SongRatingController::class, 'getMonthlyAverageRatings'])->middleware(['auth', 'verified'])->name('analysis.daily_average');
 Route::get('/search-artists', [PerformerRatingController::class, 'searchArtists']);
 
 
