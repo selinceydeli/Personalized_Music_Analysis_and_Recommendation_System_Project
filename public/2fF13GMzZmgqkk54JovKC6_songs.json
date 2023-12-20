@@ -1,0 +1,27 @@
+[
+    {
+        "duration_ms": 157439,
+        "explicit": 0,
+        "name": "Mart\u0131lar",
+        "popularity": 66,
+        "preview_url": "https://p.scdn.co/mp3-preview/34d962b939f24892a3ce8671f137304cf998e251?cid=0871147f112a492b88fc9fea2d3bf5e7",
+        "song_id": "1xEpgyKx4ZHtefFAh0SmU5",
+        "isrc": "TR0012100120",
+        "album_id": "2fF13GMzZmgqkk54JovKC6",
+        "artists_ids": [
+            "1AM52XHXnWAEqnQwpxTLWm"
+        ],
+        "danceability": 0.84,
+        "energy": 0.611,
+        "key": "B",
+        "loudness": -6.904,
+        "mode": "Minor",
+        "speechiness": 0.0718,
+        "acousticness": 0.0615,
+        "instrumentalness": 0,
+        "liveness": 0.131,
+        "valence": 0.898,
+        "tempo": 122.997,
+        "time_signature": 4
+    }
+]

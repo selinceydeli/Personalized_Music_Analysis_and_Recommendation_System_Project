@@ -1,18 +1,20 @@
 <?php
 
 use App\Models\Song;
+use App\Models\PerformerRating;
 use App\Http\Controllers\SongController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AlbumController;
+use App\Http\Controllers\MysqlController;
 use App\Http\Controllers\SpotifyController;
 use App\Http\Controllers\SettingsController;
-use App\Http\Controllers\PerformerController;
-use App\Http\Controllers\AlbumRatingController;
-use App\Http\Controllers\SongRatingController;
-use App\Http\Controllers\PerformerRatingController;
-use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\PerformerController;
+use App\Http\Controllers\SongRatingController;
+use App\Http\Controllers\AlbumRatingController;
+use App\Http\Controllers\FriendshipController;
+use App\Http\Controllers\SubscriptionController;
+use App\Http\Controllers\PerformerRatingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,13 +44,21 @@ Route::get('/songs/{id}', [SongController::class, 'show'])->name('show');
 
 Route::post('/upload-via-spotify', [SpotifyController::class, 'importSong'])->name('importSong');
 
-Route::post('/rate', [SongRatingController::class, 'store'])->name('store')->middleware(['auth']);
+Route::post('/migrateMysql', [MysqlController::class, 'migrateMysql'])->name('migrateMysql');
+
+Route::post('/ratesong', [SongRatingController::class, 'store'])->name('store')->middleware(['auth']);
+
+Route::post('/ratealbum', [AlbumRatingController::class, 'store'])->name('store')->middleware(['auth']);
+
+Route::post('/rateperformer', [PerformerRatingController::class, 'store'])->name('store')->middleware(['auth']);
 
 Route::post('/deletesong/{id}', [SongController::class, 'destroy'])->name('destroy')->middleware(['auth']);
 
 Route::post('/deletealbum/{id}', [AlbumController::class, 'destroy'])->name('destroy')->middleware(['auth']);
 
-Route::post('deleteperformer/{id}', [PerformerController::class, 'destroy'])->name('destroy')->middleware(['auth']);
+Route::post('/deleteperformer/{id}', [PerformerController::class, 'destroy'])->name('destroy')->middleware(['auth']);
+
+Route::get('/addfriends', [UserController::class, 'addfriends'])->name('addfriends')->middleware(['auth']);
 
 
 
@@ -72,31 +82,9 @@ Route::middleware(['auth'])->group(function () {
     //Subscription
     Route::get('/subscription', [SubscriptionController::class, 'show'])->name('subscription.show');
     Route::get('/subscription/upgrade', [SubscriptionController::class, 'upgrade'])->name('subscription.upgrade');
+    Route::get('/settings', [SettingsController::class, 'index'])->name('settings');
+    Route::post('/settings/update', [SettingsController::class, 'update'])->name('settings.update');
 });
-
-// Define a route for showing the payment form
-Route::get('/payment', function () {
-    // You can return the Blade view for the payment form here
-    return view('subscription.payment');
-})->name('payment');
-
-// Define a route for processing the payment form submission
-Route::post('/payment.process', function () {
-    // Handle the form submission directly in this function
-    // You can access form data using the request() helper function
-
-    // Example: Retrieve form input
-    $cvcCvv = request('cvc-cvv');
-    $cardNumbers = request('cardNumber');
-    $cardHolder = request('cardHolder');
-    $month = request('month');
-    $date = request('date');
-
-    // Add your processing logic here
-
-    // Redirect to the homepage or another route
-    return redirect('/subscription')->with('success', 'Payment succeeded');
-})->name('payment.process');
 
 // Analysis
 Route::get('/analysis/favorite_albums', [AlbumRatingController::class, 'topRatedAlbumsByEra'])->middleware(['auth', 'verified'])->name('analysis.favorite_albums');

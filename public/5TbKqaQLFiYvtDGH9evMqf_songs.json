@@ -1,0 +1,27 @@
+[
+    {
+        "duration_ms": 172320,
+        "explicit": 0,
+        "name": "Swan Lake",
+        "popularity": 51,
+        "preview_url": "https://p.scdn.co/mp3-preview/9614a1813797345c9d09f6657a61ec7fab7b0fc9?cid=0871147f112a492b88fc9fea2d3bf5e7",
+        "song_id": "5j3w0rSoe5JpWibCjVBYFL",
+        "isrc": "USSM11911352",
+        "album_id": "5TbKqaQLFiYvtDGH9evMqf",
+        "artists_ids": [
+            "2iSn12gFykgv92aTvPiH4s"
+        ],
+        "danceability": 0.22,
+        "energy": 0.36,
+        "key": "B",
+        "loudness": -9.293,
+        "mode": "Minor",
+        "speechiness": 0.0355,
+        "acousticness": 0.965,
+        "instrumentalness": 0.816,
+        "liveness": 0.122,
+        "valence": 0.0881,
+        "tempo": 83.056,
+        "time_signature": 4
+    }
+]

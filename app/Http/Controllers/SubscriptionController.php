@@ -14,6 +14,13 @@ class SubscriptionController extends Controller
         return view('subscription.show');
     }
 
+    public function plans() {
+        $user=auth()->user();
+        return view('subscription.plans', [
+            'user' => $user,
+        ]);
+    }
+
 
     public function upgrade()
     {

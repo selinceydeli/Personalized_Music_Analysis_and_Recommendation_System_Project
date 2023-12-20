@@ -45,6 +45,54 @@
             </form>
         </div>
     </x-card>
+    <x-card class="p-10 mt-8">
+        <header>
+            <h2 class="text-3xl text-center font-bold my-6 uppercase">
+                Migrate to a MySQL server
+            </h2>
+        </header>
+    <div class="flex justify-center flex-col items-center">
+    <form id="migrateMysql" action="/migrateMysql" method="POST" class="max-w-md flex-col items-center">
+        @csrf
+        <div class="flex items-center border-b border-b-2 border-blue-500 py-2 mb-2">
+            <label for="hostIP" class="text-blue-500">Host IP:</label>
+            <input type="text" id="hostIP" name="hostIP"
+                class="border-none focus:outline-none flex-grow px-2 w-64">
+        </div>
+        <div class="flex items-center border-b border-b-2 border-blue-500 py-2 mb-2">
+            <label for="hostPort" class="text-blue-500">Host Port:</label>
+
+            <input type="text" id="hostPort" name="hostPort"
+                class="border-none focus:outline-none flex-grow px-2 w-64">
+        </div>
+        <div class="flex items-center border-b border-b-2 border-blue-500 py-2 mb-2">
+            <label for="hostDB" class="text-blue-500">Host Database Name:</label>
+
+            <input type="text" id="hostDB" name="hostDB" 
+                class="border-none focus:outline-none flex-grow px-2 w-64">
+        </div>
+        <div class="flex items-center border-b border-b-2 border-blue-500 py-2 mb-2">
+            <label for="hostUser" class="text-blue-500">Host Username:</label>
+            <input type="text" id="hostUser" name="hostUser" 
+                class="border-none focus:outline-none flex-grow px-2 w-64">
+        </div>
+        <div class="flex items-center border-b border-b-2 border-blue-500 py-2 mb-2">
+            <label for="hostPass" class="text-blue-500">Host Password:</label>
+            
+            <input type="text" id="hostPass" name="hostPass" 
+                class="border-none focus:outline-none flex-grow px-2 w-64">
+        </div>
+        <div>
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Migrate</button>
+        </div>
+    </form>
+    <!-- Display error message if the link is invalid -->
+    <div id="errorMessage" class="mt-4 text-red-500" style="display: none;">
+        Invalid Spotify link!
+    </div>
+</div>
+
+    </x-card>
 </x-layout>
 
 <script>

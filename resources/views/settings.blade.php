@@ -1,5 +1,10 @@
 <x-layout>
     <x-card class="settings-container bg-gradient-to-b from-red-500 to-red-300 p-8 rounded-lg mt-24">
+        <div class="mb-8 text-center">
+            <a href="/plans" class="premium-button">
+                Become a Premium Member
+            </a>
+        </div>
         <form method="POST" action="{{ route('settings.update') }}">
             @csrf <!-- Add this CSRF token for security -->
 
@@ -109,6 +114,51 @@
                 // Toggle light mode classes based on the selected theme
                 body.classList.add('light-theme');
             }
+        });
+    </script>
+    <style>
+        /* Add CSS styles here */
+        .premium-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: #fff;
+            background-color: #ff7676;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .premium-button:hover {
+            background-color: #ff3333;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+
+    <script>
+        // Add JavaScript logic here
+        const premiumButton = document.querySelector('.premium-button');
+
+        premiumButton.addEventListener('click', function(event) {
+            // Handle button click logic, e.g., redirecting to the premium membership page
+            window.location.href = premiumButton.getAttribute('href');
+        });
+
+        premiumButton.addEventListener('mouseover', function() {
+            premiumButton.style.backgroundColor = '#ff3333';
+            premiumButton.style.transform = 'translateY(-2px)';
+            premiumButton.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
+        });
+
+        premiumButton.addEventListener('mouseout', function() {
+            premiumButton.style.backgroundColor = '#ff5252';
+            premiumButton.style.transform = 'translateY(0)';
+            premiumButton.style.boxShadow = 'none';
         });
     </script>
 </x-layout>

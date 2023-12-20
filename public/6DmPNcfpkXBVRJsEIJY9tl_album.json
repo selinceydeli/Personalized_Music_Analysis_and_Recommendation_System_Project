@@ -1,0 +1,88 @@
+{
+    "album_type": "album",
+    "copyrights": "(P) 2023 Kemosabe Records/RCA Records",
+    "genres": [],
+    "label": "Kemosabe Records/RCA Records",
+    "name": "Scarlet",
+    "popularity": 87,
+    "release_date": "2023-09-22",
+    "total_tracks": 17,
+    "tracks": {
+        "items": [
+            {
+                "id": "7DlZH8EiVDgQXNoj3dnyZC",
+                "track_number": 1
+            },
+            {
+                "id": "6vb4kCEIM7zrwuHlxFbfeB",
+                "track_number": 2
+            },
+            {
+                "id": "5MqauQV2PhcEFfhKtBOTua",
+                "track_number": 3
+            },
+            {
+                "id": "6DOphQTeNmy1gk3um8sPYC",
+                "track_number": 4
+            },
+            {
+                "id": "18EGw1StZNDftpUcX8PM74",
+                "track_number": 5
+            },
+            {
+                "id": "3zLwDjumhvIFFwAAZaDNPL",
+                "track_number": 6
+            },
+            {
+                "id": "15sNe8FD178zMsVz6ug0AS",
+                "track_number": 7
+            },
+            {
+                "id": "032UZ3KVrzII6AE9Abnj7z",
+                "track_number": 8
+            },
+            {
+                "id": "4rjQxlKAIXbEqHzjrnYZ7x",
+                "track_number": 9
+            },
+            {
+                "id": "7dJYggqjKo71KI9sLzqCs8",
+                "track_number": 10
+            },
+            {
+                "id": "5ZyQqAgrPr0cVm0VfM69Np",
+                "track_number": 11
+            },
+            {
+                "id": "18dR6VljfkTb47HJOQ9chv",
+                "track_number": 12
+            },
+            {
+                "id": "4NW3t9GA7CyBisyoROefUs",
+                "track_number": 13
+            },
+            {
+                "id": "3qefkziLSTq2l5H1bRoea8",
+                "track_number": 14
+            },
+            {
+                "id": "56uOalQCSny79UjPrefkHy",
+                "track_number": 15
+            },
+            {
+                "id": "3yeVb5di44wD6CZ2sJromR",
+                "track_number": 16
+            },
+            {
+                "id": "1qimDZEBflJE25RXkF24Yg",
+                "track_number": 17
+            }
+        ],
+        "total": 17
+    },
+    "type": "album",
+    "artist_id": "5cj0lLjcoR7YOSnhnX0Po5",
+    "album_id": "6DmPNcfpkXBVRJsEIJY9tl",
+    "upc": "196871470124",
+    "image": "https://i.scdn.co/image/ab67616d0000b27394203dd82d27b494c777d07c"
+}

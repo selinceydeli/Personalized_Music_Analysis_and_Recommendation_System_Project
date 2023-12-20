@@ -33,7 +33,7 @@ class SpotifyController extends Controller
             // Redirect the user to the root URL ("/") with a success message
             return redirect('/')->with('message', 'Song uploaded successfully!');
         } else {
-            return response()->json(['message' => 'Invalid Spotify link!'], 400);
+            return redirect('/add')->with('message', 'Invalid Spotify Link');
         }
     }
 
@@ -67,7 +67,7 @@ class SpotifyController extends Controller
 
     private function isSpotifyLink($input)
     {
-        $pattern = '/^(https:\/\/open\.spotify\.com\/(track|album|playlist)\/[a-zA-Z0-9]+)(\?.*)?$/i';
+        $pattern = '/^(https:\/\/open\.spotify\.com\/(track)\/[a-zA-Z0-9]+)(\?.*)?$/i';
         return preg_match($pattern, $input);
     }
 }

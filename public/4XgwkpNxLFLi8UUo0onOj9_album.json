@@ -1,0 +1,56 @@
+{
+    "album_type": "album",
+    "copyrights": "Evgeny Grinko",
+    "genres": [],
+    "label": "Evgeny Grinko",
+    "name": "Ice for Aureliano Buendia (Deluxe Edition)",
+    "popularity": 59,
+    "release_date": "2014-04-22",
+    "total_tracks": 9,
+    "tracks": {
+        "items": [
+            {
+                "id": "0goNyvppCelADApkYt9QIf",
+                "track_number": 1
+            },
+            {
+                "id": "41UTnVa6DvcVPUYoXWA97h",
+                "track_number": 2
+            },
+            {
+                "id": "7Ay6aFdi8oV1RejJC7Zd6d",
+                "track_number": 3
+            },
+            {
+                "id": "0PHoJIczJDgOFLQlQjIGwq",
+                "track_number": 4
+            },
+            {
+                "id": "2gzeq9ZfVe0Lsjx6uAJtiY",
+                "track_number": 5
+            },
+            {
+                "id": "4Rk9kHKfeB638mPUwcUueD",
+                "track_number": 6
+            },
+            {
+                "id": "4iKKtDzjX1rJYclKoyMsby",
+                "track_number": 7
+            },
+            {
+                "id": "1yh9WXszuLn7u9kcKaWPjK",
+                "track_number": 8
+            },
+            {
+                "id": "1kO7UtigS5jvSgJzlOO223",
+                "track_number": 9
+            }
+        ],
+        "total": 9
+    },
+    "type": "album",
+    "artist_id": "69RwhKw37lY73bMGaSts7C",
+    "album_id": "4XgwkpNxLFLi8UUo0onOj9",
+    "upc": "3614592658654",
+    "image": "https://i.scdn.co/image/ab67616d0000b273192fb737c6faf1680fb5ed04"
+}

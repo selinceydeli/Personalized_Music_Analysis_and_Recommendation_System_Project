@@ -1,0 +1,22 @@
+[
+    {
+        "followers": 15980,
+        "genres": [
+            "chillhop"
+        ],
+        "name": "\u00d8DYSSEE",
+        "popularity": 48,
+        "image": "https://i.scdn.co/image/ab6761610000e5ebe5c0f5cdd8b1d94181f5587d",
+        "artist_id": "6f2Y46Pw2IYGoURJREJDiA"
+    },
+    {
+        "followers": 585,
+        "genres": [
+            "lo-fi jazzhop"
+        ],
+        "name": "delaney.",
+        "popularity": 44,
+        "image": "https://i.scdn.co/image/ab6761610000e5ebc688588fc8baafd378b0a36e",
+        "artist_id": "33mF58EgWRWcLJWIddSH7h"
+    }
+]

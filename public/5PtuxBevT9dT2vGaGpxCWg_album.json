@@ -1,0 +1,24 @@
+{
+    "album_type": "single",
+    "copyrights": "2021 Prisma Music",
+    "genres": [],
+    "label": "Prisma Music",
+    "name": "El Camino de Mallorca",
+    "popularity": 37,
+    "release_date": "2021-02-05",
+    "total_tracks": 1,
+    "tracks": {
+        "items": [
+            {
+                "id": "25vabrg2p84UHPik2J7AWO",
+                "track_number": 1
+            }
+        ],
+        "total": 1
+    },
+    "type": "album",
+    "artist_id": "4haSSnvfxfNuKQ0Rxroodu",
+    "album_id": "5PtuxBevT9dT2vGaGpxCWg",
+    "upc": "735119767277",
+    "image": "https://i.scdn.co/image/ab67616d0000b27342a3367bdb8e1071214c859e"
+}

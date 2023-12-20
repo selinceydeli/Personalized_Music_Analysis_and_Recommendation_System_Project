@@ -1,0 +1,52 @@
+[
+    {
+        "duration_ms": 138947,
+        "explicit": 0,
+        "name": "Forest Gump Suite",
+        "popularity": 41,
+        "preview_url": "https://p.scdn.co/mp3-preview/3ecd7ad0835028f5b11ede166a5589922f944f41?cid=0871147f112a492b88fc9fea2d3bf5e7",
+        "song_id": "1LlDzMkuVcmyH0Dtqg6KVv",
+        "isrc": "GBMJG2003845",
+        "album_id": "5D9kFBMbPX4zZFZhGMk2rg",
+        "artists_ids": [
+            "6iawb1h0XmXI9k5GNhkTvJ"
+        ],
+        "danceability": 0.695,
+        "energy": 0.0448,
+        "key": "F",
+        "loudness": -30.746,
+        "mode": "Major",
+        "speechiness": 0.0698,
+        "acousticness": 0.991,
+        "instrumentalness": 0.871,
+        "liveness": 0.0796,
+        "valence": 0.177,
+        "tempo": 114.063,
+        "time_signature": 4
+    },
+    {
+        "duration_ms": 150880,
+        "explicit": 0,
+        "name": "La Valse d'Am\u00e9lie",
+        "popularity": 52,
+        "preview_url": "https://p.scdn.co/mp3-preview/009cfebfb3ffa1fa3c0b8ef905bab787b05e0f63?cid=0871147f112a492b88fc9fea2d3bf5e7",
+        "song_id": "59d6uevB0QGLjUilTex8Qn",
+        "isrc": "GBMJG2003844",
+        "album_id": "5D9kFBMbPX4zZFZhGMk2rg",
+        "artists_ids": [
+            "6iawb1h0XmXI9k5GNhkTvJ"
+        ],
+        "danceability": 0.243,
+        "energy": 0.0848,
+        "key": "C",
+        "loudness": -19.873,
+        "mode": "Major",
+        "speechiness": 0.04,
+        "acousticness": 0.987,
+        "instrumentalness": 0.947,
+        "liveness": 0.0692,
+        "valence": 0.0826,
+        "tempo": 173.96,
+        "time_signature": 1
+    }
+]

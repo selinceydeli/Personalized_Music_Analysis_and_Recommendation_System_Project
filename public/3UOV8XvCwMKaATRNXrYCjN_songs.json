@@ -1,0 +1,27 @@
+[
+    {
+        "duration_ms": 131872,
+        "explicit": 1,
+        "name": "greedy",
+        "popularity": 100,
+        "preview_url": "https://p.scdn.co/mp3-preview/ca7bdcb691fb64a5af8a3253b89356390664fcf1?cid=0871147f112a492b88fc9fea2d3bf5e7",
+        "song_id": "3rUGC1vUpkDG9CZFHMur1t",
+        "isrc": "USRC12301932",
+        "album_id": "3UOV8XvCwMKaATRNXrYCjN",
+        "artists_ids": [
+            "45dkTj5sMRSjrmBSBeiHym"
+        ],
+        "danceability": 0.75,
+        "energy": 0.733,
+        "key": "F#",
+        "loudness": -3.18,
+        "mode": "Minor",
+        "speechiness": 0.0319,
+        "acousticness": 0.256,
+        "instrumentalness": 0,
+        "liveness": 0.114,
+        "valence": 0.844,
+        "tempo": 111.018,
+        "time_signature": 1
+    }
+]
