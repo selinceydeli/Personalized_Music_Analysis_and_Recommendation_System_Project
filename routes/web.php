@@ -12,6 +12,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PerformerController;
 use App\Http\Controllers\SongRatingController;
 use App\Http\Controllers\AlbumRatingController;
+use App\Http\Controllers\FriendshipController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\PerformerRatingController;
 
@@ -57,6 +58,8 @@ Route::post('/deletealbum/{id}', [AlbumController::class, 'destroy'])->name('des
 
 Route::post('/deleteperformer/{id}', [PerformerController::class, 'destroy'])->name('destroy')->middleware(['auth']);
 
+Route::get('/addfriends', [UserController::class, 'addfriends'])->name('addfriends')->middleware(['auth']);
+
 
 
 // Single Album
@@ -78,6 +81,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/settings', [SettingsController::class, 'index'])->name('settings');
     Route::post('/settings/update', [SettingsController::class, 'update'])->name('settings.update');
 });
+Route::get('/plans', [SubscriptionController::class, 'plans'])->name('plans')->middleware(['auth']);
 
 // Analysis
 Route::get('/analysis/favorite_albums', [AlbumRatingController::class, 'topRatedAlbumsByEra'])
