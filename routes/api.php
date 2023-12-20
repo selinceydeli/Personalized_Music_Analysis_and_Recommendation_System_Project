@@ -99,15 +99,18 @@ Route::post('/performerrating/average-performer-ratings', [PerformerRatingContro
 // Friendship Routes
 Route::post('/friend-request/{requester}/{userequested}', [FriendshipController::class, 'sendRequestMobile']);
 Route::post('/accept-request', [FriendshipController::class, 'acceptRequest']);
+Route::post('/see-request', [FriendshipController::class, 'seeRequests']);
+Route::post('/see-request-mobile/{username}', [FriendshipController::class, 'seeRequestsMobile']);
 
 // Blocking Routes
-Route::post('/block-user/{id}', [BlockController::class, 'blockUser']);
-Route::post('/unblock-user/{id}', [BlockController::class, 'unblockUser']);
+Route::post('/block-user/{blockedUsername}', [BlockController::class, 'blockUser']);
+Route::post('/unblock-user/{blockedUsername}', [BlockController::class, 'unblockUser']);
+Route::post('/block-user-mobile', [BlockController::class, 'blockUserMobile']);
+Route::post('/unblock-user-mobile', [BlockController::class, 'unblockUserMobile']);
 
 // Getting friends and blocked users
 Route::get('/user/{username}/friends', [UserController::class, 'getFriends']);
 Route::get('/user/{username}/blocked', [UserController::class, 'getBlockedUsers']);
-Route::get('/user/{username}/notifications', [UserController::class, 'getNotifications']);
 Route::get('/test-friendships/{username}', [UserController::class, 'testFriendships']);
 
 

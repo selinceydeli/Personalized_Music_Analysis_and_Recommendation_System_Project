@@ -53,20 +53,9 @@ class User extends Authenticatable
                     ->withPivot('status');
     }
 
-    public function requestsOfMine() {
-        return $this->belongsToMany('App\Models\User', 'friendships', 'requester', 'user_requested')
-                    ->wherePivot('status', '=', 0) // status 1 for accepted
-                    ->withPivot('status');
-    }
-
     public function friendOf() {
         return $this->belongsToMany('App\Models\User', 'friendships', 'user_requested', 'requester')
                     ->wherePivot('status', '=', 1)
-                    ->withPivot('status');
-    }
-    public function requests() {
-        return $this->belongsToMany('App\Models\User', 'friendships', 'user_requested', 'requester')
-                    ->wherePivot('status', '=', 0)
                     ->withPivot('status');
     }
 
