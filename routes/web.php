@@ -166,3 +166,5 @@ Route::get('/download-negative-recommendations', [UserController::class, 'downlo
 
 // Importing songs with json file
 Route::post('/import-json', [SpotifyController::class, 'importJSON'])->name('import-json');
+
+Route::get('/plans', [SubscriptionController::class, 'plans'])->name('plans')->middleware(['auth']);

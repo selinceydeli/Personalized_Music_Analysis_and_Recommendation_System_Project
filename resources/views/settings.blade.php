@@ -181,41 +181,38 @@
         }
 
         .premium-button {
-            background-color: #ffd700; /* Gold background */
             display: inline-block;
             padding: 10px 20px;
-            font-size: 22px;
+            font-size: 20px;
             font-weight: bold;
             text-transform: uppercase;
             text-decoration: none;
             color: #fff;
+            background-color: #0056b3;
             border-radius: 8px;
             border: none;
             cursor: pointer;
             transition: all 0.3s ease;
         }
-
         .premium-button:hover {
-            background-color: #ffd700; /* Maintain the gold color on hover */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect to show interactivity */
+            background-color: #1d69ba;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
     </style>
 
     <script>
         // Add JavaScript logic here
         const premiumButton = document.querySelector('.premium-button');
-
         premiumButton.addEventListener('click', function(event) {
             // Handle button click logic, e.g., redirecting to the premium membership page
             window.location.href = premiumButton.getAttribute('href');
         });
-
         premiumButton.addEventListener('mouseover', function() {
             premiumButton.style.backgroundColor = '#ff3333';
             premiumButton.style.transform = 'translateY(-2px)';
             premiumButton.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
         });
-
         premiumButton.addEventListener('mouseout', function() {
             premiumButton.style.backgroundColor = '#ff5252';
             premiumButton.style.transform = 'translateY(0)';
