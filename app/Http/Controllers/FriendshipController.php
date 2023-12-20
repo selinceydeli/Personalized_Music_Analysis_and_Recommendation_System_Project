@@ -9,19 +9,31 @@ use App\Models\User;
 
 class FriendshipController extends Controller
 {
-    public function sendRequestWeb(User $user) {
+    public function sendRequestWeb($user) {
         $currentUser = auth()->user()->username;
-        $block = Block::where('blocker_username', $requester)
-                             ->where('blocked_username', $userequested)
+        $block = Block::where('blocker_username', $currentUser)
+                             ->where('blocked_username', $user)
                              ->first();
         
-        $block2 = Block::where('blocker_username', $userequested)
-                        ->where('blocked_username', $requester)
+        $block2 = Block::where('blocker_username', $user)
+                        ->where('blocked_username', $currentUser)
                         ->first();
+
+        if($block){
+            return response()->json([
+                "message" => "You have previously blocked this user!"
+            ], 200);
+        }
+        
+        if($block2){
+            return response()->json([
+                "message" => "This user has blocked you"
+            ], 200);
+        }
 
         $friendship = Friendship::create([
             'requester' => $currentUser,
-            'user_requested' => $user->username,
+            'user_requested' => $user,
             'status' => 0,  // 0 for pending
         ]);
 
@@ -30,7 +42,7 @@ class FriendshipController extends Controller
         ], 200);
     }
 
-    public function sendRequestMobile(User $requester, User $userequested) {
+    public function sendRequestMobile($requester, $userequested) {
         $block = Block::where('blocker_username', $requester)
                              ->where('blocked_username', $userequested)
                              ->first();
@@ -52,8 +64,8 @@ class FriendshipController extends Controller
         }
 
         $friendship = Friendship::create([
-            'requester' => $requester->username,
-            'user_requested' => $userequested->username,
+            'requester' => $requester,
+            'user_requested' => $userequested,
             'status' => 0,  // 0 for pending
         ]);
 
