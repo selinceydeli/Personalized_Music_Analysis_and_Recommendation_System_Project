@@ -17,9 +17,11 @@
                     <p class="text-gray-600 text-center">Basic Access</p>
                 </div>
                 <p class="text-center mt-2 text-lg text-gray-600">Just Getting Started</p>
-                @if ($user['subscription'] === 'free')
-                    <p class="text-center mt-2 text-s text-gray-600">Current Plan</p>
-                @endif
+                @auth
+                    @if ($user['subscription'] === 'free')
+                        <p class="text-center mt-2 text-s text-gray-600">Current Plan</p>
+                    @endif
+                @endauth
             </div>
 
             <!-- Silver Plan -->
@@ -34,10 +36,11 @@
                     <p class="text-gray-600 text-center">Enhanced Access</p>
                 </div>
                 <p class="text-center mt-2 text-lg text-gray-600">Unlock More Vibes</p>
-                @if ($user['subscription'] === 'silver')
-                    <p class="text-center mt-2 text-s text-gray-600">Currently Enrolled</p>
-                @endif
-
+                @auth
+                    @if ($user['subscription'] === 'silver')
+                        <p class="text-center mt-2 text-s text-gray-600">Currently Enrolled</p>
+                    @endif
+                @endauth
                 <!-- Silver Upgrade Button -->
                 <div class="upgrade-button-container text-center mt-4">
                     <button class="upgrade-button bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded">
@@ -57,9 +60,11 @@
                     </div>
                     <p class="text-gray-600 text-center">Premium Access</p>
                 </div>
-                @if ($user['subscription'] === 'gold')
-                    <p class="text-center mt-2 text-s text-gray-600">Currently Enrolled</p>
-                @endif
+                @auth
+                    @if ($user['subscription'] === 'gold')
+                        <p class="text-center mt-2 text-s text-gray-600">Currently Enrolled</p>
+                    @endif
+                @endauth
                 <p class="text-center mt-2 text-lg text-gray-600">For the Real Music Lovers</p>
                 <div class="flex items-center justify-center mt-2">
                     <p class="text-s text-gray-600 ml-1">Highly Recommended</p>
