@@ -305,5 +305,24 @@
             color: #ff0000e3;
             /* Vivid Gold */
         }
+
+        .plan-card {
+            width: 280px;
+            height: 175px; /* Set a fixed height for all cards */
+            max-width: 100%;
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 6px; /* Your existing padding */
+            border-radius: 10px; /* Your existing border radius */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Your existing box shadow */
+            cursor: pointer; /* Your existing cursor property */
+        }
+
+        /* Now find your .upgrade-button-container class or add this new style if it doesn't exist */
+        .upgrade-button-container {
+            margin-top: auto; /* This will push the button to the bottom */
+        }
     </style>
 </x-layout>

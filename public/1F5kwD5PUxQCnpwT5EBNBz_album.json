@@ -1,0 +1,24 @@
+{
+    "album_type": "single",
+    "copyrights": "2021 Radio Juicy",
+    "genres": [],
+    "label": "Radio Juicy",
+    "name": "Sunrays",
+    "popularity": 44,
+    "release_date": "2021-12-08",
+    "total_tracks": 1,
+    "tracks": {
+        "items": [
+            {
+                "id": "6ia5xYHJJdSwgCPVMFnDEV",
+                "track_number": 1
+            }
+        ],
+        "total": 1
+    },
+    "type": "album",
+    "artist_id": "2Sytd0z30yOj3b5IOfOUWj",
+    "album_id": "1F5kwD5PUxQCnpwT5EBNBz",
+    "upc": "3663729182821",
+    "image": "https://i.scdn.co/image/ab67616d0000b27317217c7cf9827c8536f95682"
+}

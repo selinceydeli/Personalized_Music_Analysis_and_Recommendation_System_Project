@@ -1,0 +1,28 @@
+[
+    {
+        "duration_ms": 132000,
+        "explicit": 0,
+        "name": "Sunrays",
+        "popularity": 53,
+        "preview_url": "https://p.scdn.co/mp3-preview/0d19ace228fa342cd5eb9d69febeb4f27aa4ef87?cid=0871147f112a492b88fc9fea2d3bf5e7",
+        "song_id": "6ia5xYHJJdSwgCPVMFnDEV",
+        "isrc": "FRIDO2113358",
+        "album_id": "1F5kwD5PUxQCnpwT5EBNBz",
+        "artists_ids": [
+            "2Sytd0z30yOj3b5IOfOUWj",
+            "6O7h27p4Oaa1kZ8Q04IO3f"
+        ],
+        "danceability": 0.595,
+        "energy": 0.522,
+        "key": "F",
+        "loudness": -9.533,
+        "mode": "Minor",
+        "speechiness": 0.0528,
+        "acousticness": 0.436,
+        "instrumentalness": 0.857,
+        "liveness": 0.346,
+        "valence": 0.715,
+        "tempo": 82.981,
+        "time_signature": 4
+    }
+]

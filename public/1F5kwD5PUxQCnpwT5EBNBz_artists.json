@@ -1,0 +1,20 @@
+[
+    {
+        "followers": 2573,
+        "genres": [
+            "lo-fi jazzhop"
+        ],
+        "name": "elmo",
+        "popularity": 38,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb53ceef4f8e000aaea85761e5",
+        "artist_id": "6O7h27p4Oaa1kZ8Q04IO3f"
+    },
+    {
+        "followers": 1436,
+        "genres": [],
+        "name": "khoa",
+        "popularity": 33,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb41d9de7b56c03a55bd6be20b",
+        "artist_id": "2Sytd0z30yOj3b5IOfOUWj"
+    }
+]
