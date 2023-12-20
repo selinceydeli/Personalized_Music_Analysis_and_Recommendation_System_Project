@@ -113,4 +113,36 @@ class FriendshipController extends Controller
 
         return response()->json($requesterUsernames);
     }
+
+    public function unfriend($user){
+        $friendship2 = Friendship::where('requester', auth()->user()->username)
+                             ->where('user_requested', $user)
+                             ->where('status', 1)
+                             ->first();
+        
+        if($friendship2){
+            $friendship2->delete();
+            return response()->json([
+                "message" => "Unfollowed"
+            ], 200);
+        }
+        return response()->json([
+            "message" => "You don't follow this user"
+        ], 200);
+    }
+    public function unfriendMobile($currentuser, $unfriend){
+        $friendship2 = Friendship::where('requester', $currentuser)
+                             ->where('user_requested', $unfriend)
+                             ->where('status', 1)
+                             ->first();
+        if($friendship2){
+            $friendship2->delete();
+            return response()->json([
+                "message" => "Unfollowed"
+            ], 200);
+        }
+        return response()->json([
+            "message" => "You don't follow this user"
+        ], 200);
+    }
 }

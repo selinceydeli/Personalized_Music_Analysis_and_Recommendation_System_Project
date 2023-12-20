@@ -102,6 +102,8 @@ Route::post('/friend-request-mobile/{requester}/{userequested}', [FriendshipCont
 Route::post('/accept-request', [FriendshipController::class, 'acceptRequest']); // Send with a JSON that has 'requester', 'user_requested'
 Route::post('/see-request', [FriendshipController::class, 'seeRequests']);
 Route::post('/see-request-mobile/{username}', [FriendshipController::class, 'seeRequestsMobile']);
+Route::post('/unfriend/{user}', [FriendshipController::class, 'unfriend']);
+Route::post('/unfriend-mobile/{currentuser}/{unfriend}', [FriendshipController::class, 'unfriendMobile']);
 
 // Blocking Routes
 Route::post('/block-user/{blockedUsername}', [BlockController::class, 'blockUser']);
