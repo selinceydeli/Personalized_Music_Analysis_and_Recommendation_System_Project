@@ -7,7 +7,7 @@
         <!-- Plans Section -->
         <div class="flex justify-center gap-8">
             <!-- Free Plan -->
-            <div class="plan-container">
+            <div class="plan-container free-padding">
                 <div class="plan-card bg-blue-300 p-6 rounded-md shadow-md cursor-pointer" onclick="showPopup('free')">
                     <h2 class="text-xl font-bold text-gray-800 mb-2 text-center">Free</h2>
                     <div class="flex justify-center items-center mb-4">
@@ -19,13 +19,34 @@
                 <p class="text-center mt-2 text-lg text-gray-600">Just Getting Started</p>
                 @auth
                     @if ($user['subscription'] === 'free')
-                        <p class="text-center mt-2 text-s text-gray-600">Current Plan</p>
+                        <div class="upgrade-button-container text-center mt-4">
+                            <a href="/settings" class="button-link">
+                                <button
+                                    class="continue-button bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                    Continue with Current Plan
+                                </button>
+                            </a>
+                        </div>
+                    @else
+                        <div class="upgrade-button-container text-center mt-4">
+                            <form action="/pay" method="POST">
+                                @csrf <!-- CSRF Token -->
+
+                                <!-- Hidden input to indicate 'free' -->
+                                <input type="hidden" name="plan" value="free">
+
+                                <button type="submit"
+                                    class="continue-button bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                    Downgrade to Free
+                                </button>
+                            </form>
+                        </div>
                     @endif
                 @endauth
             </div>
 
             <!-- Silver Plan -->
-            <div class="plan-container">
+            <div class="plan-container c-padding">
                 <div class="plan-card bg-silver p-6 rounded-md shadow-md cursor-pointer silver-shine relative"
                     onclick="showPopup('silver')">
                     <h2 class="text-xl font-bold text-gray-800 mb-2 text-center">Silver</h2>
@@ -38,19 +59,44 @@
                 <p class="text-center mt-2 text-lg text-gray-600">Unlock More Vibes</p>
                 @auth
                     @if ($user['subscription'] === 'silver')
-                        <p class="text-center mt-2 text-s text-gray-600">Currently Enrolled</p>
+                        <div class="upgrade-button-container text-center mt-4">
+                            <a href="/settings" class="button-link">
+                                <button
+                                    class="continue-button bg-gray-400 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+                                    Continue with Current Plan
+                                </button>
+                            </a>
+                        </div>
+                    @elseif($user['subscription'] == 'free')
+                        <!-- Silver Upgrade Button -->
+                        <div class="upgrade-button-container text-center mt-4">
+                            <a href="/payment?plan=silver" class="button-link">
+                                <button
+                                    class="upgrade-button-silver bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded">
+                                    Upgrade to Silver
+                                </button>
+                            </a>
+                        </div>
+                    @else
+                        <!-- Silver Upgrade Button -->
+                        <div class="upgrade-button-container text-center mt-4">
+                            <a href="/payment?plan=silver" class="button-link">
+                                <button
+                                    class="upgrade-button-silver bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded">
+                                    Downgrade to Silver
+                                </button>
+                            </a>
+                        </div>
                     @endif
                 @endauth
-                <!-- Silver Upgrade Button -->
-                <div class="upgrade-button-container text-center mt-4">
-                    <button class="upgrade-button bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded">
-                        Upgrade to Silver
-                    </button>
-                </div>
             </div>
 
             <!-- Gold Plan -->
             <div class="plan-container">
+                <div class="flex items-center justify-center mt-2">
+                    <p class="text-s text-gray-600 ml-1">Highly Recommended</p>
+                    <span class="text-xl text-yellow-500">🔥</span>
+                </div>
                 <div class="plan-card bg-gold p-6 rounded-md shadow-md cursor-pointer gold-shine relative"
                     onclick="showPopup('gold')">
                     <h2 class="text-xl font-bold text-gray-800 mb-2 text-center">Gold</h2>
@@ -60,23 +106,28 @@
                     </div>
                     <p class="text-gray-600 text-center">Premium Access</p>
                 </div>
-                @auth
-                    @if ($user['subscription'] === 'gold')
-                        <p class="text-center mt-2 text-s text-gray-600">Currently Enrolled</p>
-                    @endif
-                @endauth
                 <p class="text-center mt-2 text-lg text-gray-600">For the Real Music Lovers</p>
-                <div class="flex items-center justify-center mt-2">
-                    <p class="text-s text-gray-600 ml-1">Highly Recommended</p>
-                    <span class="text-xl text-yellow-500">🔥</span>
-                </div>
-
-                <div class="upgrade-button-container text-center mt-4">
-                    <button
-                        class="upgrade-button-gold bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded flex items-center justify-center">
-                        Upgrade to Gold
-                    </button>
-                </div>
+                @auth
+                @if ($user['subscription'] === 'gold')
+                    <div class="upgrade-button-container text-center mt-4">
+                        <button
+                            class="continue-button-gold bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-1 rounded flex items-center justify-center">
+                            <a href="/settings" class="inherit-style">
+                                Continue with Current Plan
+                            </a>
+                        </button>
+                    </div>
+                @else
+                    <div class="upgrade-button-container text-center mt-4">
+                        <a href="/payment?plan=gold" class="button-link">
+                            <button
+                                class="upgrade-button-gold bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded flex items-center justify-center">
+                                Upgrade to Gold
+                            </button>
+                        </a>
+                    </div>
+                @endif
+                @endauth
             </div>
         </div>
 
@@ -147,6 +198,16 @@
     </script>
 
     <style>
+        .c-padding {
+            padding: 35px;
+            /* Adjust the value to set the desired padding size */
+        }
+
+        .free-padding {
+            padding-left: 20px;
+            padding-top: 35px;
+        }
+
         .upgrade-button {
             border: none;
             transition: all 0.3s ease;
@@ -159,7 +220,7 @@
             /* Adjust padding */
             margin-top: 10px;
             /* Adjust margin top */
-            margin-left: 50px;
+            margin-left: 60px;
             font-size: 16px;
             /* Adjust font size */
             border: none;
@@ -178,6 +239,59 @@
             cursor: pointer;
         }
 
+        .upgrade-button-silver {
+            padding: 10px 20px;
+            /* Adjust padding */
+            margin-top: 10px;
+            /* Adjust margin top */
+            margin-left: 0px;
+            font-size: 16px;
+            /* Adjust font size */
+            border: none;
+            color: #fff;
+            /* Text color */
+            border-radius: 5px;
+            /* Rounded corners */
+            transition: background-color 0.3s ease;
+            /* Smooth transition */
+        }
+
+        .continue-button {
+            padding: 10px 20px;
+            /* Adjust padding */
+            margin-top: 10px;
+            /* Adjust margin top */
+            margin-left: 0px;
+            font-size: 16px;
+            /* Adjust font size */
+            border: none;
+            color: #fff;
+            /* Text color */
+            border-radius: 5px;
+            /* Rounded corners */
+            transition: background-color 0.3s ease;
+            /* Smooth transition */
+        }
+
+        .continue-button-gold {
+            padding: 10px 20px;
+            /* Adjust padding */
+            margin-top: 10px;
+            /* Adjust margin top */
+            margin-left: 21px;
+            font-size: 16px;
+            /* Adjust font size */
+            border: none;
+            color: #fff;
+            /* Text color */
+            border-radius: 5px;
+            /* Rounded corners */
+            transition: background-color 0.3s ease;
+            /* Smooth transition */
+        }
+
+
+
         /* Adjust the icon color as necessary */
         .upgrade-button i {
             font-size: 1.2rem;
@@ -193,16 +307,16 @@
         }
 
         #silver-popup {
-            top: 420px;
+            top: 475px;
             /* Adjust the distance from the top */
-            left: 730px;
+            left: 750px;
             /* Adjust the distance from the left */
         }
 
         #gold-popup {
-            top: 420px;
+            top: 475px;
             /* Adjust the distance from the top */
-            left: 1100px;
+            left: 1120px;
             /* Adjust the distance from the left */
         }
 
@@ -313,21 +427,27 @@
 
         .plan-card {
             width: 280px;
-            height: 175px; /* Set a fixed height for all cards */
+            height: 175px;
+            /* Set a fixed height for all cards */
             max-width: 100%;
             transition: transform 0.3s ease;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding: 6px; /* Your existing padding */
-            border-radius: 10px; /* Your existing border radius */
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Your existing box shadow */
-            cursor: pointer; /* Your existing cursor property */
+            padding: 6px;
+            /* Your existing padding */
+            border-radius: 10px;
+            /* Your existing border radius */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            /* Your existing box shadow */
+            cursor: pointer;
+            /* Your existing cursor property */
         }
 
         /* Now find your .upgrade-button-container class or add this new style if it doesn't exist */
         .upgrade-button-container {
-            margin-top: auto; /* This will push the button to the bottom */
+            margin-top: auto;
+            /* This will push the button to the bottom */
         }
     </style>
 </x-layout>
