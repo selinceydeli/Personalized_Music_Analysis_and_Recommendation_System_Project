@@ -9,6 +9,14 @@
             <p class="mb-4">Create an account to post music</p>
         </header>
 
+        <!-- Subscription Offers Button -->
+        <div class="text-center mb-6">
+            <a href="/plans-register" class="premium-button">
+                See our subscription offers!
+            </a>
+        </div>
+
+
         <form method="POST" action="/users">
             @csrf
             <div class="mb-6">
@@ -104,4 +112,24 @@
             </div>
         </form>
     </x-card>
+
+    <style>
+        .premium-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 17px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #ff4d6f;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .premium-button:hover {
+            background-color: #ff4d6f;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
 </x-layout>

@@ -17,30 +17,32 @@
                     <p class="text-gray-600 text-center">Basic Access</p>
                 </div>
                 <p class="text-center mt-2 text-lg text-gray-600">Just Getting Started</p>
-                @if ($user['subscription'] === 'free')
-                    <div class="upgrade-button-container text-center mt-4">
-                        <a href="/settings" class="button-link">
-                            <button
-                                class="continue-button bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                                Continue with Current Plan
-                            </button>
-                        </a>
-                    </div>
-                @else
-                    <div class="upgrade-button-container text-center mt-4">
-                        <form action="/pay" method="POST">
-                            @csrf <!-- CSRF Token -->
+                @auth
+                    @if ($user['subscription'] === 'free')
+                        <div class="upgrade-button-container text-center mt-4">
+                            <a href="/settings" class="button-link">
+                                <button
+                                    class="continue-button bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                    Continue with Current Plan
+                                </button>
+                            </a>
+                        </div>
+                    @else
+                        <div class="upgrade-button-container text-center mt-4">
+                            <form action="/pay" method="POST">
+                                @csrf <!-- CSRF Token -->
 
-                            <!-- Hidden input to indicate 'free' -->
-                            <input type="hidden" name="plan" value="free">
+                                <!-- Hidden input to indicate 'free' -->
+                                <input type="hidden" name="plan" value="free">
 
-                            <button type="submit"
-                                class="continue-button bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                                Downgrade to Free
-                            </button>
-                        </form>
-                    </div>
-                @endif
+                                <button type="submit"
+                                    class="continue-button bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                    Downgrade to Free
+                                </button>
+                            </form>
+                        </div>
+                    @endif
+                @endauth
             </div>
 
             <!-- Silver Plan -->
@@ -55,36 +57,38 @@
                     <p class="text-gray-600 text-center">Enhanced Access</p>
                 </div>
                 <p class="text-center mt-2 text-lg text-gray-600">Unlock More Vibes</p>
-                @if ($user['subscription'] === 'silver')
-                    <div class="upgrade-button-container text-center mt-4">
-                        <a href="/settings" class="button-link">
-                            <button
-                                class="continue-button bg-gray-400 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
-                                Continue with Current Plan
-                            </button>
-                        </a>
-                    </div>
-                @elseif($user['subscription'] == 'free')
-                    <!-- Silver Upgrade Button -->
-                    <div class="upgrade-button-container text-center mt-4">
-                        <a href="/payment?plan=silver" class="button-link">
-                            <button
-                                class="upgrade-button-silver bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded">
-                                Upgrade to Silver
-                            </button>
-                        </a>
-                    </div>
-                @else
-                    <!-- Silver Upgrade Button -->
-                    <div class="upgrade-button-container text-center mt-4">
-                        <a href="/payment?plan=silver" class="button-link">
-                            <button
-                                class="upgrade-button-silver bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded">
-                                Downgrade to Silver
-                            </button>
-                        </a>
-                    </div>
-                @endif
+                @auth
+                    @if ($user['subscription'] === 'silver')
+                        <div class="upgrade-button-container text-center mt-4">
+                            <a href="/settings" class="button-link">
+                                <button
+                                    class="continue-button bg-gray-400 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+                                    Continue with Current Plan
+                                </button>
+                            </a>
+                        </div>
+                    @elseif($user['subscription'] == 'free')
+                        <!-- Silver Upgrade Button -->
+                        <div class="upgrade-button-container text-center mt-4">
+                            <a href="/payment?plan=silver" class="button-link">
+                                <button
+                                    class="upgrade-button-silver bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded">
+                                    Upgrade to Silver
+                                </button>
+                            </a>
+                        </div>
+                    @else
+                        <!-- Silver Upgrade Button -->
+                        <div class="upgrade-button-container text-center mt-4">
+                            <a href="/payment?plan=silver" class="button-link">
+                                <button
+                                    class="upgrade-button-silver bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded">
+                                    Downgrade to Silver
+                                </button>
+                            </a>
+                        </div>
+                    @endif
+                @endauth
             </div>
 
             <!-- Gold Plan -->
@@ -103,6 +107,7 @@
                     <p class="text-gray-600 text-center">Premium Access</p>
                 </div>
                 <p class="text-center mt-2 text-lg text-gray-600">For the Real Music Lovers</p>
+                @auth
                 @if ($user['subscription'] === 'gold')
                     <div class="upgrade-button-container text-center mt-4">
                         <button
@@ -122,6 +127,7 @@
                         </a>
                     </div>
                 @endif
+                @endauth
             </div>
         </div>
 
