@@ -87,26 +87,36 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/payment', function () {
         // You can return the Blade view for the payment form here
-        return view('subscription.payment');
+        $plan = request('plan');
+        return view('subscription.payment', ['plan' => $plan]);
     })->name('payment');
-    
+
     // Define a route for processing the payment form submission
-    Route::post('/payment.process', function () {
+    Route::post('/pay', function () {
         // Handle the form submission directly in this function
         // You can access form data using the request() helper function
-    
+
         // Example: Retrieve form input
         $cvcCvv = request('cvc-cvv');
         $cardNumbers = request('cardNumber');
         $cardHolder = request('cardHolder');
         $month = request('month');
         $date = request('date');
-    
+
+        $plan = request('plan');
+
+        // Get the authenticated user
+        $user = auth()->user();
+
+        // Update the user's subscription plan attribute
+        $user->subscription = $plan;
+        $user->save();
+
         // Add your processing logic here
-    
+
         // Redirect to the homepage or another route
-        return redirect('/subscription')->with('success', 'Payment succeeded');
-    })->name('payment.process');
+        return redirect('/settings')->with('success', 'Payment succeeded');
+    })->name('pay')->middleware('web');
 });
 
 
@@ -143,7 +153,7 @@ Route::get('/dashboard/negativevalence', [UserController::class, 'showDashboardN
 
 // Downloading songs
 Route::get('/download-all-rated-songs', [SongController::class, 'downloadAllRatedSongs']);
-Route::get('/downloads', function() {
+Route::get('/downloads', function () {
     return view('components.downloads');
 })->middleware('auth');
 

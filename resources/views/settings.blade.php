@@ -209,12 +209,12 @@
             window.location.href = premiumButton.getAttribute('href');
         });
         premiumButton.addEventListener('mouseover', function() {
-            premiumButton.style.backgroundColor = '#ff3333';
+            premiumButton.style.backgroundColor = '#1d69ba';
             premiumButton.style.transform = 'translateY(-2px)';
             premiumButton.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
         });
         premiumButton.addEventListener('mouseout', function() {
-            premiumButton.style.backgroundColor = '#ff5252';
+            premiumButton.style.backgroundColor = '#0056b3';
             premiumButton.style.transform = 'translateY(0)';
             premiumButton.style.boxShadow = 'none';
         });
