@@ -111,7 +111,7 @@
                 @if ($user['subscription'] === 'gold')
                     <div class="upgrade-button-container text-center mt-4">
                         <button
-                            class="continue-button bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded flex items-center justify-center">
+                            class="continue-button-gold bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-1 rounded flex items-center justify-center">
                             <a href="/settings" class="inherit-style">
                                 Continue with Current Plan
                             </a>
@@ -262,6 +262,23 @@
             margin-top: 10px;
             /* Adjust margin top */
             margin-left: 0px;
+            font-size: 16px;
+            /* Adjust font size */
+            border: none;
+            color: #fff;
+            /* Text color */
+            border-radius: 5px;
+            /* Rounded corners */
+            transition: background-color 0.3s ease;
+            /* Smooth transition */
+        }
+
+        .continue-button-gold {
+            padding: 10px 20px;
+            /* Adjust padding */
+            margin-top: 10px;
+            /* Adjust margin top */
+            margin-left: 21px;
             font-size: 16px;
             /* Adjust font size */
             border: none;
