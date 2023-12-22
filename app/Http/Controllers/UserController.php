@@ -37,6 +37,31 @@ class UserController extends Controller
         ], 200);
     }
 
+    public function update(Request $request, $username) {
+        if (User::where('username', $username)->exists()) {
+            $user = User::find($username);
+            $user->email = $request->email ?? $user->email;
+            $user->name = $request->name ?? $user->name;
+            $user->surname = $request->surname ?? $user->surname;
+            $user->password = $request->password ?? $user->password; // Make sure to hash the password if it's changed
+            $user->date_of_birth = $request->date_of_birth ?? $user->date_of_birth;
+            $user->language = $request->language ?? $user->language;
+            $user->subscription = $request->subscription ?? $user->subscription;
+            $user->rate_limit = $request->rate_limit ?? $user->rate_limit;
+            $user->theme = $request->theme ?? $user->rate_limit;
+            // Add other fields as necessary
+
+            $user->save();
+            return response()->json([
+                "message" => "User Updated"
+            ], 200);
+        } else {
+            return response()->json([
+                "message" => "User not found!"
+            ], 404);
+        }
+    }
+
     // Instead of search_id() method, a search_username() method is defined
     // since the primary key of the Users table is username
     public function search_username($username){

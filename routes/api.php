@@ -56,6 +56,7 @@ Route::get('/users/{username}', [UserController::class, 'search_username']);
 Route::put('/users/{username}', [UserController::class, 'update']);
 Route::post('/users', [UserController::class, 'store']);
 Route::delete('/users/{username}', [UserController::class, 'destroy']);
+Route::put('/users/{username}', [UserController::class, 'update']);
 
 Route::get('/songrating', [SongRatingController::class, 'index']);
 Route::get('/songrating/song/{id}', [SongRatingController::class, 'search_id_song']);
