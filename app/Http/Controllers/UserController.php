@@ -48,7 +48,8 @@ class UserController extends Controller
             $user->language = $request->language ?? $user->language;
             $user->subscription = $request->subscription ?? $user->subscription;
             $user->rate_limit = $request->rate_limit ?? $user->rate_limit;
-            $user->theme = $request->theme ?? $user->rate_limit;
+            $user->theme = $request->theme ?? $user->theme;
+            $user->image = $request->image ?? $user->image;
             // Add other fields as necessary
 
             $user->save();
