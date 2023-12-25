@@ -101,17 +101,23 @@ Route::get('/albumrating/top-rated/{username}/{era}', [AlbumRatingController::cl
 Route::post('/performerrating/average-performer-ratings', [PerformerRatingController::class, 'getAverageRatingsForArtists']);
 
 // Friendship Routes
-Route::post('/friend-request/{user}', [FriendshipController::class, 'sendRequest']);
-Route::post('/accept-request/{friendship}', [FriendshipController::class, 'acceptRequest']);
+Route::post('/friend-request/{user}', [FriendshipController::class, 'sendRequestWeb']);
+Route::post('/friend-request-mobile/{requester}/{userequested}', [FriendshipController::class, 'sendRequestMobile']);
+Route::post('/accept-request', [FriendshipController::class, 'acceptRequest']); // Send with a JSON that has 'requester', 'user_requested'
+Route::get('/see-request', [FriendshipController::class, 'seeRequests']);
+Route::get('/see-request-mobile/{username}', [FriendshipController::class, 'seeRequestsMobile']);
+Route::post('/unfriend/{user}', [FriendshipController::class, 'unfriend']);
+Route::post('/unfriend-mobile/{currentuser}/{unfriend}', [FriendshipController::class, 'unfriendMobile']);
 
 // Blocking Routes
-Route::post('/block-user/{id}', [BlockController::class, 'blockUser']);
-Route::post('/unblock-user/{id}', [BlockController::class, 'unblockUser']);
+Route::post('/block-user/{blockedUsername}', [BlockController::class, 'blockUser']);
+Route::post('/unblock-user/{blockedUsername}', [BlockController::class, 'unblockUser']);
+Route::post('/block-user-mobile', [BlockController::class, 'blockUserMobile']); // Send with a JSON that has 'blocker_username', 'blocked_username'
+Route::post('/unblock-user-mobile', [BlockController::class, 'unblockUserMobile']); // Send with a JSON that has 'blocker_username', 'blocked_username'
 
 // Getting friends and blocked users
 Route::get('/user/{username}/friends', [UserController::class, 'getFriends']);
 Route::get('/user/{username}/blocked', [UserController::class, 'getBlockedUsers']);
-Route::get('/user/{username}/notifications', [UserController::class, 'getNotifications']);
 
 // Handling song imports
 Route::post('/spotify/import', [SpotifyController::class, 'importSong']);

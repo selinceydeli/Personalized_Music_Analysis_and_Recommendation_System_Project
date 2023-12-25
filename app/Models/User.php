@@ -69,8 +69,10 @@ class User extends Authenticatable
         return $this->hasMany(Block::class, 'blocked_id');
     }
 
-    // Accessor to get all friends
     public function getFriendsAttribute() {
-        return $this->friendsOfMine->merge($this->friendOf);
+        $friendsOfMine = $this->friendsOfMine ?: collect([]);
+        $friendOf = $this->friendOf ?: collect([]);
+
+        return $friendsOfMine->merge($friendOf);
     }
 }

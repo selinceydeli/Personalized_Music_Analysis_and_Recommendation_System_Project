@@ -446,10 +446,10 @@ class UserController extends Controller
         return back()->withErrors(['email' => 'Invalid Credentials'])->onlyInput('email');
     }
     public function getFriends($username)
-    {
-        $user = User::where('username', $username)->firstOrFail();
-        return response()->json($user->allFriends);
-    }
+        {
+            $user = User::with(['friendsOfMine', 'friendOf'])->where('username', $username)->first();
+            return response()->json($user->friends);
+        }
 
     public function getBlockedUsers($username)
     {
