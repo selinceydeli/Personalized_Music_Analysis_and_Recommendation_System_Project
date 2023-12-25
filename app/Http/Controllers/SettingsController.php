@@ -46,7 +46,7 @@ class SettingsController extends Controller
                 ],
             ];
 
-            return view('settings', compact('data'));
+            return view('settings', compact('data', 'user'));
         } else {
             // Redirect to the login page or handle the case where the user is not authenticated
             return redirect()->route('login');

@@ -56,7 +56,7 @@ class UserController extends Controller
 
             auth()->login($user);
 
-            return redirect('/login')->with('message', 'User created and logged in');
+            return redirect('/')->with('message', 'User created and logged in');
         } else {
             return redirect('/register')->with('message', 'reCAPTCHA validation failed');
         }

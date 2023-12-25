@@ -1,9 +1,11 @@
 <x-layout>
     <x-card class="settings-container p-8 rounded-lg mt-24">
         <div class="mb-8 text-center">
-            <a href="/plans" class="premium-button">
-                Become a Premium Member
-            </a>
+            @if ($user['subscription'] === 'free')
+                <a href="/plans" class="premium-button">Become a Premium Member</a>
+            @else
+                <a href="/plans" class="premium-button">Change Your Plan</a>
+            @endif
         </div>
         <form method="POST" action="{{ route('settings.update') }}">
             @csrf <!-- Add this CSRF token for security -->
@@ -73,21 +75,8 @@
             <!-- Subscription Box -->
             <x-card class="settings-box mb-8 bg-dark-pink text-gray-800 rounded-lg p-6">
                 <h3 class="text-2xl font-bold mb-4">Subscription</h3>
-                <p><strong>Current Subscription:</strong> {{ $data['subscription']['current'] }}</p>
-                <p><strong>Rate Limit:</strong> {{ $data['subscription']['rateLimit'] }}</p>
-
-                <!-- Show Upgrade to Premium button only if the current subscription is free -->
-                @if ($data['subscription']['current'] === 'free')
-                    <a href="{{ route('subscription.upgrade') }}" class="upgrade-button">
-                        Upgrade to Premium
-                    </a>
-                @endif
-
-                @if ($data['subscription']['current'] === 'Premium')
-                    <a href="{{ route('subscription.upgrade') }}" class="upgrade-button">
-                        Change to Free
-                    </a>
-                @endif
+                <p><strong>Current Subscription:</strong> {{ ucwords($data['subscription']['current']) }}</p>
+                <p><strong>Rate Limit:</strong> {{ $user['rate_limit'] }}</p>
             </x-card>
 
             <!-- Save Changes Button -->
