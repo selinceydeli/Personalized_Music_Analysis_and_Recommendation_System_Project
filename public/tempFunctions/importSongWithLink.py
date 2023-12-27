@@ -4,7 +4,7 @@ import argparse
 from urllib.parse import urlparse
 import requests
 import json
-
+import musicbrainzngs as mb
 client_id = '0871147f112a492b88fc9fea2d3bf5e7'
 client_secret = 'de4f9a66d7714e75bda922d3959e1a3d'
 access_token = ""
@@ -35,6 +35,9 @@ notes = {
     11: 'B'
 }
 
+mb.set_useragent("MusicTailor", "0.01", "celik1oktay@sabanciuniv.edu")
+mb.set_format(fmt="json")
+
 
 def getToken(id, secret):
     auth_url = 'https://accounts.spotify.com/api/token'
@@ -45,6 +48,9 @@ def getToken(id, secret):
     }
     auth_response = requests.post(auth_url, data=data)
     return auth_response.json().get('access_token')
+
+
+isrcSet = set()
 
 
 def getAlbum(albumID):
@@ -210,13 +216,38 @@ def getAlbum(albumID):
         connection.commit()
     except Exception as e:
         pass
+
+    #####
     for i in range(len(songResponse)):
-        insertSongs = "INSERT INTO songs (`name`,`song_id`,`album_id`,`explicit`,`duration`,`key`,`tempo`,`performers`,`isrc`,`lyrics`,`system_entry_date`,  `mode`,`danceability`,`energy`,`loudness`,`speechiness`,`instrumentalness`,`liveness`,`valence`,`time_signature`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s,%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+        isrcSet.add(songResponse[i]["isrc"])
+    mpList = dict()
+    for i in isrcSet:
+        a = set()
+        mbidRaw = mb.get_recordings_by_isrc(i)["recordings"][0]["id"]
+        t = (mb.get_recording_by_id(mbidRaw, includes=["artist-rels"]))
+        t = t["relations"]
+        for x in t:
+            q = dict()
+            if x["type"] == "instrument":
+                if len(x["attributes"]) == 0:
+                    q["attribute"] = "instrument"
+                else:
+                    q["attribute"] = x["attributes"][0]
+            else:
+                q["attribute"] = x["type"]
+            q["name"] = x["artist"]["name"]
+            q["id"] = x["artist"]["id"]
+            q["link"] = "https://musicbrainz.org/artist/" + q["id"]
+            if str(q) not in a:
+                a.add(str(q))
+        mpList[i] = [mbidRaw, list(a)]
+    for i in range(len(songResponse)):
+        insertSongs = "INSERT INTO songs (`name`,`song_id`,`album_id`,`explicit`,`duration`,`key`,`tempo`,`performers`,`isrc`,`lyrics`,`system_entry_date`,  `mode`,`danceability`,`energy`,`loudness`,`speechiness`,`instrumentalness`,`liveness`,`valence`,`time_signature`,`mbid`,`staff`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s,%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
         datestr = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         data = (songResponse[i]["name"],
                 songResponse[i]["song_id"],
                 songResponse[i]["album_id"],
-                songResponse[i]["explicit"],  songResponse[i]["duration_ms"],  songResponse[i]["key"],  songResponse[i]["tempo"],  json.dumps(songResponse[i]["artists_ids"]),  songResponse[i]["isrc"],  "None", datestr, songResponse[i]["mode"],  songResponse[i]["danceability"],  songResponse[i]["energy"],  songResponse[i]["loudness"],  songResponse[i]["speechiness"],  songResponse[i]["instrumentalness"],  songResponse[i]["liveness"],  songResponse[i]["valence"],  songResponse[i]["time_signature"])
+                songResponse[i]["explicit"],  songResponse[i]["duration_ms"],  songResponse[i]["key"],  songResponse[i]["tempo"],  json.dumps(songResponse[i]["artists_ids"]),  songResponse[i]["isrc"],  "None", datestr, songResponse[i]["mode"],  songResponse[i]["danceability"],  songResponse[i]["energy"],  songResponse[i]["loudness"],  songResponse[i]["speechiness"],  songResponse[i]["instrumentalness"],  songResponse[i]["liveness"],  songResponse[i]["valence"],  songResponse[i]["time_signature"], mpList[songResponse[i]["isrc"]][0], json.dumps(mpList[songResponse[i]["isrc"]][1]))
         try:
             cursor.execute(insertSongs, data)
             connection.commit()
