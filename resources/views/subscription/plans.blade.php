@@ -29,7 +29,7 @@
                         </div>
                     @else
                         <div class="upgrade-button-container text-center mt-4">
-                            <form action="/pay" method="POST">
+                            <form action="/free" method="POST">
                                 @csrf <!-- CSRF Token -->
 
                                 <!-- Hidden input to indicate 'free' -->

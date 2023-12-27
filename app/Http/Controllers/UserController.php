@@ -15,6 +15,7 @@ use App\Http\Resources\SongResource;
 use App\Http\Resources\UserResource;
 use Illuminate\Pagination\Paginator;
 use App\Http\Controllers\SongController;
+use App\Http\Controllers\FriendshipController;
 use ReCaptcha\ReCaptcha; // Import the ReCaptcha class at the top
 
 class UserController extends Controller
@@ -57,7 +58,7 @@ class UserController extends Controller
 
             auth()->login($user);
 
-            return redirect('/login')->with('message', 'User created and logged in');
+            return redirect('/')->with('message', 'User created and logged in');
         } else {
             return redirect('/register')->with('message', 'reCAPTCHA validation failed');
         }
@@ -176,9 +177,8 @@ class UserController extends Controller
             ->get()
             ->sortByDesc('average_rating') // Sort by the accessor 'average_rating'
             ->take(15); // Limit to 20 songs for recommendation
-        
-        return $recommendedSongs;
 
+        return $recommendedSongs;
     }
 
     public function showDashboardNegative()
@@ -387,7 +387,7 @@ class UserController extends Controller
             ->get()
             ->sortByDesc('average_rating') // Sort by the accessor 'average_rating'
             ->take(15); // Limit to 20 songs for recommendation
-        
+
         return $recommendedSongs;
     }
 
@@ -447,21 +447,118 @@ class UserController extends Controller
         return back()->withErrors(['email' => 'Invalid Credentials'])->onlyInput('email');
     }
     public function getFriends($username)
-        {
-            $user = User::with(['friendsOfMine', 'friendOf'])->where('username', $username)->first();
-            return response()->json($user->friends);
-        }
+    {
+        $user = User::with(['friendsOfMine', 'friendOf'])
+            ->where('username', $username)
+            ->withCount('friendsOfMine as totalFriends')
+            ->orderByDesc('totalFriends')
+            ->first();
+
+        return $user->friends;
+    }
+    public function getNonFriends($username)
+    {
+        $user = User::with('friendsOfMine')->where('username', $username)->first();
+        $blockedUsers = $this->getBlockedUsers($username)->pluck('blocked_username');
+
+        $nonFriends = User::where('username', '!=', $user->username)
+            ->whereDoesntHave('friendsOfMine', function ($query) use ($user) {
+                $query->where('username', '=', $user->username);
+            })
+            ->whereNotIn('username', $blockedUsers) // Exclude blocked users
+            ->withCount('friendsOfMine')
+            ->orderByDesc('friends_of_mine_count');
+
+        return $nonFriends;
+    }
 
     public function getBlockedUsers($username)
     {
         $user = User::where('username', $username)->firstOrFail();
-        return response()->json($user->blockedUsers);
+        return $user->blockedUsers;
     }
-    public function addfriends() {
+    public function addfriends()
+    {
+        $friendshipController = new FriendshipController();
         $username = auth()->user()->username;
-        $friends = $this->getFriends($username);
-        dd($friends);
-        //return view('friend.index');
+        $nonFriends = $friendshipController->getAllFriends($username);
+        $searchTerm = request('searchuser');
+        if ($searchTerm) {
+            $nonFriends->where(function ($query) use ($searchTerm) {
+                $query->where('username', 'like', '%' . $searchTerm . '%');
+            });
+        }
+        $nonFriends = $nonFriends->paginate(10);
+        $pending = $friendshipController->getPendingFriendRequests($username);
+        return view(
+            'friend.index',
+            [
+                'nonFriends' => $nonFriends,
+                'pending' => $pending,
+            ]
+        );
+    }
+
+    public function requests()
+    {
+        $friendshipController = new FriendshipController();
+        $requests = $friendshipController->seeRequests();
+        $searchTerm = request('searchrequest');
+        if ($searchTerm) {
+            $requests->where(function ($query) use ($searchTerm) {
+                $query->where('username', 'like', '%' . $searchTerm . '%');
+            });
+        }
+        $requests = $requests->paginate(10);
+
+        return view(
+            'friend.requests',
+            [
+                'requests' => $requests,
+            ]
+        );
+    }
+
+    public function myfriends()
+    {
+        $username = auth()->user()->username;
+        $friendshipController = new FriendshipController();
+        $allFriends = $friendshipController->getFriends($username);
+        $searchTerm = request('searchfriend');
+        if ($searchTerm) {
+            $allFriends->where(function ($query) use ($searchTerm) {
+                $query->where('username', 'like', '%' . $searchTerm . '%');
+            });
+        }
+        $allFriends = $allFriends->paginate(10);
+
+        return view(
+            'friend.show',
+            [
+                'allFriends' => $allFriends,
+            ]
+        );
+    }
+    public function blocks()
+    {
+        $username = auth()->user()->username;
+        $friendshipController = new FriendshipController();
+        $blocks = $friendshipController->getBlockedUsers($username);
+        $searchTerm = request('searchblock');
+        if ($searchTerm) {
+            $blocks->where(function ($query) use ($searchTerm) {
+                $query->where('username', 'like', '%' . $searchTerm . '%');
+            });
+        }
+        $blocks = $blocks->paginate(10);
+
+
+        return view(
+            'friend.block',
+            [
+                'blocks' => $blocks,
+            ]
+        );
     }
     public function getNotifications($username)
     {

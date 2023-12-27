@@ -191,7 +191,85 @@
             background: var(--btn-hvr-clr);
         }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const submitButton = document.getElementById('submit-payment-btn');
+            const paymentForm = document.getElementById('payment-form');
+            const errorMessages = document.getElementById('error-messages');
 
+            submitButton.addEventListener('click', function() {
+                const validationResult = validateInputs();
+                if (validationResult.isValid) {
+                    paymentForm.submit();
+                } else {
+                    errorMessages.innerHTML = validationResult.errorMessage;
+                }
+            });
+        });
+
+        function validateInputs() {
+            const cvvCvv = document.querySelector('input[name="cvc-cvv"]').value;
+            const cardNumber1 = document.querySelector('input[name="cardNumber1"]').value;
+            const cardNumber2 = document.querySelector('input[name="cardNumber2"]').value;
+            const cardNumber3 = document.querySelector('input[name="cardNumber3"]').value;
+            const cardNumber4 = document.querySelector('input[name="cardNumber4"]').value;
+            const cardHolder = document.querySelector('input[name="cardHolder"]').value;
+            const month = document.querySelector('input[name="month"]').value;
+            const date = document.querySelector('input[name="date"]').value;
+
+            const monthRegex = /^(0[1-9]|1[0-2])$/;
+
+            const errorMessages = [];
+
+            if (!isNumeric(cvvCvv) || cvvCvv.length !== 3) {
+                errorMessages.push('Please enter a valid 3-digit CVC/CVV.');
+            } else if (!isNumeric(cardNumber1) || cardNumber1.length !== 4) {
+                errorMessages.push('Please enter a valid 4-digit card number (Part 1).');
+            } else if (!isNumeric(cardNumber2) || cardNumber2.length !== 4) {
+                errorMessages.push('Please enter a valid 4-digit card number (Part 2).');
+            } else if (!isNumeric(cardNumber3) || cardNumber3.length !== 4) {
+                errorMessages.push('Please enter a valid 4-digit card number (Part 3).');
+            } else if (!isNumeric(cardNumber4) || cardNumber4.length !== 4) {
+                errorMessages.push('Please enter a valid 4-digit card number (Part 4).');
+            } else if (cardHolder.trim() === '') {
+                errorMessages.push('Name cannot be blank.');
+            }
+
+            else if ((!monthRegex.test(month)) || month.length!=2) {
+                errorMessages.push("Month must be between 01 and 12.");
+            }
+
+            else if (date.length!=2) {
+                errorMessages.push("Please enter a valid year.");
+            }
+
+            return {
+                isValid: errorMessages.length === 0,
+                errorMessage: `<div style="color: red; padding: 20px; font-size: 18px;">${errorMessages.map(msg => `<p>${msg}</p>`).join('')}</div>`
+            };
+        }
+
+        function isNumeric(event) {
+            // Get the input character code
+            const charCode = (event.which) ? event.which : event.keyCode;
+
+            // Allow only numeric characters (0-9) and control keys like Backspace
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                event.preventDefault();
+                return false;
+            }
+
+            return true;
+        }
+
+        function enforceMaxLength(element, maxLength) {
+            if (element.value.length >= maxLength) {
+                element.value = element.value.slice(0, maxLength);
+                return false;
+            }
+            return true;
+        }
+    </script>
     <div class="wrapper">
         <div class="payment_form_wrapper">
             <div class="payment_form">
@@ -199,7 +277,9 @@
                     <div class="stripe"></div>
                     <div class="input_field">
                         <label>CVC/CVV</label>
-                        <input type="text" name="cvc-cvv" class="input" placeholder="XXX" maxlength="3">
+                        <input type="text" name="cvc-cvv" class="input" inputmode="numeric" pattern="[0-9]*"
+                            oninput="return enforceMaxLength(this, 3)" placeholder="XXX" maxlength="3"
+                            onkeypress="return isNumeric(event)" value="{{ old('cvc-cvv') }}">
                     </div>
                 </div>
                 <div class="front_card">
@@ -213,20 +293,28 @@
                             <label>CARD NUMBER</label>
                             <div class="input_grp">
                                 <div class="input_field">
-                                    <input type="text" name="cardNumber" class="input" placeholder="XXXX"
-                                        maxlength="4">
+                                    <input type="text" name="cardNumber1" class="input" placeholder="XXXX"
+                                        inputmode="numeric" pattern="[0-9]*" onkeypress="return isNumeric(event)"
+                                        oninput="return enforceMaxLength(this, 4)" maxlength="4"
+                                        value="{{ old('cardNumber1') }}">
                                 </div>
                                 <div class="input_field">
-                                    <input type="text" name="cardNumber" class="input" placeholder="XXXX"
-                                        maxlength="4">
+                                    <input type="text" name="cardNumber2" class="input" placeholder="XXXX"
+                                        inputmode="numeric" pattern="[0-9]*" onkeypress="return isNumeric(event)"
+                                        oninput="return enforceMaxLength(this, 4)" maxlength="4"
+                                        value="{{ old('cardNumber2') }}">
                                 </div>
                                 <div class="input_field">
-                                    <input type="text" name="cardNumber" class="input" placeholder="XXXX"
-                                        maxlength="4">
+                                    <input type="text" name="cardNumber3" class="input" placeholder="XXXX"
+                                        inputmode="numeric" pattern="[0-9]*" onkeypress="return isNumeric(event)"
+                                        oninput="return enforceMaxLength(this, 4)" maxlength="4"
+                                        value="{{ old('cardNumber3') }}">
                                 </div>
                                 <div class="input_field">
-                                    <input type="text" name="cardNumber" class="input" placeholder="XXXX"
-                                        maxlength="4">
+                                    <input type="text" name="cardNumber4" class="input" placeholder="XXXX"
+                                        inputmode="numeric" pattern="[0-9]*" onkeypress="return isNumeric(event)"
+                                        oninput="return enforceMaxLength(this, 4)" maxlength="4"
+                                        value="{{ old('cardNumber4') }}">
                                 </div>
                             </div>
                         </div>
@@ -234,19 +322,24 @@
                             <div class="input_left">
                                 <div class="input_field">
                                     <label>CARD HOLDER</label>
-                                    <input type="text" name="cvc-cvv" class="input" placeholder="MUSIC TAILOR">
+                                    <input type="text" name="cardHolder" class="input" placeholder="MUSIC TAILOR"
+                                        value="{{ old('cardHolder') }}">
                                 </div>
                             </div>
                             <div class="input_right">
-                                <label>EXPRIATION DATE</label>
+                                <label>EXPIRATION DATE</label>
                                 <div class="input_grp">
                                     <div class="input_field">
                                         <input type="text" name="month" class="input" placeholder="XX"
-                                            maxlength="2">
+                                            inputmode="numeric" pattern="[0-9]*" onkeypress="return isNumeric(event)"
+                                            oninput="return enforceMaxLength(this, 2)" maxlength="2"
+                                            value="{{ old('month') }}">
                                     </div>
                                     <div class="input_field">
                                         <input type="text" name="date" class="input" placeholder="XX"
-                                            maxlength="2">
+                                            inputmode="numeric" pattern="[0-9]*" onkeypress="return isNumeric(event)"
+                                            oninput="return enforceMaxLength(this, 2)" maxlength="2"
+                                            value="{{ old('date') }}">
                                     </div>
                                 </div>
                             </div>
@@ -254,6 +347,7 @@
                     </div>
                 </div>
             </div>
+            <div id="error-messages"></div>
             <form id="payment-form" action="/pay" method="POST">
                 @csrf
                 <input type="hidden" name="plan" value="{{ $plan }}">
@@ -265,7 +359,8 @@
                             <span class="price">$14.99</span>/month
                         @endif
                     </div>
-                    <button type="submit" class="complete-payment-btn">COMPLETE PAYMENT</button>
+                    <button type="button" id="submit-payment-btn" class="complete-payment-btn">COMPLETE
+                        PAYMENT</button>
                 </div>
                 <!-- Your additional form fields here (card details, CVV, etc.) -->
             </form>

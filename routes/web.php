@@ -15,6 +15,7 @@ use App\Http\Controllers\AlbumRatingController;
 use App\Http\Controllers\FriendshipController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\PerformerRatingController;
+use Illuminate\Support\Facades\Validator;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,6 +61,26 @@ Route::post('/deleteperformer/{id}', [PerformerController::class, 'destroy'])->n
 
 Route::get('/addfriends', [UserController::class, 'addfriends'])->name('addfriends')->middleware(['auth']);
 
+Route::get('/myfriends', [UserController::class, 'myfriends'])->name('myfriends')->middleware(['auth']);
+
+Route::get('/requests', [UserController::class, 'requests'])->name('requests')->middleware(['auth']);
+
+Route::get('/blocks', [UserController::class, 'blocks'])->name('blocks')->middleware(['auth']);
+
+Route::post('/add/{user}', [FriendshipController::class, 'sendRequestWeb'])->name('sendRequestWeb')->middleware(['auth']);
+
+Route::post('/unrequest', [FriendshipController::class, 'unrequest'])->name('unrequest')->middleware(['auth']);
+
+Route::post('/accept', [FriendshipController::class, 'acceptRequest'])->name('acceptRequest')->middleware(['auth']);
+
+Route::post('/reject', [FriendshipController::class, 'rejectRequest'])->name('rejectRequest')->middleware(['auth']);
+
+Route::post('/unfriend/{user}', [FriendshipController::class, 'unfriend'])->name('unfriend')->middleware(['auth']);
+
+Route::post('/block', [FriendshipController::class, 'block'])->name('block')->middleware(['auth']);
+
+Route::post('/unblock/{user}', [FriendshipController::class, 'unblock'])->name('unblock')->middleware(['auth']);
+
 
 
 // Single Album
@@ -85,38 +106,15 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/settings', [SettingsController::class, 'index'])->name('settings');
     Route::post('/settings/update', [SettingsController::class, 'update'])->name('settings.update');
 
+    Route::post('/pay', [SubscriptionController::class, 'pay'])->name('pay');
+    Route::post('/free', [SubscriptionController::class, 'free'])->name('free');
+
+
     Route::get('/payment', function () {
         // You can return the Blade view for the payment form here
         $plan = request('plan');
         return view('subscription.payment', ['plan' => $plan]);
     })->name('payment');
-
-    // Define a route for processing the payment form submission
-    Route::post('/pay', function () {
-        // Handle the form submission directly in this function
-        // You can access form data using the request() helper function
-
-        // Example: Retrieve form input
-        $cvcCvv = request('cvc-cvv');
-        $cardNumbers = request('cardNumber');
-        $cardHolder = request('cardHolder');
-        $month = request('month');
-        $date = request('date');
-
-        $plan = request('plan');
-
-        // Get the authenticated user
-        $user = auth()->user();
-
-        // Update the user's subscription plan attribute
-        $user->subscription = $plan;
-        $user->save();
-
-        // Add your processing logic here
-
-        // Redirect to the homepage or another route
-        return redirect('/settings')->with('success', 'Payment succeeded');
-    })->name('pay')->middleware('web');
 });
 
 
