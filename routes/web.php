@@ -61,6 +61,26 @@ Route::post('/deleteperformer/{id}', [PerformerController::class, 'destroy'])->n
 
 Route::get('/addfriends', [UserController::class, 'addfriends'])->name('addfriends')->middleware(['auth']);
 
+Route::get('/myfriends', [UserController::class, 'myfriends'])->name('myfriends')->middleware(['auth']);
+
+Route::get('/requests', [UserController::class, 'requests'])->name('requests')->middleware(['auth']);
+
+Route::get('/blocks', [UserController::class, 'blocks'])->name('blocks')->middleware(['auth']);
+
+Route::post('/add/{user}', [FriendshipController::class, 'sendRequestWeb'])->name('sendRequestWeb')->middleware(['auth']);
+
+Route::post('/unrequest', [FriendshipController::class, 'unrequest'])->name('unrequest')->middleware(['auth']);
+
+Route::post('/accept', [FriendshipController::class, 'acceptRequest'])->name('acceptRequest')->middleware(['auth']);
+
+Route::post('/reject', [FriendshipController::class, 'rejectRequest'])->name('rejectRequest')->middleware(['auth']);
+
+Route::post('/unfriend/{user}', [FriendshipController::class, 'unfriend'])->name('unfriend')->middleware(['auth']);
+
+Route::post('/block', [FriendshipController::class, 'block'])->name('block')->middleware(['auth']);
+
+Route::post('/unblock/{user}', [FriendshipController::class, 'unblock'])->name('unblock')->middleware(['auth']);
+
 
 
 // Single Album

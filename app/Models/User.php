@@ -62,11 +62,11 @@ class User extends Authenticatable
     }
 
     public function blockedUsers() {
-        return $this->hasMany(Block::class, 'blocker_id');
+        return $this->hasMany(Block::class, 'blocker_username');
     }
 
     public function blockingUsers() {
-        return $this->hasMany(Block::class, 'blocked_id');
+        return $this->hasMany(Block::class, 'blocked_username');
     }
 
     public function getFriendsAttribute() {
