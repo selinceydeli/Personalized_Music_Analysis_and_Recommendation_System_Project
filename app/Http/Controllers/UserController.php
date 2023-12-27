@@ -20,6 +20,24 @@ use ReCaptcha\ReCaptcha; // Import the ReCaptcha class at the top
 
 class UserController extends Controller
 {
+    public function showProfile()
+    {
+        // Fetch the authenticated user
+        $user = auth()->user();
+
+        // Check if the user is authenticated
+        if (!$user) {
+            // Redirect or show an error if the user is not authenticated
+            return redirect('/login')->with('error', 'You must be logged in to view this page.');
+        }
+
+        // Retrieve additional data as required, e.g., user's playlists
+        // $playlists = $user->playlists; // Assuming a relationship with playlists
+
+        // Return the user profile view with the user data
+        return view('users.user-profile', compact('user'));
+    }
+
     public function index()
     {
         $users = User::all();

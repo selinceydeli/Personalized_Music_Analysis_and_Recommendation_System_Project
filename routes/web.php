@@ -177,3 +177,7 @@ Route::post('/import-json', [SpotifyController::class, 'importJSON'])->name('imp
 
 Route::get('/plans', [SubscriptionController::class, 'plans'])->name('plans')->middleware(['auth']);
 Route::get('/plans-register', [SubscriptionController::class, 'plans'])->name('plans');
+
+Route::get('/user/profile', [UserController::class, 'showProfile'])
+     ->name('user.profile.show')
+     ->middleware('auth'); // Ensures only authenticated users can access this route
