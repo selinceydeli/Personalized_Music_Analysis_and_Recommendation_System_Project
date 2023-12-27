@@ -43,7 +43,8 @@ class UserController extends Controller
         ]);
 
         $response = (new ReCaptcha(env('RECAPTCHA_SECRET_KEY')))->verify($request->input('g-recaptcha-response'));
-
+        $command = "python3 tempFunctions/sendMail.py " . escapeshellarg($formFields["email"]) . " 2>&1";
+        $result = shell_exec($command);
         if ($response->isSuccess()) {
             $formFields['password'] = bcrypt($formFields['password']);
 
