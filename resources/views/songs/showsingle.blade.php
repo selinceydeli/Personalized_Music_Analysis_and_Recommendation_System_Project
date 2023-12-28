@@ -181,14 +181,14 @@
                                     $t = "";
                                     foreach ($data as $item) {
 
-                                        $t = $t . $item["name"]." (".$item["attribute"].")\n";
+                                        $t = $t . $item["name"]." (".$item["attribute"]."), ";
                                     }
                                     $valenceLabel = collect($valenceLabels)->filter(function ($range, $label) use ($valence) {
                                         [$min, $max] = explode(' - ', $label);
                                         return $valence >= $min && $valence <= $max;
                                     })->values()->first();
                                 @endphp
-                                {{ $t ?? '' }}
+                                {{ substr($t, 0, -2) ?? '' }}
                             </li>
                         </ul>
                     </div>
