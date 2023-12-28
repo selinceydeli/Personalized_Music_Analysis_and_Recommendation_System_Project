@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Playlist;
 
 class User extends Authenticatable
 {
@@ -65,6 +66,11 @@ class User extends Authenticatable
 
     public function blockingUsers() {
         return $this->hasMany(Block::class, 'blocked_username');
+    }
+
+    public function playlists()
+    {
+        return $this->belongsToMany(Playlist::class, 'user_playlist', 'username', 'playlist_id');
     }
 
     // Accessor to get all friends
