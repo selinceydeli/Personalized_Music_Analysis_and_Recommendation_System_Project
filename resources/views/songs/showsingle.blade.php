@@ -177,11 +177,16 @@
                                 <strong>Staff:</strong> 
                                 @php
                                     $staff = $song->staff;
-                                    $data = json_decode($staff, true);
-                                    $t = "";
-                                    foreach ($data as $item) {
+                                    if ($staff != "[]"){
+                                        $data = json_decode($staff, true);
+                                        $t = "";
+                                        foreach ($data as $item) {
 
-                                        $t = $t . $item["name"]." (".$item["attribute"]."), ";
+                                            $t = $t . $item["name"]." (".$item["attribute"]."), ";
+                                        }
+                                    }
+                                    else{
+                                        $t = "---";
                                     }
                                     $valenceLabel = collect($valenceLabels)->filter(function ($range, $label) use ($valence) {
                                         [$min, $max] = explode(' - ', $label);
