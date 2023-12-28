@@ -38,7 +38,8 @@ class SongController extends Controller
             'instrumentalness' => $request->instrumentalness,
             'liveness' => $request->liveness,
             'valence' => $request->valence,
-            'time_signature' => $request->time_signature
+            'time_signature' => $request->time_signature,
+            'staff' => $request->staff
         ];
 
         // Use firstOrCreate to either find the existing album or create a new one.
