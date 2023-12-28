@@ -226,6 +226,7 @@ def getAlbum(albumID):
         mbidRaw = mb.get_recordings_by_isrc(i)["recordings"][0]["id"]
         t = (mb.get_recording_by_id(mbidRaw, includes=["artist-rels"]))
         t = t["relations"]
+        l = list()
         for x in t:
             q = dict()
             if x["type"] == "instrument":
@@ -240,7 +241,8 @@ def getAlbum(albumID):
             q["link"] = "https://musicbrainz.org/artist/" + q["id"]
             if str(q) not in a:
                 a.add(str(q))
-        mpList[i] = [mbidRaw, list(a)]
+                l.append(q)
+        mpList[i] = [mbidRaw, l]
     for i in range(len(songResponse)):
         insertSongs = "INSERT INTO songs (`name`,`song_id`,`album_id`,`explicit`,`duration`,`key`,`tempo`,`performers`,`isrc`,`lyrics`,`system_entry_date`,  `mode`,`danceability`,`energy`,`loudness`,`speechiness`,`instrumentalness`,`liveness`,`valence`,`time_signature`,`mbid`,`staff`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s,%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
         datestr = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
