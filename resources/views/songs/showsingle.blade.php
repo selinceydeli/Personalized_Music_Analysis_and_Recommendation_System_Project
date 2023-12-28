@@ -173,6 +173,23 @@
                                 @endphp
                                 {{ $valenceLabel ?? '' }}
                             </li>
+                            <li>
+                                <strong>Staff:</strong> 
+                                @php
+                                    $staff = $song->staff;
+                                    $data = json_decode($staff, true);
+                                    $t = "";
+                                    foreach ($data as $item) {
+
+                                        $t = $t . $item["name"]." (".$item["attribute"].")\n";
+                                    }
+                                    $valenceLabel = collect($valenceLabels)->filter(function ($range, $label) use ($valence) {
+                                        [$min, $max] = explode(' - ', $label);
+                                        return $valence >= $min && $valence <= $max;
+                                    })->values()->first();
+                                @endphp
+                                {{ $t ?? '' }}
+                            </li>
                         </ul>
                     </div>
                     <div class="mt-4 text-align: center;">
