@@ -75,4 +75,9 @@ class User extends Authenticatable
 
         return $friendsOfMine->merge($friendOf);
     }
+
+    public function playlists()
+    {
+        return $this->belongsToMany(Playlist::class, 'user_playlist', 'username', 'playlist_id');
+    }
 }

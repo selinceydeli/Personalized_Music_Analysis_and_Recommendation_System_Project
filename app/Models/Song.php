@@ -88,4 +88,10 @@ class Song extends Model
     public function performers() {
         return $this->belongsToMany(Performer::class, 'artist_id');
     }
+
+    public function playlists()
+    {
+        return $this->belongsToMany(Playlist::class, 'song_playlist', 'song_id', 'playlist_id');
+    }
+
 }

@@ -13,6 +13,7 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\SpotifyController;
 use App\Http\Controllers\BlockController;
 use App\Http\Controllers\FriendshipController;
+use App\Http\Controllers\PlaylistController;
 use App\Http\Controllers\SettingsController;
 
 /*
@@ -127,3 +128,11 @@ Route::post('/user/mobilelogin', [UserController::class, 'mobileauthenticate']);
 
 // Downloading songs
 Route::get('/user/{username}/rated-songs', [SongController::class, 'getSongsRatedByUser']);
+
+// Playlist
+Route::post('/playlists/create-with-user', [PlaylistController::class, 'storeWithUser'])->name('playlists.storeWithUser');
+Route::get('/playlists', [PlaylistController::class, 'getUserPlaylists'])->name('user.playlists');
+Route::post('/playlist/{playlistId}/songs', [PlaylistController::class, 'addSongsToPlaylist'])->name('playlist.addSongs');
+Route::post('/playlist/{playlistId}/users', [PlaylistController::class, 'addUsersToPlaylist'])->name('playlist.addUsers');
+Route::delete('/playlist/{playlistId}/song/{songId}', [PlaylistController::class, 'removeSongFromPlaylist'])->name('playlist.removeSong');
+Route::delete('/playlist/{playlistId}', [PlaylistController::class, 'destroy'])->name('playlist.destroy');
