@@ -46,16 +46,11 @@ class PlaylistController extends Controller
         ], 200);
     }
 
-    public function getUserPlaylists(Request $request)
+    public function getUserPlaylists($username)
     {
-        // Validate the request data
-        $request->validate([
-            'username' => 'required|string|exists:users,username', // Ensure the username exists.
-        ]);
-
         // Attempt to retrieve the user and load their playlists
         try {
-            $user = User::where('username', $request->username)->with('playlists')->firstOrFail();
+            $user = User::where('username', $username)->with('playlists')->firstOrFail();
             return response()->json([
                 'success' => true,
                 'playlists' => $user->playlists

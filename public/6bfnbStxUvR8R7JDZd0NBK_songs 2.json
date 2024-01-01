@@ -1,0 +1,27 @@
+[
+    {
+        "duration_ms": 184000,
+        "explicit": 0,
+        "name": "Peas And Carrots",
+        "popularity": 58,
+        "preview_url": "https://p.scdn.co/mp3-preview/bd80bcad48cbf3ace1033e0875a7f8f760e07fb1?cid=0871147f112a492b88fc9fea2d3bf5e7",
+        "song_id": "6suqE7jsS61mbxUa1jqxxl",
+        "isrc": "SEXGF2300620",
+        "album_id": "6bfnbStxUvR8R7JDZd0NBK",
+        "artists_ids": [
+            "0JtmM4D2ncms5yIaAvsTNW"
+        ],
+        "danceability": 0.649,
+        "energy": 0.45,
+        "key": "D#",
+        "loudness": -8.779,
+        "mode": "Minor",
+        "speechiness": 0.0504,
+        "acousticness": 0.473,
+        "instrumentalness": 0.399,
+        "liveness": 0.139,
+        "valence": 0.5,
+        "tempo": 169.883,
+        "time_signature": 4
+    }
+]

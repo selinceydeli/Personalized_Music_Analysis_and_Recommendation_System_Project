@@ -1,0 +1,24 @@
+[
+    {
+        "followers": 544169,
+        "genres": [
+            "dark clubbing"
+        ],
+        "name": "Gesaffelstein",
+        "popularity": 70,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb7fa99a739980cf77a38f995b",
+        "artist_id": "3hteYQFiMFbJY7wS0xDymP"
+    },
+    {
+        "followers": 75751606,
+        "genres": [
+            "canadian contemporary r&b",
+            "canadian pop",
+            "pop"
+        ],
+        "name": "The Weeknd",
+        "popularity": 93,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb214f3cf1cbe7139c1e26ffbb",
+        "artist_id": "1Xyo4u8uXC1ZmMpatF05PJ"
+    }
+]

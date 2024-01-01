@@ -1,0 +1,24 @@
+{
+    "album_type": "single",
+    "copyrights": "Mbrs Gear",
+    "genres": [],
+    "label": "Mbrs Gear",
+    "name": "Battery",
+    "popularity": 40,
+    "release_date": "2023-04-02",
+    "total_tracks": 1,
+    "tracks": {
+        "items": [
+            {
+                "id": "2R1q865i7OzATBbZCoX1YI",
+                "track_number": 1
+            }
+        ],
+        "total": 1
+    },
+    "type": "album",
+    "artist_id": "6bHl5CMbDUkkVJ0YUKqK30",
+    "album_id": "44cfwIRSZvnFCkhDRDpzVk",
+    "upc": "7330065267531",
+    "image": "https://i.scdn.co/image/ab67616d0000b273b1df7aef9ec2d97ed352bcde"
+}

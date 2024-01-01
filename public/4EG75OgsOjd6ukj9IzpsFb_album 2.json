@@ -1,0 +1,24 @@
+{
+    "album_type": "single",
+    "copyrights": "2022 Aviary Day",
+    "genres": [],
+    "label": "Aviary Bridge Records",
+    "name": "Daydreams",
+    "popularity": 44,
+    "release_date": "2022-05-05",
+    "total_tracks": 1,
+    "tracks": {
+        "items": [
+            {
+                "id": "0i175zzCfpfTWA40Y3uqjs",
+                "track_number": 1
+            }
+        ],
+        "total": 1
+    },
+    "type": "album",
+    "artist_id": "2cg9jlWp1QRc0Sk6kTp9Ez",
+    "album_id": "4EG75OgsOjd6ukj9IzpsFb",
+    "upc": "4018939516222",
+    "image": "https://i.scdn.co/image/ab67616d0000b273616011c040b38bcd912c096a"
+}

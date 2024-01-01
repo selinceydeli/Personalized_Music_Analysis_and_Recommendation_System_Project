@@ -1,0 +1,64 @@
+{
+    "album_type": "album",
+    "copyrights": "\u00a9 2013 Republic Records, Inc.",
+    "genres": [],
+    "label": "Universal Records",
+    "name": "Voices",
+    "popularity": 66,
+    "release_date": "2014-02-18",
+    "total_tracks": 11,
+    "tracks": {
+        "items": [
+            {
+                "id": "3tgKPIjhpelqSeKbDzaG3c",
+                "track_number": 1
+            },
+            {
+                "id": "2IWtloZYQDcP8Ashwx8QEF",
+                "track_number": 2
+            },
+            {
+                "id": "5imUTBF35uIoABlV9g9da2",
+                "track_number": 3
+            },
+            {
+                "id": "3XWL3vnY0fIT5416rWBe7C",
+                "track_number": 4
+            },
+            {
+                "id": "3tj5523lMxVh6TjcAb1tdS",
+                "track_number": 5
+            },
+            {
+                "id": "00RYw42tKwXecTaVay3BKl",
+                "track_number": 6
+            },
+            {
+                "id": "4AEX3oWCqLrclYTjLyRW3n",
+                "track_number": 7
+            },
+            {
+                "id": "0zDbbJ71fcLI9E8dmlgffZ",
+                "track_number": 8
+            },
+            {
+                "id": "6D2ZD1yIFU1c1R7GdHsrtD",
+                "track_number": 9
+            },
+            {
+                "id": "1LJSniVKf2cSGY3LT1oqyk",
+                "track_number": 10
+            },
+            {
+                "id": "62A7y2i3IY5Cako4cSoaVw",
+                "track_number": 11
+            }
+        ],
+        "total": 11
+    },
+    "type": "album",
+    "artist_id": "1l9d7B8W0IHy3LqWsxP2SH",
+    "album_id": "2R2Cwe4kI8b2WObXZ90wOC",
+    "upc": "00602537672721",
+    "image": "https://i.scdn.co/image/ab67616d0000b2734a02353678a4f62a9d2e3d2b"
+}

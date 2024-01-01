@@ -1,0 +1,24 @@
+{
+    "album_type": "single",
+    "copyrights": "2023 Jojumu",
+    "genres": [],
+    "label": "Jojumu",
+    "name": "Peas And Carrots",
+    "popularity": 49,
+    "release_date": "2023-03-10",
+    "total_tracks": 1,
+    "tracks": {
+        "items": [
+            {
+                "id": "6suqE7jsS61mbxUa1jqxxl",
+                "track_number": 1
+            }
+        ],
+        "total": 1
+    },
+    "type": "album",
+    "artist_id": "0JtmM4D2ncms5yIaAvsTNW",
+    "album_id": "6bfnbStxUvR8R7JDZd0NBK",
+    "upc": "8720766924137",
+    "image": "https://i.scdn.co/image/ab67616d0000b273fed631dbc4d6bb0d5a4d3df4"
+}

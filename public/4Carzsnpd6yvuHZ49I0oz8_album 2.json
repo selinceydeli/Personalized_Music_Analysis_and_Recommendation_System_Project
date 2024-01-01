@@ -1,0 +1,64 @@
+{
+    "album_type": "album",
+    "copyrights": "2016 McDJ Entertainment under exclusive license to Glassnote Entertainment Group LLC, distributed by AWAL",
+    "genres": [],
+    "label": "Glassnote Entertainment Group LLC",
+    "name": "\"Awaken, My Love!\"",
+    "popularity": 4,
+    "release_date": "2016-12-02",
+    "total_tracks": 11,
+    "tracks": {
+        "items": [
+            {
+                "id": "31tf1qEai5o5f4r66Kd0pU",
+                "track_number": 1
+            },
+            {
+                "id": "3baESV24ilV6meyqLUh0WU",
+                "track_number": 2
+            },
+            {
+                "id": "0SunFlwqT44E0BU0yrgM7u",
+                "track_number": 3
+            },
+            {
+                "id": "3rBOkpPCniY6AxOIavGGsg",
+                "track_number": 4
+            },
+            {
+                "id": "3YxunxpAExKBEvhuf7wQOK",
+                "track_number": 5
+            },
+            {
+                "id": "0wXuerDYiBnERgIpbb3JBR",
+                "track_number": 6
+            },
+            {
+                "id": "6Ik9aiuaoEYxsEKGdQaEJB",
+                "track_number": 7
+            },
+            {
+                "id": "5MKSl2ZHsImt0wOfBAs87U",
+                "track_number": 8
+            },
+            {
+                "id": "2qbw3lSGERDdUawZ736wmN",
+                "track_number": 9
+            },
+            {
+                "id": "6iGPBcdGv5gVGFZiKAGID5",
+                "track_number": 10
+            },
+            {
+                "id": "25BSBxpCtoDbOpVd7cpqbw",
+                "track_number": 11
+            }
+        ],
+        "total": 11
+    },
+    "type": "album",
+    "artist_id": "73sIBHcqh3Z3NyqHKZ7FOL",
+    "album_id": "4Carzsnpd6yvuHZ49I0oz8",
+    "upc": "0044003187641",
+    "image": "https://i.scdn.co/image/ab67616d0000b273f78c98bbf2b3c9e2a764203e"
+}

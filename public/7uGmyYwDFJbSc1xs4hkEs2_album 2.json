@@ -1,0 +1,72 @@
+{
+    "album_type": "album",
+    "copyrights": "\u00a9 2009 The Island Def Jam Music Group",
+    "genres": [],
+    "label": "Def Jam Recordings",
+    "name": "Rated R",
+    "popularity": 74,
+    "release_date": "2009-11-20",
+    "total_tracks": 13,
+    "tracks": {
+        "items": [
+            {
+                "id": "4oHkmDMdEHbd0f1xWqyFC7",
+                "track_number": 1
+            },
+            {
+                "id": "59QZX1c9i8Sn1hdVEF6IUi",
+                "track_number": 2
+            },
+            {
+                "id": "3YJkAQNEhmCZGLdmPsu6Ye",
+                "track_number": 3
+            },
+            {
+                "id": "6Wiyd7AsRdXvXGrxNkbqQ1",
+                "track_number": 4
+            },
+            {
+                "id": "5rXDTihGQ3TkYE3pmraAmH",
+                "track_number": 5
+            },
+            {
+                "id": "3rMsX63C0IZVnOT5LGYoTH",
+                "track_number": 6
+            },
+            {
+                "id": "2igOUypyg58AbiUPgrlPNN",
+                "track_number": 7
+            },
+            {
+                "id": "60jzFy6Nn4M0iD1d94oteF",
+                "track_number": 8
+            },
+            {
+                "id": "4iywo4hJoh7MxFdMLFqYhN",
+                "track_number": 9
+            },
+            {
+                "id": "0gzpfUezy3wdktjC2SD1FY",
+                "track_number": 10
+            },
+            {
+                "id": "4YYHgF9dWyVSor0GtrBzdf",
+                "track_number": 11
+            },
+            {
+                "id": "4MMOt2JI6OjKL9RPT97krd",
+                "track_number": 12
+            },
+            {
+                "id": "0llmtI6cBL8SomPTzAjtZ4",
+                "track_number": 13
+            }
+        ],
+        "total": 13
+    },
+    "type": "album",
+    "artist_id": "5pKCCKE2ajJHZ9KAiaK11H",
+    "album_id": "7uGmyYwDFJbSc1xs4hkEs2",
+    "upc": "00602527283715",
+    "image": "https://i.scdn.co/image/ab67616d0000b273ab647295c0c97446c1f1a3b5"
+}

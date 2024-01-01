@@ -1,0 +1,27 @@
+[
+    {
+        "duration_ms": 136771,
+        "explicit": 0,
+        "name": "Daydreams",
+        "popularity": 53,
+        "preview_url": "https://p.scdn.co/mp3-preview/14aeecb2cb332a92a4173e967214abbea400f9d6?cid=0871147f112a492b88fc9fea2d3bf5e7",
+        "song_id": "0i175zzCfpfTWA40Y3uqjs",
+        "isrc": "DEQ022260271",
+        "album_id": "4EG75OgsOjd6ukj9IzpsFb",
+        "artists_ids": [
+            "2cg9jlWp1QRc0Sk6kTp9Ez"
+        ],
+        "danceability": 0.659,
+        "energy": 0.453,
+        "key": "G",
+        "loudness": -17.4,
+        "mode": "Major",
+        "speechiness": 0.112,
+        "acousticness": 0.94,
+        "instrumentalness": 0.928,
+        "liveness": 0.109,
+        "valence": 0.192,
+        "tempo": 78.005,
+        "time_signature": 4
+    }
+]

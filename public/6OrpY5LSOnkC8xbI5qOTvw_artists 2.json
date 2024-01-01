@@ -1,0 +1,34 @@
+[
+    {
+        "followers": 119,
+        "genres": [],
+        "name": "Big4Keezy",
+        "popularity": 16,
+        "image": null,
+        "artist_id": "25ERQzsKhPadf61ze3EJxm"
+    },
+    {
+        "followers": 184039,
+        "genres": [
+            "melodic rap"
+        ],
+        "name": "StaySolidRocky",
+        "popularity": 57,
+        "image": "https://i.scdn.co/image/ab6761610000e5ebd6b4cd036a38de239c1e902d",
+        "artist_id": "1XLWox9w1Yvbodui0SRhUQ"
+    },
+    {
+        "followers": 16358987,
+        "genres": [
+            "hip hop",
+            "melodic rap",
+            "philly rap",
+            "rage rap",
+            "rap"
+        ],
+        "name": "Lil Uzi Vert",
+        "popularity": 83,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb1234d2f516796badbdf16a89",
+        "artist_id": "4O15NlyKLIASxsJ0PrXPfz"
+    }
+]

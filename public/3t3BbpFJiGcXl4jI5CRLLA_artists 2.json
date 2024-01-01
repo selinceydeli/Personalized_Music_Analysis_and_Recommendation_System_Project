@@ -1,0 +1,103 @@
+[
+    {
+        "followers": 2108057,
+        "genres": [
+            "funk",
+            "soul"
+        ],
+        "name": "James Brown",
+        "popularity": 61,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb158342aa8bb8a192c778f2a5",
+        "artist_id": "7GaxyUddsPok8BuhxN6OUW"
+    },
+    {
+        "followers": 1034795,
+        "genres": [
+            "album rock",
+            "classic rock",
+            "heartland rock",
+            "mellow gold",
+            "new wave pop",
+            "singer-songwriter",
+            "soft rock",
+            "yacht rock"
+        ],
+        "name": "Kenny Loggins",
+        "popularity": 64,
+        "image": "https://i.scdn.co/image/ab6761610000e5ebe5ade0d346536449c7a75b48",
+        "artist_id": "3Y3xIwWyq5wnNHPp5gPjOW"
+    },
+    {
+        "followers": 1060054,
+        "genres": [
+            "album rock",
+            "glam metal",
+            "hard rock",
+            "soft rock"
+        ],
+        "name": "Survivor",
+        "popularity": 65,
+        "image": "https://i.scdn.co/image/da30acd2c9d0f32f5f5a2d69f32c2d30335466b5",
+        "artist_id": "26bcq2nyj5GB7uRr558iQg"
+    },
+    {
+        "followers": 17408,
+        "genres": [
+            "heartland rock"
+        ],
+        "name": "John Cafferty",
+        "popularity": 43,
+        "image": "https://i.scdn.co/image/066c1205c71ef46295b257833aa054fecf6a1909",
+        "artist_id": "0fPK3TAseRcy6sAS8U8pEw"
+    },
+    {
+        "followers": 23476,
+        "genres": [],
+        "name": "Vince DiCola",
+        "popularity": 46,
+        "image": "https://i.scdn.co/image/ab67616d0000b2736ed4ad7424a3abe51bd67e4a",
+        "artist_id": "5Q2nBzXfyXGIEf8KpHqeHn"
+    },
+    {
+        "followers": 35233,
+        "genres": [
+            "album rock"
+        ],
+        "name": "Robert Tepper",
+        "popularity": 46,
+        "image": "https://i.scdn.co/image/fb1c66b624e21178eba7fc439dd20d0867c51113",
+        "artist_id": "5T1bhiyED6hokaKTechcKI"
+    },
+    {
+        "followers": 605,
+        "genres": [],
+        "name": "Touch",
+        "popularity": 27,
+        "image": null,
+        "artist_id": "1skNkbLy2F276af1nrwJ6t"
+    },
+    {
+        "followers": 214303,
+        "genres": [
+            "disco",
+            "motown",
+            "quiet storm"
+        ],
+        "name": "Gladys Knight",
+        "popularity": 51,
+        "image": "https://i.scdn.co/image/48675950ac8cd685372bb594f5654238fd9b0583",
+        "artist_id": "2aXiJJHJei5BmCykxI37y0"
+    },
+    {
+        "followers": 251587,
+        "genres": [
+            "new romantic",
+            "new wave",
+            "new wave pop"
+        ],
+        "name": "Go West",
+        "popularity": 47,
+        "image": "https://i.scdn.co/image/9ec4919593b340858d86eb8617b712b7e81545af",
+        "artist_id": "7bKupnlF7XOfR1En3K8oAL"
+    }
+]

@@ -1,0 +1,27 @@
+[
+    {
+        "followers": 16358987,
+        "genres": [
+            "hip hop",
+            "melodic rap",
+            "philly rap",
+            "rage rap",
+            "rap"
+        ],
+        "name": "Lil Uzi Vert",
+        "popularity": 83,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb1234d2f516796badbdf16a89",
+        "artist_id": "4O15NlyKLIASxsJ0PrXPfz"
+    },
+    {
+        "followers": 9890001,
+        "genres": [
+            "melodic rap",
+            "rap"
+        ],
+        "name": "YNW Melly",
+        "popularity": 71,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb4da4a196cc973f65b68fe67b",
+        "artist_id": "1cNDP5yjU5vjeR8qMf4grg"
+    }
+]

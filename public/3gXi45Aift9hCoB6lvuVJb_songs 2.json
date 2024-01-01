@@ -1,0 +1,28 @@
+[
+    {
+        "duration_ms": 202093,
+        "explicit": 1,
+        "name": "Lost in the Fire",
+        "popularity": 0,
+        "preview_url": null,
+        "song_id": "7wFybC8jBH3zE139OpCtpG",
+        "isrc": "USQX91803314",
+        "album_id": "3gXi45Aift9hCoB6lvuVJb",
+        "artists_ids": [
+            "3hteYQFiMFbJY7wS0xDymP",
+            "1Xyo4u8uXC1ZmMpatF05PJ"
+        ],
+        "danceability": 0.663,
+        "energy": 0.675,
+        "key": "D",
+        "loudness": -12.159,
+        "mode": "Major",
+        "speechiness": 0.0359,
+        "acousticness": 0.0863,
+        "instrumentalness": 0.00133,
+        "liveness": 0.117,
+        "valence": 0.176,
+        "tempo": 101.004,
+        "time_signature": 4
+    }
+]

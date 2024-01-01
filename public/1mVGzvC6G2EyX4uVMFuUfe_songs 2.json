@@ -1,0 +1,27 @@
+[
+    {
+        "duration_ms": 270025,
+        "explicit": 0,
+        "name": "Working Buttons",
+        "popularity": 57,
+        "preview_url": "https://p.scdn.co/mp3-preview/52b3b87be40dce5057119372a69a489e4b68d931?cid=0871147f112a492b88fc9fea2d3bf5e7",
+        "song_id": "2KVOhGRZ4TjY3cXnnt40nn",
+        "isrc": "SE5Q52202473",
+        "album_id": "1mVGzvC6G2EyX4uVMFuUfe",
+        "artists_ids": [
+            "4S6bYPPOxQPs9hSnUBbGBN"
+        ],
+        "danceability": 0.622,
+        "energy": 0.714,
+        "key": "A#",
+        "loudness": -7.847,
+        "mode": "Minor",
+        "speechiness": 0.0414,
+        "acousticness": 0.0356,
+        "instrumentalness": 0.0012,
+        "liveness": 0.101,
+        "valence": 0.495,
+        "tempo": 94.034,
+        "time_signature": 4
+    }
+]

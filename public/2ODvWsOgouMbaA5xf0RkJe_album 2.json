@@ -1,0 +1,92 @@
+{
+    "album_type": "album",
+    "copyrights": "\u00a9 2016 The Weeknd XO, Inc., Manufactured and Marketed by Republic Records, a Division of UMG Recordings, Inc.",
+    "genres": [],
+    "label": "Universal Republic Records",
+    "name": "Starboy",
+    "popularity": 91,
+    "release_date": "2016-11-25",
+    "total_tracks": 18,
+    "tracks": {
+        "items": [
+            {
+                "id": "7MXVkk9YMctZqd1Srtv4MB",
+                "track_number": 1
+            },
+            {
+                "id": "4F7A0DXBrmUAkp32uenhZt",
+                "track_number": 2
+            },
+            {
+                "id": "4oeaIftdpT3JuZLcCkKmVE",
+                "track_number": 3
+            },
+            {
+                "id": "37F0uwRSrdzkBiuj0D5UHI",
+                "track_number": 4
+            },
+            {
+                "id": "36YCdzT57us0LhDmCYtrNE",
+                "track_number": 5
+            },
+            {
+                "id": "00NAQYOP4AmWR549nnYJZu",
+                "track_number": 6
+            },
+            {
+                "id": "1oGdVdYjeQvojGKDddxLQQ",
+                "track_number": 7
+            },
+            {
+                "id": "4EDijkJdHBZZ0GwJ12iTAj",
+                "track_number": 8
+            },
+            {
+                "id": "4h90qkbnW1Qq6pBhoPvwko",
+                "track_number": 9
+            },
+            {
+                "id": "4mU5iXHeLgbR94siF7p1sY",
+                "track_number": 10
+            },
+            {
+                "id": "27BgDmciSjoxTG0almHTpZ",
+                "track_number": 11
+            },
+            {
+                "id": "0ifooM33X1iBxVYyOkSbXW",
+                "track_number": 12
+            },
+            {
+                "id": "6pDVjCUA3B1vg9waKutAsv",
+                "track_number": 13
+            },
+            {
+                "id": "15k2nBQJ0teDmPZHrOXL2N",
+                "track_number": 14
+            },
+            {
+                "id": "57qiTKh8bVX0VtfUNTQqhw",
+                "track_number": 15
+            },
+            {
+                "id": "0NWqNXBJTpXbkI5rPWNy3p",
+                "track_number": 16
+            },
+            {
+                "id": "2Ch7LmS7r2Gy2kc64wv3Bz",
+                "track_number": 17
+            },
+            {
+                "id": "3dhjNA0jGA8vHBQ1VdD6vV",
+                "track_number": 18
+            }
+        ],
+        "total": 18
+    },
+    "type": "album",
+    "artist_id": "1Xyo4u8uXC1ZmMpatF05PJ",
+    "album_id": "2ODvWsOgouMbaA5xf0RkJe",
+    "upc": "00602557333664",
+    "image": "https://i.scdn.co/image/ab67616d0000b2734718e2b124f79258be7bc452"
+}

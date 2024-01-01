@@ -1,0 +1,64 @@
+[
+    {
+        "followers": 15529290,
+        "genres": [
+            "atl hip hop",
+            "hip hop",
+            "rap",
+            "southern hip hop",
+            "trap"
+        ],
+        "name": "Future",
+        "popularity": 88,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb24e41f491b129093a6fee383",
+        "artist_id": "1RyvyyTE3xzB2ZywiAwp0i"
+    },
+    {
+        "followers": 9757435,
+        "genres": [
+            "electro",
+            "filter house",
+            "rock"
+        ],
+        "name": "Daft Punk",
+        "popularity": 79,
+        "image": "https://i.scdn.co/image/ab6761610000e5eba7bfd7835b5c1eee0c95fa6e",
+        "artist_id": "4tZwfgrHOc3mvqYlEYSvVi"
+    },
+    {
+        "followers": 30501621,
+        "genres": [
+            "art pop",
+            "pop"
+        ],
+        "name": "Lana Del Rey",
+        "popularity": 89,
+        "image": "https://i.scdn.co/image/ab6761610000e5ebb99cacf8acd5378206767261",
+        "artist_id": "00FQb4jTyendYWaN8pK0wa"
+    },
+    {
+        "followers": 26303129,
+        "genres": [
+            "conscious hip hop",
+            "hip hop",
+            "rap",
+            "west coast rap"
+        ],
+        "name": "Kendrick Lamar",
+        "popularity": 86,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb437b9e2a82505b3d93ff1022",
+        "artist_id": "2YZyLoL8N0Wb9xBt1NhZWg"
+    },
+    {
+        "followers": 75751606,
+        "genres": [
+            "canadian contemporary r&b",
+            "canadian pop",
+            "pop"
+        ],
+        "name": "The Weeknd",
+        "popularity": 93,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb214f3cf1cbe7139c1e26ffbb",
+        "artist_id": "1Xyo4u8uXC1ZmMpatF05PJ"
+    }
+]

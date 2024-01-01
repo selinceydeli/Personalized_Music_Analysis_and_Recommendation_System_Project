@@ -1,0 +1,24 @@
+{
+    "album_type": "single",
+    "copyrights": "2023 Epidemic Sound",
+    "genres": [],
+    "label": "Epidemic Sound",
+    "name": "Working Buttons",
+    "popularity": 47,
+    "release_date": "2023-02-24",
+    "total_tracks": 1,
+    "tracks": {
+        "items": [
+            {
+                "id": "2KVOhGRZ4TjY3cXnnt40nn",
+                "track_number": 1
+            }
+        ],
+        "total": 1
+    },
+    "type": "album",
+    "artist_id": "4S6bYPPOxQPs9hSnUBbGBN",
+    "album_id": "1mVGzvC6G2EyX4uVMFuUfe",
+    "upc": "7330178103092",
+    "image": "https://i.scdn.co/image/ab67616d0000b273520ec9a86bee8dc213deabbd"
+}
