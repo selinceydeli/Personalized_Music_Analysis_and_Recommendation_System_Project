@@ -63,6 +63,15 @@ class PlaylistController extends Controller
         }
     }
 
+    public function getPlaylistSongs($playlistId){
+        // Find the playlist and attach the songs
+        $playlist = Playlist::findOrFail($playlistId);
+        return response()->json([
+            'songs_count' => $playlist->songs->count(),
+            'songs' => $playlist->load('songs') // Load the songs relationship
+        ]);
+    }
+
     public function addSongsToPlaylist(Request $request, $playlistId)
     {
         // Validate the request data
