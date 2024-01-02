@@ -13,7 +13,7 @@ class Song extends Model
     use HasFactory;
     
     protected $primaryKey = 'song_id';
-
+    protected $keyType = 'string'; 
     public function songRatings()
     {
         return $this->hasMany(SongRating::class, 'song_id', 'song_id');
