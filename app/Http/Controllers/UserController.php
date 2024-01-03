@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Song;
 use App\Models\User;
+use App\Models\Block;
 use App\Models\Performer;
 use App\Models\SongRating;
 use Illuminate\Http\Request;
@@ -20,22 +21,30 @@ use ReCaptcha\ReCaptcha; // Import the ReCaptcha class at the top
 
 class UserController extends Controller
 {
-    public function showProfile()
+    public function showProfile($username)
     {
-        // Fetch the authenticated user
-        $user = auth()->user();
+        // Fetch the user based on the provided username
+        $user = User::where('username', $username)->first();
 
-        // Check if the user is authenticated
+        // Check if the user exists
         if (!$user) {
-            // Redirect or show an error if the user is not authenticated
-            return redirect('/login')->with('error', 'You must be logged in to view this page.');
+            // Redirect or show an error if the user doesn't exist
+            return redirect()->back()->with('error', 'User not found.');
         }
 
+        $blockedUsers = Block::where('blocker_username', $username)->pluck('blocked_username');
+
+        // Check if the authenticated user has blocked $username
+        if ($blockedUsers->contains(auth()->user()->username)) {
+            return redirect()->back()->with('message', 'User not available');
+        }
+
+
         // Retrieve additional data as required, e.g., user's playlists
-        // $playlists = $user->playlists; // Assuming a relationship with playlists
+        $playlists = $user->playlists; // Assuming a relationship with playlists
 
         // Return the user profile view with the user data
-        return view('users.user-profile', compact('user'));
+        return view('users.user-profile', compact('user', 'playlists'));
     }
 
     public function index()
