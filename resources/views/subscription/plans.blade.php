@@ -108,71 +108,91 @@
                 </div>
                 <p class="text-center mt-2 text-lg text-gray-600">For the Real Music Lovers</p>
                 @auth
-                @if ($user['subscription'] === 'gold')
-                    <div class="upgrade-button-container text-center mt-4">
-                        <button
-                            class="continue-button-gold bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-1 rounded flex items-center justify-center">
-                            <a href="/settings" class="inherit-style">
-                                Continue with Current Plan
-                            </a>
-                        </button>
-                    </div>
-                @else
-                    <div class="upgrade-button-container text-center mt-4">
-                        <a href="/payment?plan=gold" class="button-link">
+                    @if ($user['subscription'] === 'gold')
+                        <div class="upgrade-button-container text-center mt-4">
                             <button
-                                class="upgrade-button-gold bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded flex items-center justify-center">
-                                Upgrade to Gold
+                                class="continue-button-gold bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-1 rounded flex items-center justify-center">
+                                <a href="/settings" class="inherit-style">
+                                    Continue with Current Plan
+                                </a>
                             </button>
-                        </a>
-                    </div>
-                @endif
+                        </div>
+                    @else
+                        <div class="upgrade-button-container text-center mt-4">
+                            <a href="/payment?plan=gold" class="button-link">
+                                <button
+                                    class="upgrade-button-gold bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded flex items-center justify-center">
+                                    Upgrade to Gold
+                                </button>
+                            </a>
+                        </div>
+                    @endif
                 @endauth
+            </div>
+        </div>
+
+        <!-- Free Plan Popup -->
+        <div id="free-popup" class="popup-container hidden">
+            <div class="popup-content bg-white p-8 rounded-md shadow-md">
+                <h2 class="text-3xl font-bold text-blue-800 mb-4 text-center" style="color: blue;">Free Plan</h2>
+                <ul class="text-sm text-gray-700 pl-5 list-disc">
+                    <li class="mb-3">
+                        <strong><span class="blue-text">Recommendations & Analysis:</span></strong> Create, edit, and
+                        organize personal playlists.
+                    </li>
+                    <li class="mb-3">
+                        <strong><span class="blue-text">Add Friends:</span></strong> Customize sound profiles for
+                        different music genres.
+                    </li>
+                    <li class="mb-3">
+                        <strong><span class="blue-text">Limited Rating:</span></strong> Access to a variety of
+                        genre-specific online radio stations.
+                    </li>
+                    <li class="mb-3">
+                        <strong><span class="blue-text">Offline Mode:</span></strong> Download a limited number of songs
+                        for offline listening.
+                    </li>
+                </ul>
             </div>
         </div>
 
         <!-- Silver Plan Popup -->
         <div id="silver-popup" class="popup-container hidden">
             <div class="popup-content bg-white p-8 rounded-md shadow-md">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4 text-center">Silver Plan</h2>
+                <h2 class="text-3xl font-bold mb-4 text-center" style="color: silver;">Silver Plan</h2>
                 <ul class="text-sm text-gray-700 pl-5 list-disc">
                     <li class="mb-3">
-                        <strong>Playlist Management:</strong> Create, edit, and organize personal playlists.
+                        <strong><span class="silver-text">Playlist Management:</span></strong> Create, edit, and organize personal playlists.
                     </li>
                     <li class="mb-3">
-                        <strong>Sound Equalizer Settings:</strong> Customize sound profiles for different music genres.
+                        <strong><span class="silver-text">Sound Equalizer Settings:</span></strong> Customize sound profiles for different music genres.
                     </li>
                     <li class="mb-3">
-                        <strong>Exclusive Radio Stations:</strong> Access to a variety of genre-specific online radio
-                        stations.
+                        <strong><span class="silver-text">Exclusive Radio Stations:</span></strong> Access to a variety of genre-specific online radio stations.
                     </li>
                     <li class="mb-3">
-                        <strong>Offline Mode:</strong> Download a limited number of songs for offline listening.
+                        <strong><span class="silver-text">Offline Mode:</span></strong> Download a limited number of songs for offline listening.
                     </li>
                 </ul>
             </div>
         </div>
-
-
+        
         <!-- Gold Plan Popup -->
         <div id="gold-popup" class="popup-container hidden">
             <div class="popup-content bg-white p-8 rounded-md shadow-md">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4 text-center">Gold Plan</h2>
+                <h2 class="gold-text text-3xl font-bold mb-4 text-center" style="color: gold;">Gold Plan</h2>
                 <ul class="text-sm text-gray-700 pl-5 list-disc">
                     <li class="mb-3">
-                        <strong>All Silver Features:</strong> Includes everything in the Silver package.
+                        <strong><span class="gold-text">All Silver Features:</span></strong> Includes everything in the Silver package.
                     </li>
                     <li class="mb-3">
-                        <strong>Advanced Playlist Collaboration:</strong> Share and collaborate on playlists with
-                        friends or the MusicTailor community.
+                        <strong><span class="gold-text">Advanced Playlist Collaboration:</span></strong> Share and collaborate on playlists with friends or the MusicTailor community.
                     </li>
                     <li class="mb-3">
-                        <strong>Unlimited Offline Access:</strong> Download an unlimited number of songs for offline
-                        playback.
+                        <strong><span class="gold-text">Unlimited Offline Access:</span></strong> Download an unlimited number of songs for offline playback.
                     </li>
                     <li class="mb-3">
-                        <strong>Concert and Event Alerts:</strong> Notifications about concerts and events based on user
-                        preferences.
+                        <strong><span class="gold-text">Concert and Event Alerts:</span></strong> Notifications about concerts and events based on user preferences.
                     </li>
                 </ul>
             </div>
@@ -198,6 +218,20 @@
     </script>
 
     <style>
+        .blue-text {
+            color: blue;
+        }
+
+        .silver-text {
+            color: silver;
+            /* Color for Silver Plan title */
+        }
+
+        .gold-text {
+            color: gold;
+            /* Color for Gold Plan title */
+        }
+
         .c-padding {
             padding: 35px;
             /* Adjust the value to set the desired padding size */
@@ -304,6 +338,13 @@
             /* Adjust the distance between plan and popup */
             left: 50%;
             transform: translateX(-50%);
+        }
+
+        #free-popup {
+            top: 475px;
+            /* Adjust the distance from the top */
+            left: 380px;
+            /* Adjust the distance from the left */
         }
 
         #silver-popup {

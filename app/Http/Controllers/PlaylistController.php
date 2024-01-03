@@ -12,6 +12,100 @@ use Illuminate\Support\Facades\DB;
 
 class PlaylistController extends Controller
 {
+
+    public function index($id)
+    {
+        $playlist = Playlist::find($id);
+        $songs = $playlist->songs;
+
+        $albums = [];
+        foreach ($songs as $song) {
+            // Assuming there's a direct relationship between Song and Album models
+            $album = $song->album;
+        
+            if ($album) {
+                // Add the album to the $albums array
+                $albums[] = $album;
+            }
+        }
+        
+        // Now $albums contains the corresponding albums of the songs in the playlist
+        
+        
+        $albumPerformers = [];
+        foreach ($albums as $album) {
+            $performerController = new PerformerController();
+            $response = $performerController->search_id($album->artist_id);
+
+            if ($response->getStatusCode() == 200) {
+                $performers = $response->getData(); // Assuming getData() gets the data from the response
+
+                // Check if album ID exists in $albumPerformers array
+                if (!isset($albumPerformers[$album->album_id])) {
+                    $albumPerformers[$album->album_id] = [];
+                }
+
+                // Append performers to the album's array
+                $albumPerformers[$album->album_id][] = $performers;
+            }
+        }
+
+        $songPerformers = $songs->map(function ($song) {
+            return is_array($song) ? $song : json_decode($song, true);
+        })->pluck('performers')->map(function ($performers) {
+            return is_array($performers) ? $performers : json_decode($performers, true);
+        });
+
+        $performersSongs = [];
+        foreach ($songPerformers as $key => $id) {
+            if (is_array($id)) {
+                foreach ($id as $subId) {
+                    // Make sure $subId is a string without quotes
+                    $subId = trim($subId, '"');
+
+                    // Make an HTTP request to fetch performer data for each subId
+                    $performerController = new PerformerController();
+                    $response = $performerController->search_id($subId); // Assuming search_id() takes a string parameter
+
+                    if ($response->getStatusCode() == 200) { // Checking if performer is found
+                        $performersSongs[$key][$subId] = $response->getData(); // Assuming getData() gets the data from the response
+                    }
+                }
+            } else {
+                // Make an HTTP request to fetch performer data for $id
+                $id = trim($id, '"');
+
+                $response = $this->search_id($id); // Assuming search_id() takes a string parameter
+
+                if ($response->getStatusCode() == 200) { // Checking if performer is found
+                    $performersSongs[$key][$id] = $response->getData(); // Assuming getData() gets the data from the response
+                }
+            }
+        }
+
+        // Initialize an empty array to store the mapping
+        $ratingsMap = [];
+
+        // Iterate through each song ID and retrieve the latest user rating
+        foreach ($songs as $s) {
+            // Retrieve the latest user rating for the current song
+            $songRatingsController = new SongRatingController();
+            $latestUserRating = $songRatingsController->getLatestUserRating(auth()->user()->username, $s->song_id);
+
+            // Build the ratings map entry for this song
+            $ratingsMap[$s->song_id] = [
+                'latest_user_rating' => $latestUserRating ? $latestUserRating->rating : null,
+            ];
+        }        
+        return view('playlists.index', [
+            'playlist' => $playlist,
+            'songs' => $songs,
+            'albums' => $albums,
+            'albumPerformers' => $albumPerformers,
+            'performersSongs' => $performersSongs,
+            'ratingsMap' => $ratingsMap,
+        ]);
+    }
     public function storeWithUser(Request $request)
     {
         // Validate the request data
@@ -78,7 +172,7 @@ class PlaylistController extends Controller
 
         // Find the playlist and attach the songs
         $playlist = Playlist::findOrFail($playlistId);
-        
+
         // You can use syncWithoutDetaching to avoid detaching existing songs
         // and to prevent adding duplicates
         $playlist->songs()->syncWithoutDetaching($request->song_ids);
@@ -100,7 +194,7 @@ class PlaylistController extends Controller
 
         // Retrieve the playlist by ID
         $playlist = Playlist::findOrFail($playlistId);
-        
+
         // Use a transaction to ensure database consistency
         DB::transaction(function () use ($playlist, $request) {
             // Add users to the playlist
@@ -134,7 +228,7 @@ class PlaylistController extends Controller
     {
         try {
             $playlist = Playlist::findOrFail($playlistId);
-            
+
             // Perform the deletion of the playlist.
             $playlist->delete();
 

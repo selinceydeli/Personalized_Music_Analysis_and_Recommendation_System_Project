@@ -15,10 +15,11 @@
                         }
                     </style>
                     <div class="flex justify-between items-center">
-                        <h3 class="text-2xl">
+                        <a href="/user/profile/{{ $request['username'] }}" class="text-2xl">
                             <i class="fa-solid fa-user"></i>
                             {{ $request['username'] }}
-                        </h3>
+                        </a>
+                        
                         <div style="display: flex;">
                             <form id="acceptForm_{{ $request->username }}" action="/accept" method="POST" style="margin-right: 30px;">
                                 @csrf

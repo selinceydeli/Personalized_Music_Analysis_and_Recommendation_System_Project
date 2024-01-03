@@ -10,10 +10,11 @@
             @foreach ($blocks as $block)
                 <x-card class="relative">
                     <div class="flex justify-between items-center">
-                        <h3 class="text-2xl">
+                        <a href="/user/profile/{{ $block['username'] }}" class="text-2xl">
                             <i class="fa-solid fa-user"></i>
                             {{ $block['username'] }}
-                        </h3>
+                        </a>
+                        
                         <div style="display: flex;">
                             <form id="unblockForm_{{ $block->username }}" action="/unblock/{{ $block['username'] }}" method="POST">
                                 @csrf
@@ -26,7 +27,7 @@
                     </div>
                     <div class="flex mt-4">
                         <img class="w-48 h-48 mr-6 md:block"
-                            src="{{ $block['image_url'] ? $block['image_url'] : asset('/images/default.jpg') }}"
+                            src="{{ $block['image'] ? $block['image'] : asset('/images/default.jpg') }}"
                             alt="Profile Image" />
                         <div>
                             <div class="flex items-center">
