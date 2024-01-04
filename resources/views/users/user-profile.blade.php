@@ -64,28 +64,38 @@
         </div>
         </div>
 
-        <!-- Top 5 Songs of the Month -->
+        <!-- Top 5 Albums of all time -->
         <div class="story-card rounded-lg overflow-hidden shadow-lg mb-4">
             <div class="col-span-1">
-                <h3 class="text-lg font-semibold mb-2">Top 5 Songs of the Month</h3>
+                <h3 class="text-lg font-semibold mb-2">Top 5 Albums of all time</h3>
                 <div class="profile-image-section flex items-center justify-center bg-pink-500 py-12">
-                    <ol class="list-decimal text-gray-700">
-                        <li>1. Song 1</li>
-                        <li>2. Song 2</li>
-                        <li>3. Song 3</li>
-                        <li>4. Song 4</li>
-                        <li>5. Song 5</li>
-                    </ol>
+                    <div class="ml-4">
+
+                        @foreach ($top5Albums as $album)
+                            <p>Album Name: {{ $album->name }}</p>
+                            <p>Average Rating: {{ number_format($album->average_rating, 2) }}</p>
+                            <hr>
+                        @endforeach
+                        </div>
+                    </div>
                 </div>
-            </div>
         </div>
 
         <!-- Song of the Year -->
         <div class="story-card rounded-lg overflow-hidden shadow-lg mb-4">
             <div class="col-span-1">
-            <h3 class="text-lg font-semibold mb-2">Song of the Year</h3>
-                <div class="profile-image-section text-center bg-pink-500 py-12">
-                    <p class="text-gray-700">Your Song of the Year</p>
+                <h3 class="text-lg font-semibold mb-2">Top Song of the Year</h3>
+                <div class="profile-image-section flex items-center justify-center bg-pink-500 py-12">
+                    <div class="ml-4">
+                    {{-- Display top song of the year --}}
+                    @foreach ($songOfYear as $song)
+                        <p>Name: {{ $song->name }}</p>
+                        <p>Duration: {{ $song->duration }}</p>
+                        <p>Tempo: {{ $song->tempo }}</p>
+                        <p>Average Rating: {{ number_format($song->average_rating, 2) }}</p>
+                        <hr>
+                    @endforeach
+                    </div>
                 </div>
             </div>
         </div>
@@ -174,6 +184,7 @@
         /* Adjust the pink background shade as needed */
         margin-bottom: 1rem;
         /* Space below the image section */
+        padding: 50px; /* Add padding to the story card */
     }
 
     .profile-picture {
@@ -218,6 +229,7 @@
     }
     .story-card {
         margin-bottom: 1rem; /* Space below the image section */
+        padding: 20px; /* Add padding to the story card */
         align-items: center;
         background-color: #FFF; 
         transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth transition for hover effects */
@@ -232,6 +244,7 @@
         max-width: 70%;
         margin: auto;
         align-items: center;
+        padding: 20px; /* Add padding to the story card */
     }
     .story-card {
         margin-bottom: 1rem; /* Space below the image section */

@@ -16,6 +16,7 @@ use App\Http\Controllers\FriendshipController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\PerformerRatingController;
 use App\Http\Controllers\PlaylistController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Validator;
 
 /*
@@ -180,5 +181,5 @@ Route::get('/plans', [SubscriptionController::class, 'plans'])->name('plans')->m
 Route::get('/plans-register', [SubscriptionController::class, 'plans'])->name('plans');
 
 Route::get('/user/profile/{username}', [UserController::class, 'showProfile'])
-     ->name('user.profile.show')
-     ->middleware('auth'); // Ensures only authenticated users can access this route
+    ->name('user.profile.show')
+    ->middleware('auth'); 
