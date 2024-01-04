@@ -46,8 +46,8 @@
                         <i class="fa-solid fa-user"></i>&nbsp;Welcome {{ auth()->user()->name }}
                     </button>                    
                     <div x-show="dashOpen" @click.away="dashOpen = false" class="absolute mt-2 w-48 rounded-md shadow-lg bg-white z-50" style="display: none">
-                        <a href="{{ route('settings') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a>
-                        <a href="/user/profile/{{ auth()->user()->username }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">View Profile</a>
+                    <a href="/user/profile/{{ auth()->user()->username }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">View Profile</a>    
+                    <a href="{{ route('settings') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a>
                         <form class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" method="POST" action="/logout">
                             @csrf
                             <button type="submit">
@@ -62,8 +62,8 @@
                         <i class="fa-solid fa-people-group"></i>&nbsp;Friends
                     </button>                    
                     <div x-show="open" @click.away="open = false" class="absolute mt-2 w-48 rounded-md shadow-lg bg-white z-50" style="display: none">
-                        <a href="/addfriends" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Add Friend</a>
                         <a href="/myfriends" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">My Friends</a>
+                        <a href="/addfriends" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Add Friend</a>
                         <a href="/requests" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Incoming Requests</a>
                         <a href="/blocks" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Blocked Users</a>
                     </div>
