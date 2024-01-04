@@ -133,4 +133,9 @@ Route::get('/playlist/{playlistId}', [PlaylistController::class, 'getPlaylistSon
 Route::delete('/playlist/{playlistId}/song/{songId}', [PlaylistController::class, 'removeSongFromPlaylist'])->name('playlist.removeSong');
 Route::delete('/playlist/{playlistId}', [PlaylistController::class, 'destroy'])->name('playlist.destroy');
 
+// Stories
+Route::get('/users/{username}/top5-songs', [UserController::class, 'top5Songs']);
+Route::get('/users/{username}/song-of-year', [UserController::class, 'songOfYear']);
+Route::get('/users/{username}/top5-albums', [UserController::class, 'top5Albums']);
+Route::get('/users/{username}/top5-genres', [UserController::class, 'favGenres']);
 

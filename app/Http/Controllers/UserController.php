@@ -46,12 +46,12 @@ class UserController extends Controller
         $playlists = $user->playlists; // Assuming a relationship with playlists
         $top5Albums = $this->top5Albums($username);
         $top5Songs = $this->top5Songs($username);
-        $songOfYear = $this->SongOfYear($username);
-        //dd($songOfYear);
-        
+        $songOfYear = $this->songOfYear($username);
+        $favGenres = $this->favGenres($username);
+
         // Return the user profile view with the user data
-        return view('users.user-profile', compact('user', 'playlists', 'top5Albums', 'top5Songs', 'songOfYear'));
-    }
+        return view('users.user-profile', compact('user', 'playlists', 'top5Albums', 'top5Songs', 'songOfYear', 'favGenres'));
+        }
 
     public function index()
     {
@@ -896,8 +896,8 @@ class UserController extends Controller
         //return view('users.user-profile', ['top5Songs' => $top5Songs]);
         return $top5Songs;
     }
-    public function SongOfYear($username)
-    {
+    public function songOfYear($username)
+        {
         // Get the current year
         $currentYear = now()->year;
 
@@ -934,12 +934,32 @@ class UserController extends Controller
                 $join->on('albums.album_id', '=', 'rating.album_id');
             })
             ->join('songs', 'albums.album_id', '=', 'songs.album_id')
-            ->select('albums.name', 'albums.image_url', 'rating.average_rating')
+            ->select('albums.album_id', 'albums.name', 'albums.image_url', 'rating.average_rating')
             ->groupBy('albums.album_id', 'albums.name', 'albums.image_url')
             ->orderBy('average_rating', 'DESC')
             ->take(5)
             ->get();
 
         return $top5Albums;
+    }
+
+    public function favGenres($username)
+    {
+        // Retrieve user's top-rated performers
+        $topPerformersGenres = PerformerRating::where('username', $username)
+            ->orderBy('rating', 'desc')
+            ->with('performer')
+            ->get()
+            ->pluck('performer.genre')
+            ->map(function ($genres) {
+                return json_decode($genres);
+            })
+            ->flatten()
+            ->unique()
+            ->values()
+            ->take(5) // Limit the number of returned genres
+            ->all();
+
+        return $topPerformersGenres;
     }
 }
