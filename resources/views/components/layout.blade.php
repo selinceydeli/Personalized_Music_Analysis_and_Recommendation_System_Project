@@ -20,11 +20,35 @@
 
 
     <script>
+
+        // Check if 'theme' key exists in the user data
+        if (auth()->check() && auth()->user()->theme) {
+            // Use the 'theme' value as the dynamic color
+            var dynamicColor = data.userInfo.theme;
+            if (dynamicColor = red){
+                dynamicColor = "#ff0000";
+            } else if (dynamicColor = blue) {
+                dynamicColor = "#3498db"
+            } else if (dynamicColor = green) {
+                dynamicColor = "#00ff00"
+            } else if (dynamicColor = yellow) {
+                dynamicColor = "#ffff00"
+            } else if (dynamicColor = purple) {
+                dynamicColor = "#800080"
+            } else if (dynamicColor = pink) {
+                dynamicColor = "#ff4d6f"
+            } else {
+                dynamicColor = '#ff4d6f';
+            }
+        } else {
+            var dynamicColor = '#ff4d6f';
+        }
+
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        laravel: "#ff4d6f",
+                        laravel: '#ff4d6f',
                     },
                 },
             },
@@ -34,7 +58,7 @@
     <title>Music Tailor | Find Music that Suits You</title>
 </head>
 
-<body class="mb-48">
+<body class="bg-pink mb-48">
     <nav class="flex justify-between items-center mb-4">
         <a href="/"><img class="w-24" src="/images/circ-logo.jpg" alt="" class="logo" /></a>
         <ul class="flex space-x-6 mr-6 text-lg">

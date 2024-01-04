@@ -46,7 +46,7 @@
             </x-card>
 
             <!-- Language Box -->
-            <x-card class="settings-box mb-8 bg-dark-pink text-gray-800 rounded-lg p-6">
+            <x-card class="settings-box mb-8 bg-laravel text-gray-800 rounded-lg p-6">
                 <h3 class="text-2xl font-bold mb-4">Language</h3>
                 <p><strong>Current Language:</strong> {{ $data['language']['current'] }}</p>
                 <!-- Add dropdown menu for selecting a new language with increased size on transparent box -->
@@ -66,14 +66,18 @@
                     <div class="mb-4">
                         <label for="theme" class="block text-sm font-medium text-gray-700">Select Theme</label>
                         <select name="theme" class="select-field">
-                            <option value="light" {{ $data['userInfo']['theme'] === 'light' ? 'selected' : '' }}>Light</option>
-                            <option value="dark" {{ $data['userInfo']['theme'] === 'dark' ? 'selected' : '' }}>Dark</option>
+                            <option value="pink" {{ $data['userInfo']['theme'] === 'pink' ? 'selected' : '' }}>pink</option>
+                            <option value="blue" {{ $data['userInfo']['theme'] === 'blue' ? 'selected' : '' }}>blue</option>
+                            <option value="green" {{ $data['userInfo']['theme'] === 'green' ? 'selected' : '' }}>green</option>
+                            <option value="yellow" {{ $data['userInfo']['theme'] === 'yellow' ? 'selected' : '' }}>yellow</option>
+                            <option value="red" {{ $data['userInfo']['theme'] === 'red' ? 'selected' : '' }}>red</option>
+                            <option value="purple" {{ $data['userInfo']['theme'] === 'purple' ? 'selected' : '' }}>purple</option>
                         </select>
                     </div>
             </x-card>
 
             <!-- Subscription Box -->
-            <x-card class="settings-box mb-8 bg-dark-pink text-gray-800 rounded-lg p-6">
+            <x-card class="settings-box mb-8 bg-laravel text-gray-800 rounded-lg p-6">
                 <h3 class="text-2xl font-bold mb-4">Subscription</h3>
                 <p><strong>Current Subscription:</strong> {{ ucwords($data['subscription']['current']) }}</p>
                 <p><strong>Rate Limit:</strong> {{ $user['rate_limit'] }}</p>
@@ -110,7 +114,7 @@
             max-width: 60%; /* Half the size of the page */
             margin: 2rem auto; /* Center the container with margin on top and bottom */
             padding: 2rem; /* Padding inside the container */
-            background-color: #ff4d6f; /* Fixed pink background color */
+            background-color: laravel; /* Fixed pink background color */
             color: #333; /* Dark grey text for better readability */
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
             border-radius: 0.5rem; /* Rounded corners for the container */
@@ -208,4 +212,5 @@
             premiumButton.style.boxShadow = 'none';
         });
     </script>
+    
 </x-layout>
