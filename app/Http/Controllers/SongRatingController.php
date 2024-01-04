@@ -166,4 +166,56 @@ class SongRatingController extends Controller
         //return response()->json($dailyAverages);
 
     }
+
+    //function for stories
+    public function top5Songs(Request $request)
+    {
+        $username = auth()->user()->username;
+
+        // Remove the month-related code
+        $subQuery = SongRating::select('song_id', DB::raw('AVG(rating) as average_rating'))
+            ->where('username', $username)
+            ->groupBy('song_id')
+            ->orderBy('average_rating', 'DESC')
+            ->take(5);
+
+        $top5Songs = DB::table('songs')
+            ->joinSub($subQuery, 'top_songs', function ($join) {
+                $join->on('songs.song_id', '=', 'top_songs.song_id');
+            })
+            ->get([
+                'songs.*',
+                'top_songs.average_rating',
+            ]);
+
+        return $top5Songs;
+    }
+
+    public function topSongOfYear(Request $request)
+    {
+        $username = auth()->user()->username;
+
+        // Get the current year
+        $currentYear = now()->year;
+
+        // Set the condition to get ratings within the current year
+        $subQuery = SongRating::select('song_id', DB::raw('AVG(rating) as average_rating'))
+            ->where('username', $username)
+            ->whereYear('date_rated', $currentYear)
+            ->groupBy('song_id')
+            ->orderBy('average_rating', 'DESC')
+            ->take(1);
+
+        $songOfYear = DB::table('songs')
+            ->joinSub($subQuery, 'top_songs', function ($join) {
+                $join->on('songs.song_id', '=', 'top_songs.song_id');
+            })
+            ->get([
+                'songs.*',
+                'top_songs.average_rating',
+            ]);
+
+        return $songOfYear;
+    }
+
 }

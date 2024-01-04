@@ -31,6 +31,7 @@
 
 
 <x-layout>
+    
     <!-- Title Section -->
     <div class="title-section text-center py-4 bg-black text-white">
         <h1 class="text-4xl font-bold">{{ $user->name }}'s Public Music Tailor Profile</h1>
@@ -52,18 +53,54 @@
         </div>
     </x-card>
     <!-- Stories Section -->
-    <div class="playlists-section w-full p-6 bg-white">
-        <h2 class="text-2xl font-bold mb-4 text-center">
-            @if ($user->username == auth()->user()->username)
-                My Stories
-            @else
-                {{ $user->username }}'s Stories
-            @endif
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <!-- Your content here -->
+    <div class="stories-section text-center bg-pink-100 rounded-lg overflow-hidden shadow-lg py-12 mt-4 mx-auto">
+        <h2 class="text-2xl font-bold mb-4 text-center">Music Tailor Wrapped</h2>
+
+        <!-- Favorite Genre -->
+        <div class="story-card rounded-lg overflow-hidden shadow-lg mb-4">
+            <h3 class="text-lg font-semibold mb-2">Favorite Genre</h3>
+            <div class="profile-image-section text-center bg-pink-500 py-12">
+                <p class="text-gray-700">Your Favorite Genre</p>
+        </div>
+        </div>
+
+        <!-- Top 5 Albums of all time -->
+        <div class="story-card rounded-lg overflow-hidden shadow-lg mb-4">
+            <div class="col-span-1">
+                <h3 class="text-lg font-semibold mb-2">Top 5 Albums of all time</h3>
+                <div class="profile-image-section flex items-center justify-center bg-pink-500 py-12">
+                    <div class="ml-4">
+
+                        @foreach ($top5Albums as $album)
+                            <p>Album Name: {{ $album->name }}</p>
+                            <p>Average Rating: {{ number_format($album->average_rating, 2) }}</p>
+                            <hr>
+                        @endforeach
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        <!-- Song of the Year -->
+        <div class="story-card rounded-lg overflow-hidden shadow-lg mb-4">
+            <div class="col-span-1">
+                <h3 class="text-lg font-semibold mb-2">Top Song of the Year</h3>
+                <div class="profile-image-section flex items-center justify-center bg-pink-500 py-12">
+                    <div class="ml-4">
+                    {{-- Display top song of the year --}}
+                    @foreach ($songOfYear as $song)
+                        <p>Name: {{ $song->name }}</p>
+                        <p>Duration: {{ $song->duration }}</p>
+                        <p>Tempo: {{ $song->tempo }}</p>
+                        <p>Average Rating: {{ number_format($song->average_rating, 2) }}</p>
+                        <hr>
+                    @endforeach
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
     <!-- Playlists Section -->
     <div class="playlists-section w-full p-6 bg-white">
         <h2 class="text-2xl font-bold mb-4 text-center">
@@ -139,6 +176,7 @@
         /* Shadow for depth */
         border-radius: 10px;
         /* Rounded corners for the card */
+        margin-bottom: 2rem; /* Space below the image section */
     }
 
     .profile-image-section {
@@ -146,6 +184,7 @@
         /* Adjust the pink background shade as needed */
         margin-bottom: 1rem;
         /* Space below the image section */
+        padding: 50px; /* Add padding to the story card */
     }
 
     .profile-picture {
@@ -180,5 +219,41 @@
         /* Slight lift effect on hover */
         box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         /* Enhanced shadow on hover */
+    }
+    .stories-section {
+        display: flex;
+        flex-direction: column;
+        max-width: 70%;
+        margin: auto;
+        align-items: center;
+    }
+    .story-card {
+        margin-bottom: 1rem; /* Space below the image section */
+        padding: 20px; /* Add padding to the story card */
+        align-items: center;
+        background-color: #FFF; 
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth transition for hover effects */
+    }
+    .playlist-card:hover {
+        transform: translateY(-5px); /* Slight lift effect on hover */
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* Enhanced shadow on hover */
+    }
+    .stories-section {
+        display: flex;
+        flex-direction: column;
+        max-width: 70%;
+        margin: auto;
+        align-items: center;
+        padding: 20px; /* Add padding to the story card */
+    }
+    .story-card {
+        margin-bottom: 1rem; /* Space below the image section */
+        align-items: center;
+        background-color: #FFF; 
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth transition for hover effects */
+    }
+    .story-card:hover {
+        transform: translateY(-5px); /* Slight lift effect on hover */
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* Enhanced shadow on hover */
     }
 </style>

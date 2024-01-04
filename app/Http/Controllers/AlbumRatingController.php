@@ -133,5 +133,7 @@ class AlbumRatingController extends Controller
             ->get();
 
         return view('analysis.favorite_albums', ['topAlbums' => $topAlbums, 'eraSelect' => $eraSelect, 'eras' => $eras]);
-    } 
+    }
+    
+      
 }
