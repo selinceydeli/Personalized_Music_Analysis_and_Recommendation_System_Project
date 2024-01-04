@@ -256,10 +256,6 @@ class FriendshipController extends Controller
         return $friends;
     }
 
-
-
-
-
     public function getBlockedUsers($username)
     {
         // Retrieve the blocked users for the given $username

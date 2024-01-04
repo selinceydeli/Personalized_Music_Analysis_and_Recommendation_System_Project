@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Song;
 use App\Models\User;
+use App\Models\Block;
 use App\Models\Performer;
 use App\Models\SongRating;
 use Illuminate\Http\Request;
@@ -17,25 +18,39 @@ use Illuminate\Pagination\Paginator;
 use App\Http\Controllers\SongController;
 use App\Http\Controllers\FriendshipController;
 use ReCaptcha\ReCaptcha; // Import the ReCaptcha class at the top
+use App\Http\Controllers\AlbumRatingController;
+
 
 class UserController extends Controller
 {
-    public function showProfile()
+    public function showProfile($username)
     {
-        // Fetch the authenticated user
-        $user = auth()->user();
+        // Fetch the user based on the provided username
+        $user = User::where('username', $username)->first();
 
-        // Check if the user is authenticated
+        // Check if the user exists
         if (!$user) {
-            // Redirect or show an error if the user is not authenticated
-            return redirect('/login')->with('error', 'You must be logged in to view this page.');
+            // Redirect or show an error if the user doesn't exist
+            return redirect()->back()->with('error', 'User not found.');
         }
 
-        // Retrieve additional data as required, e.g., user's playlists
-        // $playlists = $user->playlists; // Assuming a relationship with playlists
+        $blockedUsers = Block::where('blocker_username', $username)->pluck('blocked_username');
 
+        // Check if the authenticated user has blocked $username
+        if ($blockedUsers->contains(auth()->user()->username)) {
+            return redirect()->back()->with('message', 'User not available');
+        }
+
+
+        // Retrieve additional data as required, e.g., user's playlists
+        $playlists = $user->playlists; // Assuming a relationship with playlists
+        $top5Albums = $this->top5Albums($username);
+        $top5Songs = $this->top5Songs($username);
+        $songOfYear = $this->SongOfYear($username);
+        //dd($songOfYear);
+        
         // Return the user profile view with the user data
-        return view('users.user-profile', compact('user'));
+        return view('users.user-profile', compact('user', 'playlists', 'top5Albums', 'top5Songs', 'songOfYear'));
     }
 
     public function index()
@@ -856,5 +871,75 @@ class UserController extends Controller
             'Content-Type' => 'application/json',
             'Content-Disposition' => "attachment; filename={$filename}"
         ]);
+    }
+
+    //Stories Functions
+    public function top5Songs($username)
+    {
+        // Remove the month-related code
+        $subQuery = SongRating::select('song_id', DB::raw('AVG(rating) as average_rating'))
+            ->where('username', $username)
+            ->groupBy('song_id')
+            ->orderBy('average_rating', 'DESC')
+            ->take(5);
+
+        $top5Songs = DB::table('songs')
+            ->joinSub($subQuery, 'top_songs', function ($join) {
+                $join->on('songs.song_id', '=', 'top_songs.song_id');
+            })
+            ->get([
+                'songs.*',
+                'top_songs.average_rating',
+            ]);
+
+        //dd($top5Songs);
+        //return view('users.user-profile', ['top5Songs' => $top5Songs]);
+        return $top5Songs;
+    }
+    public function SongOfYear($username)
+    {
+        // Get the current year
+        $currentYear = now()->year;
+
+        // Set the condition to get ratings within the current year
+        $subQuery = SongRating::select('song_id', DB::raw('AVG(rating) as average_rating'))
+            ->where('username', $username)
+            ->whereYear('date_rated', $currentYear)
+            ->groupBy('song_id')
+            ->orderBy('average_rating', 'DESC')
+            ->take(1);
+
+        $songOfYear = DB::table('songs')
+            ->joinSub($subQuery, 'top_songs', function ($join) {
+                $join->on('songs.song_id', '=', 'top_songs.song_id');
+            })
+            ->get([
+                'songs.*',
+                'top_songs.average_rating',
+            ]);
+            
+        return $songOfYear;
+    }
+    public function top5Albums($username)
+    {
+        // Create a subquery for the average rating of albums by the user
+        $ratingSubQuery = DB::table('album_ratings')
+            ->select('album_id', DB::raw('AVG(rating) as average_rating'))
+            ->where('username', $username)
+            ->groupBy('album_id');
+
+        // Join the tables and select the top 10 albums of all time
+        $top5Albums = DB::table('albums')
+            ->joinSub($ratingSubQuery, 'rating', function ($join) {
+                $join->on('albums.album_id', '=', 'rating.album_id');
+            })
+            ->join('songs', 'albums.album_id', '=', 'songs.album_id')
+            ->select('albums.name', 'albums.image_url', 'rating.average_rating')
+            ->groupBy('albums.album_id', 'albums.name', 'albums.image_url')
+            ->orderBy('average_rating', 'DESC')
+            ->take(5)
+            ->get();
+
+        return $top5Albums;
     }
 }

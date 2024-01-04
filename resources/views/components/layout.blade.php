@@ -70,7 +70,7 @@
                     </button>                    
                     <div x-show="dashOpen" @click.away="dashOpen = false" class="absolute mt-2 w-48 rounded-md shadow-lg bg-white z-50" style="display: none">
                         <a href="{{ route('settings') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a>
-                        <a href="{{ route('user.profile.show') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Your Public Profile</a>
+                        <a href="/user/profile/{{ auth()->user()->username }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">View Profile</a>
                         <form class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" method="POST" action="/logout">
                             @csrf
                             <button type="submit">

@@ -12,14 +12,13 @@
         }
     </style>
     <div class="flex justify-between items-center">
-        <h3 class="text-2xl">
+        <a href="/user/profile/{{ $nonFriend['username'] }}" class="text-2xl">
             <i class="fa-solid fa-user"></i>
             {{ $nonFriend['username'] }}
-        </h3>
+        </a>
         <div>
             @if ($pending && array_key_exists($nonFriend['username'], $pending))
-                <form id="unrequestForm_{{ $nonFriend->username }}" action="/unrequest"
-                    method="POST">
+                <form id="unrequestForm_{{ $nonFriend->username }}" action="/unrequest" method="POST">
                     @csrf
                     <input type="hidden" name="user_to_unrequest" value="{{ $nonFriend['username'] }}">
                     <button onclick="submitForm(this)"
@@ -42,7 +41,7 @@
     </div>
     <div class="flex mt-4">
         <img class="w-48 h-48 mr-6 md:block"
-            src="{{ $nonFriend['image_url'] ? $nonFriend['image_url'] : asset('/images/default.jpg') }}"
+            src="{{ $nonFriend['image'] ? $nonFriend['image'] : asset('/images/default.jpg') }}"
             alt="Profile Image" />
         <div>
             <div class="flex items-center">

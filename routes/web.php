@@ -15,6 +15,8 @@ use App\Http\Controllers\AlbumRatingController;
 use App\Http\Controllers\FriendshipController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\PerformerRatingController;
+use App\Http\Controllers\PlaylistController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Validator;
 
 /*
@@ -81,7 +83,7 @@ Route::post('/block', [FriendshipController::class, 'block'])->name('block')->mi
 
 Route::post('/unblock/{user}', [FriendshipController::class, 'unblock'])->name('unblock')->middleware(['auth']);
 
-
+Route::get('/playlist/{id}', [PlaylistController::class, 'index'])->name('index')->middleware(['auth']);
 
 // Single Album
 Route::get('/albums/{album}', [AlbumController::class, 'show']);
@@ -178,6 +180,6 @@ Route::post('/import-json', [SpotifyController::class, 'importJSON'])->name('imp
 Route::get('/plans', [SubscriptionController::class, 'plans'])->name('plans')->middleware(['auth']);
 Route::get('/plans-register', [SubscriptionController::class, 'plans'])->name('plans');
 
-Route::get('/user/profile', [UserController::class, 'showProfile'])
-     ->name('user.profile.show')
-     ->middleware('auth'); // Ensures only authenticated users can access this route
+Route::get('/user/profile/{username}', [UserController::class, 'showProfile'])
+    ->name('user.profile.show')
+    ->middleware('auth'); 

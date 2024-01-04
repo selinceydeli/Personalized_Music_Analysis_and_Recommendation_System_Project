@@ -10,10 +10,10 @@
             @foreach ($allFriends as $friend)
                 <x-card class="relative">
                     <div class="flex justify-between items-center">
-                        <h3 class="text-2xl">
+                        <a href="/user/profile/{{ $friend['username'] }}" class="text-2xl">
                             <i class="fa-solid fa-user"></i>
                             {{ $friend['username'] }}
-                        </h3>
+                        </a>                        
                         <div style="display: flex;">
                             <form id="unfriendForm_{{ $friend->username }}" action="/unfriend/{{ $friend['username'] }}" method="POST">
                                 @csrf
@@ -26,7 +26,7 @@
                     </div>
                     <div class="flex mt-4">
                         <img class="w-48 h-48 mr-6 md:block"
-                            src="{{ $friend['image_url'] ? $friend['image_url'] : asset('/images/default.jpg') }}"
+                            src="{{ $friend['image'] ? $friend['image'] : asset('/images/default.jpg') }}"
                             alt="Profile Image" />
                         <div>
                             <div class="flex items-center">
