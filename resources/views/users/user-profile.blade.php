@@ -55,51 +55,73 @@
     <!-- Stories Section -->
     <div class="stories-section text-center bg-pink-100 rounded-lg overflow-hidden shadow-lg py-12 mt-4 mx-auto">
         <h2 class="text-2xl font-bold mb-4 text-center">Music Tailor Wrapped</h2>
-
-        <!-- Favorite Genre -->
-        <div class="story-card rounded-lg overflow-hidden shadow-lg mb-4">
-            <h3 class="text-lg font-semibold mb-2">Favorite Genre</h3>
-            <div class="profile-image-section text-center bg-pink-500 py-12">
-                <p class="text-gray-700">Your Favorite Genre</p>
-        </div>
-        </div>
-
-        <!-- Top 5 Albums of all time -->
-        <div class="story-card rounded-lg overflow-hidden shadow-lg mb-4">
-            <div class="col-span-1">
-                <h3 class="text-lg font-semibold mb-2">Top 5 Albums of all time</h3>
-                <div class="profile-image-section flex items-center justify-center bg-pink-500 py-12">
+        <div class="flex">
+            <!-- Favorite Genres -->
+            <div class="story-card rounded-lg overflow-hidden shadow-lg mb-4 mr-4">
+                <h3 class="text-lg font-semibold mb-2">Favorite Genres</h3>
+                <div class="profile-image-section text-center bg-pink-500 py-12">
                     <div class="ml-4">
-
-                        @foreach ($top5Albums as $album)
-                            <p>Album Name: {{ $album->name }}</p>
-                            <p>Average Rating: {{ number_format($album->average_rating, 2) }}</p>
+                        @foreach ($favGenres as $genre)
+                            <p>{{ $genre }}</p>
+                            <hr>
+                        @endforeach
+                    </div>
+                </div>        
+            </div>
+            <!-- Song of the Year -->
+            <div class="story-card rounded-lg overflow-hidden shadow-lg mb-4 mr-4">
+                <div class="col-span-1">
+                    <h3 class="text-lg font-semibold mb-2">Top Song of the Year</h3>
+                    <div class="profile-image-section flex items-center justify-center bg-pink-500 py-12">
+                        <div class="ml-4">
+                        {{-- Display top song of the year --}}
+                        @foreach ($songOfYear as $song)
+                            <p>Name: {{ $song->name }}</p>
+                            <p>Duration: {{ $song->duration }}</p>
+                            <p>Tempo: {{ $song->tempo }}</p>
+                            <p>Average Rating: {{ number_format($song->average_rating, 2) }}</p>
                             <hr>
                         @endforeach
                         </div>
                     </div>
                 </div>
+            </div>
         </div>
-
-        <!-- Song of the Year -->
-        <div class="story-card rounded-lg overflow-hidden shadow-lg mb-4">
-            <div class="col-span-1">
-                <h3 class="text-lg font-semibold mb-2">Top Song of the Year</h3>
-                <div class="profile-image-section flex items-center justify-center bg-pink-500 py-12">
-                    <div class="ml-4">
-                    {{-- Display top song of the year --}}
-                    @foreach ($songOfYear as $song)
-                        <p>Name: {{ $song->name }}</p>
-                        <p>Duration: {{ $song->duration }}</p>
-                        <p>Tempo: {{ $song->tempo }}</p>
-                        <p>Average Rating: {{ number_format($song->average_rating, 2) }}</p>
-                        <hr>
-                    @endforeach
+        <div class="flex">
+            <!-- Top 5 Albums of all time -->
+            <div class="story-card rounded-lg overflow-hidden shadow-lg mb-4 mr-4">
+                <div class="col-span-1">
+                    <h3 class="text-lg font-semibold mb-2">Top 5 Albums of all time</h3>
+                    <div class="profile-image-section flex items-center justify-center bg-pink-500 py-12">
+                        <div class="ml-4">
+                            @foreach ($top5Albums as $album)
+                                <p>Album Name: {{ $album->name }}</p>
+                                <p>Average Rating: {{ number_format($album->average_rating, 2) }}</p>
+                                <hr>
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </div>
+        <!-- Top 5 Songs of all time -->
+        <div class="story-card rounded-lg overflow-hidden shadow-lg mb-4 mr-4">
+                <div class="col-span-1">
+                    <h3 class="text-lg font-semibold mb-2">Top 5 Songs of all time</h3>
+                    <div class="profile-image-section flex items-center justify-center bg-pink-500 py-12">
+                        <div class="ml-4">
+
+                            @foreach ($top5Songs as $song)
+                                <p>Album Name: {{ $song->name }}</p>
+                                <p>Average Rating: {{ number_format($song->average_rating, 2) }}</p>
+                                <hr>
+                            @endforeach
+                            </div>
+                        </div>
+                    </div>
+            </div>
         </div>
     </div>
+
 
     <!-- Playlists Section -->
     <div class="playlists-section w-full p-6 bg-white">
