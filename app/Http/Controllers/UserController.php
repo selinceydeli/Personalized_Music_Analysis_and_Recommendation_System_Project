@@ -46,11 +46,12 @@ class UserController extends Controller
         $playlists = $user->playlists; // Assuming a relationship with playlists
         $top5Albums = $this->top5Albums($username);
         $top5Songs = $this->top5Songs($username);
-        $songOfYear = $this->SongOfYear($username);
-        //dd($songOfYear);
+        $songOfYear = $this->songOfYear($username);
+        $favGenres = $this->favGenres($username);
+        //dd($favGenres);
         
         // Return the user profile view with the user data
-        return view('users.user-profile', compact('user', 'playlists', 'top5Albums', 'top5Songs', 'songOfYear'));
+        return view('users.user-profile', compact('user', 'playlists', 'top5Albums', 'top5Songs', 'songOfYear', 'favGenres'));
     }
 
     public function index()
@@ -86,6 +87,7 @@ class UserController extends Controller
             $formFields['language'] = 'English'; // Default language
             $formFields['subscription'] = 'free'; // Default subscription
             $formFields['rate_limit'] = '100'; // Default rate limit
+            $formFields['theme'] = 'pink'; // Default rate limit
 
             $user = User::create($formFields);
 
@@ -974,4 +976,23 @@ class UserController extends Controller
 
         return $top5Albums;
     }
+    public function favGenres($username)
+    {
+        // Retrieve user's top-rated performers
+        $topPerformersGenres = PerformerRating::where('username', $username)
+            ->orderBy('rating', 'desc')
+            ->with('performer')
+            ->get()
+            ->pluck('performer.genre')
+            ->map(function ($genres) {
+                return json_decode($genres);
+            })
+            ->flatten()
+            ->unique()
+            ->values()
+            ->take(5)
+            ->all();
+
+        return $topPerformersGenres;
+    }    
 }
