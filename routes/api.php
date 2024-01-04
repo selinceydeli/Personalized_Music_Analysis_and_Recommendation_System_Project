@@ -54,6 +54,8 @@ Route::delete('/performers/{id}', [PerformerController::class, 'destroy']);
 
 Route::get('/users', [UserController::class, 'index']);
 Route::get('/users/{username}', [UserController::class, 'search_username']);
+Route::get('/users/{username}/getimg', [UserController::class, 'getImg']);
+Route::post('/users/{username}/uploadImg', [UserController::class, 'uploadImg']);
 Route::put('/users/{username}', [UserController::class, 'update']);
 Route::post('/users', [UserController::class, 'store']);
 Route::delete('/users/{username}', [UserController::class, 'destroy']);

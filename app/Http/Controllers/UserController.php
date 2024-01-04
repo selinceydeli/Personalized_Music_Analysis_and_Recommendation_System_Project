@@ -96,8 +96,41 @@ class UserController extends Controller
             return redirect('/register')->with('message', 'reCAPTCHA validation failed');
         }
     }
-
-
+    public function getImg($username)
+    {
+        $user = User::where('username', $username)->first();
+        if ($user) {
+            if ($user->image == NULL){
+                return response()->json([
+                    "message" => "Image not found"
+                ], 404);
+            }
+            $decodedImage = base64_decode($user->image);
+            return response($decodedImage)->header('Content-Type', 'image/png');
+        } else {
+            return response()->json([
+                "message" => "User not found"
+            ], 404);
+        }
+    }
+    public function uploadImg($username,Request $request)
+    {
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+        if (User::where('username', $username)->exists()){
+            $userObject = User::find($username);
+            $file = base64_encode(file_get_contents($request->file('image')->getRealPath()));
+            $userObject->image = $file;
+            $userObject->save();
+            return response()->json($userObject->image);
+        }
+        else {
+            return response()->json([
+                "message" => "User not found"
+            ], 404);
+        }
+    }
     // Instead of search_id() method, a search_username() method is defined
     // since the primary key of the Users table is username
     public function search_username($username)
