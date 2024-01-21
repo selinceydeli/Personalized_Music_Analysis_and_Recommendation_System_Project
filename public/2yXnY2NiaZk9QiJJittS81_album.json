@@ -1,0 +1,72 @@
+{
+    "album_type": "album",
+    "copyrights": "\u00a9 2018 Quality Control Music, LLC, under exclusive license to UMG Recordings, Inc.",
+    "genres": [],
+    "label": "Quality Control Music/Young Stoner Life Records, a 300 Entertainment Label/Motown Records/Capitol Records",
+    "name": "Drip Harder",
+    "popularity": 82,
+    "release_date": "2018-10-05",
+    "total_tracks": 13,
+    "tracks": {
+        "items": [
+            {
+                "id": "6PoKfDY78ih5OveWirggRX",
+                "track_number": 1
+            },
+            {
+                "id": "7roKDmJDOzkpfGpUQJ5EnL",
+                "track_number": 2
+            },
+            {
+                "id": "1yQvL8SzbF5JCroRKk9F07",
+                "track_number": 3
+            },
+            {
+                "id": "16QjPRt5HYK0dnLGmGRCvf",
+                "track_number": 4
+            },
+            {
+                "id": "0p0jvYdazuWBMC8QacxpUH",
+                "track_number": 5
+            },
+            {
+                "id": "2Am26UXisQ91vBLYdqd7Pa",
+                "track_number": 6
+            },
+            {
+                "id": "3F57PtOdqRpD6euFYqtKXX",
+                "track_number": 7
+            },
+            {
+                "id": "7HLglWbzDheHZ3VZUbxGLC",
+                "track_number": 8
+            },
+            {
+                "id": "4T7cJdrTRqOBESPYfvfj2x",
+                "track_number": 9
+            },
+            {
+                "id": "1jzOG0T6JjvaOoHgzl91Nd",
+                "track_number": 10
+            },
+            {
+                "id": "5nzhL67GpF9szXWg5y509A",
+                "track_number": 11
+            },
+            {
+                "id": "78QR3Wp35dqAhFEc2qAGjE",
+                "track_number": 12
+            },
+            {
+                "id": "6wWaVoUOzLQJHd3bWAUpdZ",
+                "track_number": 13
+            }
+        ],
+        "total": 13
+    },
+    "type": "album",
+    "artist_id": "5f7VJjfbwm532GiveGC0ZK",
+    "album_id": "2yXnY2NiaZk9QiJJittS81",
+    "upc": "00602577108013",
+    "image": "https://i.scdn.co/image/ab67616d0000b273ce159a3ba2096e13fa9d4b4c"
+}

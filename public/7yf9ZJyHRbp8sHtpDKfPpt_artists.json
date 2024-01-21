@@ -1,0 +1,123 @@
+[
+    {
+        "followers": 6589435,
+        "genres": [
+            "atl hip hop",
+            "melodic rap",
+            "rap",
+            "trap"
+        ],
+        "name": "Gunna",
+        "popularity": 84,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb6501f8a7d50c56e86e46f920",
+        "artist_id": "2hlmm7s2ICUX0LVIhVFlZQ"
+    },
+    {
+        "followers": 4261489,
+        "genres": [
+            "memphis hip hop",
+            "rap",
+            "southern hip hop",
+            "tennessee hip hop",
+            "trap"
+        ],
+        "name": "Moneybagg Yo",
+        "popularity": 74,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb6d2f8e8fbf5b13b1baa1eeff",
+        "artist_id": "3tJoFztHeIJkJWMrx0td2f"
+    },
+    {
+        "followers": 84048417,
+        "genres": [
+            "canadian hip hop",
+            "canadian pop",
+            "hip hop",
+            "pop rap",
+            "rap"
+        ],
+        "name": "Drake",
+        "popularity": 96,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
+        "artist_id": "3TVXtAsR1Inumwj472S9r4"
+    },
+    {
+        "followers": 16551851,
+        "genres": [
+            "hip hop",
+            "melodic rap",
+            "philly rap",
+            "rage rap",
+            "rap"
+        ],
+        "name": "Lil Uzi Vert",
+        "popularity": 85,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb1234d2f516796badbdf16a89",
+        "artist_id": "4O15NlyKLIASxsJ0PrXPfz"
+    },
+    {
+        "followers": 530828,
+        "genres": [
+            "atl hip hop",
+            "detroit trap",
+            "trap"
+        ],
+        "name": "HoodRich Pablo Juan",
+        "popularity": 47,
+        "image": "https://i.scdn.co/image/319cb621a68f024cd741890033a92ae114327dd0",
+        "artist_id": "1ZLO8d7zll1WeQJUHaxQer"
+    },
+    {
+        "followers": 16477014,
+        "genres": [
+            "atl hip hop",
+            "atl trap",
+            "rap",
+            "trap"
+        ],
+        "name": "Lil Baby",
+        "popularity": 86,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb6cad3eff5adc29e20f189a6c",
+        "artist_id": "5f7VJjfbwm532GiveGC0ZK"
+    },
+    {
+        "followers": 3559067,
+        "genres": [
+            "atl hip hop",
+            "hip hop",
+            "pop rap",
+            "rap",
+            "trap"
+        ],
+        "name": "Offset",
+        "popularity": 79,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb628143c3dd14fc995f925d56",
+        "artist_id": "4DdkRBBYG6Yk9Ka8tdJ9BW"
+    },
+    {
+        "followers": 367373,
+        "genres": [
+            "nashville hip hop",
+            "tennessee hip hop",
+            "trap"
+        ],
+        "name": "Starlito",
+        "popularity": 49,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb46d21c66ed3abc4df5d10b3c",
+        "artist_id": "4SjND9kT6Ja5TSPZTyUUab"
+    },
+    {
+        "followers": 9414760,
+        "genres": [
+            "atl hip hop",
+            "atl trap",
+            "gangster rap",
+            "melodic rap",
+            "rap",
+            "trap"
+        ],
+        "name": "Young Thug",
+        "popularity": 84,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb547d2b41c9f2c97318aad0ed",
+        "artist_id": "50co4Is1HCEo8bhOyUWKpn"
+    }
+]

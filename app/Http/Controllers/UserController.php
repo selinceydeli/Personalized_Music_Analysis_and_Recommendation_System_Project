@@ -94,9 +94,9 @@ class UserController extends Controller
             auth()->login($user);
 
             return redirect('/')->with('message', 'User created and logged in');
-        } else {
-            return redirect('/register')->with('message', 'reCAPTCHA validation failed');
-        }
+        } //else {
+            //return redirect('/register')->with('message', 'reCAPTCHA validation failed');
+        //}
     }
     public function getImg($username)
     {

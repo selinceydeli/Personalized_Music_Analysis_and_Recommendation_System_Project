@@ -1,0 +1,88 @@
+{
+    "album_type": "album",
+    "copyrights": "\u00a9 2018 Quality Control Music, LLC and UMG Recordings, Inc.",
+    "genres": [],
+    "label": "Quality Control Music, LLC",
+    "name": "Harder Than Ever",
+    "popularity": 81,
+    "release_date": "2018-05-18",
+    "total_tracks": 17,
+    "tracks": {
+        "items": [
+            {
+                "id": "3X8Nrq4TvSd54ymTiXYcD6",
+                "track_number": 1
+            },
+            {
+                "id": "76U7QTSiBUcl5rRziwS0H5",
+                "track_number": 2
+            },
+            {
+                "id": "5zlRcS7ZHsnDgs4VDsDxwL",
+                "track_number": 3
+            },
+            {
+                "id": "1zIb1bYJAo1UdR2Xf4oESb",
+                "track_number": 4
+            },
+            {
+                "id": "6vN77lE9LK6HP2DewaN6HZ",
+                "track_number": 5
+            },
+            {
+                "id": "0FIcYpNaqZaJnP3yDcaBN6",
+                "track_number": 6
+            },
+            {
+                "id": "5zdWd9T4e2QDPyJAvzlADw",
+                "track_number": 7
+            },
+            {
+                "id": "3OyMMEBmp23N79jkH2gcpT",
+                "track_number": 8
+            },
+            {
+                "id": "5lf3ajySox32qFvGEf2TFM",
+                "track_number": 9
+            },
+            {
+                "id": "2Z9wPJaKys1LAOlcBtjvOU",
+                "track_number": 10
+            },
+            {
+                "id": "7i3NiyX4x4WZ8xZjIXWi4s",
+                "track_number": 11
+            },
+            {
+                "id": "6ghs7wcpS23FOsDpR8D2MW",
+                "track_number": 12
+            },
+            {
+                "id": "2bSk87AVkCIIC3Bcligq1z",
+                "track_number": 13
+            },
+            {
+                "id": "44MFUuNGtBuB00LjDUnHE0",
+                "track_number": 14
+            },
+            {
+                "id": "7tgEm1rQTA603HnZYRDgKL",
+                "track_number": 15
+            },
+            {
+                "id": "53nzcuEwQAzwV2Y7I7lczm",
+                "track_number": 16
+            },
+            {
+                "id": "7cEZShpmZ7dencnV8ibyUS",
+                "track_number": 17
+            }
+        ],
+        "total": 17
+    },
+    "type": "album",
+    "artist_id": "5f7VJjfbwm532GiveGC0ZK",
+    "album_id": "7yf9ZJyHRbp8sHtpDKfPpt",
+    "upc": "00602567713982",
+    "image": "https://i.scdn.co/image/ab67616d0000b2736cab41f8c84d6164976400d4"
+}

@@ -1,0 +1,28 @@
+{
+    "album_type": "single",
+    "copyrights": "\u00a9 2015 Gregory Porter, under exclusive license to Decca Records France",
+    "genres": [],
+    "label": "Universal Music Division Decca Records France",
+    "name": "Liquid Spirit (Claptone Remix)",
+    "popularity": 54,
+    "release_date": "2015-07-17",
+    "total_tracks": 2,
+    "tracks": {
+        "items": [
+            {
+                "id": "27QJ16PuUaUZqYfCvu3W2L",
+                "track_number": 1
+            },
+            {
+                "id": "6wp5tGVNQYpKJPo1s3WUEY",
+                "track_number": 2
+            }
+        ],
+        "total": 2
+    },
+    "type": "album",
+    "artist_id": "06nevPmNVfWUXyZkccahL8",
+    "album_id": "2IeDDT5i132tRkKHrdfWS2",
+    "upc": "00602547511461",
+    "image": "https://i.scdn.co/image/ab67616d0000b2734dc28ed3ad7f9c3ea4406e0d"
+}

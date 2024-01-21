@@ -1,0 +1,27 @@
+[
+    {
+        "duration_ms": 309840,
+        "explicit": 0,
+        "name": "Anatolia",
+        "popularity": 45,
+        "preview_url": "https://p.scdn.co/mp3-preview/005591d3784c2e678aca5641f3643c690d5f7b67?cid=0871147f112a492b88fc9fea2d3bf5e7",
+        "song_id": "636ieo1frTLl9XvQwalG1o",
+        "isrc": "FR7KL1900030",
+        "album_id": "6dITVz5ayEYI52QZ6Oy8rq",
+        "artists_ids": [
+            "5If5Tdg66Q5X3L57G7A6Pn"
+        ],
+        "danceability": 0.77,
+        "energy": 0.665,
+        "key": "C#",
+        "loudness": -11.045,
+        "mode": "Major",
+        "speechiness": 0.0671,
+        "acousticness": 0.406,
+        "instrumentalness": 0.862,
+        "liveness": 0.109,
+        "valence": 0.172,
+        "tempo": 119.998,
+        "time_signature": 4
+    }
+]

@@ -1,0 +1,86 @@
+[
+    {
+        "followers": 6589435,
+        "genres": [
+            "atl hip hop",
+            "melodic rap",
+            "rap",
+            "trap"
+        ],
+        "name": "Gunna",
+        "popularity": 84,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb6501f8a7d50c56e86e46f920",
+        "artist_id": "2hlmm7s2ICUX0LVIhVFlZQ"
+    },
+    {
+        "followers": 16477014,
+        "genres": [
+            "atl hip hop",
+            "atl trap",
+            "rap",
+            "trap"
+        ],
+        "name": "Lil Baby",
+        "popularity": 86,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb6cad3eff5adc29e20f189a6c",
+        "artist_id": "5f7VJjfbwm532GiveGC0ZK"
+    },
+    {
+        "followers": 84048417,
+        "genres": [
+            "canadian hip hop",
+            "canadian pop",
+            "hip hop",
+            "pop rap",
+            "rap"
+        ],
+        "name": "Drake",
+        "popularity": 96,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
+        "artist_id": "3TVXtAsR1Inumwj472S9r4"
+    },
+    {
+        "followers": 6931310,
+        "genres": [
+            "chicago drill",
+            "chicago rap",
+            "drill",
+            "hip hop",
+            "rap",
+            "trap"
+        ],
+        "name": "Lil Durk",
+        "popularity": 82,
+        "image": "https://i.scdn.co/image/ab6761610000e5eba0461c1f2218374aa672ce4e",
+        "artist_id": "3hcs9uc56yIGFCSy9leWe7"
+    },
+    {
+        "followers": 9414760,
+        "genres": [
+            "atl hip hop",
+            "atl trap",
+            "gangster rap",
+            "melodic rap",
+            "rap",
+            "trap"
+        ],
+        "name": "Young Thug",
+        "popularity": 84,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb547d2b41c9f2c97318aad0ed",
+        "artist_id": "50co4Is1HCEo8bhOyUWKpn"
+    },
+    {
+        "followers": 3428647,
+        "genres": [
+            "canadian hip hop",
+            "canadian trap",
+            "melodic rap",
+            "rap",
+            "trap"
+        ],
+        "name": "NAV",
+        "popularity": 72,
+        "image": "https://i.scdn.co/image/ab6761610000e5ebf276b6e4b25bb6fb7b942ab2",
+        "artist_id": "7rkW85dBwwrJtlHRDkJDAC"
+    }
+]
