@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Resources\SongResource;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\PerformerController;
 
 function flattenArray($array)
@@ -24,11 +25,11 @@ class SongController extends Controller
 {
     public function index()
     {
+
         $query = Song::leftJoin('song_ratings', 'songs.song_id', '=', 'song_ratings.song_id')
             ->select('songs.*', DB::raw('IFNULL(AVG(song_ratings.rating), 0) as average_rating'))
             ->groupBy('songs.song_id')
             ->orderByDesc('average_rating');
-
 
         // Check if a genre filter is applied
         $selectedGenre = request('genre');
@@ -202,9 +203,9 @@ class SongController extends Controller
         }
 
         $relatedSongs = Song::whereJsonContains('performers', $performerIds)
-                    ->where('songs.song_id', '!=', $id) // Exclude the current song
-                    ->take(15)
-                    ->get();
+            ->where('songs.song_id', '!=', $id) // Exclude the current song
+            ->take(15)
+            ->get();
 
         return view('songs.showSingle', [
             'song' => $song,

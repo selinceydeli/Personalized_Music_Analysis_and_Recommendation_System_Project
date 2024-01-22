@@ -12,7 +12,7 @@
 
             <!-- Display username at the top of the page because it is not changeable -->
             <h2 class="text-3xl font-bold text-gray-800 mb-8">Tail Your Account {{ $data['userInfo']['username'] }}</h2>
-            
+
             <!-- User Info Box -->
             <x-card class="settings-box mb-8 bg-gray-500 text-gray-800 rounded-lg p-6">
                 <h3 class="text-2xl font-bold mb-4">User Info</h3>
@@ -30,7 +30,8 @@
 
                 <div class="bg-transparent p-4 rounded-lg mb-4">
                     <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                    <input type="text" name="email" value="{{ $data['userInfo']['email'] }}" class="input-field mb-4">
+                    <input type="text" name="email" value="{{ $data['userInfo']['email'] }}"
+                        class="input-field mb-4">
                 </div>
 
                 <div class="bg-transparent p-4 rounded-lg mb-4">
@@ -42,7 +43,7 @@
                     <label for="password" class="block text-sm font-medium text-gray-700">New Password</label>
                     <input type="password" name="password" placeholder="New Password" class="input-field">
                 </div>
-            
+
             </x-card>
 
             <!-- Language Box -->
@@ -63,17 +64,23 @@
             <!-- Theme Box -->
             <x-card class="settings-box mb-8 bg-dark-pink text-gray-800 rounded-lg p-6">
                 <h3 class="text-2xl font-bold mb-4">Theme</h3>
-                    <div class="mb-4">
-                        <label for="theme" class="block text-sm font-medium text-gray-700">Select Theme</label>
-                        <select name="theme" class="select-field">
-                            <option value="pink" {{ $data['userInfo']['theme'] === 'pink' ? 'selected' : '' }}>pink</option>
-                            <option value="blue" {{ $data['userInfo']['theme'] === 'blue' ? 'selected' : '' }}>blue</option>
-                            <option value="green" {{ $data['userInfo']['theme'] === 'green' ? 'selected' : '' }}>green</option>
-                            <option value="yellow" {{ $data['userInfo']['theme'] === 'yellow' ? 'selected' : '' }}>yellow</option>
-                            <option value="red" {{ $data['userInfo']['theme'] === 'red' ? 'selected' : '' }}>red</option>
-                            <option value="purple" {{ $data['userInfo']['theme'] === 'purple' ? 'selected' : '' }}>purple</option>
-                        </select>
-                    </div>
+                <div class="mb-4">
+                    <label for="theme" class="block text-sm font-medium text-gray-700">Select Theme</label>
+                    <select name="theme" class="select-field">
+                        <option value="pink" {{ $data['userInfo']['theme'] === 'pink' ? 'selected' : '' }}>pink
+                        </option>
+                        <option value="blue" {{ $data['userInfo']['theme'] === 'blue' ? 'selected' : '' }}>blue
+                        </option>
+                        <option value="green" {{ $data['userInfo']['theme'] === 'green' ? 'selected' : '' }}>green
+                        </option>
+                        <option value="yellow" {{ $data['userInfo']['theme'] === 'yellow' ? 'selected' : '' }}>yellow
+                        </option>
+                        <option value="red" {{ $data['userInfo']['theme'] === 'red' ? 'selected' : '' }}>red
+                        </option>
+                        <option value="purple" {{ $data['userInfo']['theme'] === 'purple' ? 'selected' : '' }}>purple
+                        </option>
+                    </select>
+                </div>
             </x-card>
 
             <!-- Subscription Box -->
@@ -82,6 +89,32 @@
                 <p><strong>Current Subscription:</strong> {{ ucwords($data['subscription']['current']) }}</p>
                 <p><strong>Rate Limit:</strong> {{ $user['rate_limit'] }}</p>
             </x-card>
+
+            <!-- Child Mode Box -->
+            <x-card class="settings-box mb-8 bg-light-blue text-gray-800 rounded-lg p-6">
+                <h3 class="text-2xl font-bold mb-4">Child Mode</h3>
+                <!-- Display icon based on Child Mode status -->
+                <div class="flex items-center" id="childModeToggle">
+                    @php
+                        // Get the date of birth from the authenticated user
+                        $dateOfBirth = auth()->user()->date_of_birth;
+
+                        // Calculate the user's age
+                        $age = date_diff(date_create($dateOfBirth), date_create('today'))->y;
+
+                        // Check if the user is above 18 years old
+                        $explicit = $age >= 18;
+                    @endphp
+                    <div class="w-6 h-6 {{ $explicit ? 'bg-candy' : 'bg-white' }} rounded-full mr-2"
+                        id="childModeIcon">
+                        <img src="{{ $explicit ? 'images/ex.png' : 'images/Candy.png' }}" alt="Child Icon">
+                    </div>
+                    <p class="text-sm font-medium text-gray-700" id="childModeStatus">
+                        {{ $explicit ? 'Child Mode is Off' : 'Child Mode is On' }}
+                    </p>
+                </div>
+            </x-card>
+
 
             <!-- Save Changes Button -->
             <button type="submit" class="bg-red text-black rounded py-2 px-4 hover:bg-red-600">
@@ -111,65 +144,101 @@
     </script>
     <style>
         .settings-container {
-            max-width: 60%; /* Half the size of the page */
-            margin: 2rem auto; /* Center the container with margin on top and bottom */
-            padding: 2rem; /* Padding inside the container */
-            background-color: laravel; /* Fixed pink background color */
-            color: #333; /* Dark grey text for better readability */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-            border-radius: 0.5rem; /* Rounded corners for the container */
+            max-width: 60%;
+            /* Half the size of the page */
+            margin: 2rem auto;
+            /* Center the container with margin on top and bottom */
+            padding: 2rem;
+            /* Padding inside the container */
+            background-color: laravel;
+            /* Fixed pink background color */
+            color: #333;
+            /* Dark grey text for better readability */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            /* Subtle shadow for depth */
+            border-radius: 0.5rem;
+            /* Rounded corners for the container */
         }
 
         .settings-box {
-            background-color: rgba(220, 222, 232, 0.6); /* Fixed pink background for individual boxes */
-            margin-bottom: 1rem; /* Space between boxes */
-            padding: 1rem; /* Padding inside boxes */
-            border: none; /* Remove any borders */
-            border-radius: 0.5rem; /* Rounded corners for boxes */
-            
+            background-color: rgba(220, 222, 232, 0.6);
+            /* Fixed pink background for individual boxes */
+            margin-bottom: 1rem;
+            /* Space between boxes */
+            padding: 1rem;
+            /* Padding inside boxes */
+            border: none;
+            /* Remove any borders */
+            border-radius: 0.5rem;
+            /* Rounded corners for boxes */
+
         }
 
         /* Style for the headers inside the settings box */
         .settings-box h3 {
-            color: #333; /* Dark text for headers */
-            margin-bottom: 1rem; /* Space below headers */
+            color: #333;
+            /* Dark text for headers */
+            margin-bottom: 1rem;
+            /* Space below headers */
         }
 
-        .input-field, .select-field {
-            display: block; /* Ensure fields appear on a new line */
-            width: 100%; /* Make fields take up 100% of their parent container */
-            padding: 0.5rem; /* Padding inside fields */
-            margin-bottom: 1rem; /* Space between each field */
-            border: 1px solid #ccc; /* Light grey border for fields */
-            border-radius: 0.25rem; /* Slightly rounded corners for fields */
+        .input-field,
+        .select-field {
+            display: block;
+            /* Ensure fields appear on a new line */
+            width: 100%;
+            /* Make fields take up 100% of their parent container */
+            padding: 0.5rem;
+            /* Padding inside fields */
+            margin-bottom: 1rem;
+            /* Space between each field */
+            border: 1px solid #ccc;
+            /* Light grey border for fields */
+            border-radius: 0.25rem;
+            /* Slightly rounded corners for fields */
         }
 
-        .input-field:focus, .select-field:focus {
-            border-color: #007bff; /* Highlight with a blue border on focus */
-            box-shadow: 0 0 0 2px rgba(0,123,255,0.25); /* Subtle focus shadow */
+        .input-field:focus,
+        .select-field:focus {
+            border-color: #007bff;
+            /* Highlight with a blue border on focus */
+            box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+            /* Subtle focus shadow */
         }
 
         button[type="submit"] {
-            background-color: #102944; /* Blue background for the submit button */
-            color: white; /* White text for the submit button */
-            padding: 0.75rem 1.5rem; /* Padding inside the submit button */
-            border-radius: 0.25rem; /* Rounded corners for the submit button */
-            border: none; /* No border for the submit button */
-            cursor: pointer; /* Pointer cursor for the submit button */
-            display: block; /* Block display for centering */
-            width: auto; /* Auto width based on content */
-            margin: 1rem auto; /* Center the button horizontally */
+            background-color: #102944;
+            /* Blue background for the submit button */
+            color: white;
+            /* White text for the submit button */
+            padding: 0.75rem 1.5rem;
+            /* Padding inside the submit button */
+            border-radius: 0.25rem;
+            /* Rounded corners for the submit button */
+            border: none;
+            /* No border for the submit button */
+            cursor: pointer;
+            /* Pointer cursor for the submit button */
+            display: block;
+            /* Block display for centering */
+            width: auto;
+            /* Auto width based on content */
+            margin: 1rem auto;
+            /* Center the button horizontally */
         }
 
         /* Hover effect for the submit button */
         button[type="submit"]:hover {
-            background-color: #0056b3; /* Darker blue on hover */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect on hover */
+            background-color: #0056b3;
+            /* Darker blue on hover */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Shadow effect on hover */
         }
 
         @media (max-width: 768px) {
             .settings-container {
-                max-width: 90%; /* Adjust width for smaller screens */
+                max-width: 90%;
+                /* Adjust width for smaller screens */
             }
         }
 
@@ -187,6 +256,7 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
+
         .premium-button:hover {
             background-color: #1d69ba;
             transform: translateY(-2px);
@@ -212,5 +282,5 @@
             premiumButton.style.boxShadow = 'none';
         });
     </script>
-    
+
 </x-layout>

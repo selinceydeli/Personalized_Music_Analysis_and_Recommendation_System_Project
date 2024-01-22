@@ -99,6 +99,8 @@ Route::get('/adduser/{id}', [PlaylistController::class, 'adduser'])->name('addus
 
 Route::post('/addusers/{playlistId}/{username}', [PlaylistController::class, 'addusers'])->name('addusers')->middleware(['auth']);
 
+Route::post('/update-explicit', [SettingsController::class])->name('update.explicit');
+
 // Single Album
 Route::get('/albums/{album}', [AlbumController::class, 'show']);
 
