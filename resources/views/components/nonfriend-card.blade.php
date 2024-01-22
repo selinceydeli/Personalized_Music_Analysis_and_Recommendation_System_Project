@@ -23,7 +23,7 @@
                     @csrf
                     <input type="hidden" name="user_to_unrequest" value="{{ $nonFriend['username'] }}">
                     <button onclick="submitForm(this)"
-                        class="px-4 py-2 bg-red-500 text-white rounded add-friend-button">
+                        class="px-4 py-2 bg-laravel text-white rounded add-friend-button">
                         <i class="fa-solid fa-check"></i> Request sent
                     </button>
                 </form>
@@ -33,7 +33,7 @@
                     @csrf
                     <input type="hidden" name="user_to_add" value="{{ $nonFriend['username'] }}">
                     <button onclick="submitForm(this)"
-                        class="px-4 py-2 bg-red-500 text-white rounded add-friend-button">
+                        class="px-4 py-2 bg-laravel text-white rounded add-friend-button">
                         <i class="fa-solid fa-user-plus"></i> Add Friend
                     </button>
                 </form>
@@ -55,7 +55,7 @@
                     @csrf
                     <input type="hidden" name="user_to_block" value="{{ $nonFriend['username'] }}">
                     <button onclick="submitForm(this)"
-                        class="px-5 py-2 bg-red-500 text-white rounded block-user-button">
+                        class="px-5 py-2 bg-laravel text-white rounded block-user-button">
                         <i class="fa-solid fa-shield"></i> Block User
                     </button>
                 </form>

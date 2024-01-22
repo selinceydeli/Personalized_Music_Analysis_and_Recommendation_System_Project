@@ -19,7 +19,7 @@
                             <form id="unblockForm_{{ $block->username }}" action="/unblock/{{ $block['username'] }}" method="POST">
                                 @csrf
                                 <input type="hidden" name="user_to_unblock" value="{{ $block['username'] }}">
-                                <button onclick="submitForm(this)" class="px-4 py-2 bg-red-500 text-white rounded unblock-button">
+                                <button onclick="submitForm(this)" class="px-4 py-2 bg-laravel text-white rounded unblock-button">
                                     <i class="fa-solid fa-undo"></i> Unblock
                                 </button>
                             </form>

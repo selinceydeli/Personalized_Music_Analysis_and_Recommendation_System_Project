@@ -61,7 +61,7 @@
         </div>
 
         <!-- Save Changes Button -->
-        <button type="submit" class="bg-gold text-black rounded py-2 px-4 hover:bg-yellow-600">
+        <button type="submit" class="bg-laravel text-black rounded py-2 px-4 hover:bg-laravel-600">
             Save Changes
         </button>
     </div>

@@ -14,7 +14,7 @@
                 <label for="company" class="inline-block text-lg mb-2">Company Name</label>
                 <input type="text" class="border border-gray-200 rounded p-2 w-full" name="company" value="{{$listing->company}}"/>
                 @error('company')
-                    <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+                    <p class="text-laravel-500 text-xs mt-1">{{$message}}</p>
                 @enderror
             </div>
 
@@ -23,7 +23,7 @@
                 <input type="text" class="border border-gray-200 rounded p-2 w-full" name="title"
                     placeholder="Example: Senior Laravel Developer" value="{{$listing->title}}"/>
                 @error('title')
-                    <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+                    <p class="text-laravel-500 text-xs mt-1">{{$message}}</p>
                 @enderror
             </div>
 
@@ -32,7 +32,7 @@
                 <input type="text" class="border border-gray-200 rounded p-2 w-full" name="location"
                     placeholder="Example: Remote, Boston MA, etc" value="{{$listing->location}}"/>
                 @error('location')
-                    <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+                    <p class="text-laravel-500 text-xs mt-1">{{$message}}</p>
                 @enderror
             </div>
 
@@ -40,7 +40,7 @@
                 <label for="email" class="inline-block text-lg mb-2">Contact Email</label>
                 <input type="text" class="border border-gray-200 rounded p-2 w-full" name="email" value="{{$listing->email}}"/>
                 @error('email')
-                    <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+                    <p class="text-laravel-500 text-xs mt-1">{{$message}}</p>
                 @enderror
             </div>
 
@@ -50,7 +50,7 @@
                 </label>
                 <input type="text" class="border border-gray-200 rounded p-2 w-full" name="website" value="{{$listing->website}}"/>
                 @error('website')
-                    <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+                    <p class="text-laravel-500 text-xs mt-1">{{$message}}</p>
                 @enderror
             </div>
 
@@ -61,7 +61,7 @@
                 <input type="text" class="border border-gray-200 rounded p-2 w-full" name="tags"
                     placeholder="Example: Laravel, Backend, Postgres, etc" value="{{$listing->tags}}"/>
                 @error('tags')
-                    <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+                    <p class="text-laravel-500 text-xs mt-1">{{$message}}</p>
                 @enderror
             </div>
 
@@ -73,7 +73,7 @@
                 <img class="w-48 mr-6 mb-6" src="{{$listing->logo ? asset('storage/' . $listing->logo) : asset('/images/no-image.png')}}" alt="" />
 
                 @error('logo')
-                    <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+                    <p class="text-laravel-500 text-xs mt-1">{{$message}}</p>
                 @enderror
             </div>
 
@@ -86,7 +86,7 @@
                     {{$listing->description}}"
                 </textarea>
                 @error('description')
-                    <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+                    <p class="text-laravel-500 text-xs mt-1">{{$message}}</p>
                 @enderror
             </div>
 

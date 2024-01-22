@@ -11,16 +11,16 @@
             <!-- Form for Uploading Spotify Link -->
             <form id="spotifyForm" action="/upload-via-spotify" method="POST" class="max-w-md flex items-center">
                 @csrf
-                <div class="flex items-center border-b border-b-2 border-blue-500 py-2 mr-2">
+                <div class="flex items-center border-b border-b-2 border-laravel py-2 mr-2">
                     <input type="text" id="spotifyLink" name="spotifyLink" placeholder="Enter Spotify Link"
                         class="border-none focus:outline-none flex-grow px-2 w-64">
                 </div>
                 <div>
-                    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Upload</button>
+                    <button type="submit" class="bg-laravel text-white px-4 py-2 rounded">Upload</button>
                 </div>
             </form>
             <!-- Display error message if the link is invalid -->
-            <div id="errorMessage" class="mt-4 text-red-500" style="display: none;">
+            <div id="errorMessage" class="mt-4 text-laravel-500" style="display: none;">
                 Invalid Spotify link!
             </div>
         </div>
@@ -41,7 +41,7 @@
                     <input type="file" id="json_file" name="json_file" required
                         class="border border-gray-200 rounded p-2 w-full">
                 </div>
-                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Import JSON</button>
+                <button type="submit" class="bg-laravel text-white px-4 py-2 rounded">Import JSON</button>
             </form>
         </div>
     </x-card>
@@ -54,40 +54,40 @@
     <div class="flex justify-center flex-col items-center">
     <form id="migrateMysql" action="/migrateMysql" method="POST" class="max-w-md flex-col items-center">
         @csrf
-        <div class="flex items-center border-b border-b-2 border-blue-500 py-2 mb-2">
-            <label for="hostIP" class="text-blue-500">Host IP:</label>
+        <div class="flex items-center border-b border-b-2 border-laravel py-2 mb-2">
+            <label for="hostIP" class="text-laravel">Host IP:</label>
             <input type="text" id="hostIP" name="hostIP"
                 class="border-none focus:outline-none flex-grow px-2 w-64">
         </div>
-        <div class="flex items-center border-b border-b-2 border-blue-500 py-2 mb-2">
-            <label for="hostPort" class="text-blue-500">Host Port:</label>
+        <div class="flex items-center border-b border-b-2 border-laravel py-2 mb-2">
+            <label for="hostPort" class="text-laravel">Host Port:</label>
 
             <input type="text" id="hostPort" name="hostPort"
                 class="border-none focus:outline-none flex-grow px-2 w-64">
         </div>
-        <div class="flex items-center border-b border-b-2 border-blue-500 py-2 mb-2">
-            <label for="hostDB" class="text-blue-500">Host Database Name:</label>
+        <div class="flex items-center border-b border-b-2 border-laravel py-2 mb-2">
+            <label for="hostDB" class="text-laravel">Host Database Name:</label>
 
             <input type="text" id="hostDB" name="hostDB" 
                 class="border-none focus:outline-none flex-grow px-2 w-64">
         </div>
-        <div class="flex items-center border-b border-b-2 border-blue-500 py-2 mb-2">
-            <label for="hostUser" class="text-blue-500">Host Username:</label>
+        <div class="flex items-center border-b border-b-2 border-laravel py-2 mb-2">
+            <label for="hostUser" class="text-laravel">Host Username:</label>
             <input type="text" id="hostUser" name="hostUser" 
                 class="border-none focus:outline-none flex-grow px-2 w-64">
         </div>
-        <div class="flex items-center border-b border-b-2 border-blue-500 py-2 mb-2">
-            <label for="hostPass" class="text-blue-500">Host Password:</label>
+        <div class="flex items-center border-b border-b-2 border-laravel py-2 mb-2">
+            <label for="hostPass" class="text-laravel">Host Password:</label>
             
             <input type="text" id="hostPass" name="hostPass" 
                 class="border-none focus:outline-none flex-grow px-2 w-64">
         </div>
         <div>
-            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Migrate</button>
+            <button type="submit" class="bg-laravel text-white px-4 py-2 rounded">Migrate</button>
         </div>
     </form>
     <!-- Display error message if the link is invalid -->
-    <div id="errorMessage" class="mt-4 text-red-500" style="display: none;">
+    <div id="errorMessage" class="mt-4 text-laravel-500" style="display: none;">
         Invalid Spotify link!
     </div>
 </div>

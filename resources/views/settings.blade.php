@@ -2,9 +2,9 @@
     <x-card class="settings-container p-8 rounded-lg mt-24">
         <div class="mb-8 text-center">
             @if ($user['subscription'] === 'free')
-                <a href="/plans" class="premium-button">Become a Premium Member</a>
+                <a href="/plans" class="premium-button bg-laravel">Become a Premium Member</a>
             @else
-                <a href="/plans" class="premium-button">Change Your Plan</a>
+                <a href="/plans" class="premium-button bg-laravel">Change Your Plan</a>
             @endif
         </div>
         <form method="POST" action="{{ route('settings.update') }}">
@@ -63,17 +63,18 @@
             <!-- Theme Box -->
             <x-card class="settings-box mb-8 bg-dark-pink text-gray-800 rounded-lg p-6">
                 <h3 class="text-2xl font-bold mb-4">Theme</h3>
-                    <div class="mb-4">
-                        <label for="theme" class="block text-sm font-medium text-gray-700">Select Theme</label>
-                        <select name="theme" class="select-field">
-                            <option value="pink" {{ $data['userInfo']['theme'] === 'pink' ? 'selected' : '' }}>pink</option>
-                            <option value="blue" {{ $data['userInfo']['theme'] === 'blue' ? 'selected' : '' }}>blue</option>
-                            <option value="green" {{ $data['userInfo']['theme'] === 'green' ? 'selected' : '' }}>green</option>
-                            <option value="yellow" {{ $data['userInfo']['theme'] === 'yellow' ? 'selected' : '' }}>yellow</option>
-                            <option value="red" {{ $data['userInfo']['theme'] === 'red' ? 'selected' : '' }}>red</option>
-                            <option value="purple" {{ $data['userInfo']['theme'] === 'purple' ? 'selected' : '' }}>purple</option>
-                        </select>
+                <div class="mb-4">
+                    <label for="theme" class="block text-sm font-medium text-gray-700">Select Theme</label>
+                    <input type="hidden" name="theme" value="{{ $data['userInfo']['theme'] }}">
+                    <div>
+                        <div class="color-option pink" data-value="pink" onclick="selectTheme('pink')"></div>
+                        <div class="color-option blue" data-value="blue" onclick="selectTheme('blue')"></div>
+                        <div class="color-option green" data-value="green" onclick="selectTheme('green')"></div>
+                        <div class="color-option yellow" data-value="yellow" onclick="selectTheme('yellow')"></div>
+                        <div class="color-option red" data-value="red" onclick="selectTheme('red')"></div>
+                        <div class="color-option purple" data-value="purple" onclick="selectTheme('purple')"></div>
                     </div>
+                </div>
             </x-card>
 
             <!-- Subscription Box -->
@@ -84,32 +85,62 @@
             </x-card>
 
             <!-- Save Changes Button -->
-            <button type="submit" class="bg-red text-black rounded py-2 px-4 hover:bg-red-600">
+            <button type="submit" class="bg-laravel text-black rounded py-2 px-4">
                 Save Changes
             </button>
         </form>
     </x-card>
 
     <script>
-        const themeSelector = document.querySelector('select[name="theme"]');
-        const body = document.body;
-
-        themeSelector.addEventListener('change', () => {
-            const selectedTheme = themeSelector.value;
-
-            // Remove existing theme classes
-            body.classList.remove('dark-theme', 'light-theme');
-
-            // Toggle dark mode classes based on the selected theme
-            if (selectedTheme === 'dark') {
-                body.classList.add('dark-theme');
-            } else {
-                // Toggle light mode classes based on the selected theme
-                body.classList.add('light-theme');
-            }
+        document.addEventListener('DOMContentLoaded', function () {
+            // Set initial theme value
+            selectTheme('{{ $data['userInfo']['theme'] }}');
         });
+
+        function selectTheme(theme) {
+            // Update hidden input value
+            document.querySelector('input[name="theme"]').value = theme;
+
+            // Remove 'selected' class from all color options
+            document.querySelectorAll('.color-option').forEach(function (option) {
+                option.classList.remove('selected');
+            });
+
+            // Add 'selected' class to the clicked color option
+            const selectedOption = document.querySelector('.color-option[data-value="' + theme + '"]');
+            selectedOption.classList.add('selected');
+
+            // Add 'chosen' class to the chosen color option
+            document.querySelectorAll('.color-option').forEach(function (option) {
+                option.classList.remove('chosen');
+            });
+            selectedOption.classList.add('chosen');
+        }
     </script>
+
+
     <style>
+        .color-option {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+            cursor: pointer;
+            border: 2px solid transparent; /* Add border for highlighting */
+        }
+
+        .color-option.chosen {
+            border-color: #333; /* Border color for the chosen option */
+        }
+
+        .pink { background-color: #ff4d6f; }
+        .blue { background-color: #007AFF; }
+        .green { background-color: #00FF00; }
+        .yellow { background-color: #ffff00; }
+        .red { background-color: #ff0000; }
+        .purple { background-color: #800080; }
+
         .settings-container {
             max-width: 60%; /* Half the size of the page */
             margin: 2rem auto; /* Center the container with margin on top and bottom */
@@ -145,12 +176,11 @@
         }
 
         .input-field:focus, .select-field:focus {
-            border-color: #007bff; /* Highlight with a blue border on focus */
+            border-color: black; /* Highlight with a blue border on focus */
             box-shadow: 0 0 0 2px rgba(0,123,255,0.25); /* Subtle focus shadow */
         }
 
         button[type="submit"] {
-            background-color: #102944; /* Blue background for the submit button */
             color: white; /* White text for the submit button */
             padding: 0.75rem 1.5rem; /* Padding inside the submit button */
             border-radius: 0.25rem; /* Rounded corners for the submit button */
@@ -163,7 +193,6 @@
 
         /* Hover effect for the submit button */
         button[type="submit"]:hover {
-            background-color: #0056b3; /* Darker blue on hover */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect on hover */
         }
 
@@ -181,14 +210,12 @@
             text-transform: uppercase;
             text-decoration: none;
             color: #fff;
-            background-color: #0056b3;
             border-radius: 8px;
             border: none;
             cursor: pointer;
             transition: all 0.3s ease;
         }
         .premium-button:hover {
-            background-color: #1d69ba;
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
@@ -202,12 +229,10 @@
             window.location.href = premiumButton.getAttribute('href');
         });
         premiumButton.addEventListener('mouseover', function() {
-            premiumButton.style.backgroundColor = '#1d69ba';
             premiumButton.style.transform = 'translateY(-2px)';
             premiumButton.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
         });
         premiumButton.addEventListener('mouseout', function() {
-            premiumButton.style.backgroundColor = '#0056b3';
             premiumButton.style.transform = 'translateY(0)';
             premiumButton.style.boxShadow = 'none';
         });

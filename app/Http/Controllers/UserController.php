@@ -87,7 +87,7 @@ class UserController extends Controller
             $formFields['language'] = 'English'; // Default language
             $formFields['subscription'] = 'free'; // Default subscription
             $formFields['rate_limit'] = '100'; // Default rate limit
-            $formFields['theme'] = 'pink'; // Default rate limit
+            $formFields['theme'] = 'pink'; // Default theme
 
             $user = User::create($formFields);
 

@@ -18,7 +18,7 @@
                             <form id="unfriendForm_{{ $friend->username }}" action="/unfriend/{{ $friend['username'] }}" method="POST">
                                 @csrf
                                 <input type="hidden" name="user_to_unfriend" value="{{ $friend['username'] }}">
-                                <button onclick="submitForm(this)" class="px-4 py-2 bg-red-500 text-white rounded unfriend-button">
+                                <button onclick="submitForm(this)" class="px-4 py-2 bg-laravel text-white rounded unfriend-button">
                                     <i class="fa-solid fa-chain-broken"></i> Unfriend
                                 </button>
                             </form>

@@ -17,7 +17,7 @@
         </h1>
         <!-- Download Button -->
         <div class="text-center mb-4">
-            <button onclick="downloadPositiveRecommendations()" class="bg-blue-500 text-white px-4 py-2 rounded">Download
+            <button onclick="downloadPositiveRecommendations()" class="bg-laravel text-white px-4 py-2 rounded">Download
                 Recommendations</button>
         </div>
 
