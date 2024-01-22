@@ -17,7 +17,6 @@ use App\Http\Resources\UserResource;
 use Illuminate\Pagination\Paginator;
 use App\Http\Controllers\SongController;
 use App\Http\Controllers\FriendshipController;
-use ReCaptcha\ReCaptcha; // Import the ReCaptcha class at the top
 use App\Http\Controllers\AlbumRatingController;
 
 
@@ -77,7 +76,6 @@ class UserController extends Controller
             'password' => ['required', 'confirmed', 'min:6', new SpecialCharacter],
         ]);
 
-        $response = (new ReCaptcha(env('RECAPTCHA_SECRET_KEY')))->verify($request->input('g-recaptcha-response'));
         $command = "python3 tempFunctions/sendMail.py " . escapeshellarg($formFields["email"]) . " 2>&1";
         $result = shell_exec($command);
         if ($response->isSuccess()) {
@@ -92,9 +90,7 @@ class UserController extends Controller
             $user = User::create($formFields);
 
             return redirect('/login')->with('message', 'User created');
-        } else {
-            return redirect('/register')->with('message', 'reCAPTCHA validation failed');
-        }
+        } 
     }
     public function getImg($username)
     {
@@ -493,7 +489,6 @@ class UserController extends Controller
             'password' => 'required',
         ]);
 
-        //$response = (new ReCaptcha(env('RECAPTCHA_SECRET_KEY')))->verify($request->input('g-recaptcha-response'));
 
         if (auth()->attempt($formFields)) {
 

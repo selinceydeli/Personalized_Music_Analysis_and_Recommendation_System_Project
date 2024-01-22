@@ -7,12 +7,25 @@
                 <a href="/plans" class="premium-button bg-laravel">Change Your Plan</a>
             @endif
         </div>
+        
+        <!-- Display username at the top of the page because it is not changeable -->
+        <h2 class="text-3xl font-bold text-gray-800 mb-8">Tail Your Account {{ $data['userInfo']['username'] }}</h2>
+            
+        <x-card class="settings-box mb-8 bg-gray-500 text-gray-800 rounded-lg p-6">
+            <h3 class="text-2xl font-bold mb-4">Upload Profile Image</h3>
+            <div class="bg-transparent p-4 rounded-lg mb-4">
+                <form id="uploadForm" action="/api/users/{{ $data['userInfo']['username'] }}/uploadImg" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <label for="image">Choose Image:</label>
+                    <input type="file" name="image" id="image" accept="image/*" />
+                    <button type="button" class="bg-laravel text-white rounded py-2 px-4" onclick="uploadFile()">Upload</button>
+                </form>
+            </div>
+        </x-card>
+
         <form method="POST" action="{{ route('settings.update') }}">
             @csrf <!-- Add this CSRF token for security -->
 
-            <!-- Display username at the top of the page because it is not changeable -->
-            <h2 class="text-3xl font-bold text-gray-800 mb-8">Tail Your Account {{ $data['userInfo']['username'] }}</h2>
-            
             <!-- User Info Box -->
             <x-card class="settings-box mb-8 bg-gray-500 text-gray-800 rounded-lg p-6">
                 <h3 class="text-2xl font-bold mb-4">User Info</h3>
@@ -84,17 +97,7 @@
                 <p><strong>Rate Limit:</strong> {{ $user['rate_limit'] }}</p>
             </x-card>
 
-            <x-card class="settings-box mb-8 bg-gray-500 text-gray-800 rounded-lg p-6">
-                <h3 class="text-2xl font-bold mb-4">Upload Profile Image</h3>
-                <div class="bg-transparent p-4 rounded-lg mb-4">
-                    <form id="uploadForm" action="/api/users/{{ $data['userInfo']['username'] }}/uploadImg" method="post" enctype="multipart/form-data">
-                        @csrf
-                        <label for="image">Choose Image:</label>
-                        <input type="file" name="image" id="image" accept="image/*" />
-                        <button type="button" class="bg-laravel text-white rounded py-2 px-4" onclick="uploadFile()">Upload</button>
-                    </form>
-                </div>
-            </x-card>
+            
 
             <!-- Save Changes Button -->
             <button type="submit" class="bg-laravel text-black rounded py-2 px-4">
