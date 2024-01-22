@@ -109,9 +109,9 @@
                                 }
                             }
                         @endphp
-                        <div class="performer-card" data-title="{{ $song->name }}">
-                            <x-performer-card :song="$song" :albumPerformers="$albumPerformers" :albums="$albums" :performer="$performer"
-                                :performersSongs="$performersSongs" :count="$count" :ratingsMap="$ratingsMap" />
+                        <div class="playlist-card" data-title="{{ $song->name }}">
+                            <x-playlist-card :song="$song" :albumPerformers="$albumPerformers" :albums="$albums" :performer="$performer"
+                                :performersSongs="$performersSongs" :count="$count" :ratingsMap="$ratingsMap" :playlist="$playlist" />
                         </div>
                         @php
                             $count++;

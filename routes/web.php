@@ -85,6 +85,12 @@ Route::post('/unblock/{user}', [FriendshipController::class, 'unblock'])->name('
 
 Route::get('/playlist/{id}', [PlaylistController::class, 'index'])->name('index')->middleware(['auth']);
 
+Route::post('/remove/{playlistId}/song/{songId}', [PlaylistController::class, 'remove'])->name('remove')->middleware(['auth']);
+
+Route::post('/remove/{playlistId}', [PlaylistController::class, 'destroy'])->name('destroy')->middleware(['auth']);
+
+Route::post('/createplaylist', [PlaylistController::class, 'create'])->name('create')->middleware(['auth']);
+
 // Single Album
 Route::get('/albums/{album}', [AlbumController::class, 'show']);
 

@@ -106,11 +106,11 @@ class PlaylistController extends Controller
             'ratingsMap' => $ratingsMap,
         ]);
     }
-    public function storeWithUser(Request $request)
+    public function create(Request $request)
     {
+
         // Validate the request data
         $request->validate([
-            'username' => 'required|exists:users,username', // Make sure the user exists
             'playlist_name' => 'required|string|max:255',  // Validate the playlist name
         ]);
 
@@ -125,19 +125,15 @@ class PlaylistController extends Controller
 
             // Attach the playlist to the user
             $user->playlists()->attach($playlist->id);
-            return response()->json([
-                "message" => "Playlist created"
-            ], 200);
+            return redirect("/playlist/{$playlist->id}")->with('message', 'Playlist created');
+
         } catch (ModelNotFoundException $exception) {
-            return response()->json([
-                "message" => "Playlist creation failed"
-            ], 404);
+            return redirect()->back()->with('message', 'Failed to create playlist');
+
         }
 
         // Return a response, for example a redirect with a success message
-        return response()->json([
-            "message" => "Playlist created"
-        ], 200);
+        return redirect("/playlist/{$playlist->id}")->with('message', 'Playlist created');
     }
 
     public function getUserPlaylists(Request $request)
@@ -209,7 +205,7 @@ class PlaylistController extends Controller
         ]);
     }
 
-    public function removeSongFromPlaylist($playlistId, $songId)
+    public function remove($playlistId, $songId)
     {
         // Find the playlist by ID and remove the song
         $playlist = Playlist::findOrFail($playlistId);
@@ -217,11 +213,7 @@ class PlaylistController extends Controller
         // Detach the song from the playlist
         $playlist->songs()->detach($songId);
 
-        return response()->json([
-            'success' => true,
-            'message' => 'Song removed from playlist successfully.',
-            'playlist' => $playlist->load('songs') // Optionally, load the songs relationship to show updated list
-        ]);
+        return redirect()->back()->with('message', 'Song removed from playlist');
     }
 
     public function destroy($playlistId)
@@ -232,10 +224,7 @@ class PlaylistController extends Controller
             // Perform the deletion of the playlist.
             $playlist->delete();
 
-            return response()->json([
-                'success' => true,
-                'message' => 'Playlist deleted successfully.'
-            ]);
+            return redirect()->back()->with('message', 'Playlist deleted');
         } catch (ModelNotFoundException $exception) {
             return response()->json([
                 'success' => false,
