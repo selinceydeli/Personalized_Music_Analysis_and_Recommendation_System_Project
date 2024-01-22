@@ -26,6 +26,7 @@
     </div>
 
     <script>
+              
         var dailyAverageChart;
 
         window.onload = function () {

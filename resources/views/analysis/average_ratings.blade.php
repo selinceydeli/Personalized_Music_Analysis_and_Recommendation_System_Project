@@ -37,7 +37,7 @@
             <label for="artistNames">Search Artists:</label>
             <input type="text" name="artistNames" id="artistNames">
             <div id="searchResults"></div>
-            <button type="submit">Submit</button>
+            <button type="submit" class="bg-laravel text-black rounded py-2 px-4">Submit</button>
         </form>
 
         <!-- Display the chart -->

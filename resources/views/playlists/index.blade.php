@@ -76,7 +76,7 @@
                             @endif
                         @endif
                         <a href="/adduser/{{ $playlist->id }}"
-                            class="px-4 py-2 bg-pink-200 ml-5 text-white rounded-md hover:bg-pink-300 focus:outline-none focus:shadow-outline-pink active:bg-pink-500">
+                            class="px-4 py-2 bg-laravel ml-5 text-white rounded-md hover:bg-laravel focus:outline-none focus:shadow-outline-pink active:bg-laravel">
                             <i class="fas fa-plus"></i> <!-- Plus sign icon -->
                             <i class="fa-solid fa-user"></i>
                         </a>
@@ -92,7 +92,7 @@
         <div class="mx-4 mt-6">
             <h2 class="text-2xl font-bold mb-4">Songs
                 <a href="/addsong/{{ $playlist->id }}"
-                    class="px-4 py-2 bg-pink-200 ml-5 text-white rounded-md hover:bg-pink-300 focus:outline-none focus:shadow-outline-pink active:bg-pink-500">
+                    class="px-4 py-2 bg-laravel ml-5 text-white rounded-md hover:bg-laravel focus:outline-none focus:shadow-outline-pink active:bg-laravel">
                      <i class="fas fa-plus"></i> <!-- Plus sign icon -->
                      <i class="fa-solid fa-music"></i>
                  </a>                 

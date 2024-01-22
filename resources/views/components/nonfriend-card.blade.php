@@ -23,7 +23,7 @@
                     @csrf
                     <input type="hidden" name="user_to_unrequest" value="{{ $nonFriend['username'] }}">
                     <button onclick="submitForm(this)"
-                        class="px-4 py-2 bg-red-500 text-white rounded add-friend-button">
+                        class="px-4 py-2 bg-laravel text-white rounded add-friend-button">
                         <i class="fa-solid fa-check"></i> Request sent
                     </button>
                 </form>
@@ -33,7 +33,7 @@
                     @csrf
                     <input type="hidden" name="user_to_add" value="{{ $nonFriend['username'] }}">
                     <button onclick="submitForm(this)"
-                        class="px-4 py-2 bg-red-500 text-white rounded add-friend-button">
+                        class="px-4 py-2 bg-laravel text-white rounded add-friend-button">
                         <i class="fa-solid fa-user-plus"></i> Add Friend
                     </button>
                 </form>
@@ -42,7 +42,7 @@
     </div>
     <div class="flex mt-4">
         <img class="w-48 h-48 mr-6 md:block"
-            src="{{ $nonFriend['image'] ? $nonFriend['image'] : asset('/images/default.jpg') }}"
+            src="/api/users/{{ $nonFriend['username'] }}/getimg"
             alt="Profile Image" />
         <div>
             <div class="flex items-center">
@@ -55,7 +55,7 @@
                     @csrf
                     <input type="hidden" name="user_to_block" value="{{ $nonFriend['username'] }}">
                     <button onclick="submitForm(this)"
-                        class="px-5 py-2 bg-red-500 text-white rounded block-user-button">
+                        class="px-5 py-2 bg-laravel text-white rounded block-user-button">
                         <i class="fa-solid fa-shield"></i> Block User
                     </button>
                 </form>

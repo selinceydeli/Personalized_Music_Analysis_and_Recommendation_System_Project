@@ -19,7 +19,7 @@
                             <form id="unblockForm_{{ $block->username }}" action="/unblock/{{ $block['username'] }}" method="POST">
                                 @csrf
                                 <input type="hidden" name="user_to_unblock" value="{{ $block['username'] }}">
-                                <button onclick="submitForm(this)" class="px-4 py-2 bg-red-500 text-white rounded unblock-button">
+                                <button onclick="submitForm(this)" class="px-4 py-2 bg-laravel text-white rounded unblock-button">
                                     <i class="fa-solid fa-undo"></i> Unblock
                                 </button>
                             </form>
@@ -27,7 +27,7 @@
                     </div>
                     <div class="flex mt-4">
                         <img class="w-48 h-48 mr-6 md:block"
-                            src="{{ $block['image'] ? $block['image'] : asset('/images/default.jpg') }}"
+                            src="/api/users/{{ $block['username'] }}/getimg"
                             alt="Profile Image" />
                         <div>
                             <div class="flex items-center">

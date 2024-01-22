@@ -28,7 +28,7 @@
     </div>
     <div class="flex mt-4">
         <img class="w-48 h-48 mr-6 md:block"
-            src="{{ $nonFriend['image'] ? $nonFriend['image'] : asset('/images/default.jpg') }}" alt="Profile Image" />
+        src="/api/users/{{ $nonFriend['username'] }}/getimg" alt="Profile Image" />
         <div>
             <div class="flex items-center">
                 <p class="flex items-center">

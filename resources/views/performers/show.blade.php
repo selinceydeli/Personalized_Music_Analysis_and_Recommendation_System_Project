@@ -112,7 +112,7 @@
                 @endif
                 @if (auth()->check())
                     <form id="deleteForm_{{ $performer->artist_id }}" method="POST" action="/deleteperformer/{{ $performer->artist_id }}"
-                        class="absolute bottom-5 right-5 bg-red-500 text-white p-1 rounded-full">
+                        class="absolute bottom-5 right-5 bg-laravel text-white p-1 rounded-full">
                         @csrf
                         <button type="submit" class="delete-song-btn" data-performer-id="{{ $performer->artist_id }}">
                             <i class="fas fa-trash"></i>
@@ -217,7 +217,7 @@
                             @if (auth()->check())
                                 <form id="deleteForm_{{ $album->album_id }}" method="POST"
                                     action="/deletealbum/{{ $album->album_id }}"
-                                    class="absolute bottom-5 right-5 bg-red-500 text-white p-1 rounded-full">
+                                    class="absolute bottom-5 right-5 bg-laravel text-white p-1 rounded-full">
                                     @csrf
                                     <button type="submit" class="delete-song-btn"
                                         data-album-id="{{ $album->album_id }}">

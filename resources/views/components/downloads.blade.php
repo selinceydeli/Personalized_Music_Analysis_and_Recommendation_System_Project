@@ -13,7 +13,7 @@
 
         <!-- Container for Centering the Download Button -->
         <div class="flex justify-center mt-4">
-            <button onclick="downloadAllSongs()" class="bg-green-500 text-white px-4 py-2 rounded">Download All Rated Songs</button>
+            <button onclick="downloadAllSongs()" class="bg-laravel text-white px-4 py-2 rounded">Download All Rated Songs</button>
         </div>
     </x-card>
 </x-layout>
@@ -41,7 +41,7 @@
             songElement.className = 'mb-4 p-4 border rounded shadow-md w-full md:w-2/3';
             songElement.innerHTML = `
                 <h2 class="font-bold">${song.name}</h2>
-                <button onclick="downloadSong('${song.song_id}')" class="bg-blue-500 text-white px-4 py-2 rounded mt-2">Download</button>
+                <button onclick="downloadSong('${song.song_id}')" class="bg-laravel text-white px-4 py-2 rounded mt-2">Download</button>
             `;
             container.appendChild(songElement);
         });

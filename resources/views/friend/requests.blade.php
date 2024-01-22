@@ -24,14 +24,14 @@
                             <form id="acceptForm_{{ $request->username }}" action="/accept" method="POST" style="margin-right: 30px;">
                                 @csrf
                                 <input type="hidden" name="user_to_accept" value="{{ $request['username'] }}">
-                                <button onclick="submitForm(this)" class="px-4 py-2 bg-red-500 text-white rounded accept-friend-button">
+                                <button onclick="submitForm(this)" class="px-4 py-2 bg-laravel text-white rounded accept-friend-button">
                                     <i class="fa-solid fa-check"></i> Accept
                                 </button>
                             </form>
                             <form id="rejectUserForm_{{ $request->username }}" action="/reject" method="POST">
                                 @csrf
                                 <input type="hidden" name="user_to_reject" value="{{ $request['username'] }}">
-                                <button onclick="submitForm()" class="px-4 py-2 bg-red-500 text-white rounded reject-user-button">
+                                <button onclick="submitForm()" class="px-4 py-2 bg-laravel text-white rounded reject-user-button">
                                     <i class="fa-solid fa-times"></i> Reject
                                 </button>
                             </form>
@@ -39,7 +39,7 @@
                     </div>
                     <div class="flex mt-4">
                         <img class="w-48 h-48 mr-6 md:block"
-                            src="{{ $request['image_url'] ? $request['image_url'] : asset('/images/default.jpg') }}"
+                            src="/api/users/{{ $request['username'] }}/getimg"
                             alt="Profile Image" />
                         <div>
                             <div class="flex items-center">

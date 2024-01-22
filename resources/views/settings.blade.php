@@ -2,9 +2,9 @@
     <x-card class="settings-container p-8 rounded-lg mt-24">
         <div class="mb-8 text-center">
             @if ($user['subscription'] === 'free')
-                <a href="/plans" class="premium-button">Become a Premium Member</a>
+                <a href="/plans" class="premium-button bg-laravel">Become a Premium Member</a>
             @else
-                <a href="/plans" class="premium-button">Change Your Plan</a>
+                <a href="/plans" class="premium-button bg-laravel">Change Your Plan</a>
             @endif
         </div>
         <form method="POST" action="{{ route('settings.update') }}">
@@ -66,20 +66,15 @@
                 <h3 class="text-2xl font-bold mb-4">Theme</h3>
                 <div class="mb-4">
                     <label for="theme" class="block text-sm font-medium text-gray-700">Select Theme</label>
-                    <select name="theme" class="select-field">
-                        <option value="pink" {{ $data['userInfo']['theme'] === 'pink' ? 'selected' : '' }}>pink
-                        </option>
-                        <option value="blue" {{ $data['userInfo']['theme'] === 'blue' ? 'selected' : '' }}>blue
-                        </option>
-                        <option value="green" {{ $data['userInfo']['theme'] === 'green' ? 'selected' : '' }}>green
-                        </option>
-                        <option value="yellow" {{ $data['userInfo']['theme'] === 'yellow' ? 'selected' : '' }}>yellow
-                        </option>
-                        <option value="red" {{ $data['userInfo']['theme'] === 'red' ? 'selected' : '' }}>red
-                        </option>
-                        <option value="purple" {{ $data['userInfo']['theme'] === 'purple' ? 'selected' : '' }}>purple
-                        </option>
-                    </select>
+                    <input type="hidden" name="theme" value="{{ $data['userInfo']['theme'] }}">
+                    <div>
+                        <div class="color-option pink" data-value="pink" onclick="selectTheme('pink')"></div>
+                        <div class="color-option blue" data-value="blue" onclick="selectTheme('blue')"></div>
+                        <div class="color-option green" data-value="green" onclick="selectTheme('green')"></div>
+                        <div class="color-option yellow" data-value="yellow" onclick="selectTheme('yellow')"></div>
+                        <div class="color-option red" data-value="red" onclick="selectTheme('red')"></div>
+                        <div class="color-option purple" data-value="purple" onclick="selectTheme('purple')"></div>
+                    </div>
                 </div>
             </x-card>
 
@@ -90,59 +85,97 @@
                 <p><strong>Rate Limit:</strong> {{ $user['rate_limit'] }}</p>
             </x-card>
 
-            <!-- Child Mode Box -->
-            <x-card class="settings-box mb-8 bg-light-blue text-gray-800 rounded-lg p-6">
-                <h3 class="text-2xl font-bold mb-4">Child Mode</h3>
-                <!-- Display icon based on Child Mode status -->
-                <div class="flex items-center" id="childModeToggle">
-                    @php
-                        // Get the date of birth from the authenticated user
-                        $dateOfBirth = auth()->user()->date_of_birth;
-
-                        // Calculate the user's age
-                        $age = date_diff(date_create($dateOfBirth), date_create('today'))->y;
-
-                        // Check if the user is above 18 years old
-                        $explicit = $age >= 18;
-                    @endphp
-                    <div class="w-6 h-6 {{ $explicit ? 'bg-candy' : 'bg-white' }} rounded-full mr-2"
-                        id="childModeIcon">
-                        <img src="{{ $explicit ? 'images/ex.png' : 'images/Candy.png' }}" alt="Child Icon">
-                    </div>
-                    <p class="text-sm font-medium text-gray-700" id="childModeStatus">
-                        {{ $explicit ? 'Child Mode is Off' : 'Child Mode is On' }}
-                    </p>
+            <x-card class="settings-box mb-8 bg-gray-500 text-gray-800 rounded-lg p-6">
+                <h3 class="text-2xl font-bold mb-4">Upload Profile Image</h3>
+                <div class="bg-transparent p-4 rounded-lg mb-4">
+                    <form id="uploadForm" action="/api/users/{{ $data['userInfo']['username'] }}/uploadImg" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <label for="image">Choose Image:</label>
+                        <input type="file" name="image" id="image" accept="image/*" />
+                        <button type="button" class="bg-laravel text-white rounded py-2 px-4" onclick="uploadFile()">Upload</button>
+                    </form>
                 </div>
             </x-card>
 
-
             <!-- Save Changes Button -->
-            <button type="submit" class="bg-red text-black rounded py-2 px-4 hover:bg-red-600">
+            <button type="submit" class="bg-laravel text-black rounded py-2 px-4">
                 Save Changes
             </button>
         </form>
+
+        
+
+        <script>
+            function uploadFile() {
+                var form = document.getElementById('uploadForm');
+                var formData = new FormData(form);
+
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', form.action, true);
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        // File uploaded successfully, you can handle the response here if needed
+                        window.location.href = '/user/profile/{username}'; 
+
+                    }
+                };
+
+                xhr.send(formData);
+            }
+        </script>
     </x-card>
 
     <script>
-        const themeSelector = document.querySelector('select[name="theme"]');
-        const body = document.body;
-
-        themeSelector.addEventListener('change', () => {
-            const selectedTheme = themeSelector.value;
-
-            // Remove existing theme classes
-            body.classList.remove('dark-theme', 'light-theme');
-
-            // Toggle dark mode classes based on the selected theme
-            if (selectedTheme === 'dark') {
-                body.classList.add('dark-theme');
-            } else {
-                // Toggle light mode classes based on the selected theme
-                body.classList.add('light-theme');
-            }
+        document.addEventListener('DOMContentLoaded', function () {
+            // Set initial theme value
+            selectTheme('{{ $data['userInfo']['theme'] }}');
         });
+
+        function selectTheme(theme) {
+            // Update hidden input value
+            document.querySelector('input[name="theme"]').value = theme;
+
+            // Remove 'selected' class from all color options
+            document.querySelectorAll('.color-option').forEach(function (option) {
+                option.classList.remove('selected');
+            });
+
+            // Add 'selected' class to the clicked color option
+            const selectedOption = document.querySelector('.color-option[data-value="' + theme + '"]');
+            selectedOption.classList.add('selected');
+
+            // Add 'chosen' class to the chosen color option
+            document.querySelectorAll('.color-option').forEach(function (option) {
+                option.classList.remove('chosen');
+            });
+            selectedOption.classList.add('chosen');
+        }
     </script>
+
+
     <style>
+        .color-option {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+            cursor: pointer;
+            border: 2px solid transparent; /* Add border for highlighting */
+        }
+
+        .color-option.chosen {
+            border-color: #333; /* Border color for the chosen option */
+        }
+
+        .pink { background-color: #ff4d6f; }
+        .blue { background-color: #007AFF; }
+        .green { background-color: #00FF00; }
+        .yellow { background-color: #ffff00; }
+        .red { background-color: #ff0000; }
+        .purple { background-color: #800080; }
+
         .settings-container {
             max-width: 60%;
             /* Half the size of the page */
@@ -198,15 +231,20 @@
             /* Slightly rounded corners for fields */
         }
 
-        .input-field:focus,
-        .select-field:focus {
-            border-color: #007bff;
-            /* Highlight with a blue border on focus */
-            box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
-            /* Subtle focus shadow */
+        .input-field:focus, .select-field:focus {
+            border-color: black; /* Highlight with a blue border on focus */
+            box-shadow: 0 0 0 2px rgba(0,123,255,0.25); /* Subtle focus shadow */
         }
 
         button[type="submit"] {
+            color: white; /* White text for the submit button */
+            padding: 0.75rem 1.5rem; /* Padding inside the submit button */
+            border-radius: 0.25rem; /* Rounded corners for the submit button */
+            border: none; /* No border for the submit button */
+            cursor: pointer; /* Pointer cursor for the submit button */
+            display: block; /* Block display for centering */
+            width: auto; /* Auto width based on content */
+            margin: 1rem auto; /* Center the button horizontally */
             background-color: #102944;
             /* Blue background for the submit button */
             color: white;
@@ -250,7 +288,6 @@
             text-transform: uppercase;
             text-decoration: none;
             color: #fff;
-            background-color: #0056b3;
             border-radius: 8px;
             border: none;
             cursor: pointer;
@@ -258,7 +295,6 @@
         }
 
         .premium-button:hover {
-            background-color: #1d69ba;
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
@@ -272,12 +308,10 @@
             window.location.href = premiumButton.getAttribute('href');
         });
         premiumButton.addEventListener('mouseover', function() {
-            premiumButton.style.backgroundColor = '#1d69ba';
             premiumButton.style.transform = 'translateY(-2px)';
             premiumButton.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
         });
         premiumButton.addEventListener('mouseout', function() {
-            premiumButton.style.backgroundColor = '#0056b3';
             premiumButton.style.transform = 'translateY(0)';
             premiumButton.style.boxShadow = 'none';
         });
