@@ -26,7 +26,7 @@
                     </div>
                     <div class="flex mt-4">
                         <img class="w-48 h-48 mr-6 md:block"
-                            src="{{ $friend['image'] ? $friend['image'] : asset('/images/default.jpg') }}"
+                            src="/api/users/{{ $friend['username'] }}/getimg"
                             alt="Profile Image" />
                         <div>
                             <div class="flex items-center">
