@@ -39,7 +39,7 @@
                     </div>
                     <div class="flex mt-4">
                         <img class="w-48 h-48 mr-6 md:block"
-                            src="{{ $request['image_url'] ? $request['image_url'] : asset('/images/default.jpg') }}"
+                            src="/api/users/{{ $request['username'] }}/getimg"
                             alt="Profile Image" />
                         <div>
                             <div class="flex items-center">
