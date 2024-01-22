@@ -84,17 +84,7 @@
                 <p><strong>Rate Limit:</strong> {{ $user['rate_limit'] }}</p>
             </x-card>
 
-            <x-card class="settings-box mb-8 bg-gray-500 text-gray-800 rounded-lg p-6">
-                <h3 class="text-2xl font-bold mb-4">Upload Profile Image</h3>
-                <div class="bg-transparent p-4 rounded-lg mb-4">
-                    <form id="uploadForm" action="/api/users/{{ $data['userInfo']['username'] }}/uploadImg" method="post" enctype="multipart/form-data">
-                        @csrf
-                        <label for="image">Choose Image:</label>
-                        <input type="file" name="image" id="image" accept="image/*" />
-                        <button type="button" class="bg-laravel text-white rounded py-2 px-4" onclick="uploadFile()">Upload</button>
-                    </form>
-                </div>
-            </x-card>
+
 
             <!-- Save Changes Button -->
             <button type="submit" class="bg-laravel text-black rounded py-2 px-4">
@@ -102,7 +92,16 @@
             </button>
         </form>
 
-        
+        <x-card class="settings-box mb-8 bg-gray-500 text-gray-800 rounded-lg p-6">
+            <div class="bg-transparent p-4 rounded-lg mb-4">
+                <form id="uploadForm" action="/api/users/{{ $user['username'] }}/uploadImg" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <label for="image" class="block text-sm font-medium text-gray-700">Choose Image:</label>
+                    <input type="file" name="image" id="image" accept="image/*" class="mt-1 p-2 border rounded-md w-full" />
+                    <button type="button" onclick="uploadFile()" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">Upload</button>
+                </form>
+            </div>
+        </x-card>
 
         <script>
             function uploadFile() {
