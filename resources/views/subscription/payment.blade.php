@@ -1,11 +1,27 @@
 <x-layout>
+    <script>
+        <?php
+        $themeColors = [
+            'pink' => '#ff4d6f',
+            'blue' => '#007AFF',
+            'yellow' => '#ffff00',
+            'green' => '#00FF00',
+            'purple' => '#800080',
+            'red' => '#ff0000',
+        ];
+        $selectedTheme = auth()->user()->theme ?? 'pink';
+        
+        // Default color if the theme is not found
+        $selectedColor = $themeColors[$selectedTheme] ?? '#ff4d6f';
+        ?>
+    </script>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
 
         :root {
             --white: #fff;
-            --card-bg-clr: #ff4d6f;
+            --card-bg-clr:  <?php echo $selectedColor; ?>;
             --input-bg-clr: #fcdcae;
             --stripe-bg-clr: #3e5367;
             --text-clr: #3e5367;

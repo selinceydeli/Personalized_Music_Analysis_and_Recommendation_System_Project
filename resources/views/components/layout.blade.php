@@ -23,9 +23,9 @@
         <?php
         $themeColors = [
             'pink' => '#ff4d6f',
-            'blue' => '#3498db',
+            'blue' => '#007AFF',
             'yellow' => '#ffff00',
-            'green' => '#00ff00',
+            'green' => '#00FF00',
             'purple' => '#800080',
             'red' => '#ff0000',
         ];
@@ -65,7 +65,7 @@
                     <a href="{{ route('settings') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a>
                         <form class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" method="POST" action="/logout">
                             @csrf
-                            <button type="submit">
+                            <button type="submit" class="bg-laravel text-black rounded py-2 px-4">
                                 <i></i> Logout
                             </button>
                         </form>

@@ -39,7 +39,7 @@
                     <option value="{{ $era }}" @if($era === $eraSelect) selected @endif>{{ $era }}</option>
                 @endforeach
             </select>
-            <button type="submit">Submit</button>
+            <button type="submit" class="bg-laravel text-black rounded py-2 px-4">Submit</button>
     </form>
         <canvas id="albumChart"></canvas>
     </div>

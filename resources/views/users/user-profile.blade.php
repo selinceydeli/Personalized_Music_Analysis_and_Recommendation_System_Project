@@ -39,7 +39,7 @@
 
     <x-card class="profile-container rounded-lg mt-4 mx-auto">
         <!-- Profile Image Section -->
-        <div class="profile-image-section text-center bg-pink-500 py-12">
+        <div class="profile-image-section text-center py-12">
             <!-- Use a div to create a larger space for the profile image -->
             <div
                 class="profile-picture bg-white m-auto rounded-full w-48 h-48 flex items-center justify-center overflow-hidden border-4 border-white">
@@ -53,13 +53,13 @@
         </div>
     </x-card>
     <!-- Stories Section -->
-    <div class="stories-section text-center bg-pink-100 rounded-lg overflow-hidden shadow-lg py-12 mt-4 mx-auto">
+    <div class="stories-section text-center bg-laravel rounded-lg overflow-hidden shadow-lg py-12 mt-4 mx-auto">
         <h2 class="text-2xl font-bold mb-4 text-center">Music Tailor Wrapped</h2>
         <div class="flex">
             <!-- Favorite Genres -->
             <div class="story-card rounded-lg overflow-hidden shadow-lg mb-4 mr-4">
                 <h3 class="text-lg font-semibold mb-2">Favorite Genres</h3>
-                <div class="profile-image-section text-center bg-pink-500 py-12">
+                <div class="profile-image-section text-center py-12">
                     <div class="ml-4">
                         @foreach ($favGenres as $genre)
                             <p>{{ $genre }}</p>
@@ -72,7 +72,7 @@
             <div class="story-card rounded-lg overflow-hidden shadow-lg mb-4 mr-4">
                 <div class="col-span-1">
                     <h3 class="text-lg font-semibold mb-2">Top Song of the Year</h3>
-                    <div class="profile-image-section flex items-center justify-center bg-pink-500 py-12">
+                    <div class="profile-image-section flex items-center justify-center py-12">
                         <div class="ml-4">
                         {{-- Display top song of the year --}}
                         @foreach ($songOfYear as $song)
@@ -92,7 +92,7 @@
             <div class="story-card rounded-lg overflow-hidden shadow-lg mb-4 mr-4">
                 <div class="col-span-1">
                     <h3 class="text-lg font-semibold mb-2">Top 5 Albums of all time</h3>
-                    <div class="profile-image-section flex items-center justify-center bg-pink-500 py-12">
+                    <div class="profile-image-section flex items-center justify-center py-12">
                         <div class="ml-4">
                             @foreach ($top5Albums as $album)
                                 <p>Album Name: {{ $album->name }}</p>
@@ -107,7 +107,7 @@
         <div class="story-card rounded-lg overflow-hidden shadow-lg mb-4 mr-4">
                 <div class="col-span-1">
                     <h3 class="text-lg font-semibold mb-2">Top 5 Songs of all time</h3>
-                    <div class="profile-image-section flex items-center justify-center bg-pink-500 py-12">
+                    <div class="profile-image-section flex items-center justify-center py-12">
                         <div class="ml-4">
 
                             @foreach ($top5Songs as $song)
@@ -188,6 +188,23 @@
         </div>
 </x-layout>
 
+<script>
+    <?php
+    $themeColors = [
+        'pink' => '#FCE4EC',
+        'blue' => '#66a3ff',
+        'yellow' => '#ffffb3',
+        'green' => '#80ff80',
+        'purple' => '#b366b3',
+        'red' => '#ff6666',
+    ];
+    $selectedTheme = auth()->user()->theme ?? 'pink';
+    
+    // Default color if the theme is not found
+    $selectedColor = $themeColors[$selectedTheme] ?? '#ff4d6f';
+    ?>
+</script>
+
 <style>
     .profile-container {
         max-width: 600px;
@@ -202,7 +219,7 @@
     }
 
     .profile-image-section {
-        background-color: #FCE4EC;
+        background-color: <?php echo $selectedColor; ?>;
         /* Adjust the pink background shade as needed */
         margin-bottom: 1rem;
         /* Space below the image section */

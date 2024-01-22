@@ -63,17 +63,18 @@
             <!-- Theme Box -->
             <x-card class="settings-box mb-8 bg-dark-pink text-gray-800 rounded-lg p-6">
                 <h3 class="text-2xl font-bold mb-4">Theme</h3>
-                    <div class="mb-4">
-                        <label for="theme" class="block text-sm font-medium text-gray-700">Select Theme</label>
-                        <select name="theme" class="select-field">
-                            <option value="pink" {{ $data['userInfo']['theme'] === 'pink' ? 'selected' : '' }}>Music Tailored Pink</option>
-                            <option value="blue" {{ $data['userInfo']['theme'] === 'blue' ? 'selected' : '' }}>Blue</option>
-                            <option value="green" {{ $data['userInfo']['theme'] === 'green' ? 'selected' : '' }}>Green</option>
-                            <option value="yellow" {{ $data['userInfo']['theme'] === 'yellow' ? 'selected' : '' }}>Yellow</option>
-                            <option value="red" {{ $data['userInfo']['theme'] === 'red' ? 'selected' : '' }}>Red</option>
-                            <option value="purple" {{ $data['userInfo']['theme'] === 'purple' ? 'selected' : '' }}>Purple</option>
-                        </select>
+                <div class="mb-4">
+                    <label for="theme" class="block text-sm font-medium text-gray-700">Select Theme</label>
+                    <input type="hidden" name="theme" value="{{ $data['userInfo']['theme'] }}">
+                    <div>
+                        <div class="color-option pink" data-value="pink" onclick="selectTheme('pink')"></div>
+                        <div class="color-option blue" data-value="blue" onclick="selectTheme('blue')"></div>
+                        <div class="color-option green" data-value="green" onclick="selectTheme('green')"></div>
+                        <div class="color-option yellow" data-value="yellow" onclick="selectTheme('yellow')"></div>
+                        <div class="color-option red" data-value="red" onclick="selectTheme('red')"></div>
+                        <div class="color-option purple" data-value="purple" onclick="selectTheme('purple')"></div>
                     </div>
+                </div>
             </x-card>
 
             <!-- Subscription Box -->
@@ -90,7 +91,56 @@
         </form>
     </x-card>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Set initial theme value
+            selectTheme('{{ $data['userInfo']['theme'] }}');
+        });
+
+        function selectTheme(theme) {
+            // Update hidden input value
+            document.querySelector('input[name="theme"]').value = theme;
+
+            // Remove 'selected' class from all color options
+            document.querySelectorAll('.color-option').forEach(function (option) {
+                option.classList.remove('selected');
+            });
+
+            // Add 'selected' class to the clicked color option
+            const selectedOption = document.querySelector('.color-option[data-value="' + theme + '"]');
+            selectedOption.classList.add('selected');
+
+            // Add 'chosen' class to the chosen color option
+            document.querySelectorAll('.color-option').forEach(function (option) {
+                option.classList.remove('chosen');
+            });
+            selectedOption.classList.add('chosen');
+        }
+    </script>
+
+
     <style>
+        .color-option {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+            cursor: pointer;
+            border: 2px solid transparent; /* Add border for highlighting */
+        }
+
+        .color-option.chosen {
+            border-color: #333; /* Border color for the chosen option */
+        }
+
+        .pink { background-color: #ff4d6f; }
+        .blue { background-color: #007AFF; }
+        .green { background-color: #00FF00; }
+        .yellow { background-color: #ffff00; }
+        .red { background-color: #ff0000; }
+        .purple { background-color: #800080; }
+
         .settings-container {
             max-width: 60%; /* Half the size of the page */
             margin: 2rem auto; /* Center the container with margin on top and bottom */

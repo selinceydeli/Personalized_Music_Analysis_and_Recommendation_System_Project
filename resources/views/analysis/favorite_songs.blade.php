@@ -42,7 +42,7 @@
                 <option value="{{ $month }}" @if($month === $monthSelect) selected @endif>{{ $month }} Months</option>
             @endforeach
         </select>
-        <button type="submit">Submit</button>
+        <button type="submit" class="bg-laravel text-black rounded py-2 px-4">Submit</button>
     </form>
         <canvas id="songChart" width="400" height="200"></canvas>
     </div>
