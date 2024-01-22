@@ -93,6 +93,7 @@
         </form>
 
         <x-card class="settings-box mb-8 bg-gray-500 text-gray-800 rounded-lg p-6">
+            <h3 class="text-2xl font-bold mb-4">Upload Profile Picture</h3>
             <div class="bg-transparent p-4 rounded-lg mb-4">
                 <form id="uploadForm" action="/api/users/{{ $user['username'] }}/uploadImg" method="post" enctype="multipart/form-data">
                     @csrf
