@@ -89,6 +89,37 @@
                 Save Changes
             </button>
         </form>
+
+        <x-card class="settings-box mb-8 bg-gray-500 text-gray-800 rounded-lg p-6">
+            <h3 class="text-2xl font-bold mb-4">Upload Profile Image</h3>
+            <div class="bg-transparent p-4 rounded-lg mb-4">
+                <form id="uploadForm" action="http://127.0.0.1:8000/api/users/{{ $data['userInfo']['username'] }}/uploadImg" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <label for="image">Choose Image:</label>
+                    <input type="file" name="image" id="image" accept="image/*" />
+                    <button type="button" class="bg-blue text-black rounded py-2 px-4 hover:bg-red-600" onclick="uploadFile()">Upload</button>
+                </form>
+            </div>
+        </x-card>
+
+        <script>
+            function uploadFile() {
+                var form = document.getElementById('uploadForm');
+                var formData = new FormData(form);
+
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', form.action, true);
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        // File uploaded successfully, you can handle the response here if needed
+                        console.log('File uploaded successfully');
+                    }
+                };
+
+                xhr.send(formData);
+            }
+        </script>
     </x-card>
 
     <script>
