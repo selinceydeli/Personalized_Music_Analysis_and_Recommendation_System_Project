@@ -16,22 +16,36 @@ class PlaylistController extends Controller
     public function index($id)
     {
         $playlist = Playlist::find($id);
-        $songs = $playlist->songs;
+        $q = Song::leftJoin('song_ratings', 'songs.song_id', '=', 'song_ratings.song_id')
+            ->select('songs.*', DB::raw('IFNULL(AVG(song_ratings.rating), 0) as average_rating'))
+            ->groupBy('songs.song_id')
+            ->orderByDesc('average_rating')
+            ->whereIn('songs.song_id', $playlist->songs->pluck('song_id')->toArray());
+
+        $searchTerm = request('searchplaylistsong');
+        if ($searchTerm) {
+            $q->where(function ($query) use ($searchTerm) {
+                $query->where('name', 'like', '%' . $searchTerm . '%');
+            });
+        }
+
+        $songs = $q->paginate(6);
+
 
         $albums = [];
         foreach ($songs as $song) {
             // Assuming there's a direct relationship between Song and Album models
             $album = $song->album;
-        
+
             if ($album) {
                 // Add the album to the $albums array
                 $albums[] = $album;
             }
         }
-        
+
         // Now $albums contains the corresponding albums of the songs in the playlist
-        
-        
+
+
         $albumPerformers = [];
         foreach ($albums as $album) {
             $performerController = new PerformerController();
@@ -96,7 +110,7 @@ class PlaylistController extends Controller
             $ratingsMap[$s->song_id] = [
                 'latest_user_rating' => $latestUserRating ? $latestUserRating->rating : null,
             ];
-        }        
+        }
         return view('playlists.index', [
             'playlist' => $playlist,
             'songs' => $songs,
@@ -126,10 +140,8 @@ class PlaylistController extends Controller
             // Attach the playlist to the user
             $user->playlists()->attach($playlist->id);
             return redirect("/playlist/{$playlist->id}")->with('message', 'Playlist created');
-
         } catch (ModelNotFoundException $exception) {
             return redirect()->back()->with('message', 'Failed to create playlist');
-
         }
 
         // Return a response, for example a redirect with a success message
@@ -158,51 +170,178 @@ class PlaylistController extends Controller
         }
     }
 
-    public function addSongsToPlaylist(Request $request, $playlistId)
+    public function add($id)
     {
-        // Validate the request data
-        $request->validate([
-            'song_ids' => 'required|array',
-            'song_ids.*' => 'required|exists:songs,song_id', // Validate each song ID exists
+        $playlist = Playlist::find($id);
+
+        $query = Song::leftJoin('song_ratings', 'songs.song_id', '=', 'song_ratings.song_id')
+            ->select('songs.*', DB::raw('IFNULL(AVG(song_ratings.rating), 0) as average_rating'))
+            ->groupBy('songs.song_id')
+            ->orderByDesc('average_rating')
+            ->whereNotIn('songs.song_id', $playlist->songs->pluck('song_id')->toArray());
+
+
+
+        // Check if a search filter is applied
+        $searchTerm = request('searchaddsong');
+        $searchController = new SearchController();
+        if ($searchTerm) {
+            $performerResults = $searchController->search_performer($searchTerm)->pluck('artist_id')->toArray();
+
+            $query->where(function ($query) use ($searchTerm, $performerResults) {
+                $query->where('songs.name', 'like', '%' . $searchTerm . '%')
+                    ->orWhereHas('album', function ($subquery) use ($searchTerm) {
+                        $subquery->where('albums.name', 'like', '%' . $searchTerm . '%');
+                    })
+                    ->orWhere(function ($subquery) use ($performerResults) {
+                        foreach ($performerResults as $artistId) {
+                            $subquery->orWhereJsonContains('performers', $artistId);
+                        }
+                    });
+            });
+        }
+
+        $songs = $query->paginate(10);
+
+        // Extract the song_id values from the paginated songs
+        $songIds = $songs->pluck('song_id')->toArray();
+        // Initialize an empty array to store the mapping
+        $ratingsMap = [];
+
+        if (auth()->check()) {
+            $username = auth()->user()->username;
+
+            // Iterate through each song ID and retrieve the latest user rating
+            $songRatingsController = new SongRatingController();
+            foreach ($songIds as $songId) {
+                // Retrieve the latest user rating for the current song
+                $latestUserRating = $songRatingsController->getLatestUserRating($username, $songId);
+
+                // Build the ratings map entry for this song
+                $ratingsMap[$songId] = [
+                    'latest_user_rating' => $latestUserRating ? $latestUserRating->rating : null,
+                ];
+            }
+        }
+
+        $performerIds = $songs->pluck('performers')->flatten(); // Get unique performer IDs from all songs
+
+        // Remove the extra brackets and extract the IDs as strings
+        foreach ($performerIds as $key => $ids) {
+            if (is_string($ids) && strpos($ids, ',') !== false) {
+                $performerIds[$key] = array_map('trim', explode(',', trim($ids, '[]')));
+            } else {
+                $performerIds[$key] = trim($ids, '[]');
+            }
+        }
+
+        $performerController = new PerformerController();
+        $performers = [];
+        foreach ($performerIds as $key => $id) {
+            if (is_array($id)) {
+                foreach ($id as $subId) {
+                    // Make sure $subId is a string without quotes
+                    $subId = trim($subId, '"');
+
+                    // Make an HTTP request to fetch performer data for each subId
+                    $response = $performerController->search_id($subId); // Assuming search_id() takes a string parameter
+
+                    if ($response->getStatusCode() == 200) { // Checking if performer is found
+                        $performers[$key][$subId] = $response->getData(); // Assuming getData() gets the data from the response
+                    }
+                }
+            } else {
+                // Make an HTTP request to fetch performer data for $id
+                $id = trim($id, '"');
+
+                $response = $performerController->search_id($id); // Assuming search_id() takes a string parameter
+
+                if ($response->getStatusCode() == 200) { // Checking if performer is found
+                    $performers[$key][$id] = $response->getData(); // Assuming getData() gets the data from the response
+                }
+            }
+        }
+
+        // Append the genre and search parameters to the pagination links
+        $songs->appends([
+            'search' => $searchTerm,
         ]);
+
+        return view('playlists.songs', [
+            'songs' => $songs,
+            'performers' => $performers,
+            'ratingsMap' => $ratingsMap,
+            'playlist' => $playlist,
+        ]);
+    }
+
+    public function addsongs($playlistId, $songId)
+    {
+
+        $song = Song::find($songId);
 
         // Find the playlist and attach the songs
         $playlist = Playlist::findOrFail($playlistId);
 
         // You can use syncWithoutDetaching to avoid detaching existing songs
         // and to prevent adding duplicates
-        $playlist->songs()->syncWithoutDetaching($request->song_ids);
+        $playlist->songs()->syncWithoutDetaching([$song->song_id]);
 
-        return response()->json([
-            'success' => true,
-            'message' => 'Songs added to playlist successfully.',
-            'playlist' => $playlist->load('songs') // Load the songs relationship
+        $playlist->load('songs');
+
+        return redirect("/playlist/{$playlist->id}")->with('message', 'Song added to playlist successfully.');
+    }
+
+    public function adduser($playlistId)
+    {
+        $playlist = Playlist::findOrFail($playlistId);
+
+        $user = User::where('username', auth()->user()->username)->firstOrFail();
+
+        // Get the friends of the user
+        $friends = $user->friends;
+
+        // Filter friends who are not collaborating on the given playlist
+        $notCollaboratingFriends = $friends->filter(function ($friend) use ($playlist) {
+            return !$playlist->users->contains($friend);
+        });
+
+        // Convert the collection to a query builder instance
+        $notCollaboratingFriendsQuery = User::whereIn('username', $notCollaboratingFriends->pluck('username'))->withCount('friendsOfMine')
+        ->orderByDesc('friends_of_mine_count'); // Retrieve the results;
+
+        $searchTerm = request('searchusers');
+        if ($searchTerm) {
+            $notCollaboratingFriendsQuery->where(function ($query) use ($searchTerm) {
+                $query->where('username', 'like', '%' . $searchTerm . '%');
+            });
+        }
+
+        // Paginate the query by 10 items per page
+        $paginatedFriends = $notCollaboratingFriendsQuery->paginate(10);
+
+        return view('playlists.users', [
+            'playlist' => $playlist,
+            'users' => $paginatedFriends,
         ]);
     }
 
-    public function addUsersToPlaylist(Request $request, $playlistId)
-    {
-        // Validate the request data
-        $request->validate([
-            'usernames' => 'required|array',
-            'usernames.*' => 'required|exists:users,username', // Validate each username exists
-        ]);
 
+    public function addusers($playlistId, $username)
+    {
         // Retrieve the playlist by ID
         $playlist = Playlist::findOrFail($playlistId);
 
         // Use a transaction to ensure database consistency
-        DB::transaction(function () use ($playlist, $request) {
+        DB::transaction(function () use ($playlist, $username) {
             // Add users to the playlist
             // syncWithoutDetaching ensures existing users remain and no duplicates are added
-            $playlist->users()->syncWithoutDetaching($request->usernames);
+            $playlist->users()->syncWithoutDetaching($username);
         });
 
-        return response()->json([
-            'success' => true,
-            'message' => 'Users added to playlist successfully.',
-            'playlist' => $playlist->load('users') // Load the users relationship
-        ]);
+        $playlist->load('users'); // Load the users relationship
+
+        return redirect("/playlist/{$playlist->id}")->with('message', 'User added to playlist successfully.');
     }
 
     public function remove($playlistId, $songId)

@@ -29,7 +29,7 @@
     </style>
 
     <div class="container">
-        <h1>Average Ratings for Artists</h1>
+        <h1>Average Ratings for Artists of Your Choice</h1>
 
         <!-- Form to select artists and time span -->
         <form action="{{ route('analysis.average_ratings') }}" method="post">

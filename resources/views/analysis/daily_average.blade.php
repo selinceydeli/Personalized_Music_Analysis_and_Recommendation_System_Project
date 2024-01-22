@@ -20,7 +20,7 @@
     </style>
 
     <div class="container">
-        <h1>Rhythmic Ratings: </h1>
+        <h1>Your Rhythmic Ratings of This Month</h1>
 
         <canvas id="dailyAverageChart" width="400" height="200"></canvas>
     </div>

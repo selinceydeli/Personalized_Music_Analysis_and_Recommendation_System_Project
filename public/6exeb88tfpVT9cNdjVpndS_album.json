@@ -1,0 +1,60 @@
+{
+    "album_type": "album",
+    "copyrights": "2004 RAKUN M\u00dcZ\u0130K F\u0130LM",
+    "genres": [],
+    "label": "RAKUN M\u00dcZ\u0130K F\u0130LM",
+    "name": "D\u00fcnya Yalan S\u00f6yl\u00fcyor",
+    "popularity": 0,
+    "release_date": "2004-04-16",
+    "total_tracks": 10,
+    "tracks": {
+        "items": [
+            {
+                "id": "6KGLT3iPhbz6MqjVB8rTgb",
+                "track_number": 1
+            },
+            {
+                "id": "2fMhwt77wUh3noEuedB3Nt",
+                "track_number": 2
+            },
+            {
+                "id": "5oecOcmSEHs7MZiB0NPbFu",
+                "track_number": 3
+            },
+            {
+                "id": "0VuJ6W5qKHqqdRGsqvQgvQ",
+                "track_number": 4
+            },
+            {
+                "id": "4GLb9LumGhEi8xTeZ9uriB",
+                "track_number": 5
+            },
+            {
+                "id": "7uurWQbro6qFL2NO1HXbdo",
+                "track_number": 6
+            },
+            {
+                "id": "5fFZKrBubMTr0YBV1lPlUO",
+                "track_number": 7
+            },
+            {
+                "id": "61rNTEUgscuSzvvoLpI0SQ",
+                "track_number": 8
+            },
+            {
+                "id": "6rPHlf5CsrTXXqGUlUS8sj",
+                "track_number": 9
+            },
+            {
+                "id": "4KJvTP0sy3Wwpa3cLsgZYL",
+                "track_number": 10
+            }
+        ],
+        "total": 10
+    },
+    "type": "album",
+    "artist_id": "5ixQSDvAMa5O758xG8MWXT",
+    "album_id": "6exeb88tfpVT9cNdjVpndS",
+    "upc": "1402030922021",
+    "image": "https://i.scdn.co/image/ab67616d0000b2734b5db2097749dbd8f61fa07d"
+}

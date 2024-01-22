@@ -1,0 +1,21 @@
+[
+    {
+        "followers": 3,
+        "genres": [],
+        "name": "Sandeck",
+        "popularity": 0,
+        "image": null,
+        "artist_id": "1GbsP278DpJqE5GWpR6XRj"
+    },
+    {
+        "followers": 18234,
+        "genres": [
+            "ethnotronica",
+            "organic house"
+        ],
+        "name": "Zigan Aldi",
+        "popularity": 34,
+        "image": "https://i.scdn.co/image/ab6761610000e5eb51af6c58d7aa794bb516d3fb",
+        "artist_id": "5nNJbOr2phyzj0KvIv7HL1"
+    }
+]

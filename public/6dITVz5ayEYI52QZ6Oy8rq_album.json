@@ -1,0 +1,24 @@
+{
+    "album_type": "single",
+    "copyrights": "2019 Intuitive Records",
+    "genres": [],
+    "label": "Intuitive Records",
+    "name": "Anatolia",
+    "popularity": 39,
+    "release_date": "2019-10-03",
+    "total_tracks": 1,
+    "tracks": {
+        "items": [
+            {
+                "id": "636ieo1frTLl9XvQwalG1o",
+                "track_number": 1
+            }
+        ],
+        "total": 1
+    },
+    "type": "album",
+    "artist_id": "5If5Tdg66Q5X3L57G7A6Pn",
+    "album_id": "6dITVz5ayEYI52QZ6Oy8rq",
+    "upc": "3663729098672",
+    "image": "https://i.scdn.co/image/ab67616d0000b273901b865a877df808c98dd433"
+}

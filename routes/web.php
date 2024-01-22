@@ -91,6 +91,14 @@ Route::post('/remove/{playlistId}', [PlaylistController::class, 'destroy'])->nam
 
 Route::post('/createplaylist', [PlaylistController::class, 'create'])->name('create')->middleware(['auth']);
 
+Route::get('/addsong/{id}', [PlaylistController::class, 'add'])->name('add')->middleware(['auth']);
+
+Route::post('/addsongs/{playlistId}/{songId}', [PlaylistController::class, 'addsongs'])->name('addsongs')->middleware(['auth']);
+
+Route::get('/adduser/{id}', [PlaylistController::class, 'adduser'])->name('adduser')->middleware(['auth']);
+
+Route::post('/addusers/{playlistId}/{username}', [PlaylistController::class, 'addusers'])->name('addusers')->middleware(['auth']);
+
 // Single Album
 Route::get('/albums/{album}', [AlbumController::class, 'show']);
 

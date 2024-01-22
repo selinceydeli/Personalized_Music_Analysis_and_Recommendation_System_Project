@@ -1,0 +1,54 @@
+[
+    {
+        "duration_ms": 165146,
+        "explicit": 0,
+        "name": "Liquid Spirit - Claptone Remix / Full Vocal Version",
+        "popularity": 31,
+        "preview_url": null,
+        "song_id": "27QJ16PuUaUZqYfCvu3W2L",
+        "isrc": "FRUM71501608",
+        "album_id": "2IeDDT5i132tRkKHrdfWS2",
+        "artists_ids": [
+            "06nevPmNVfWUXyZkccahL8",
+            "4mncDFjVLUa3s025Tct3Ry"
+        ],
+        "danceability": 0.806,
+        "energy": 0.698,
+        "key": "B",
+        "loudness": -7.403,
+        "mode": "Minor",
+        "speechiness": 0.048,
+        "acousticness": 0.0237,
+        "instrumentalness": 0.0026,
+        "liveness": 0.153,
+        "valence": 0.602,
+        "tempo": 120.989,
+        "time_signature": 4
+    },
+    {
+        "duration_ms": 383552,
+        "explicit": 0,
+        "name": "Liquid Spirit - Claptone Remix",
+        "popularity": 60,
+        "preview_url": null,
+        "song_id": "6wp5tGVNQYpKJPo1s3WUEY",
+        "isrc": "FRUM71500449",
+        "album_id": "2IeDDT5i132tRkKHrdfWS2",
+        "artists_ids": [
+            "06nevPmNVfWUXyZkccahL8",
+            "4mncDFjVLUa3s025Tct3Ry"
+        ],
+        "danceability": 0.877,
+        "energy": 0.62,
+        "key": "E",
+        "loudness": -9.069,
+        "mode": "Major",
+        "speechiness": 0.0549,
+        "acousticness": 0.00406,
+        "instrumentalness": 0.388,
+        "liveness": 0.0549,
+        "valence": 0.296,
+        "tempo": 120.997,
+        "time_signature": 4
+    }
+]

@@ -1,0 +1,40 @@
+{
+    "album_type": "album",
+    "copyrights": "(C) 2018 Underyourskin Records",
+    "genres": [],
+    "label": "Underyourskin Records",
+    "name": "Peregrine Falcon",
+    "popularity": 0,
+    "release_date": "2018-02-16",
+    "total_tracks": 5,
+    "tracks": {
+        "items": [
+            {
+                "id": "2irm9OkBdEjVfgV2LWPCCu",
+                "track_number": 1
+            },
+            {
+                "id": "0g1UwooylaaowDM8oVuxFT",
+                "track_number": 2
+            },
+            {
+                "id": "5WoIC9IMMLCpTwlcrIUW7M",
+                "track_number": 3
+            },
+            {
+                "id": "2e531WioyHMQJniYJ3mahP",
+                "track_number": 4
+            },
+            {
+                "id": "68fmzbTd9EOx3gs6WmDr1n",
+                "track_number": 5
+            }
+        ],
+        "total": 5
+    },
+    "type": "album",
+    "artist_id": "5nNJbOr2phyzj0KvIv7HL1",
+    "album_id": "7CQLVu5oT44q2IsM5ea5tv",
+    "upc": "4050486122273",
+    "image": "https://i.scdn.co/image/ab67616d0000b27391c5768c66e42e79c2f04c20"
+}

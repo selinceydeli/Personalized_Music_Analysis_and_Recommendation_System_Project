@@ -21,7 +21,7 @@
     $totalDuration = 0;
 @endphp
 
-@foreach ($songs as $s)
+@foreach ($playlist->songs as $s)
     @php
         $totalDuration += $s->duration; // Add current song duration to total duration
     @endphp
@@ -75,6 +75,11 @@
                                 and {{ $remainingUsers }} more
                             @endif
                         @endif
+                        <a href="/adduser/{{ $playlist->id }}"
+                            class="px-4 py-2 bg-pink-200 ml-5 text-white rounded-md hover:bg-pink-300 focus:outline-none focus:shadow-outline-pink active:bg-pink-500">
+                            <i class="fas fa-plus"></i> <!-- Plus sign icon -->
+                            <i class="fa-solid fa-user"></i>
+                        </a>
                     </p>
                 </div>
                 <div class="text-lg mt-4">
@@ -85,7 +90,14 @@
             </div>
         </x-card>
         <div class="mx-4 mt-6">
-            <h2 class="text-2xl font-bold mb-4">Songs</h2>
+            <h2 class="text-2xl font-bold mb-4">Songs
+                <a href="/addsong/{{ $playlist->id }}"
+                    class="px-4 py-2 bg-pink-200 ml-5 text-white rounded-md hover:bg-pink-300 focus:outline-none focus:shadow-outline-pink active:bg-pink-500">
+                     <i class="fas fa-plus"></i> <!-- Plus sign icon -->
+                     <i class="fa-solid fa-music"></i>
+                 </a>                 
+            </h2>
+            @include('partials._searchplaylistsong')
             <div class="lg:grid lg:grid-cols-2 gap-4 space-y-4 md:space-y-0 mx-4">
                 @if (count($songs) == 0)
                     <p>
@@ -102,10 +114,11 @@
                             // Check if performers exist and get the first one
                             if (!empty($songPerformers)) {
                                 $firstPerformerId = $songPerformers[0]; // Get the ID of the first performer
-                                foreach($performersSongs as $performersSong)
-                                // Check if the performer ID exists in the $performersSongs array
-                                if (isset($performersSong[$firstPerformerId])) {
-                                    $performer = $performersSong[$firstPerformerId];
+                                foreach ($performersSongs as $performersSong) {
+                                    // Check if the performer ID exists in the $performersSongs array
+                                    if (isset($performersSong[$firstPerformerId])) {
+                                        $performer = $performersSong[$firstPerformerId];
+                                    }
                                 }
                             }
                         @endphp
@@ -119,36 +132,9 @@
                     @endforeach
                 @endif
             </div>
+            <div class="mt-6 p-4">
+                {{ $songs->links() }}
+            </div>
         </div>
     </div>
 </x-layout>
-<script>
-    $(document).ready(function() {
-        var currentRating = parseInt($('#ratingInput').val()) || 0;
-
-        $(document).on('mouseover', '.star-btn', function() {
-            var rating = $(this).data('rating');
-
-            $(this).siblings().addBack().find('i').each(function(index) {
-                if (index < rating) {
-                    $(this).removeClass('far').addClass('fas'); // Fill stars
-                } else {
-                    $(this).removeClass('fas').addClass('far'); // Empty stars
-                }
-            });
-        });
-
-        $(document).on('mouseout', '.star-rating', function(e) {
-            // Check if the mouse leaves the star rating area
-            if (!$(e.relatedTarget).hasClass('star-btn')) {
-                $('.star-btn i').each(function(index) {
-                    if (index < currentRating) {
-                        $(this).removeClass('far').addClass('fas-colored'); // Fill stars
-                    } else {
-                        $(this).removeClass('fas-colored').addClass('far'); // Empty stars
-                    }
-                });
-            }
-        });
-    });
-</script>

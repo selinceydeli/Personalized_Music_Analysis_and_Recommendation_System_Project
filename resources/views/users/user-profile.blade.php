@@ -139,15 +139,17 @@
                         <div class="bg-white p-4 rounded-md shadow-md">
                             <div class="text-2xl font-bold mb-4 text-center">Create New Playlist</div>
                             <!-- Playlist name input field -->
-                            <input type="text" id="playlist_name" class="w-full p-2 border rounded-md mb-4" placeholder="Enter playlist name">
-                        
+                            <input type="text" id="playlist_name" class="w-full p-2 border rounded-md mb-4"
+                                placeholder="Enter playlist name">
+
                             <!-- Button container for alignment -->
                             <div class="button-container">
                                 <!-- Button to confirm the creation of the playlist -->
                                 <form action="/createplaylist" method="POST">
                                     @csrf
                                     <input type="hidden" name="username" value="{{ auth()->user()->username }}">
-                                    <input type="hidden" name="playlist_name" id="hidden_playlist_name"> <!-- Add this hidden input -->
+                                    <input type="hidden" name="playlist_name" id="hidden_playlist_name">
+                                    <!-- Add this hidden input -->
                                     <button type="submit" id="confirmCreatePlaylistBtn"
                                         class="px-4 py-2 bg-pink-200 text-white rounded-md hover:bg-pink-300 focus:outline-none focus:shadow-outline-pink active:bg-pink-500">
                                         <i class="fas fa-check mr-2"></i> <!-- Check icon -->
@@ -172,6 +174,15 @@
                 <p>You don't have any playlist</p>
             @else
                 @foreach ($playlists as $playlist)
+                    @php
+                        $totalDuration = 0;
+                    @endphp
+
+                    @foreach ($playlist->songs as $s)
+                        @php
+                            $totalDuration += $s->duration; // Add current song duration to total duration
+                        @endphp
+                    @endforeach
                     <x-card class="relative">
                         <div class="flex">
                             <img class="w-48 h-48 mr-6 md:block"
@@ -181,6 +192,13 @@
                                 <a href="/playlist/{{ $playlist->id }}">
                                     <strong>{{ $playlist['playlist_name'] }}</strong>
                                 </a>
+                                <div class="text-lg mt-4">
+                                    <i class="fas fa-clock"></i>
+                                    @if ($totalDuration)
+                                        <span class="text-lg font-bold text-black-600">
+                                            ({{ formatSongDuration($totalDuration) }})</span>
+                                    @endif
+                                </div>
                                 <!-- Date -->
                                 <div class="text-lg mt-12">
                                     <i class="fas fa-calendar"></i>
@@ -249,7 +267,7 @@
     const hiddenPlaylistNameInput = document.getElementById('hidden_playlist_name');
 
     // Event listener to update the hidden input when the playlist_name input changes
-    playlistNameInput.addEventListener('input', function () {
+    playlistNameInput.addEventListener('input', function() {
         hiddenPlaylistNameInput.value = playlistNameInput.value;
     });
 
