@@ -135,7 +135,7 @@
                 <span class="mr-4 ml-5">My Playlists</span> <!-- Add margin to the right and left -->
                 <!-- Button to create a new playlist -->
                 <button id="createPlaylistBtn"
-                    class="px-4 py-2 bg-pink-200 text-white rounded-md hover:bg-pink-300 focus:outline-none focus:shadow-outline-pink active:bg-pink-500">
+                    class="px-4 py-2 bg-laravel text-white rounded-md hover:bg-laravel focus:outline-none focus:shadow-outline-laravel active:bg-laravel">
                     <i class="fas fa-folder mr-2"></i> <!-- Folder icon -->
                     <i class="fas fa-plus mr-2"></i> <!-- Plus sign icon -->
                 </button>
@@ -156,7 +156,7 @@
                                     <input type="hidden" name="playlist_name" id="hidden_playlist_name">
                                     <!-- Add this hidden input -->
                                     <button type="submit" id="confirmCreatePlaylistBtn"
-                                        class="px-4 py-2 bg-pink-200 text-white rounded-md hover:bg-pink-300 focus:outline-none focus:shadow-outline-pink active:bg-pink-500">
+                                        class="px-4 py-2 bg-laravel text-white rounded-md hover:bg-laravel focus:outline-none focus:shadow-outline-laravel active:bg-laravel">
                                         <i class="fas fa-check mr-2"></i> <!-- Check icon -->
                                         Create
                                     </button>
@@ -244,7 +244,7 @@
                                     @if (auth()->check())
                                         <form id="deleteForm_{{ $playlist->id }}" method="POST"
                                             action="/remove/{{ $playlist->id }}"
-                                            class="absolute bottom-5 right-5 bg-red-500 text-white p-1 rounded-full">
+                                            class="absolute bottom-5 right-5 bg-laravel text-white p-1 rounded-full">
                                             @csrf
                                             <button type="submit" class="delete-playlist-btn"
                                                 data-playlist-id="{{ $playlist->id }}">
@@ -351,11 +351,8 @@
 
     .profile-image-section {
         background-color: <?php echo $selectedColor; ?>;
-        /* Adjust the pink background shade as needed */
         margin-bottom: 1rem;
-        /* Space below the image section */
         padding: 50px;
-        /* Add padding to the story card */
     }
 
     .profile-picture {
