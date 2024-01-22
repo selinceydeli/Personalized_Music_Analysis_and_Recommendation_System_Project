@@ -1,6 +1,7 @@
 @props(['nonFriend'])
 @props(['pending'])
 
+
 <x-card class="relative">
     <style>
         .block-user-button {

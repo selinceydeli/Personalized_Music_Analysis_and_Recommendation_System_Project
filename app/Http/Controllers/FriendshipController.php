@@ -188,8 +188,7 @@ class FriendshipController extends Controller
             "message" => "You don't follow this user"
         ], 200);
     }
-
-
+    
     public function getPendingFriendRequests($username)
     {
         $pendingRequests = Friendship::where('requester', $username)
@@ -238,22 +237,27 @@ class FriendshipController extends Controller
 
     public function getFriends($username): Builder
     {
-        // Fetch all friends for the given username
-        $friends = User::select('users.*')
-            ->join('friendships', function ($join) use ($username) {
-                $join->on('users.username', '=', 'friendships.requester')
-                    ->where('friendships.user_requested', '=', $username)
-                    ->where('friendships.status', 1); // Consider only accepted friendships
-            })
-            ->orWhere(function ($query) use ($username) {
-                $query->join('friendships', function ($join) use ($username) {
-                    $join->on('users.username', '=', 'friendships.user_requested')
-                        ->where('friendships.requester', '=', $username)
-                        ->where('friendships.status', 1); // Consider only accepted friendships
-                });
-            });
+        // Get the friends where the current user sent the request and it's accepted
+        $friendsRequestedByUser = Friendship::where('requester', $username)
+            ->where('status', 1); // 1 for accepted requests
 
-        return $friends;
+        // Get the friends where the current user was requested and it's accepted
+        $friendsRequestedToUser = Friendship::where('user_requested', $username)
+            ->where('status', 1); // 1 for accepted requests
+
+        // Get non-friends and non-blocked users with friend counts
+        $nonFriendsAndNotBlocked = User::whereIn('username', function ($query) use ($username, $friendsRequestedByUser, $friendsRequestedToUser) {
+            $query->select('username')
+                ->from('users')
+                ->whereIn('username', $friendsRequestedByUser->pluck('user_requested')
+                    ->merge($friendsRequestedToUser->pluck('requester'))
+                    ->unique());
+        })
+            ->where('username', '!=', $username) // Exclude the current user
+            ->withCount('friendsOfMine')
+            ->orderByDesc('friends_of_mine_count'); // Retrieve the results
+
+        return $nonFriendsAndNotBlocked;
     }
 
     public function getBlockedUsers($username)

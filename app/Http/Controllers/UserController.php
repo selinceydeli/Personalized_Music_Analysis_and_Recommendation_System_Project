@@ -91,12 +91,10 @@ class UserController extends Controller
 
             $user = User::create($formFields);
 
-            auth()->login($user);
-
-            return redirect('/')->with('message', 'User created and logged in');
-        } //else {
-            //return redirect('/register')->with('message', 'reCAPTCHA validation failed');
-        //}
+            return redirect('/login')->with('message', 'User created');
+        } else {
+            return redirect('/register')->with('message', 'reCAPTCHA validation failed');
+        }
     }
     public function getImg($username)
     {
