@@ -236,7 +236,7 @@
                                             @endif
                                         @endif
                                     </p>
-                                    @if (auth()->check())
+                                    @if (auth()->check() && $user->username==auth()->user()->username)
                                         <form id="deleteForm_{{ $playlist->id }}" method="POST"
                                             action="/remove/{{ $playlist->id }}"
                                             class="absolute bottom-5 right-5 bg-red-500 text-white p-1 rounded-full">
