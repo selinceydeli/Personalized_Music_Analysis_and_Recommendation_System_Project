@@ -13,10 +13,10 @@
         }
     </style>
     <div class="flex justify-between items-center">
-        <a href="/user/profile/{{ $nonFriend['username'] }}" class="text-2xl">
+        <h2 class="text-2xl">
             <i class="fa-solid fa-user"></i>
             {{ $nonFriend['username'] }}
-        </a>
+        </h2>
         <div>
             @if ($pending && array_key_exists($nonFriend['username'], $pending))
                 <form id="unrequestForm_{{ $nonFriend->username }}" action="/unrequest" method="POST">

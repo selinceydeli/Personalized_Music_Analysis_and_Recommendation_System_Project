@@ -75,11 +75,13 @@
                                 and {{ $remainingUsers }} more
                             @endif
                         @endif
-                        <a href="/adduser/{{ $playlist->id }}"
-                            class="px-4 py-2 bg-laravel ml-5 text-white rounded-md hover:bg-laravel focus:outline-none focus:shadow-outline-pink active:bg-laravel">
-                            <i class="fas fa-plus"></i> <!-- Plus sign icon -->
-                            <i class="fa-solid fa-user"></i>
-                        </a>
+                        @if (auth()->check() && in_array(auth()->user()->username, $composers))
+                            <a href="/adduser/{{ $playlist->id }}"
+                                class="px-4 py-2 bg-laravel ml-5 text-white rounded-md hover:bg-laravel focus:outline-none focus:shadow-outline-pink active:bg-laravel">
+                                <i class="fas fa-plus"></i> <!-- Plus sign icon -->
+                                <i class="fa-solid fa-user"></i>
+                            </a>
+                        @endif
                     </p>
                 </div>
                 <div class="text-lg mt-4">
@@ -91,11 +93,13 @@
         </x-card>
         <div class="mx-4 mt-6">
             <h2 class="text-2xl font-bold mb-4">Songs
-                <a href="/addsong/{{ $playlist->id }}"
-                    class="px-4 py-2 bg-laravel ml-5 text-white rounded-md hover:bg-laravel focus:outline-none focus:shadow-outline-pink active:bg-laravel">
-                     <i class="fas fa-plus"></i> <!-- Plus sign icon -->
-                     <i class="fa-solid fa-music"></i>
-                 </a>                 
+                @if (auth()->check() && in_array(auth()->user()->username, $composers))
+                    <a href="/addsong/{{ $playlist->id }}"
+                        class="px-4 py-2 bg-laravel ml-5 text-white rounded-md hover:bg-laravel focus:outline-none focus:shadow-outline-pink active:bg-laravel">
+                        <i class="fas fa-plus"></i> <!-- Plus sign icon -->
+                        <i class="fa-solid fa-music"></i>
+                    </a>
+                @endif
             </h2>
             @include('partials._searchplaylistsong')
             <div class="lg:grid lg:grid-cols-2 gap-4 space-y-4 md:space-y-0 mx-4">
@@ -124,7 +128,7 @@
                         @endphp
                         <div class="playlist-card" data-title="{{ $song->name }}">
                             <x-playlist-card :song="$song" :albumPerformers="$albumPerformers" :albums="$albums" :performer="$performer"
-                                :performersSongs="$performersSongs" :count="$count" :ratingsMap="$ratingsMap" :playlist="$playlist" />
+                                :performersSongs="$performersSongs" :count="$count" :ratingsMap="$ratingsMap" :playlist="$playlist" :composers="$composers"/>
                         </div>
                         @php
                             $count++;

@@ -31,6 +31,8 @@ class PlaylistController extends Controller
 
         $songs = $q->paginate(6);
 
+        $user=auth()->user();
+
 
         $albums = [];
         foreach ($songs as $song) {
@@ -112,6 +114,8 @@ class PlaylistController extends Controller
             ];
         }
         return view('playlists.index', [
+            'user' => $user,
+            'composers' => $playlist->users->pluck('username')->toArray(),
             'playlist' => $playlist,
             'songs' => $songs,
             'albums' => $albums,

@@ -4,6 +4,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class SettingsController extends Controller
 {
@@ -13,6 +14,17 @@ class SettingsController extends Controller
         if (auth()->check()) {
             $user = auth()->user(); // Get the authenticated user
 
+            // Check if the 'explicit' key is set in the session
+            if (Session::has('explicit')) {
+                // The 'explicit' key is set in the session
+                $explicit = Session::get('explicit');
+                // Use $explicit as needed
+            } else {
+                // The 'explicit' key is not set in the session
+                // You can set a default value or take appropriate action
+                $explicit = true;
+            }
+
             $data = [
                 'userInfo' => [
                     'username' => $user->username,
@@ -20,25 +32,27 @@ class SettingsController extends Controller
                     'name' => $user->name,
                     'surname' => $user->surname,
                     'email' => $user->email,
-                    'password' => null, 
+                    'password' => null,
                     'theme' => $user->theme, // Add this line to include the 'theme' key
 
                 ],
                 'language' => [
                     'current' => $user->language,
-                    'options' => ["English",
-                    "Spanish",
-                    "Mandarin Chinese",
-                    "Hindi",
-                    "Arabic",
-                    "Portuguese",
-                    "Bengali",
-                    "Russian",
-                    "Japanese",
-                    "Punjabi",
-                    "German",
-                    "Japanese",
-                    "Turkish"], // Add language options here
+                    'options' => [
+                        "English",
+                        "Spanish",
+                        "Mandarin Chinese",
+                        "Hindi",
+                        "Arabic",
+                        "Portuguese",
+                        "Bengali",
+                        "Russian",
+                        "Japanese",
+                        "Punjabi",
+                        "German",
+                        "Japanese",
+                        "Turkish"
+                    ], // Add language options here
                 ],
                 'subscription' => [
                     'current' => $user->subscription,
@@ -46,11 +60,21 @@ class SettingsController extends Controller
                 ],
             ];
 
-            return view('settings', compact('data', 'user'));
+            return view('settings', compact('data', 'user', 'explicit'));
         } else {
             // Redirect to the login page or handle the case where the user is not authenticated
             return redirect()->route('login');
         }
+    }
+
+    public function updateExplicit(Request $request)
+    {
+        $explicit = $request->input('explicit', false);
+
+        // Update the session variable
+        Session::put('explicit', $explicit);
+
+        return response()->json(['success' => true]);
     }
 
     public function update(Request $request)
@@ -80,8 +104,10 @@ class SettingsController extends Controller
         // Update the language
         $user->language = $validatedData['language'];
 
-         // Update the theme preference
+        // Update the theme preference
         $user->theme = $request->input('theme', 'light'); // Default to light if not provided
+
+        session(['explicit' => $request->input('child_mode') === 'on']);
 
         // Save the changes
         $user->save();

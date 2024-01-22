@@ -28,10 +28,19 @@ class UserController extends Controller
         // Fetch the user based on the provided username
         $user = User::where('username', $username)->first();
 
+        $friendshipController= new FriendshipController();
+
+        $friends=$friendshipController->getFriends($username)->get();
+        $friends = $friends->pluck('username')->toArray();
+
+        if (!in_array(auth()->user()->username, $friends) && $username!=auth()->user()->username) {
+            return redirect()->back()->with('message', 'User is not your friend');
+        }
+
         // Check if the user exists
         if (!$user) {
             // Redirect or show an error if the user doesn't exist
-            return redirect()->back()->with('error', 'User not found.');
+            return redirect()->back()->with('message', 'User not found.');
         }
 
         $blockedUsers = Block::where('blocker_username', $username)->pluck('blocked_username');
@@ -49,7 +58,7 @@ class UserController extends Controller
         $songOfYear = $this->songOfYear($username);
         $favGenres = $this->favGenres($username);
         //dd($favGenres);
-        
+
         // Return the user profile view with the user data
         return view('users.user-profile', compact('user', 'playlists', 'top5Albums', 'top5Songs', 'songOfYear', 'favGenres'));
     }
@@ -77,30 +86,25 @@ class UserController extends Controller
             'password' => ['required', 'confirmed', 'min:6', new SpecialCharacter],
         ]);
 
-        $response = (new ReCaptcha(env('RECAPTCHA_SECRET_KEY')))->verify($request->input('g-recaptcha-response'));
         $command = "python3 tempFunctions/sendMail.py " . escapeshellarg($formFields["email"]) . " 2>&1";
         $result = shell_exec($command);
-        if ($response->isSuccess()) {
-            $formFields['password'] = bcrypt($formFields['password']);
+        $formFields['password'] = bcrypt($formFields['password']);
 
-            // Assign default values
-            $formFields['language'] = 'English'; // Default language
-            $formFields['subscription'] = 'free'; // Default subscription
-            $formFields['rate_limit'] = '100'; // Default rate limit
-            $formFields['theme'] = 'pink'; // Default theme
+        // Assign default values
+        $formFields['language'] = 'English'; // Default language
+        $formFields['subscription'] = 'free'; // Default subscription
+        $formFields['rate_limit'] = '100'; // Default rate limit
+        $formFields['theme'] = 'pink'; // Default rate limit
 
-            $user = User::create($formFields);
+        $user = User::create($formFields);
 
-            return redirect('/login')->with('message', 'User created');
-        } else {
-            return redirect('/register')->with('message', 'reCAPTCHA validation failed');
-        }
+        return redirect('/login')->with('message', 'User created');
     }
     public function getImg($username)
     {
         $user = User::where('username', $username)->first();
         if ($user) {
-            if ($user->image == NULL){
+            if ($user->image == NULL) {
                 return response()->json([
                     "message" => "Image not found"
                 ], 404);
@@ -113,19 +117,18 @@ class UserController extends Controller
             ], 404);
         }
     }
-    public function uploadImg($username,Request $request)
+    public function uploadImg($username, Request $request)
     {
         $request->validate([
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-        if (User::where('username', $username)->exists()){
+        if (User::where('username', $username)->exists()) {
             $userObject = User::find($username);
             $file = base64_encode(file_get_contents($request->file('image')->getRealPath()));
             $userObject->image = $file;
             $userObject->save();
             return response()->json($userObject->image);
-        }
-        else {
+        } else {
             return response()->json([
                 "message" => "User not found"
             ], 404);
@@ -949,7 +952,7 @@ class UserController extends Controller
                 'songs.*',
                 'top_songs.average_rating',
             ]);
-            
+
         return $songOfYear;
     }
     public function top5Albums($username)
@@ -992,5 +995,5 @@ class UserController extends Controller
             ->all();
 
         return $topPerformersGenres;
-    }    
+    }
 }
