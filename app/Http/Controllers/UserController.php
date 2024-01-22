@@ -28,10 +28,19 @@ class UserController extends Controller
         // Fetch the user based on the provided username
         $user = User::where('username', $username)->first();
 
+        $friendshipController= new FriendshipController();
+
+        $friends=$friendshipController->getFriends($username)->get();
+        $friends = $friends->pluck('username')->toArray();
+
+        if (!in_array(auth()->user()->username, $friends) && $username!=auth()->user()->username) {
+            return redirect()->back()->with('message', 'User is not your friend');
+        }
+
         // Check if the user exists
         if (!$user) {
             // Redirect or show an error if the user doesn't exist
-            return redirect()->back()->with('error', 'User not found.');
+            return redirect()->back()->with('message', 'User not found.');
         }
 
         $blockedUsers = Block::where('blocker_username', $username)->pluck('blocked_username');

@@ -6,6 +6,7 @@
 @props(['count'])
 @props(['ratingsMap'])
 @props(['playlist'])
+@props(['composers'])
 
 @if (!function_exists('formatSongDuration'))
     @php
@@ -69,7 +70,7 @@
             <x-album-tags :genresCsv="$performer->genre" />
             <div class="mt-10">
                 <!-- User Rating Section -->
-                @if (auth()->check())
+                @if (auth()->check() && in_array(auth()->user()->username, $composers))
                     <form id="deleteForm_{{ $song->song_id }}" method="POST"
                         action="/remove/{{$playlist->id}}/song/{{$song->song_id}}"
                         class="absolute bottom-5 right-5 bg-red-500 text-white p-1 rounded-full">

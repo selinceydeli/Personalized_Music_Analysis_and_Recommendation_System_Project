@@ -10,11 +10,10 @@
             @foreach ($blocks as $block)
                 <x-card class="relative">
                     <div class="flex justify-between items-center">
-                        <a href="/user/profile/{{ $block['username'] }}" class="text-2xl">
+                        <h2 class="text-2xl">
                             <i class="fa-solid fa-user"></i>
                             {{ $block['username'] }}
-                        </a>
-                        
+                        </h2>
                         <div style="display: flex;">
                             <form id="unblockForm_{{ $block->username }}" action="/unblock/{{ $block['username'] }}" method="POST">
                                 @csrf

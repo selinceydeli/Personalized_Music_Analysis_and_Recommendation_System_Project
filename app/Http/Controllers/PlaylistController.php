@@ -115,6 +115,7 @@ class PlaylistController extends Controller
         }
         return view('playlists.index', [
             'user' => $user,
+            'composers' => $playlist->users->pluck('username')->toArray(),
             'playlist' => $playlist,
             'songs' => $songs,
             'albums' => $albums,
