@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="/images/circ-logo.jpg" sizes="16x16" type="image/png">
+    <link rel="icon" href="/images/logo.jpg" sizes="16x16" type="image/jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -20,24 +20,39 @@
 
 
     <script>
+        <?php
+        $themeColors = [
+            'pink' => '#ff4d6f',
+            'blue' => '#3498db',
+            'yellow' => '#ffff00',
+            'green' => '#00ff00',
+            'purple' => '#800080',
+            'red' => '#ff0000',
+        ];
+
+        $selectedTheme = auth()->user()->theme ?? 'pink';
+        
+        // Default color if the theme is not found
+        $selectedColor = $themeColors[$selectedTheme] ?? '#ff4d6f';
+        ?>
 
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        laravel: '#ff4d6f',
+                        laravel: '<?php echo $selectedColor; ?>',
                     },
                 },
             },
         };
-    </script>
+    </script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <title>Music Tailor | Find Music that Suits You</title>
 </head>
 
 <body class="mb-48">
     <nav class="flex justify-between items-center mb-4">
-        <a href="/"><img class="w-24" src="/images/circ-logo.jpg" alt="" class="logo" /></a>
+        <a href="/"><img class="w-24" src="/images/logo.jpg" alt="" class="logo" /></a>
         <ul class="flex space-x-6 mr-6 text-lg">
             @auth
                 <!-- User Menu Item -->

@@ -243,6 +243,7 @@
         }
 
         .upgrade-button {
+            color: laravel;
             border: none;
             transition: all 0.3s ease;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);

@@ -134,7 +134,7 @@
                 @if (auth()->check())
                     <form id="deleteForm_{{ $song->song_id }}" method="POST"
                         action="/deletesong/{{ $song->song_id }}"
-                        class="absolute bottom-5 right-5 bg-red-500 text-white p-1 rounded-full">
+                        class="absolute bottom-5 right-5 bg-laravel text-white p-1 rounded-full">
                         @csrf
                         <button type="submit" class="delete-song-btn" data-song-id="{{ $song->song_id }}">
                             <i class="fas fa-trash"></i>

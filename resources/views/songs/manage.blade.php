@@ -20,7 +20,7 @@
                 </div>
             </form>
             <!-- Display error message if the link is invalid -->
-            <div id="errorMessage" class="mt-4 text-red-500" style="display: none;">
+            <div id="errorMessage" class="mt-4 text-laravel-500" style="display: none;">
                 Invalid Spotify link!
             </div>
         </div>
@@ -87,7 +87,7 @@
         </div>
     </form>
     <!-- Display error message if the link is invalid -->
-    <div id="errorMessage" class="mt-4 text-red-500" style="display: none;">
+    <div id="errorMessage" class="mt-4 text-laravel-500" style="display: none;">
         Invalid Spotify link!
     </div>
 </div>
