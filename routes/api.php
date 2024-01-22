@@ -119,7 +119,6 @@ Route::post('/unblock-user-mobile', [BlockController::class, 'unblockUserMobile'
 Route::get('/user/{username}/friends', [UserController::class, 'getFriends']);
 Route::get('/user/{username}/blocked', [UserController::class, 'getBlockedUsers']);
 
-
 // Handling song imports
 Route::post('/spotify/import', [SpotifyController::class, 'importSong']);
 

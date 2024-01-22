@@ -75,6 +75,7 @@ class UserController extends Controller
             ], 404);
         }
     }    
+
     public function getImg($username)
     {
         $user = User::where('username', $username)->first();
@@ -92,6 +93,7 @@ class UserController extends Controller
             ], 404);
         }
     }
+
     public function uploadImg($username,Request $request)
     {
         $request->validate([
@@ -110,6 +112,7 @@ class UserController extends Controller
             ], 404);
         }
     }
+    
     //Methods for Recommendation
     public function favGenreRecomendationFromDifferentPerformers($username){
         // Retrieve user's top-rated performers
