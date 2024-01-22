@@ -358,6 +358,97 @@ class UserController extends Controller
             'friendOf' => $friendOf,
         ]);
     }
+
+
+    //Stories Functions
+    public function top5Songs($username)
+    {
+        // Remove the month-related code
+        $subQuery = SongRating::select('song_id', DB::raw('AVG(rating) as average_rating'))
+            ->where('username', $username)
+            ->groupBy('song_id')
+            ->orderBy('average_rating', 'DESC')
+            ->take(5);
+
+        $top5Songs = DB::table('songs')
+            ->joinSub($subQuery, 'top_songs', function ($join) {
+                $join->on('songs.song_id', '=', 'top_songs.song_id');
+            })
+            ->get([
+                'songs.*',
+                'top_songs.average_rating',
+            ]);
+
+        //dd($top5Songs);
+        //return view('users.user-profile', ['top5Songs' => $top5Songs]);
+        return $top5Songs;
+    }
+    public function songOfYear($username)
+        {
+        // Get the current year
+        $currentYear = now()->year;
+
+        // Set the condition to get ratings within the current year
+        $subQuery = SongRating::select('song_id', DB::raw('AVG(rating) as average_rating'))
+            ->where('username', $username)
+            ->whereYear('date_rated', $currentYear)
+            ->groupBy('song_id')
+            ->orderBy('average_rating', 'DESC')
+            ->take(1);
+
+        $songOfYear = DB::table('songs')
+            ->joinSub($subQuery, 'top_songs', function ($join) {
+                $join->on('songs.song_id', '=', 'top_songs.song_id');
+            })
+            ->get([
+                'songs.*',
+                'top_songs.average_rating',
+            ]);
+            
+        return $songOfYear;
+    }
+    public function top5Albums($username)
+    {
+        // Create a subquery for the average rating of albums by the user
+        $ratingSubQuery = DB::table('album_ratings')
+            ->select('album_id', DB::raw('AVG(rating) as average_rating'))
+            ->where('username', $username)
+            ->groupBy('album_id');
+
+        // Join the tables and select the top 10 albums of all time
+        $top5Albums = DB::table('albums')
+            ->joinSub($ratingSubQuery, 'rating', function ($join) {
+                $join->on('albums.album_id', '=', 'rating.album_id');
+            })
+            ->join('songs', 'albums.album_id', '=', 'songs.album_id')
+            ->select('albums.album_id', 'albums.name', 'albums.image_url', 'rating.average_rating')
+            ->groupBy('albums.album_id', 'albums.name', 'albums.image_url')
+            ->orderBy('average_rating', 'DESC')
+            ->take(5)
+            ->get();
+
+        return $top5Albums;
+    }
+
+    public function top5Genres($username)
+    {
+        // Retrieve user's top-rated performers
+        $topPerformersGenres = PerformerRating::where('username', $username)
+            ->orderBy('rating', 'desc')
+            ->with('performer')
+            ->get()
+            ->pluck('performer.genre')
+            ->map(function ($genres) {
+                return json_decode($genres);
+            })
+            ->flatten()
+            ->unique()
+            ->values()
+            ->take(5) // Limit the number of returned genres
+            ->all();
+
+        return $topPerformersGenres;
+    }
 }
 
 

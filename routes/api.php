@@ -138,5 +138,5 @@ Route::delete('/playlist/{playlistId}', [PlaylistController::class, 'destroy'])-
 Route::get('/users/{username}/top5-songs', [UserController::class, 'top5Songs']);
 Route::get('/users/{username}/song-of-year', [UserController::class, 'songOfYear']);
 Route::get('/users/{username}/top5-albums', [UserController::class, 'top5Albums']);
-Route::get('/users/{username}/top5-genres', [UserController::class, 'favGenres']);
+Route::get('/users/{username}/top5-genres', [UserController::class, 'top5Genres']);
 
