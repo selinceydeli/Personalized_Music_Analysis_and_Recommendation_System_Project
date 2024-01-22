@@ -188,8 +188,7 @@ class FriendshipController extends Controller
             "message" => "You don't follow this user"
         ], 200);
     }
-
-
+    
     public function getPendingFriendRequests($username)
     {
         $pendingRequests = Friendship::where('requester', $username)
