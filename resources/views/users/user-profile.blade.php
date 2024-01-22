@@ -43,7 +43,12 @@
             <!-- Use a div to create a larger space for the profile image -->
             <div
                 class="profile-picture bg-white m-auto rounded-full w-48 h-48 flex items-center justify-center overflow-hidden border-4 border-white">
-                <img src="{{ $user->image }}" alt="Profile Picture" class="w-full h-full object-cover rounded-full">
+                @if($user->image)
+            <img src="/api/users/{{ $user->username }}/getimg" alt="Profile Picture" class="w-full h-full object-cover rounded-full">
+            @else
+                <!-- Default image if user doesn't have a profile picture -->
+                <img src="{{ asset('path/to/your/images/directory/default.jpg') }}" alt="Default Profile Picture" class="w-full h-full object-cover rounded-full">
+            @endif
             </div>
         </div>
 
