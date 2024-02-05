@@ -131,4 +131,19 @@ The Music Upload functionality within the mobile app allows users to easily add 
 
 ### User's Profile Page Overview
 The User Profile page in the mobile app serves as a personalized dashboard for users to manage their Music Tailor account. It displays the user's essential information, including their profile picture, username, email, date of birth, preferred language, and subscription type. Users have the ability to update their profile details, as reflected in the editable fields for email, date of birth, and language. The page also indicates the user's rate limit, which is a unique feature that shows how many songs they can rate within a certain period.
-<img width="446" alt="Screenshot 2023-12-05 at 11 23 15 AM" src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/cbdec956-7258-4fab-9a49-d907222c62a3">
+<img width="593" alt="Screenshot 2024-02-05 at 3 20 16 PM" src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/81d02945-503c-43df-b11c-752d45c5d2d2">
+
+### Recommendations & Analysis on Mobile App
+The 'Your Music' section of the mobile app features a 'Recommendations & Analysis' module, providing users with personalized music suggestions and insights tailored to their individual tastes. The app analyzes users' listening habits, including genre preferences and song ratings, to offer custom recommendations like 'Your Genre Taste' and 'Energy & Dance Vibes'. For analytical insights, users can view their 'Daily Average Ratings', 'Top Albums by Era', 'Favorite Songs', and 'Compare Artist by Ratings'. These features combine to create a comprehensive and customized music discovery experience, ensuring that every user's unique preferences are catered to and reflected in their daily listening choices.
+<img width="594" alt="Screenshot 2024-02-05 at 3 20 48 PM" src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/f0f62a8b-c82d-4847-b9cd-9b6fcd969aba">
+
+### Child Mode under Settings Page
+The 'Child Mode' toggle in the settings view allows users to filter out explicit content, ensuring that the songs displayed on their profile are appropriate for all ages.
+<p float="left">
+  <img src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/6e0bb25f-9ab6-4615-b48b-974f99305b67" width="296" />
+  <img src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/88499cb4-d71b-4e63-850c-9997425a3bf6" width="296" /> 
+</p>
+
+
+
+
