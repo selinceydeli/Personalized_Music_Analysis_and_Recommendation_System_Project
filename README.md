@@ -123,12 +123,12 @@ Our system offers personalized song recommendations based on a user's specific t
 
 ### Login Page Overview
 The login page of our Web application provides a user-friendly and intuitive interface and handles user authentication.  
-<img width="448" alt="Screenshot 2023-12-05 at 11 20 21 AM" src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/1f37210b-5f88-4021-b0ce-770826777178">
+<img width="595" alt="Screenshot 2024-02-05 at 3 10 45 PM" src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/0f0c4163-1c36-4fef-99ec-b6136766ac45">
 
-### Music Upload Functionality on Mobile App
+### Music Upload Page Overview
 The Music Upload functionality within the mobile app allows users to easily add new tracks to their personal music collection using Spotify links. Users navigate to the 'Upload Music' section, where they are greeted with a clear, concise interface prompting them to enter the link to a Spotify song. Once the link is submitted, the app leverages the Spotify API to fetch the track's data, including the song title, artist, album, and cover art, which are then automatically integrated into the user's profile.
 <img width="592" alt="Screenshot 2024-02-05 at 3 07 36 PM" src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/786ba2b9-49b4-46ab-ba75-518df32a43c1">
 
-### User's Page Overview
-The User's Page in our mobile application serves as a dedicated and personalized space, designed to offer users a uniquely tailored experience. This section of the app allows users to customize their individual pages with information and features that best represent their interests and preferences.  
+### User's Profile Page Overview
+The User Profile page in the mobile app serves as a personalized dashboard for users to manage their Music Tailor account. It displays the user's essential information, including their profile picture, username, email, date of birth, preferred language, and subscription type. Users have the ability to update their profile details, as reflected in the editable fields for email, date of birth, and language. The page also indicates the user's rate limit, which is a unique feature that shows how many songs they can rate within a certain period.
 <img width="446" alt="Screenshot 2023-12-05 at 11 23 15 AM" src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/cbdec956-7258-4fab-9a49-d907222c62a3">
