@@ -140,8 +140,8 @@ The 'Your Music' section of the mobile app features a 'Recommendations & Analysi
 ### Child Mode under Settings Page
 The 'Child Mode' toggle in the settings view allows users to filter out explicit content, ensuring that the songs displayed on their profile are appropriate for all ages.
 <p float="left">
-  <img src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/6e0bb25f-9ab6-4615-b48b-974f99305b67" width="296" />
-  <img src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/88499cb4-d71b-4e63-850c-9997425a3bf6" width="296" /> 
+  <img src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/6e0bb25f-9ab6-4615-b48b-974f99305b67" width="350" />
+  <img src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/88499cb4-d71b-4e63-850c-9997425a3bf6" width="380" /> 
 </p>
 
 
