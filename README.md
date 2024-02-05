@@ -146,16 +146,21 @@ The 'Your Music' section of the mobile app features a 'Recommendations & Analysi
 <img width="350" alt="Screenshot 2024-02-05 at 3 20 48 PM" src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/f0f62a8b-c82d-4847-b9cd-9b6fcd969aba">
 
 ### Child Mode Option under Settings Page
-The 'Child Mode' toggle in the settings view allows users to filter out explicit content, ensuring that the songs displayed on their profile are appropriate for all ages.
+The 'Child Mode' toggle in the settings view enables users to filter out explicit content, ensuring that all songs displayed on their profile are suitable for all ages. As depicted in the image to the right, the mobile application's 'Search' function marks explicit songs with an 'E' icon. Once child mode is activated, these songs become hidden from the user's view.
 
 <p float="left">
   <img src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/6e0bb25f-9ab6-4615-b48b-974f99305b67" width="350" />
-  <img src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/88499cb4-d71b-4e63-850c-9997425a3bf6" width="420" /> 
+  <img src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/88499cb4-d71b-4e63-850c-9997425a3bf6" width="410" /> 
 </p>
 
 ### Theme Change Option under Settings Page
 The 'Change Theme' feature allows users to customize the app's appearance by selecting from various color options, which dynamically alters the color scheme of the entire application for a personalized user experience.
 
 <img width="350" alt="Screenshot 2024-02-05 at 3 23 18 PM" src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/79c29e0c-9a1a-49a4-aa42-02969f7ae1ed">
+
+### Membership Tiers
+Music Tailor offers three distinct membership tiers to cater to diverse user needs: Gold, Silver, and Free. Each tier provides a unique set of functionalities and privileges, ranging from advanced recommendation features and analytics in the premium tiers to basic access in the free tier, allowing users to choose the level of service that best fits their music exploration journey.
+
+<img width="350" alt="Screenshot 2024-02-05 at 4 32 51 PM" src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/4e80f220-8cef-4f5a-b84c-19b78960c098">
 
 
