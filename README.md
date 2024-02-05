@@ -105,46 +105,57 @@ The backend team has adeptly developed a robust and modular approach for data co
 
 ### Main Page Overview
 The main page of our Web application provides a user-friendly and intuitive interface, showcasing the core features of our music analysis and recommendation system. It's designed to be visually appealing and easy to navigate, ensuring a seamless user experience. 
+
 <img width="1440" alt="Screenshot 2023-12-05 at 10 38 30 AM" src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/871b9d81-52ff-4a3d-a4d8-e1a91ff196b1">
 
 ### Search Music Functionality
 Our music search functionality allows users to easily find songs, artists, and albums. Users can input keywords, and our system performs a comprehensive search across various metadata fields to deliver accurate results. 
+
 <img width="1440" alt="Screenshot 2023-12-05 at 10 24 28 AM" src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/40d87730-840a-4a47-a1d3-6948691dab9e">
 
 ### Music Upload Functionality
 Users can enrich our music database by uploading songs via Spotify links. This feature not only adds the song to our database but also automatically extracts and stores relevant data like the artist and album, creating dedicated pages for each. 
+
 <img width="1440" alt="Screenshot 2023-12-05 at 10 23 41 AM" src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/eed52279-afa0-4517-9136-8f0d8cfeb464">
 
 ### Personalized Music Recommendations
 Our system offers personalized song recommendations based on a user's specific taste in genres and preferences for energy and danceability. Recommendations are presented as interactive music cards, linking directly to detailed album pages. 
+
 <img width="1440" alt="Screenshot 2023-12-05 at 10 23 34 AM" src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/566d581e-baff-44cf-9f46-a13d60810500">
 
 ## Mobile Team Deliverables
 
 ### Login Page Overview
-The login page of our Web application provides a user-friendly and intuitive interface and handles user authentication.  
+The login page of our Web application provides a user-friendly and intuitive interface and handles user authentication.
+
 <img width="350" alt="Screenshot 2024-02-05 at 3 10 45 PM" src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/0f0c4163-1c36-4fef-99ec-b6136766ac45">
 
 ### Music Upload Page Overview
 The Music Upload functionality within the mobile app allows users to easily add new tracks to their personal music collection using Spotify links. Users navigate to the 'Upload Music' section, where they are greeted with a clear, concise interface prompting them to enter the link to a Spotify song. Once the link is submitted, the app leverages the Spotify API to fetch the track's data, including the song title, artist, album, and cover art, which are then automatically integrated into the user's profile.
+
 <img width="350" alt="Screenshot 2024-02-05 at 3 07 36 PM" src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/786ba2b9-49b4-46ab-ba75-518df32a43c1">
 
 ### User's Profile Page Overview
 The User Profile page in the mobile app serves as a personalized dashboard for users to manage their Music Tailor account. It displays the user's essential information, including their profile picture, username, email, date of birth, preferred language, and subscription type. Users have the ability to update their profile details, as reflected in the editable fields for email, date of birth, and language. The page also indicates the user's rate limit, which is a unique feature that shows how many songs they can rate within a certain period.
+
 <img width="350" alt="Screenshot 2024-02-05 at 3 20 16 PM" src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/81d02945-503c-43df-b11c-752d45c5d2d2">
 
-### Recommendations & Analysis on Mobile App
+### Recommendations & Analysis
 The 'Your Music' section of the mobile app features a 'Recommendations & Analysis' module, providing users with personalized music suggestions and insights tailored to their individual tastes. The app analyzes users' listening habits, including genre preferences and song ratings, to offer custom recommendations like 'Your Genre Taste' and 'Energy & Dance Vibes'. For analytical insights, users can view their 'Daily Average Ratings', 'Top Albums by Era', 'Favorite Songs', and 'Compare Artist by Ratings'. These features combine to create a comprehensive and customized music discovery experience, ensuring that every user's unique preferences are catered to and reflected in their daily listening choices.
 
 <img width="350" alt="Screenshot 2024-02-05 at 3 20 48 PM" src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/f0f62a8b-c82d-4847-b9cd-9b6fcd969aba">
 
-### Child Mode under Settings Page
+### Child Mode Option under Settings Page
 The 'Child Mode' toggle in the settings view allows users to filter out explicit content, ensuring that the songs displayed on their profile are appropriate for all ages.
+
 <p float="left">
   <img src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/6e0bb25f-9ab6-4615-b48b-974f99305b67" width="350" />
-  <img src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/88499cb4-d71b-4e63-850c-9997425a3bf6" width="400" /> 
+  <img src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/88499cb4-d71b-4e63-850c-9997425a3bf6" width="420" /> 
 </p>
 
+### Theme Change Option under Settings Page
+The 'Change Theme' feature allows users to customize the app's appearance by selecting from various color options, which dynamically alters the color scheme of the entire application for a personalized user experience.
 
+<img width="350" alt="Screenshot 2024-02-05 at 3 23 18 PM" src="https://github.com/selinceydeli/Personalized_Music_Analysis_and_Recommendation_System_Project/assets/120125253/79c29e0c-9a1a-49a4-aa42-02969f7ae1ed">
 
 
